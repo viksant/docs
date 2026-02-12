@@ -27,20 +27,6 @@
     }
   },
   "navigation": {
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Discord",
-          "icon": "discord",
-          "href": "https://discord.gg/bestchatbot"
-        },
-        {
-          "anchor": "Contact Us",
-          "icon": "envelope",
-          "href": "mailto:support@bestchatbot.io"
-        }
-      ]
-    },
     "groups": [
       {
         "group": "Getting Started",
