@@ -4,10 +4,10 @@
   "name": "BestChatBot",
   "description": "Learn how to set up, configure, and get the most out of BestChatBot for your Discord community.",
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "/favicon.png",
   "colors": {
     "primary": "#F97316",
     "light": "#FB923C",
