@@ -47,13 +47,28 @@ Deberias reconstruir tu base de conocimiento cuando:
 
 Cuando reconstruyes, BestChatBot:
 
-1. **Lee** todos tus documentos, paginas extraidas y entradas Q&A
-2. **Divide** el contenido en fragmentos buscables
+1. **Recopila** todos los documentos marcados como "trained" y elimina cualquier contenido marcado como "deleted"
+2. **Divide** el contenido restante en fragmentos buscables
 3. **Crea embeddings**: representaciones matematicas que ayudan al bot a encontrar contenido relevante
 4. **Construye un grafo de conocimiento**: conexiones entre conceptos para una comprension mas profunda
 5. **Activa** el nuevo conocimiento para que el bot lo use
 
-<Tip>Puedes seguir usando el dashboard mientras una reconstruccion esta en progreso. El bot seguira usando la base de conocimiento anterior hasta que la nueva este lista.</Tip>
+<Warning>El bot **no respondera** preguntas mientras una reconstruccion este en progreso. Planifica las reconstrucciones en horas de poco trafico para minimizar el impacto en tu comunidad.</Warning>
+
+<Tip>Puedes seguir usando el dashboard mientras una reconstruccion esta en progreso. La reconstruccion solo afecta la capacidad del bot de responder preguntas temporalmente.</Tip>
+
+## Limites de Rebuilds Diarios
+
+Cada plan incluye un numero limitado de reconstrucciones por dia:
+
+| Plan | Rebuilds Diarios |
+|------|------------------|
+| Free | 1 |
+| Starter | 3 |
+| Pro | 10 |
+| Enterprise | 20 |
+
+<Note>Una vez que alcances tu limite diario de rebuilds, tendras que esperar hasta el dia siguiente o mejorar tu plan para obtener mas reconstrucciones.</Note>
 
 ## Mejores Practicas de Reconstruccion
 

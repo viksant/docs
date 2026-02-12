@@ -47,13 +47,28 @@ You should rebuild your knowledge base when you:
 
 When you rebuild, BestChatBot:
 
-1. **Reads** all your documents, scraped pages, and Q&A entries
-2. **Splits** the content into searchable chunks
+1. **Collects** all documents marked as "trained" and removes any content marked as "deleted"
+2. **Splits** the remaining content into searchable chunks
 3. **Creates embeddings**: mathematical representations that help the bot find relevant content
 4. **Builds a knowledge graph**: connections between concepts for deeper understanding
 5. **Activates** the new knowledge for the bot to use
 
-<Tip>You can continue using the dashboard while a rebuild is in progress. The bot will keep using the previous knowledge base until the new one is ready.</Tip>
+<Warning>The bot **will not respond** to questions while a rebuild is in progress. Plan rebuilds during low-traffic hours to minimize impact on your community.</Warning>
+
+<Tip>You can continue using the dashboard while a rebuild is in progress. The rebuild only affects the bot's ability to answer questions temporarily.</Tip>
+
+## Daily Rebuild Limits
+
+Each plan includes a limited number of rebuilds per day:
+
+| Plan | Daily Rebuilds |
+|------|----------------|
+| Free | 1 |
+| Starter | 3 |
+| Pro | 10 |
+| Enterprise | 20 |
+
+<Note>Once you reach your daily rebuild limit, you'll need to wait until the next day or upgrade your plan for more rebuilds.</Note>
 
 ## Rebuild Best Practices
 
