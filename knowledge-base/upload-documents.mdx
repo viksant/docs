@@ -1,0 +1,78 @@
+---
+title: "Upload Documents"
+description: "Add files to your knowledge base so the bot can answer questions from your content."
+icon: "file-arrow-up"
+---
+
+# Upload Documents
+
+The **Files** tab in the Document Manager lets you upload files that BestChatBot uses to answer questions. This is the most direct way to add knowledge to your bot.
+
+## Supported File Types
+
+| Format | Extension | Best For |
+|--------|-----------|----------|
+| PDF | `.pdf` | Product manuals, guides, reports |
+| Word | `.docx` | Internal documentation, SOPs |
+| Text | `.txt` | Plain text notes, FAQs |
+| Markdown | `.md` | Technical docs, README files |
+
+## How to Upload
+
+<Steps>
+  <Step title="Open Document Manager">
+    From the dashboard sidebar, go to the **Document Manager** section. Make sure you're on the **Files** tab.
+  </Step>
+
+  <Step title="Drag and Drop">
+    Drag your files directly into the upload area, or click the upload zone to browse your computer.
+
+    <Tip>You can upload multiple files at once by selecting them all before dropping.</Tip>
+  </Step>
+
+  <Step title="Wait for Processing">
+    Each file goes through a processing pipeline. You'll see a progress indicator for each file as it's being analyzed and added to your knowledge base.
+  </Step>
+
+  <Step title="Rebuild Your Knowledge Base">
+    After uploading, click **Rebuild Knowledge Base** to incorporate the new content into the bot's active knowledge.
+
+    <Warning>The bot won't use newly uploaded content until you rebuild the knowledge base.</Warning>
+  </Step>
+</Steps>
+
+## Managing Documents
+
+Once uploaded, your documents appear in a list where you can:
+
+- **View** the document name and upload date
+- **Delete** documents you no longer need
+- **See status**: whether the document has been processed successfully
+
+## Tips for Better Results
+
+<CardGroup cols={2}>
+  <Card title="Use Clear Language" icon="text">
+    Write documents in clear, simple language. The bot's answers will mirror the clarity of your source content.
+  </Card>
+  <Card title="Keep Content Focused" icon="bullseye">
+    Shorter, topic-focused documents work better than one giant file covering everything.
+  </Card>
+  <Card title="Update Regularly" icon="arrows-rotate">
+    When your information changes, upload updated documents and rebuild the knowledge base.
+  </Card>
+  <Card title="Remove Outdated Files" icon="trash">
+    Delete old documents to prevent the bot from giving outdated answers.
+  </Card>
+</CardGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Add URLs" icon="globe" href="/knowledge-base/add-urls">
+    Scrape content directly from your website.
+  </Card>
+  <Card title="Rebuild Knowledge Base" icon="rotate" href="/knowledge-base/rebuild">
+    Learn when and how to rebuild.
+  </Card>
+</CardGroup>

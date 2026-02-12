@@ -1,0 +1,70 @@
+---
+title: "Usage Tracking"
+description: "Monitor your monthly response usage and stay within your plan limits."
+icon: "chart-bar"
+---
+
+# Usage Tracking
+
+BestChatBot tracks your **monthly bot responses** so you always know how much of your plan you've used. Usage resets at the beginning of each billing cycle.
+
+## Viewing Your Usage
+
+In the dashboard, you'll find usage information in several places:
+
+### Usage Indicator
+A quick-glance indicator in the sidebar or top bar shows your current usage as a percentage of your plan limit.
+
+### Usage Chart
+The **Billing** section includes a chart showing your response usage over time, so you can see trends and predict when you might approach your limit.
+
+### Workspace Distribution
+If you have multiple workspaces, you can see how usage is distributed across them. This helps you identify which communities are most active.
+
+<Frame>
+  <img src="/images/billing-page.png" alt="Billing and usage tracking" />
+</Frame>
+
+## What Counts as a Response
+
+Each time the bot sends a reply to a message in Discord, it counts as **one bot response**. The following do **not** count:
+
+| Action | Counts as Response? |
+|--------|---------------------|
+| Bot replies to a question in Discord | Yes |
+| Testing in the Retrieval Testing page | No |
+| Bot skips a message (no relevant answer) | No |
+| Rebuilding the knowledge base | No |
+| Uploading documents | No |
+
+<Tip>Use the **Retrieval Testing** page to test as much as you want. It doesn't affect your response count.</Tip>
+
+## Approaching Your Limit
+
+When you're nearing your monthly limit:
+
+- The usage indicator changes color to warn you
+- You can upgrade your plan at any time to get more responses
+
+<Warning>Once you hit your monthly limit, the bot will stop responding in Discord until the next billing cycle or until you upgrade.</Warning>
+
+## Usage by Plan
+
+| Plan | Monthly Responses |
+|------|-------------------|
+| Free | 10 |
+| Starter | 100 |
+| Pro | 250 |
+| Business | 270 |
+| Enterprise | 500 |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Upgrade Your Plan" icon="arrow-up" href="/billing/manage-subscription">
+    Need more responses? Upgrade anytime.
+  </Card>
+  <Card title="View Pricing" icon="credit-card" href="/billing/pricing-plans">
+    Compare all available plans.
+  </Card>
+</CardGroup>

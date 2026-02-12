@@ -1,0 +1,68 @@
+---
+title: "How the Bot Responds"
+description: "Understand how BestChatBot reads and replies to messages in your Discord server."
+icon: "message-bot"
+---
+
+# How the Bot Responds
+
+BestChatBot works differently from typical Discord bots. It doesn't use **slash commands**. It reads regular messages and responds naturally when it can help.
+
+## The Response Flow
+
+<Steps>
+  <Step title="Message Received">
+    A user sends a message in a channel where the bot is active.
+  </Step>
+
+  <Step title="Question Detected">
+    The bot analyzes the message to determine if it's a question or request it can answer based on the knowledge base.
+  </Step>
+
+  <Step title="Knowledge Retrieved">
+    BestChatBot searches through your documents, scraped pages, and Q&A entries to find the most relevant information.
+  </Step>
+
+  <Step title="Response Generated">
+    Using the retrieved knowledge and your response preferences (style and length), the bot crafts a natural, human-like answer.
+  </Step>
+
+  <Step title="Reply Sent">
+    The bot sends its reply directly in the same channel, keeping the conversation flowing naturally.
+  </Step>
+</Steps>
+
+## What the Bot Responds To
+
+| Scenario | Bot Responds? |
+|----------|---------------|
+| Direct question about your product/service | Yes |
+| Question that matches your knowledge base | Yes |
+| Casual conversation between users | No |
+| Off-topic messages | No |
+| Messages in disabled channels | No |
+
+## Response Formatting
+
+The bot formats its responses to be easy to read:
+
+- **Short, clear paragraphs**: No walls of text
+- **Cited sources**: When relevant, the bot mentions where it found the information
+- **Natural tone**: Matches the communication style you've configured (Professional, Casual, Technical, or Concise)
+
+<Tip>You can customize the bot's communication style and response length in the [Response Preferences](/customization/response-preferences) settings.</Tip>
+
+## No Slash Commands
+
+Unlike many Discord bots, BestChatBot does **not** require users to type special commands. Users simply ask their question naturally, and the bot responds. This makes it feel more like a human team member than a traditional bot.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Test Responses" icon="flask" href="/using-the-bot/retrieval-testing">
+    Test the bot's answers from the dashboard.
+  </Card>
+  <Card title="Response History" icon="clock-rotate-left" href="/using-the-bot/bot-responses">
+    View all past bot responses and analytics.
+  </Card>
+</CardGroup>

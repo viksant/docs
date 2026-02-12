@@ -1,0 +1,81 @@
+---
+title: "Manage Subscription"
+description: "Upgrade, downgrade, or manage your BestChatBot subscription."
+icon: "gear"
+---
+
+# Manage Your Subscription
+
+BestChatBot uses **Stripe** for payment processing. You manage your subscription from the dashboard. Here is how.
+
+## Viewing Your Current Plan
+
+<Steps>
+  <Step title="Open Billing">
+    Navigate to the **Billing** section from the dashboard sidebar.
+  </Step>
+
+  <Step title="View Subscription Card">
+    Your current plan is displayed on a subscription card showing:
+    - Plan name and tier
+    - Monthly price
+    - Renewal date
+    - Current usage
+  </Step>
+</Steps>
+
+## Upgrading Your Plan
+
+<Steps>
+  <Step title="Go to Billing">
+    Open the **Billing** section from the sidebar.
+  </Step>
+
+  <Step title="Choose a Higher Plan">
+    You'll see the available plans. Click **Upgrade** on the plan you want.
+  </Step>
+
+  <Step title="Complete Payment">
+    You'll be directed to a Stripe checkout page to enter or confirm your payment details. After payment, the upgrade takes effect immediately.
+
+    <Tip>When upgrading mid-cycle, you're charged a prorated amount for the remaining days in your billing period.</Tip>
+  </Step>
+</Steps>
+
+## Downgrading Your Plan
+
+<Steps>
+  <Step title="Open Stripe Customer Portal">
+    From the Billing section, click **Manage Subscription** to open the Stripe customer portal.
+  </Step>
+
+  <Step title="Select a Lower Plan">
+    Choose the plan you want to downgrade to.
+  </Step>
+
+  <Step title="Confirm the Change">
+    The downgrade takes effect at the end of your current billing cycle. You'll keep your current plan's features until then.
+
+    <Warning>If your current usage exceeds the limits of the lower plan (e.g., more scraped pages or workspaces), you may need to reduce your usage before the downgrade takes effect.</Warning>
+  </Step>
+</Steps>
+
+## Managing Payment Methods
+
+Through the **Stripe Customer Portal**, you can:
+
+- Update your credit card or payment method
+- View past invoices and receipts
+- Download invoices for accounting
+
+## Canceling Your Subscription
+
+To cancel, open the Stripe Customer Portal and select **Cancel Subscription**. Your plan will remain active until the end of the current billing period, then revert to the Free plan.
+
+<Note>Canceling doesn't delete your data. Your knowledge base, settings, and history remain intact. You can resubscribe at any time to pick up where you left off.</Note>
+
+## Next Step
+
+<Card title="Usage Tracking" icon="chart-bar" href="/billing/usage-tracking">
+  Monitor how many bot responses you've used this month.
+</Card>

@@ -1,0 +1,71 @@
+---
+title: "Discord"
+description: "How BestChatBot works inside your Discord server."
+icon: "discord"
+---
+
+# Discord
+
+BestChatBot lives inside your Discord server. It reads messages, finds answers from your knowledge base, and replies naturally. No slash commands. No weird syntax. Just plain conversation.
+
+## What the Bot Needs
+
+When you invite BestChatBot, it asks for a specific set of permissions. Here is what each one does:
+
+| Permission | What It Does |
+|------------|--------------|
+| Read Messages | Lets the bot see questions in your channels |
+| Send Messages | Lets the bot reply with answers |
+| Read Message History | Gives the bot context from recent messages |
+| Embed Links | Lets the bot format responses with rich content |
+
+<Warning>Removing any of these permissions will break the bot. Keep all of them active.</Warning>
+
+## How the Bot Sees Your Server
+
+BestChatBot connects to your server through Discord's bot system. Here is what that means for you:
+
+- The bot appears in your member list like any other bot
+- It only reads channels you've enabled in the Channel Manager
+- It never reads DMs or channels outside your selected list
+- It responds to regular messages, not slash commands
+
+## Bot Status
+
+The bot runs 24/7 on our servers. You don't need to keep your computer on or any app running. Once invited, it stays active as long as your subscription is valid.
+
+<Tip>If the bot seems offline, check the Channel Manager first. The most common cause is that no channels are enabled.</Tip>
+
+## Permissions Breakdown
+
+BestChatBot requests permission integer `379904`. Here is what that covers:
+
+- `VIEW_CHANNEL` (read channel list)
+- `SEND_MESSAGES` (post replies)
+- `READ_MESSAGE_HISTORY` (understand context)
+- `EMBED_LINKS` (rich formatting)
+
+We request the minimum permissions needed. BestChatBot never asks for admin access, role management, or any destructive permissions.
+
+## Multiple Servers
+
+You can add BestChatBot to as many servers as your plan allows. Each server gets its own workspace with separate knowledge, settings, and usage tracking.
+
+| Plan | Workspaces (Servers) |
+|------|----------------------|
+| Free | 1 |
+| Starter | 2 |
+| Pro | 3 |
+| Business | 5 |
+| Enterprise | 10 |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Select Channels" icon="list-check" href="/setup/select-channels">
+    Choose where the bot responds.
+  </Card>
+  <Card title="Web Widget" icon="window-maximize" href="/integrations/web-widget">
+    Coming soon to websites.
+  </Card>
+</CardGroup>

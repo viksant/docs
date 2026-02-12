@@ -1,0 +1,88 @@
+---
+title: "Add URLs"
+description: "Scrape content from websites to add to your knowledge base."
+icon: "globe"
+---
+
+# Add URLs
+
+The **Links** tab in the Document Manager lets you add web content to your knowledge base. Instead of copying and pasting from websites, BestChatBot scrapes the content for you.
+
+## Scraping Methods
+
+BestChatBot offers three ways to add web content:
+
+<CardGroup cols={3}>
+  <Card title="Direct URL" icon="link">
+    Paste a single page URL. The bot scrapes just that page.
+  </Card>
+  <Card title="Sitemap" icon="sitemap">
+    Provide a sitemap URL and BestChatBot discovers all pages automatically.
+  </Card>
+  <Card title="Crawl" icon="spider">
+    Enter a starting URL and BestChatBot crawls the site following links to discover pages.
+  </Card>
+</CardGroup>
+
+## How to Add URLs
+
+<Steps>
+  <Step title="Open Document Manager">
+    Go to **Document Manager** from the dashboard sidebar and switch to the **Links** tab.
+  </Step>
+
+  <Step title="Choose Your Method">
+    Select whether you want to add a **Direct URL**, **Sitemap**, or **Crawl**.
+  </Step>
+
+  <Step title="Enter the URL">
+    Paste the URL into the input field. For example:
+
+    - **Direct:** `https://yoursite.com/faq`
+    - **Sitemap:** `https://yoursite.com/sitemap.xml`
+    - **Crawl:** `https://yoursite.com/docs`
+  </Step>
+
+  <Step title="Start Scraping">
+    Click the button to begin scraping. You'll see progress as pages are discovered and processed.
+
+    <Note>Scraping time depends on the number of pages. A single page takes seconds; a full site crawl may take several minutes.</Note>
+  </Step>
+
+  <Step title="Rebuild Knowledge Base">
+    After scraping completes, remember to **Rebuild Knowledge Base** so the bot can use the new content.
+  </Step>
+</Steps>
+
+## Scraped Pages Limits
+
+Each plan includes a set number of scraped pages:
+
+| Plan | Scraped Pages |
+|------|---------------|
+| Free | 5 |
+| Starter | 25 |
+| Pro | 50 |
+| Business | 100 |
+| Enterprise | 200 |
+
+<Tip>Use **Direct URL** for your most important pages first. Save crawling for when you need full coverage.</Tip>
+
+## Managing Scraped Content
+
+Scraped pages appear alongside uploaded documents in your knowledge base. You can:
+
+- View the URL and scrape date
+- Delete individual scraped pages
+- Re-scrape a URL to get updated content
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Q&A Learning System" icon="comments" href="/knowledge-base/qa-system">
+    Learn how the bot learns from Discord conversations.
+  </Card>
+  <Card title="Rebuild Knowledge Base" icon="rotate" href="/knowledge-base/rebuild">
+    Process your new content.
+  </Card>
+</CardGroup>

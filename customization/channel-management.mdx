@@ -1,0 +1,80 @@
+---
+title: "Channel Management"
+description: "Enable or disable the bot in specific Discord channels."
+icon: "list"
+---
+
+# Channel Management
+
+The **Channel Manager** gives you precise control over which Discord channels BestChatBot monitors and responds in.
+
+## The Channel Grid
+
+When you open the Channel Manager, you'll see a grid of all text channels in your Discord server. Each channel appears as a card showing:
+
+- The channel name (matching your Discord server's channel names)
+- Whether the channel is **enabled** (active) or **disabled** (inactive)
+
+## Managing Channels
+
+<Steps>
+  <Step title="Open Channel Manager">
+    Navigate to **Channel Management** from the dashboard sidebar.
+  </Step>
+
+  <Step title="Toggle Individual Channels">
+    Click on any channel card to flip it between enabled and disabled. Enabled channels are visually highlighted.
+  </Step>
+
+  <Step title="Use Bulk Actions">
+    For quick changes:
+    - **Select All**:Enable the bot in every channel
+    - **Deselect All**:Disable the bot everywhere
+  </Step>
+
+  <Step title="Changes Apply Immediately">
+    Channel changes take effect right away. No rebuild is needed.
+
+    <Tip>Unlike knowledge base changes, channel toggling is instant. The bot starts or stops responding in channels as soon as you toggle them.</Tip>
+  </Step>
+</Steps>
+
+## Tips for Channel Strategy
+
+<CardGroup cols={2}>
+  <Card title="Start Small" icon="seedling">
+    Begin with 1-2 channels to test the bot's responses. Expand gradually as you're satisfied with quality.
+  </Card>
+  <Card title="Separate Support Channels" icon="headset">
+    Enable the bot in dedicated support or FAQ channels where questions are expected.
+  </Card>
+  <Card title="Avoid Chat Channels" icon="comment-slash">
+    General chat channels with casual conversation may not benefit from bot responses.
+  </Card>
+  <Card title="Review Regularly" icon="calendar-check">
+    As your server grows and adds new channels, revisit the Channel Manager to include them.
+  </Card>
+</CardGroup>
+
+## Channel Types
+
+The Channel Manager only shows **text channels**. Other channel types are not supported:
+
+| Channel Type | Supported |
+|--------------|-----------|
+| Text channels | Yes |
+| Voice channels | No |
+| Announcement channels | No |
+| Forum channels | No |
+| Stage channels | No |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Response Preferences" icon="sliders" href="/customization/response-preferences">
+    Customize the bot's tone and detail level.
+  </Card>
+  <Card title="Pricing Plans" icon="credit-card" href="/billing/pricing-plans">
+    See what's included in each plan.
+  </Card>
+</CardGroup>

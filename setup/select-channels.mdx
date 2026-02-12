@@ -1,0 +1,56 @@
+---
+title: "Select Channels"
+description: "Choose which Discord channels BestChatBot should be active in."
+icon: "list-check"
+---
+
+# Select Active Channels
+
+After inviting the bot, you need to tell it which channels to monitor. BestChatBot will only respond to messages in channels you explicitly enable.
+
+## Using the Channel Manager
+
+<Steps>
+  <Step title="Open Channel Management">
+    In your dashboard, navigate to the **Channel Management** section from the sidebar.
+  </Step>
+
+  <Step title="View Your Channels">
+    You'll see a grid of all text channels in your Discord server. Each channel is displayed as a card showing the channel name.
+  </Step>
+
+  <Step title="Toggle Channels On or Off">
+    Click on a channel card to **enable** or **disable** it. Enabled channels are highlighted, and the bot will respond to messages in those channels.
+
+    <Tip>Start with one or two low-traffic channels to test the bot before enabling it everywhere.</Tip>
+  </Step>
+
+  <Step title="Use Bulk Selection (Optional)">
+    If you want the bot active in many channels, use the **Select All** option to enable everything at once. You can then deselect specific channels you want to exclude.
+  </Step>
+</Steps>
+
+## How the Bot Behaves in Channels
+
+Once a channel is active:
+
+- The bot reads every new message in that channel
+- If the message looks like a question the bot can answer, it responds automatically
+- The bot **does not** use slash commands. It responds to regular messages naturally
+
+<Note>The bot is helpful without being intrusive. It won't respond to every message. It only jumps in when it has relevant knowledge to share.</Note>
+
+## Channel Categories Not Shown
+
+The channel manager only shows **text channels**. Voice channels, announcement channels, and forum channels are not listed because the bot can only respond in standard text channels.
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Upload Documents" icon="file-arrow-up" href="/knowledge-base/upload-documents">
+    Give the bot knowledge to answer questions.
+  </Card>
+  <Card title="Add URLs" icon="globe" href="/knowledge-base/add-urls">
+    Scrape content from your website.
+  </Card>
+</CardGroup>

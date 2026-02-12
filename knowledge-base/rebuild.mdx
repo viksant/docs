@@ -1,0 +1,76 @@
+---
+title: "Rebuild Knowledge Base"
+description: "When and how to rebuild your knowledge base to activate new content."
+icon: "rotate"
+---
+
+# Rebuild Knowledge Base
+
+After adding or removing content:documents, URLs, or Q&A entries:you need to **rebuild** the knowledge base. This processes your content and makes it available for the bot to use when answering questions.
+
+## When to Rebuild
+
+You should rebuild your knowledge base when you:
+
+- Upload new documents
+- Scrape new URLs
+- Delete existing content
+- Want to incorporate recent Q&A entries from Discord
+
+<Warning>New content is **not** available to the bot until you rebuild. If you upload a document and don't rebuild, the bot won't know about it.</Warning>
+
+## How to Rebuild
+
+<Steps>
+  <Step title="Open Knowledge Base Panel">
+    In the dashboard sidebar, look for the **Knowledge Base** section or the rebuild button in the Document Manager.
+  </Step>
+
+  <Step title="Click Rebuild">
+    Click the **Rebuild Knowledge Base** button to start the process.
+  </Step>
+
+  <Step title="Wait for Completion">
+    You'll see a progress indicator showing the rebuild status. The time depends on the amount of content:
+
+    - Small knowledge bases (a few documents): 30 seconds to 1 minute
+    - Medium (dozens of documents + URLs): 2 to 5 minutes
+    - Large (100+ sources): 5 to 15 minutes
+  </Step>
+
+  <Step title="Verify Status">
+    Once complete, the status will update to show the rebuild was successful. The bot is now using your latest content.
+  </Step>
+</Steps>
+
+## What Happens During a Rebuild
+
+When you rebuild, BestChatBot:
+
+1. **Reads** all your documents, scraped pages, and Q&A entries
+2. **Splits** the content into searchable chunks
+3. **Creates embeddings**: mathematical representations that help the bot find relevant content
+4. **Builds a knowledge graph**: connections between concepts for deeper understanding
+5. **Activates** the new knowledge for the bot to use
+
+<Tip>You can continue using the dashboard while a rebuild is in progress. The bot will keep using the previous knowledge base until the new one is ready.</Tip>
+
+## Rebuild Best Practices
+
+| Practice | Why |
+|----------|-----|
+| Rebuild after batch uploads | More efficient than rebuilding after each file |
+| Don't rebuild during peak hours | Rebuilds use processing resources |
+| Check the status before testing | Make sure the rebuild finished successfully |
+| Rebuild weekly for Q&A learning | Incorporate the latest moderator answers |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Test Your Bot" icon="flask" href="/using-the-bot/retrieval-testing">
+    Verify the bot answers correctly after rebuilding.
+  </Card>
+  <Card title="View Knowledge Graph" icon="diagram-project" href="/using-the-bot/knowledge-graph">
+    Explore the connections between your content.
+  </Card>
+</CardGroup>
