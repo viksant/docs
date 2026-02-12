@@ -1,0 +1,78 @@
+---
+title: "Pruebas de Recuperacion"
+description: "Prueba las respuestas de tu bot directamente desde el dashboard antes de lanzar."
+icon: "flask"
+---
+
+# Pruebas de Recuperacion
+
+La pagina de **Pruebas de Recuperacion** te permite chatear con tu bot directamente desde el dashboard. Usala para verificar las respuestas del bot, probar casos limite y asegurarte de que todo funcione antes de que tu comunidad lo vea.
+
+## Como Usar las Pruebas de Recuperacion
+
+<Steps>
+  <Step title="Abrir Pruebas de Recuperacion">
+    Navega a **Pruebas de Recuperacion** desde la barra lateral del dashboard.
+  </Step>
+
+  <Step title="Escribe una Pregunta">
+    Usa el campo de chat en la parte inferior para escribir una pregunta, tal como lo haria un usuario en Discord.
+  </Step>
+
+  <Step title="Revisa la Respuesta">
+    El bot responde en tiempo real con una respuesta en streaming. Veras la respuesta aparecer palabra por palabra, junto con las fuentes que uso.
+  </Step>
+
+  <Step title="Itera y Prueba">
+    Haz preguntas de seguimiento o prueba diferentes formulaciones para ver como el bot maneja variaciones.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/images/retrieval-testing-screen.png" alt="Interfaz de chat de Pruebas de Recuperacion con respuesta del bot y fuentes citadas" />
+</Frame>
+
+## Que Probar
+
+<CardGroup cols={2}>
+  <Card title="Preguntas Comunes" icon="circle-question">
+    Empieza con las preguntas mas frecuentes que tu comunidad hace.
+  </Card>
+  <Card title="Casos Limite" icon="triangle-exclamation">
+    Prueba preguntas donde la respuesta es parcial o no esta en tu base de conocimiento.
+  </Card>
+  <Card title="Diferentes Formulaciones" icon="language">
+    Haz la misma pregunta de diferentes formas para verificar consistencia.
+  </Card>
+  <Card title="Actualizaciones Recientes" icon="clock">
+    Despues de reconstruir, prueba con preguntas relacionadas al contenido recien agregado.
+  </Card>
+</CardGroup>
+
+## Entender la Respuesta
+
+Cada respuesta en el chat de pruebas incluye:
+
+- **La respuesta**: Generada a partir del contenido de tu base de conocimiento
+- **Fuentes citadas**: Que documentos o URLs uso el bot para formar su respuesta
+
+<Tip>Si el bot no puede responder una pregunta, generalmente significa que la informacion relevante aun no esta en tu base de conocimiento. Intenta subir mas contenido o agregar la URL relevante.</Tip>
+
+## Sesiones de Chat
+
+Tus conversaciones de prueba se guardan como **sesiones**. Puedes:
+
+- Continuar una conversacion anterior
+- Iniciar una nueva sesion para pruebas frescas
+- Revisar sesiones pasadas para rastrear mejoras
+
+## Siguientes Pasos
+
+<CardGroup cols={2}>
+  <Card title="Historial de Respuestas del Bot" icon="chart-line" href="/using-the-bot/bot-responses">
+    Ve como se desempena el bot en canales de Discord en vivo.
+  </Card>
+  <Card title="Grafo de Conocimiento" icon="diagram-project" href="/using-the-bot/knowledge-graph">
+    Explora las conexiones en tu base de conocimiento.
+  </Card>
+</CardGroup>

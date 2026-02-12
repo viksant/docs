@@ -1,0 +1,73 @@
+---
+title: "Grafo de Conocimiento"
+description: "Explora el grafo visual de conocimiento que mapea las conexiones entre tu contenido."
+icon: "diagram-project"
+---
+
+# Grafo de Conocimiento
+
+El **Grafo de Conocimiento** es una visualizacion interactiva que muestra como se conecta el contenido de tu base de conocimiento. Mapea relaciones entre conceptos, temas y entidades encontrados en tus documentos.
+
+## Que Muestra el Grafo
+
+El grafo de conocimiento muestra:
+
+- **Nodos**: Conceptos, temas o entidades individuales extraidos de tu contenido
+- **Aristas**: Conexiones entre conceptos relacionados
+- **Clusters**: Grupos de temas estrechamente relacionados que forman categorias naturales
+
+<Frame>
+  <img src="/images/knowledge-graph-screen.png" alt="Grafo de Conocimiento interactivo con nodos coloreados y conexiones" />
+</Frame>
+
+## Como Usarlo
+
+<Steps>
+  <Step title="Abrir el Visor de Grafos">
+    Navega a la seccion **Grafo de Conocimiento** desde la barra lateral del dashboard.
+  </Step>
+
+  <Step title="Explorar Visualmente">
+    El grafo carga con todos los conceptos de tu contenido mostrados como nodos conectados. Puedes:
+
+    - **Desplazar**: Haz clic y arrastra para moverte por el grafo
+    - **Zoom**: Usa la rueda del raton para acercar o alejar
+    - **Clic en nodos**: Selecciona un nodo para ver sus detalles y conexiones
+  </Step>
+
+  <Step title="Buscar Temas">
+    Usa la barra de busqueda para encontrar conceptos especificos. El grafo resaltara los nodos coincidentes y sus conexiones.
+  </Step>
+
+  <Step title="Usar la Leyenda">
+    La leyenda muestra que significan los diferentes colores y tamanos de nodos. Los nodos mas grandes tipicamente representan conceptos mas conectados o centrales.
+  </Step>
+</Steps>
+
+## Por Que el Grafo Importa
+
+El grafo de conocimiento te ayuda a entender:
+
+| Perspectiva | Como Ayuda |
+|-------------|------------|
+| **Vacios de cobertura** | Nodos aislados con pocas conexiones pueden necesitar mas contenido de soporte |
+| **Clusters de contenido** | Ve que temas tienen mas profundidad en tu base de conocimiento |
+| **Conexiones inesperadas** | Encuentra relaciones entre temas que no habias considerado |
+| **Balance de contenido** | Detecta areas sobre o sub-representadas |
+
+<Tip>Un grafo de conocimiento bien conectado significa que el bot puede responder preguntas mas a fondo al extraer de multiples fuentes relacionadas.</Tip>
+
+## Despues de Reconstruir
+
+El grafo de conocimiento se actualiza automaticamente cuando reconstruyes tu base de conocimiento. Despues de agregar nuevo contenido y reconstruir, revisita el grafo para ver como la nueva informacion se conecta con tu conocimiento existente.
+
+## Siguientes Pasos
+
+<CardGroup cols={2}>
+  <Card title="Personalizar Respuestas" icon="sliders" href="/customization/response-preferences">
+    Ajusta como se comunica el bot.
+  </Card>
+  <Card title="Gestionar Canales" icon="list" href="/customization/channel-management">
+    Controla donde esta activo el bot.
+  </Card>
+</CardGroup>

@@ -1,0 +1,60 @@
+---
+title: "Seleccionar Canales"
+description: "Elige en que canales de Discord BestChatBot debe estar activo."
+icon: "list-check"
+---
+
+# Seleccionar Canales Activos
+
+Despues de invitar al bot, necesitas indicarle que canales monitorear. BestChatBot solo respondera mensajes en los canales que actives explicitamente.
+
+## Usar el Gestor de Canales
+
+<Steps>
+  <Step title="Abrir Gestion de Canales">
+    En tu dashboard, navega a la seccion **Gestion de Canales** desde la barra lateral.
+  </Step>
+
+  <Step title="Ver Tus Canales">
+    Veras una cuadricula con todos los canales de texto de tu servidor de Discord. Cada canal se muestra como una tarjeta con el nombre del canal.
+  </Step>
+
+  <Step title="Activar o Desactivar Canales">
+    Haz clic en una tarjeta de canal para **activarlo** o **desactivarlo**. Los canales activados se resaltan, y el bot respondera mensajes en esos canales.
+
+    <Frame>
+      <img src="/images/channel-manager-screen.png" alt="Gestor de Canales mostrando toggles de Activo y Aprendizaje QA de Moderadores" />
+    </Frame>
+
+    <Tip>Empieza con uno o dos canales de poco trafico para probar el bot antes de activarlo en todos lados.</Tip>
+  </Step>
+
+  <Step title="Usar Seleccion Masiva (Opcional)">
+    Si quieres que el bot este activo en muchos canales, usa la opcion **Seleccionar Todo** para activar todo de una vez. Luego puedes deseleccionar canales especificos que quieras excluir.
+  </Step>
+</Steps>
+
+## Como Se Comporta el Bot en los Canales
+
+Una vez que un canal esta activo:
+
+- El bot lee cada nuevo mensaje en ese canal
+- Si el mensaje parece una pregunta que el bot puede responder, responde automaticamente
+- El bot **no** usa comandos slash. Responde a mensajes normales de forma natural
+
+<Note>El bot es util sin ser intrusivo. No responde a todos los mensajes. Solo interviene cuando tiene conocimiento relevante que compartir.</Note>
+
+## Categorias de Canales No Mostradas
+
+El gestor de canales solo muestra **canales de texto**. Los canales de voz, anuncios y foros no aparecen porque el bot solo puede responder en canales de texto estandar.
+
+## Siguientes Pasos
+
+<CardGroup cols={2}>
+  <Card title="Subir Documentos" icon="file-arrow-up" href="/knowledge-base/upload-documents">
+    Dale al bot conocimiento para responder preguntas.
+  </Card>
+  <Card title="Agregar URLs" icon="globe" href="/knowledge-base/add-urls">
+    Extrae contenido de tu sitio web.
+  </Card>
+</CardGroup>

@@ -1,0 +1,70 @@
+---
+title: "Seguimiento de Uso"
+description: "Monitorea tu uso mensual de respuestas y mantente dentro de los limites de tu plan."
+icon: "chart-bar"
+---
+
+# Seguimiento de Uso
+
+BestChatBot rastrea tus **respuestas mensuales del bot** para que siempre sepas cuanto de tu plan has usado. El uso se reinicia al comienzo de cada ciclo de facturacion.
+
+## Ver Tu Uso
+
+En el dashboard, encontraras informacion de uso en varios lugares:
+
+### Indicador de Uso
+Un indicador rapido en la barra lateral o barra superior muestra tu uso actual como porcentaje del limite de tu plan.
+
+### Grafico de Uso
+La seccion de **Facturacion** incluye un grafico mostrando tu uso de respuestas a lo largo del tiempo, para que puedas ver tendencias y predecir cuando podrias acercarte a tu limite.
+
+### Distribucion por Workspace
+Si tienes multiples workspaces, puedes ver como se distribuye el uso entre ellos. Esto te ayuda a identificar que comunidades son mas activas.
+
+<Frame>
+  <img src="/images/billing-screen.png" alt="Pagina de facturacion mostrando detalles de suscripcion, estadisticas de uso, grafico diario y distribucion por workspace" />
+</Frame>
+
+## Que Cuenta Como Respuesta
+
+Cada vez que el bot envia una respuesta a un mensaje en Discord, cuenta como **una respuesta del bot**. Lo siguiente **no** cuenta:
+
+| Accion | Cuenta Como Respuesta? |
+|--------|------------------------|
+| El bot responde una pregunta en Discord | Si |
+| Pruebas en la pagina de Pruebas de Recuperacion | No |
+| El bot omite un mensaje (sin respuesta relevante) | No |
+| Reconstruir la base de conocimiento | No |
+| Subir documentos | No |
+
+<Tip>Usa la pagina de **Pruebas de Recuperacion** para probar todo lo que quieras. No afecta tu conteo de respuestas.</Tip>
+
+## Acercandote a Tu Limite
+
+Cuando estes cerca de tu limite mensual:
+
+- El indicador de uso cambia de color para advertirte
+- Puedes mejorar tu plan en cualquier momento para obtener mas respuestas
+
+<Warning>Una vez que alcances tu limite mensual, el bot dejara de responder en Discord hasta el siguiente ciclo de facturacion o hasta que mejores tu plan.</Warning>
+
+## Uso por Plan
+
+| Plan | Respuestas Mensuales |
+|------|----------------------|
+| Free | 10 |
+| Starter | 100 |
+| Pro | 250 |
+| Business | 270 |
+| Enterprise | 500 |
+
+## Siguientes Pasos
+
+<CardGroup cols={2}>
+  <Card title="Mejorar Tu Plan" icon="arrow-up" href="/billing/manage-subscription">
+    Necesitas mas respuestas? Mejora en cualquier momento.
+  </Card>
+  <Card title="Ver Precios" icon="credit-card" href="/billing/pricing-plans">
+    Compara todos los planes disponibles.
+  </Card>
+</CardGroup>

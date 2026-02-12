@@ -1,0 +1,85 @@
+---
+title: "Gestionar Suscripcion"
+description: "Mejora, reduce o gestiona tu suscripcion de BestChatBot."
+icon: "gear"
+---
+
+# Gestionar Tu Suscripcion
+
+BestChatBot usa **Stripe** para procesar pagos. Gestionas tu suscripcion desde el dashboard. Asi es como.
+
+## Ver Tu Plan Actual
+
+<Steps>
+  <Step title="Abrir Facturacion">
+    Navega a la seccion **Facturacion** desde la barra lateral del dashboard.
+  </Step>
+
+  <Step title="Ver Tarjeta de Suscripcion">
+    Tu plan actual se muestra en una tarjeta de suscripcion mostrando:
+    - Nombre y nivel del plan
+    - Precio mensual
+    - Fecha de renovacion
+    - Uso actual
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/images/billing-screen.png" alt="Pagina de facturacion mostrando tu plan actual, uso y opciones de gestion" />
+</Frame>
+
+## Mejorar Tu Plan
+
+<Steps>
+  <Step title="Ir a Facturacion">
+    Abre la seccion **Facturacion** desde la barra lateral.
+  </Step>
+
+  <Step title="Elegir un Plan Superior">
+    Veras los planes disponibles. Haz clic en **Mejorar** en el plan que desees.
+  </Step>
+
+  <Step title="Completar Pago">
+    Seras dirigido a una pagina de checkout de Stripe para ingresar o confirmar tus datos de pago. Despues del pago, la mejora surte efecto inmediatamente.
+
+    <Tip>Cuando mejoras a mitad de ciclo, se te cobra un monto prorrateado por los dias restantes de tu periodo de facturacion.</Tip>
+  </Step>
+</Steps>
+
+## Reducir Tu Plan
+
+<Steps>
+  <Step title="Abrir Portal de Cliente Stripe">
+    Desde la seccion de Facturacion, haz clic en **Gestionar Suscripcion** para abrir el portal de cliente de Stripe.
+  </Step>
+
+  <Step title="Seleccionar un Plan Inferior">
+    Elige el plan al que quieres reducir.
+  </Step>
+
+  <Step title="Confirmar el Cambio">
+    La reduccion surte efecto al final de tu ciclo de facturacion actual. Mantendras las funciones de tu plan actual hasta entonces.
+
+    <Warning>Si tu uso actual excede los limites del plan inferior (ej. mas paginas extraidas o workspaces), puede que necesites reducir tu uso antes de que la reduccion surta efecto.</Warning>
+  </Step>
+</Steps>
+
+## Gestionar Metodos de Pago
+
+A traves del **Portal de Cliente de Stripe**, puedes:
+
+- Actualizar tu tarjeta de credito o metodo de pago
+- Ver facturas pasadas y recibos
+- Descargar facturas para contabilidad
+
+## Cancelar Tu Suscripcion
+
+Para cancelar, abre el Portal de Cliente de Stripe y selecciona **Cancelar Suscripcion**. Tu plan permanecera activo hasta el final del periodo de facturacion actual, luego volvera al plan Free.
+
+<Note>Cancelar no elimina tus datos. Tu base de conocimiento, configuracion e historial permanecen intactos. Puedes resuscribirte en cualquier momento para retomar donde lo dejaste.</Note>
+
+## Siguiente Paso
+
+<Card title="Seguimiento de Uso" icon="chart-bar" href="/billing/usage-tracking">
+  Monitorea cuantas respuestas del bot has usado este mes.
+</Card>

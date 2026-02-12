@@ -1,0 +1,82 @@
+---
+title: "Subir Documentos"
+description: "Agrega archivos a tu base de conocimiento para que el bot responda preguntas con tu contenido."
+icon: "file-arrow-up"
+---
+
+# Subir Documentos
+
+La pestana **Archivos** en el Gestor de Documentos te permite subir archivos que BestChatBot usa para responder preguntas. Es la forma mas directa de agregar conocimiento a tu bot.
+
+## Tipos de Archivo Soportados
+
+| Formato | Extension | Ideal Para |
+|---------|-----------|------------|
+| PDF | `.pdf` | Manuales de producto, guias, reportes |
+| Word | `.docx` | Documentacion interna, procedimientos |
+| Texto | `.txt` | Notas de texto plano, FAQs |
+| Markdown | `.md` | Documentacion tecnica, archivos README |
+
+## Como Subir
+
+<Steps>
+  <Step title="Abrir el Gestor de Documentos">
+    Desde la barra lateral del dashboard, ve a la seccion **Gestor de Documentos**. Asegurate de estar en la pestana **Archivos**.
+  </Step>
+
+  <Step title="Arrastra y Suelta">
+    Arrastra tus archivos directamente a la zona de subida, o haz clic en la zona para buscar en tu computadora.
+
+    <Tip>Puedes subir multiples archivos a la vez seleccionandolos todos antes de soltar.</Tip>
+  </Step>
+
+  <Step title="Espera el Procesamiento">
+    Cada archivo pasa por un pipeline de procesamiento. Veras un indicador de progreso para cada archivo mientras se analiza y agrega a tu base de conocimiento.
+  </Step>
+
+  <Step title="Reconstruye Tu Base de Conocimiento">
+    Despues de subir, haz clic en **Reconstruir Base de Conocimiento** para incorporar el nuevo contenido al conocimiento activo del bot.
+
+    <Warning>El bot no usara el contenido recien subido hasta que reconstruyas la base de conocimiento.</Warning>
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/images/main-dashboard-access.png" alt="Gestor de Documentos mostrando la pestana Archivos con documentos subidos" />
+</Frame>
+
+## Gestionar Documentos
+
+Una vez subidos, tus documentos aparecen en una lista donde puedes:
+
+- **Ver** el nombre del documento y fecha de subida
+- **Eliminar** documentos que ya no necesitas
+- **Ver estado**: si el documento fue procesado exitosamente
+
+## Consejos Para Mejores Resultados
+
+<CardGroup cols={2}>
+  <Card title="Usa Lenguaje Claro" icon="text">
+    Escribe documentos con lenguaje claro y simple. Las respuestas del bot reflejaran la claridad de tu contenido fuente.
+  </Card>
+  <Card title="Manten el Contenido Enfocado" icon="bullseye">
+    Documentos cortos y enfocados en un tema funcionan mejor que un solo archivo gigante que cubre todo.
+  </Card>
+  <Card title="Actualiza Regularmente" icon="arrows-rotate">
+    Cuando tu informacion cambie, sube documentos actualizados y reconstruye la base de conocimiento.
+  </Card>
+  <Card title="Elimina Archivos Obsoletos" icon="trash">
+    Borra documentos viejos para evitar que el bot de respuestas desactualizadas.
+  </Card>
+</CardGroup>
+
+## Siguientes Pasos
+
+<CardGroup cols={2}>
+  <Card title="Agregar URLs" icon="globe" href="/knowledge-base/add-urls">
+    Extrae contenido directamente de tu sitio web.
+  </Card>
+  <Card title="Reconstruir Base de Conocimiento" icon="rotate" href="/knowledge-base/rebuild">
+    Aprende cuando y como reconstruir.
+  </Card>
+</CardGroup>
