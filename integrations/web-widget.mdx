@@ -9,7 +9,7 @@ icon: "window-maximize"
 Add a chat widget to your website so visitors can ask questions and get instant answers from your knowledge base. Same AI that powers your Discord bot, now on your website.
 
 <Frame>
-  <img src="/images/widget-on-website.png" alt="BestChatBot chat widget floating on a website" />
+  <img src="/images/widget-chat-open.png" alt="BestChatBot chat widget open on a real website showing a conversation" />
 </Frame>
 
 ## What You Get
@@ -20,6 +20,7 @@ Add a chat widget to your website so visitors can ask questions and get instant 
 - **Customizable colors** to match your brand
 - **Mobile friendly** — full-screen on small devices
 - **No impact on your site** — runs in an isolated Shadow DOM
+- **Response tracking** — all widget conversations appear in your dashboard
 
 ---
 
@@ -38,46 +39,63 @@ Before adding the widget to your website, make sure you have:
 ## Create Your Widget
 
 <Steps>
-  <Step title="Open the Widget Manager" icon="grid-2">
-    From the dashboard sidebar, click **Widget** to open the Widget Manager.
+  <Step title="Choose Platform" icon="window-maximize">
+    From your workspace, you'll see the **Choose Platform** dialog. Select **Web Widget** to embed chat on your website.
 
     <Frame>
-      <img src="/images/widget-manager-screen.png" alt="Widget Manager page showing list of widgets" />
+      <img src="/images/widget-choose-platform.png" alt="Choose Platform dialog showing Discord and Web Widget options" />
     </Frame>
   </Step>
 
-  <Step title="Create a New Widget" icon="plus">
-    Click the **New Widget** button. Fill in:
+  <Step title="Configure Your Widget" icon="sliders">
+    Fill in the setup form:
 
-    - **Name** — a label for this widget (e.g., "Support Chat" or "Docs Helper")
-    - **Allowed Domains** — the website(s) where this widget will run (e.g., `https://example.com`)
-    - **Color** — your brand's primary color
+    - **Name** — a label for your widget (e.g., "My Website Widget")
+    - **Allowed Origins** — the domains where the widget can run, one per line. Supports wildcards (`*.example.com`). Leave empty to allow all.
+    - **Primary Color** — your brand color in hex (e.g., `#F97316`)
+
+    Click **Create Widget** when ready.
 
     <Frame>
-      <img src="/images/create-widget-dialog.png" alt="Create widget dialog with name, domain, and color fields" />
+      <img src="/images/widget-setup-fields.png" alt="Configure Web Widget form with Name, Allowed Origins, and Primary Color fields" />
     </Frame>
-
-    <Note>You can add multiple domains, including wildcards like `*.example.com` to cover all subdomains.</Note>
   </Step>
 
-  <Step title="Copy Your Embed Code" icon="code">
-    After creating the widget, you'll see a ready-to-paste code snippet. Click **Copy** to copy it to your clipboard.
+  <Step title="View Your Widget" icon="check">
+    After creation, your widget appears in the **Web Widgets** page. Each widget card shows:
+
+    - **Name** and status (Active/Inactive)
+    - **Active toggle** to enable or disable the widget
+    - **Color** indicator showing your brand color
+    - **Quick actions**: embed code `<>` and settings `⚙`
 
     <Frame>
-      <img src="/images/widget-snippet-display.png" alt="Embed snippet display with copy button" />
+      <img src="/images/widget-manager-screen.png" alt="Widget Manager showing a widget card with status, color, and action buttons" />
     </Frame>
 
-    The snippet looks like this:
-
-    ```html
-    <script
-      src="https://bestchatbot.io/widget/v1/chat.js"
-      data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
-      defer>
-    </script>
-    ```
+    <Tip>Click the globe icon in the sidebar to go directly to the Web Widgets page.</Tip>
   </Step>
 </Steps>
+
+---
+
+## Get Your Embed Code
+
+Click the **embed code** button (`<>`) on your widget card, or go to **Widget Settings → Installation** tab. You'll see a ready-to-paste snippet:
+
+<Frame>
+  <img src="/images/widget-embed-code.png" alt="Embed Code dialog showing the script tag with instructions" />
+</Frame>
+
+The snippet looks like this:
+
+```html
+<script
+  src="https://bestchatbot.io/widget/v1/chat.js"
+  data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+  defer>
+</script>
+```
 
 ---
 
@@ -106,7 +124,7 @@ Paste the snippet into your website's HTML, just before the closing `</body>` ta
 
 That's it. The widget will appear as a floating chat bubble in the bottom-right corner of your site.
 
-<Warning>Never modify the `data-api-key` value. It's your widget's unique identifier.</Warning>
+<Warning>Never share or modify the `data-api-key` value. It's your widget's unique identifier.</Warning>
 
 ### Platform-Specific Instructions
 
@@ -182,35 +200,61 @@ Once installed, the widget works like this:
 5. **Answer streams in** → the response appears word by word in real time
 6. **Sources shown** → relevant sources from your knowledge base are listed (expandable)
 
-<Frame>
-  <img src="/images/widget-chat-open.png" alt="Chat window open with a conversation showing streaming response" />
-</Frame>
-
 ### Conversation Memory
 
-The widget remembers the conversation within the same browser session. If a visitor navigates to another page, their chat history is preserved. Clicking the **+** button starts a fresh conversation.
+The widget remembers the conversation within the same browser session. If a visitor navigates to another page, their chat history is preserved. Clicking the **+** button in the header starts a fresh conversation.
 
 <Tip>Conversation history is stored in the visitor's browser (localStorage). It's never shared between visitors or sent to third parties.</Tip>
 
 ---
 
-## Customize Your Widget
+## Widget Settings
 
-### Brand Color
+Click the **settings** button (`⚙`) on your widget card to open the configuration panel. It has three tabs:
 
-Set your brand color when creating the widget, or change it later in **Widget Settings → Appearance**. The widget automatically adjusts:
+### Configuration Tab
+
+Change your brand color and allowed domains after creation.
+
+**Primary Color** — Choose your brand color using the color picker or enter a hex value (e.g., `#F97316`). The widget automatically adjusts:
 
 - Chat bubble accent
-- User message border color
+- User message border
 - Send button color
-- "Start Chat" button background
 - Text contrast (white or black) based on your color
 
+**Allowed Origins** — Enter the domains where the widget is allowed to run, one per line. This prevents unauthorized use of your embed code.
+
+| Format | Example | What It Matches |
+|--------|---------|-----------------|
+| Exact URL | `https://example.com` | Only that exact domain |
+| Wildcard | `https://*.mysite.com` | Any subdomain of mysite.com |
+
+<Note>Supports wildcards like `*.example.com` to cover all subdomains. You cannot use `*` alone.</Note>
+
+Click **Save Changes** to apply.
+
+### Installation Tab
+
+View and copy your embed code snippet. Same as clicking the `<>` button on the widget card.
+
+### Danger Zone Tab
+
 <Frame>
-  <img src="/images/widget-settings-appearance.png" alt="Widget appearance settings with color picker" />
+  <img src="/images/widget-danger-zone.png" alt="Danger Zone tab showing Regenerate API Key option" />
 </Frame>
 
-### "Powered by BestChatBot" Badge
+**Regenerate API Key** — If you suspect your API key has been compromised, click **Regenerate Key**. This:
+
+- Immediately **invalidates** the current API key
+- Generates a new one
+- Requires you to **update the snippet** on your website
+
+<Warning>The old key stops working immediately. Update your website right away to avoid downtime.</Warning>
+
+---
+
+## "Powered by BestChatBot" Badge
 
 The footer badge is shown by default on the **Free** and **Starter** plans. Upgrade to **Pro** or **Business** to hide it.
 
@@ -223,53 +267,27 @@ The footer badge is shown by default on the **Free** and **Starter** plans. Upgr
 
 ---
 
-## Security & Allowed Domains
+## Monitoring Widget Conversations
 
-The widget only works on domains you've approved. This prevents someone from copying your embed code and using it on their own site.
-
-### Managing Allowed Domains
-
-Go to **Widget Settings → Security** to manage your allowed domains.
+All conversations from your web widget appear in the **Bot Responses** page of your dashboard. Use the **Web** filter to see only widget conversations.
 
 <Frame>
-  <img src="/images/widget-settings-security.png" alt="Widget security settings showing allowed origins and rate limit" />
+  <img src="/images/widget-response-viewer.png" alt="Bot Responses page filtered to show Web widget conversations" />
 </Frame>
 
-**Supported formats:**
+Click any conversation to see the full exchange, including the user's question and the bot's complete response.
 
-| Format | Example | What It Matches |
-|--------|---------|-----------------|
-| Exact URL | `https://example.com` | Only that exact domain |
-| Wildcard | `*.example.com` | Any subdomain: `shop.example.com`, `blog.example.com` |
+<Frame>
+  <img src="/images/widget-conversation-detail.png" alt="Detailed view of a widget conversation showing question and full bot response" />
+</Frame>
 
-<Warning>You cannot use `*` alone as a domain. Wildcards must include at least a second-level domain (e.g., `*.example.com`).</Warning>
-
-### Rate Limiting
-
-Each widget has a built-in rate limit to prevent abuse. The default is **30 requests per minute** per widget, with an automatic per-visitor limit of 10 requests per minute.
-
-You can adjust the rate limit in Widget Settings.
-
-### Regenerating Your API Key
-
-If you suspect your API key has been compromised, you can regenerate it:
-
-1. Go to **Widget Settings → Security**
-2. Click **Regenerate API Key**
-3. Copy the new embed snippet
-4. Update the snippet on your website
-
-<Warning>Regenerating the API key immediately invalidates the old one. Update your website right away to avoid downtime.</Warning>
+<Tip>Widget conversations are tagged with a **Web** badge, making them easy to distinguish from Discord conversations.</Tip>
 
 ---
 
 ## Mobile Experience
 
-On screens smaller than 640px, the chat window automatically expands to full screen for a better mobile experience.
-
-<Frame>
-  <img src="/images/widget-mobile-view.png" alt="Widget in full-screen mobile view" />
-</Frame>
+On screens smaller than 640px, the chat window automatically expands to full screen for a better mobile experience. The chat bubble adjusts its position to fit smaller screens.
 
 ---
 
@@ -285,7 +303,7 @@ For developers who want more control, the widget exposes a JavaScript API on `wi
 | `BestChatBot.close()` | Close the chat window |
 | `BestChatBot.toggle()` | Toggle open/close |
 | `BestChatBot.destroy()` | Remove the widget from the page entirely |
-| `BestChatBot.sendMessage(text)` | Send a message programmatically |
+| `BestChatBot.sendMessage(text)` | Send a message programmatically (opens the window) |
 | `BestChatBot.onReady(callback)` | Run a function when the widget is ready |
 | `BestChatBot.onMessage(callback)` | Run a function when a new message arrives |
 
@@ -342,9 +360,10 @@ The widget uses Shadow DOM for style isolation, which means it won't conflict wi
 <AccordionGroup>
   <Accordion title="Widget doesn't appear">
     - Check that the `data-api-key` is correct
-    - Verify your domain is in the allowed origins list
+    - Verify your domain is in the Allowed Origins list (Widget Settings → Configuration)
     - Open browser DevTools (Console tab) and look for `[BestChatBot]` warnings
     - Make sure the script tag has the `defer` attribute
+    - Check that the widget is set to **Active** in the Widget Manager
   </Accordion>
 
   <Accordion title="Widget shows but doesn't respond">
