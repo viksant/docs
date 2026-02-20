@@ -1,33 +1,41 @@
 ---
 title: "Invite the Bot"
-description: "Add BestChatBot to your Discord server in one click."
+description: "Add BestChatBot to your Discord server."
 icon: "paper-plane"
 ---
 
 # Invite the Bot to Your Server
 
-Once you've created your account, the next step is to add BestChatBot to your Discord server.
+To add BestChatBot to your Discord server, you'll go through Discord's standard authorization flow. This connects your Discord account and lets you pick which server to add the bot to.
 
 ## How to Invite
 
 <Steps>
   <Step title="Open the Dashboard">
-    Log in to [bestchatbot.io](https://bestchatbot.io) and navigate to your dashboard.
+    Log in to [bestchatbot.io](https://bestchatbot.io) and navigate to your workspace.
   </Step>
 
-  <Step title="Click Add Bot to Server">
-    You'll see an option to **Add Bot to Server**. Click it to start the invitation process.
+  <Step title="Select Discord as Platform">
+    If this is a new workspace, you'll see the **Choose Platform** dialog. Select **Discord**.
+
+    If you already have a workspace, click the Discord setup option from the sidebar.
 
     <Frame>
       <img src="/images/add-new-discord-platform.png" alt="Choose Platform dialog showing Discord and Web Widget options" />
     </Frame>
   </Step>
 
+  <Step title="Sign In with Discord">
+    A Discord login window will open in your browser. Sign in with the Discord account that has **admin permissions** on the server you want to add the bot to.
+
+    <Note>This is Discord's standard OAuth flow. BestChatBot does not store your Discord password — Discord handles the authentication directly.</Note>
+  </Step>
+
   <Step title="Choose Your Server">
-    A Discord popup will appear showing the servers where you have admin permissions. Select the server you want to add BestChatBot to.
+    After signing in, you'll see the servers where you have admin permissions. Select the server you want to add BestChatBot to.
 
     <Frame>
-      <img src="/images/discord-server-selector-screen.png" alt="Discord authorization screen for Best ChatBot" />
+      <img src="/images/discord-server-selector-screen.png" alt="Discord authorization screen for selecting a server" />
     </Frame>
   </Step>
 
@@ -56,10 +64,10 @@ You can add BestChatBot to multiple Discord servers. Each server becomes a separ
 - Response preferences
 - Usage tracking
 
-<Tip>Switch between workspaces using the workspace selector at the top of the dashboard sidebar.</Tip>
+<Tip>Switch between workspaces using the workspace selector at the top of the dashboard.</Tip>
 
 <Frame>
-  <img src="/images/workspace-switch-screen.png" alt="Workspace switcher dropdown in the dashboard" />
+  <img src="/images/workspace-switch-screen.png" alt="Workspace switcher in the dashboard" />
 </Frame>
 
 ## Next Step

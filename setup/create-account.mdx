@@ -1,12 +1,12 @@
 ---
 title: "Create Your Account"
-description: "Sign up for BestChatBot using your Discord account."
+description: "Sign up for BestChatBot with Google or email."
 icon: "user-plus"
 ---
 
 # Create Your Account
 
-BestChatBot uses **Discord OAuth** for authentication. You sign in with your existing Discord account. No new passwords to remember.
+BestChatBot offers two ways to sign up: **Google** or **Email and password**. Pick whichever you prefer.
 
 ## How to Sign Up
 
@@ -15,33 +15,45 @@ BestChatBot uses **Discord OAuth** for authentication. You sign in with your exi
     Go to [bestchatbot.io](https://bestchatbot.io) and click the **Get Started** button.
   </Step>
 
-  <Step title="Sign In with Discord">
-    You'll be redirected to Discord's authorization page. Click **Authorize** to allow BestChatBot to access your basic profile information.
+  <Step title="Choose Your Sign-Up Method">
+    You'll see two options:
 
-    <Note>BestChatBot only requests access to your username, avatar, and the servers you manage. It never reads your private messages.</Note>
+    - **Continue with Google** — one-click sign-up using your Google account
+    - **Email and password** — create a new account with any email address
+
+    <Tip>Both methods create the same account. You can always sign in with either one later.</Tip>
   </Step>
 
   <Step title="Land on Your Dashboard">
-    After authorization, you'll be taken directly to the BestChatBot dashboard. Your account is ready to use.
+    After signing up, you'll be taken directly to the BestChatBot dashboard. From here you can create your first workspace.
 
     <Frame>
-      <img src="/images/workspace-selector-screen.png" alt="Workspace selector showing your connected servers" />
+      <img src="/images/workspace-selector-screen.png" alt="Workspace selector showing your workspaces" />
     </Frame>
   </Step>
 </Steps>
 
 ## What Happens During Sign-Up
 
-When you sign in with Discord, BestChatBot automatically:
+When you create your account, BestChatBot:
 
-- Creates your account using your Discord identity
-- Detects the servers where you have **admin or management permissions**
-- Sets up your first workspace
+- Creates your profile
+- Takes you to the workspace selector where you can create your first workspace
+- Each workspace is an independent environment with its own knowledge base, settings, and billing
 
-<Tip>A **workspace** in BestChatBot maps to a Discord server. Each server you connect becomes its own workspace with separate knowledge base, settings, and billing.</Tip>
+<Tip>A **workspace** is your project space. You can use one workspace for a Discord bot, another for a web widget, or both on the same workspace. It's up to you.</Tip>
+
+## Connecting Discord
+
+You don't need a Discord account to use BestChatBot. If you plan to add a Discord bot, you'll connect your Discord account later when you [invite the bot](/setup/invite-bot). No extra setup needed here.
 
 ## Next Step
 
-<Card title="Invite the Bot" icon="paper-plane" href="/setup/invite-bot">
-  Add BestChatBot to your Discord server.
-</Card>
+<CardGroup cols={2}>
+  <Card title="Quickstart Guide" icon="rocket" href="/quickstart">
+    Get up and running in 5 minutes.
+  </Card>
+  <Card title="Invite the Bot" icon="paper-plane" href="/setup/invite-bot">
+    Add BestChatBot to your Discord server.
+  </Card>
+</CardGroup>

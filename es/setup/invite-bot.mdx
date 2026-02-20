@@ -1,33 +1,41 @@
 ---
 title: "Invitar al Bot"
-description: "Agrega BestChatBot a tu servidor de Discord con un solo clic."
+description: "Agrega BestChatBot a tu servidor de Discord."
 icon: "paper-plane"
 ---
 
 # Invitar al Bot a Tu Servidor
 
-Una vez que hayas creado tu cuenta, el siguiente paso es agregar BestChatBot a tu servidor de Discord.
+Para agregar BestChatBot a tu servidor de Discord, pasaras por el flujo de autorizacion estandar de Discord. Esto conecta tu cuenta de Discord y te permite elegir a que servidor agregar el bot.
 
 ## Como Invitar
 
 <Steps>
   <Step title="Abre el Dashboard">
-    Inicia sesion en [bestchatbot.io](https://bestchatbot.io) y navega a tu dashboard.
+    Inicia sesion en [bestchatbot.io](https://bestchatbot.io) y navega a tu workspace.
   </Step>
 
-  <Step title="Haz Clic en Agregar Bot al Servidor">
-    Veras una opcion para **Agregar Bot al Servidor**. Haz clic para iniciar el proceso de invitacion.
+  <Step title="Selecciona Discord como Plataforma">
+    Si es un workspace nuevo, veras el dialogo **Elegir Plataforma**. Selecciona **Discord**.
+
+    Si ya tienes un workspace, haz clic en la opcion de configuracion de Discord desde la barra lateral.
 
     <Frame>
       <img src="/images/add-new-discord-platform.png" alt="Dialogo de Elegir Plataforma mostrando opciones de Discord y Web Widget" />
     </Frame>
   </Step>
 
+  <Step title="Inicia Sesion con Discord">
+    Se abrira una ventana de login de Discord en tu navegador. Inicia sesion con la cuenta de Discord que tenga **permisos de administrador** en el servidor donde quieres agregar el bot.
+
+    <Note>Este es el flujo OAuth estandar de Discord. BestChatBot no almacena tu contrasena de Discord — Discord maneja la autenticacion directamente.</Note>
+  </Step>
+
   <Step title="Elige Tu Servidor">
-    Aparecera una ventana de Discord mostrando los servidores donde tienes permisos de administrador. Selecciona el servidor al que quieres agregar BestChatBot.
+    Despues de iniciar sesion, veras los servidores donde tienes permisos de administrador. Selecciona el servidor al que quieres agregar BestChatBot.
 
     <Frame>
-      <img src="/images/discord-server-selector-screen.png" alt="Pantalla de autorizacion de Discord para Best ChatBot" />
+      <img src="/images/discord-server-selector-screen.png" alt="Pantalla de autorizacion de Discord para seleccionar un servidor" />
     </Frame>
   </Step>
 
@@ -56,14 +64,14 @@ Puedes agregar BestChatBot a multiples servidores de Discord. Cada servidor se c
 - Preferencias de respuesta
 - Seguimiento de uso
 
-<Tip>Cambia entre workspaces usando el selector de workspace en la parte superior de la barra lateral del dashboard.</Tip>
+<Tip>Cambia entre workspaces usando el selector de workspace en la parte superior del dashboard.</Tip>
 
 <Frame>
-  <img src="/images/workspace-switch-screen.png" alt="Menu desplegable del selector de workspace en el dashboard" />
+  <img src="/images/workspace-switch-screen.png" alt="Selector de workspace en el dashboard" />
 </Frame>
 
 ## Siguiente Paso
 
-<Card title="Seleccionar Canales" icon="list-check" href="/setup/select-channels">
+<Card title="Seleccionar Canales" icon="list-check" href="/es/setup/select-channels">
   Elige los canales que el bot debe monitorear.
 </Card>
