@@ -1,34 +1,396 @@
 ---
 title: "Web Widget"
-description: "Embed BestChatBot directly on your website. Coming soon."
+description: "Embed BestChatBot as a chat widget on any website. Same knowledge base, new surface."
 icon: "window-maximize"
 ---
 
 # Web Widget
 
-<Note>The web widget is **coming soon**. This page will be updated when it launches.</Note>
-
-We're building a chat widget you can embed directly on your website. Same AI, same knowledge base, new surface.
+Add a chat widget to your website so visitors can ask questions and get instant answers from your knowledge base. Same AI that powers your Discord bot, now on your website.
 
 <Frame>
-  <img src="/images/add-new-discord-platform.png" alt="Platform selection showing Discord active and Web Widget coming soon" />
+  <img src="/images/widget-on-website.png" alt="BestChatBot chat widget floating on a website" />
 </Frame>
 
-## What to Expect
+## What You Get
 
-The web widget will let your website visitors ask questions and get instant answers from the same knowledge base your Discord bot uses. One knowledge base, multiple channels.
-
-## Planned Features
-
-- **Drop-in script tag** for any website
+- **One line of code** — paste a script tag and you're done
 - **Same knowledge base** as your Discord bot
-- **Customizable appearance** to match your brand
-- **No extra setup** if you already have a knowledge base
+- **Real-time streaming** — answers appear word by word
+- **Customizable colors** to match your brand
+- **Mobile friendly** — full-screen on small devices
+- **No impact on your site** — runs in an isolated Shadow DOM
 
-## Stay Updated
+---
 
-We'll announce the web widget launch through our Discord community and email updates. If you're on a paid plan, you'll get early access.
+## Prerequisites
 
-<Card title="Discord Details" icon="discord" href="/integrations/discord">
-  In the meantime, the bot is fully operational on Discord.
-</Card>
+Before adding the widget to your website, make sure you have:
+
+<Check>A BestChatBot account with an active workspace</Check>
+<Check>Content in your knowledge base (documents, URLs, or moderator Q&A)</Check>
+<Check>Access to edit the HTML of the website where you want the widget</Check>
+
+<Tip>If you already have a Discord bot running with a knowledge base, you can reuse the same workspace for the widget. One knowledge base, multiple channels.</Tip>
+
+---
+
+## Create Your Widget
+
+<Steps>
+  <Step title="Open the Widget Manager" icon="grid-2">
+    From the dashboard sidebar, click **Widget** to open the Widget Manager.
+
+    <Frame>
+      <img src="/images/widget-manager-screen.png" alt="Widget Manager page showing list of widgets" />
+    </Frame>
+  </Step>
+
+  <Step title="Create a New Widget" icon="plus">
+    Click the **New Widget** button. Fill in:
+
+    - **Name** — a label for this widget (e.g., "Support Chat" or "Docs Helper")
+    - **Allowed Domains** — the website(s) where this widget will run (e.g., `https://example.com`)
+    - **Color** — your brand's primary color
+
+    <Frame>
+      <img src="/images/create-widget-dialog.png" alt="Create widget dialog with name, domain, and color fields" />
+    </Frame>
+
+    <Note>You can add multiple domains, including wildcards like `*.example.com` to cover all subdomains.</Note>
+  </Step>
+
+  <Step title="Copy Your Embed Code" icon="code">
+    After creating the widget, you'll see a ready-to-paste code snippet. Click **Copy** to copy it to your clipboard.
+
+    <Frame>
+      <img src="/images/widget-snippet-display.png" alt="Embed snippet display with copy button" />
+    </Frame>
+
+    The snippet looks like this:
+
+    ```html
+    <script
+      src="https://bestchatbot.io/widget/v1/chat.js"
+      data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+      defer>
+    </script>
+    ```
+  </Step>
+</Steps>
+
+---
+
+## Install on Your Website
+
+Paste the snippet into your website's HTML, just before the closing `</body>` tag:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+  </head>
+  <body>
+    <!-- Your website content -->
+
+    <!-- BestChatBot Widget -->
+    <script
+      src="https://bestchatbot.io/widget/v1/chat.js"
+      data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+      defer>
+    </script>
+  </body>
+</html>
+```
+
+That's it. The widget will appear as a floating chat bubble in the bottom-right corner of your site.
+
+<Warning>Never modify the `data-api-key` value. It's your widget's unique identifier.</Warning>
+
+### Platform-Specific Instructions
+
+<AccordionGroup>
+  <Accordion title="WordPress">
+    1. Go to **Appearance → Theme File Editor** (or use a plugin like "Insert Headers and Footers")
+    2. Open `footer.php`
+    3. Paste the snippet just before `</body>`
+    4. Save changes
+
+    Alternatively, use a plugin like **WPCode** to insert the snippet site-wide without editing theme files.
+  </Accordion>
+
+  <Accordion title="Shopify">
+    1. Go to **Online Store → Themes → Edit Code**
+    2. Open `theme.liquid`
+    3. Paste the snippet just before `</body>`
+    4. Save
+  </Accordion>
+
+  <Accordion title="Wix">
+    1. Go to **Settings → Custom Code**
+    2. Click **Add Custom Code**
+    3. Paste the snippet
+    4. Set placement to **Body - End**
+    5. Apply to **All Pages**
+  </Accordion>
+
+  <Accordion title="Squarespace">
+    1. Go to **Settings → Advanced → Code Injection**
+    2. Paste the snippet in the **Footer** field
+    3. Save
+  </Accordion>
+
+  <Accordion title="Next.js / React">
+    Add the script tag to your root layout or use the `next/script` component:
+
+    ```tsx
+    import Script from 'next/script'
+
+    export default function RootLayout({ children }) {
+      return (
+        <html>
+          <body>
+            {children}
+            <Script
+              src="https://bestchatbot.io/widget/v1/chat.js"
+              data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+              strategy="lazyOnload"
+            />
+          </body>
+        </html>
+      )
+    }
+    ```
+  </Accordion>
+
+  <Accordion title="Static HTML / Other">
+    Paste the snippet before `</body>` in your HTML file. Works with any website that supports custom HTML.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## How It Works
+
+Once installed, the widget works like this:
+
+1. **Page loads** → the script loads from BestChatBot's servers
+2. **Widget appears** → a chat bubble shows in the bottom-right corner
+3. **Visitor clicks** → the chat window opens
+4. **Visitor asks a question** → the widget sends it to your knowledge base
+5. **Answer streams in** → the response appears word by word in real time
+6. **Sources shown** → relevant sources from your knowledge base are listed (expandable)
+
+<Frame>
+  <img src="/images/widget-chat-open.png" alt="Chat window open with a conversation showing streaming response" />
+</Frame>
+
+### Conversation Memory
+
+The widget remembers the conversation within the same browser session. If a visitor navigates to another page, their chat history is preserved. Clicking the **+** button starts a fresh conversation.
+
+<Tip>Conversation history is stored in the visitor's browser (localStorage). It's never shared between visitors or sent to third parties.</Tip>
+
+---
+
+## Customize Your Widget
+
+### Brand Color
+
+Set your brand color when creating the widget, or change it later in **Widget Settings → Appearance**. The widget automatically adjusts:
+
+- Chat bubble accent
+- User message border color
+- Send button color
+- "Start Chat" button background
+- Text contrast (white or black) based on your color
+
+<Frame>
+  <img src="/images/widget-settings-appearance.png" alt="Widget appearance settings with color picker" />
+</Frame>
+
+### "Powered by BestChatBot" Badge
+
+The footer badge is shown by default on the **Free** and **Starter** plans. Upgrade to **Pro** or **Business** to hide it.
+
+| Plan | Badge |
+|------|-------|
+| Free | Shown |
+| Starter | Shown |
+| Pro | Hidden |
+| Business | Hidden |
+
+---
+
+## Security & Allowed Domains
+
+The widget only works on domains you've approved. This prevents someone from copying your embed code and using it on their own site.
+
+### Managing Allowed Domains
+
+Go to **Widget Settings → Security** to manage your allowed domains.
+
+<Frame>
+  <img src="/images/widget-settings-security.png" alt="Widget security settings showing allowed origins and rate limit" />
+</Frame>
+
+**Supported formats:**
+
+| Format | Example | What It Matches |
+|--------|---------|-----------------|
+| Exact URL | `https://example.com` | Only that exact domain |
+| Wildcard | `*.example.com` | Any subdomain: `shop.example.com`, `blog.example.com` |
+
+<Warning>You cannot use `*` alone as a domain. Wildcards must include at least a second-level domain (e.g., `*.example.com`).</Warning>
+
+### Rate Limiting
+
+Each widget has a built-in rate limit to prevent abuse. The default is **30 requests per minute** per widget, with an automatic per-visitor limit of 10 requests per minute.
+
+You can adjust the rate limit in Widget Settings.
+
+### Regenerating Your API Key
+
+If you suspect your API key has been compromised, you can regenerate it:
+
+1. Go to **Widget Settings → Security**
+2. Click **Regenerate API Key**
+3. Copy the new embed snippet
+4. Update the snippet on your website
+
+<Warning>Regenerating the API key immediately invalidates the old one. Update your website right away to avoid downtime.</Warning>
+
+---
+
+## Mobile Experience
+
+On screens smaller than 640px, the chat window automatically expands to full screen for a better mobile experience.
+
+<Frame>
+  <img src="/images/widget-mobile-view.png" alt="Widget in full-screen mobile view" />
+</Frame>
+
+---
+
+## Advanced: Programmatic API
+
+For developers who want more control, the widget exposes a JavaScript API on `window.BestChatBot` after it loads.
+
+### Available Methods
+
+| Method | Description |
+|--------|-------------|
+| `BestChatBot.open()` | Open the chat window |
+| `BestChatBot.close()` | Close the chat window |
+| `BestChatBot.toggle()` | Toggle open/close |
+| `BestChatBot.destroy()` | Remove the widget from the page entirely |
+| `BestChatBot.sendMessage(text)` | Send a message programmatically |
+| `BestChatBot.onReady(callback)` | Run a function when the widget is ready |
+| `BestChatBot.onMessage(callback)` | Run a function when a new message arrives |
+
+### Examples
+
+**Open the widget when a button is clicked:**
+
+```html
+<button onclick="BestChatBot.open()">
+  Chat with us
+</button>
+```
+
+**Send a pre-filled question:**
+
+```html
+<button onclick="BestChatBot.sendMessage('How do I reset my password?')">
+  Help with password
+</button>
+```
+
+**Wait for the widget to be ready:**
+
+```javascript
+BestChatBot.onReady(() => {
+  console.log('Widget is ready!')
+})
+```
+
+<Note>The API is only available after the widget script has loaded. If you need to call it immediately, use `onReady()` to wait for initialization.</Note>
+
+---
+
+## Compatibility
+
+The widget works on all modern browsers:
+
+| Browser | Supported |
+|---------|-----------|
+| Chrome 80+ | ✅ |
+| Firefox 80+ | ✅ |
+| Safari 14+ | ✅ |
+| Edge 80+ | ✅ |
+| Mobile Chrome | ✅ |
+| Mobile Safari | ✅ |
+| Internet Explorer | ❌ |
+
+The widget uses Shadow DOM for style isolation, which means it won't conflict with your website's CSS, and your CSS won't affect the widget.
+
+---
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Widget doesn't appear">
+    - Check that the `data-api-key` is correct
+    - Verify your domain is in the allowed origins list
+    - Open browser DevTools (Console tab) and look for `[BestChatBot]` warnings
+    - Make sure the script tag has the `defer` attribute
+  </Accordion>
+
+  <Accordion title="Widget shows but doesn't respond">
+    - Check that your knowledge base has content and has been rebuilt
+    - Look for errors in the browser Console
+    - Verify your subscription is active
+  </Accordion>
+
+  <Accordion title="Styling conflicts">
+    The widget runs inside a closed Shadow DOM, so conflicts are extremely rare. If you see issues:
+    - Check that you don't have a global `* { all: unset }` rule
+    - Make sure no script is removing the `#bestchatbot-widget-host` element
+  </Accordion>
+
+  <Accordion title="Widget appears on wrong pages">
+    The script tag loads on every page where it's included. To limit it:
+    - Add the snippet only to specific page templates
+    - Or use conditional loading with JavaScript:
+
+    ```javascript
+    if (window.location.pathname === '/support') {
+      const script = document.createElement('script')
+      script.src = 'https://bestchatbot.io/widget/v1/chat.js'
+      script.setAttribute('data-api-key', 'rk_live_xxxx')
+      script.defer = true
+      document.body.appendChild(script)
+    }
+    ```
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Upload Documents" icon="file-arrow-up" href="/knowledge-base/upload-documents">
+    Add content for the widget to answer from.
+  </Card>
+  <Card title="Add URLs" icon="globe" href="/knowledge-base/add-urls">
+    Scrape your website content into the knowledge base.
+  </Card>
+  <Card title="Pricing Plans" icon="credit-card" href="/billing/pricing-plans">
+    Check plan features including widget limits.
+  </Card>
+  <Card title="Discord Integration" icon="discord" href="/integrations/discord">
+    Run the bot on Discord alongside the widget.
+  </Card>
+</CardGroup>
