@@ -1,82 +1,134 @@
 ---
-title: "Invitar al Bot"
-description: "Agrega BestChatBot a tu servidor de Discord."
-icon: "paper-plane"
+title: "Desplegar Tu Agente"
+description: "Conecta BestChatBot a Discord o integralo en tu sitio web."
+icon: "rocket"
 ---
 
-# Invitar al Bot a Tu Servidor
+# Despliega Tu Agente de IA
 
-Para agregar BestChatBot a tu servidor de Discord, pasaras por el flujo de autorizacion estandar de Discord. Esto conecta tu cuenta de Discord y te permite elegir a que servidor agregar el bot.
+Despues de crear tu workspace, elige donde quieres que viva tu agente de IA. BestChatBot soporta dos plataformas — puedes configurar una o ambas desde la misma cuenta.
 
-## Como Invitar
-
-<Steps>
-  <Step title="Abre el Dashboard">
-    Inicia sesion en [bestchatbot.io](https://bestchatbot.io) y navega a tu workspace.
-  </Step>
-
-  <Step title="Elige Tu Plataforma">
-    Veras el dialogo **Elegir Plataforma** con dos opciones:
-
-    - **Discord** — Conecta tu servidor de Discord
-    - **Web Widget** — Integra chat en tu sitio web
-
-    Para agregar un bot de Discord, selecciona **Discord**.
-
-    <Frame>
-      <img src="/images/add-new-discord-platform.png" alt="Dialogo Elegir Plataforma mostrando opciones de Discord y Web Widget" />
-    </Frame>
-
-    <Tip>Prefieres un web widget? Consulta la [guia del Web Widget](/es/integrations/web-widget) para integrar chat en tu sitio web.</Tip>
-  </Step>
-
-  <Step title="Inicia Sesion con Discord">
-    Se abrira una ventana de login de Discord en tu navegador. Inicia sesion con la cuenta de Discord que tenga **permisos de administrador** en el servidor donde quieres agregar el bot.
-
-    <Note>Este es el flujo OAuth estandar de Discord. BestChatBot no almacena tu contrasena de Discord — Discord maneja la autenticacion directamente.</Note>
-  </Step>
-
-  <Step title="Elige Tu Servidor">
-    Despues de iniciar sesion, veras los servidores donde tienes permisos de administrador. Selecciona el servidor al que quieres agregar BestChatBot.
-
-    <Frame>
-      <img src="/images/discord-server-selector-screen.png" alt="Pantalla de autorizacion de Discord para seleccionar un servidor" />
-    </Frame>
-  </Step>
-
-  <Step title="Autoriza los Permisos">
-    Revisa los permisos que BestChatBot necesita y haz clic en **Autorizar**. El bot solo solicita lo necesario para funcionar:
-
-    - **Leer Mensajes**: Ve las preguntas de tu comunidad
-    - **Enviar Mensajes**: Responde con respuestas
-    - **Leer Historial de Mensajes**: Entiende el contexto de la conversacion
-    - **Insertar Enlaces**: Formatea respuestas con contenido enriquecido
-
-    <Warning>No elimines los permisos del bot despues de invitarlo. El bot necesita todos los permisos listados para funcionar correctamente.</Warning>
-  </Step>
-
-  <Step title="Confirma en el Dashboard">
-    Despues de la autorizacion, seras redirigido de vuelta al dashboard. Tu servidor ahora aparecera como un workspace conectado.
-  </Step>
-</Steps>
-
-## Multiples Servidores
-
-Puedes agregar BestChatBot a multiples servidores de Discord. Cada servidor se convierte en un **workspace** separado con su propia:
-
-- Base de conocimiento
-- Configuracion de canales
-- Preferencias de respuesta
-- Seguimiento de uso
-
-<Tip>Cambia entre workspaces usando el selector de workspace en la parte superior del dashboard.</Tip>
+Veras el dialogo **Elegir Plataforma** al configurar una nueva integracion:
 
 <Frame>
-  <img src="/images/workspace-switch-screen.png" alt="Selector de workspace en el dashboard" />
+  <img src="/images/add-new-discord-platform.png" alt="Dialogo Elegir Plataforma mostrando opciones de Discord y Web Widget" />
 </Frame>
 
-## Siguiente Paso
+Selecciona tu plataforma abajo para seguir la guia de configuracion.
 
-<Card title="Seleccionar Canales" icon="list-check" href="/es/setup/select-channels">
-  Elige los canales que el bot debe monitorear.
-</Card>
+<Tabs>
+  <Tab title="Bot de Discord">
+    ## Conectar a Discord
+
+    Para agregar BestChatBot a tu servidor de Discord, pasaras por el flujo de autorizacion estandar de Discord.
+
+    <Steps>
+      <Step title="Selecciona Discord">
+        En el dialogo **Elegir Plataforma**, haz clic en **Discord** — Conecta tu servidor de Discord.
+      </Step>
+
+      <Step title="Inicia Sesion con Discord">
+        Se abrira una ventana de login de Discord en tu navegador. Inicia sesion con la cuenta de Discord que tenga **permisos de administrador** en el servidor donde quieres agregar el bot.
+
+        <Note>Este es el flujo OAuth estandar de Discord. BestChatBot no almacena tu contrasena de Discord — Discord maneja la autenticacion directamente.</Note>
+      </Step>
+
+      <Step title="Elige Tu Servidor">
+        Despues de iniciar sesion, veras los servidores donde tienes permisos de administrador. Selecciona el servidor al que quieres agregar BestChatBot.
+
+        <Frame>
+          <img src="/images/discord-server-selector-screen.png" alt="Pantalla de autorizacion de Discord para seleccionar un servidor" />
+        </Frame>
+      </Step>
+
+      <Step title="Autoriza los Permisos">
+        Revisa los permisos que BestChatBot necesita y haz clic en **Autorizar**. El bot solo solicita lo necesario para funcionar:
+
+        - **Leer Mensajes**: Ve las preguntas de tu comunidad
+        - **Enviar Mensajes**: Responde con respuestas
+        - **Leer Historial de Mensajes**: Entiende el contexto de la conversacion
+        - **Insertar Enlaces**: Formatea respuestas con contenido enriquecido
+
+        <Warning>No elimines los permisos del bot despues de invitarlo. El bot necesita todos los permisos listados para funcionar correctamente.</Warning>
+      </Step>
+
+      <Step title="Confirma en el Dashboard">
+        Despues de la autorizacion, seras redirigido de vuelta al dashboard. Tu servidor de Discord ahora esta conectado.
+      </Step>
+    </Steps>
+
+    ### Multiples Servidores
+
+    Puedes agregar BestChatBot a multiples servidores de Discord. Cada servidor se convierte en un **workspace** separado con su propia base de conocimiento, configuracion de canales y seguimiento de uso.
+
+    <Tip>Cambia entre workspaces usando el selector de workspace en la parte superior del dashboard.</Tip>
+
+    <Frame>
+      <img src="/images/workspace-switch-screen.png" alt="Selector de workspace en el dashboard" />
+    </Frame>
+
+    ### Siguiente Paso
+
+    <Card title="Seleccionar Canales" icon="list-check" href="/es/setup/select-channels">
+      Elige que canales de Discord debe monitorear el bot.
+    </Card>
+  </Tab>
+
+  <Tab title="Web Widget">
+    ## Integrar en Tu Sitio Web
+
+    Agrega un widget de chat a tu sitio web para que los visitantes puedan hacer preguntas y obtener respuestas instantaneas de tu base de conocimiento.
+
+    <Steps>
+      <Step title="Selecciona Web Widget">
+        En el dialogo **Elegir Plataforma**, haz clic en **Web Widget** — Integra chat en tu sitio web.
+      </Step>
+
+      <Step title="Copia el Codigo de Integracion">
+        Despues de la configuracion, ve a la pestana **Instalacion** de tu widget para obtener el codigo. Es un solo script tag que se ve asi:
+
+        ```html
+        <script
+          src="https://cdn.bestchatbot.io/widget.js"
+          data-api-key="tu-api-key"
+          defer
+        ></script>
+        ```
+
+        <Frame>
+          <img src="/images/widget-embed-code.png" alt="Pestana de Instalacion mostrando el codigo de integracion con boton de copiar" />
+        </Frame>
+      </Step>
+
+      <Step title="Pega en Tu Sitio Web">
+        Agrega el script tag justo antes de la etiqueta de cierre `</body>` en cualquier pagina donde quieras que aparezca el widget.
+
+        ```html
+        <body>
+          <!-- El contenido de tu sitio web -->
+
+          <script
+            src="https://cdn.bestchatbot.io/widget.js"
+            data-api-key="tu-api-key"
+            defer
+          ></script>
+        </body>
+        ```
+      </Step>
+
+      <Step title="Verifica que Funciona">
+        Abre tu sitio web en un navegador. Deberias ver una burbuja de chat en la esquina inferior derecha. Haz clic para abrir la ventana de chat y prueba una pregunta.
+
+        <Frame>
+          <img src="/images/widget-chat-open.png" alt="Widget de chat abierto en un sitio web" />
+        </Frame>
+      </Step>
+    </Steps>
+
+    ### Siguiente Paso
+
+    <Card title="Guia del Web Widget" icon="window-maximize" href="/es/integrations/web-widget">
+      Guia completa: personalizar colores, origenes permitidos, API programatica, solucion de problemas y mas.
+    </Card>
+  </Tab>
+</Tabs>
