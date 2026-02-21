@@ -19,8 +19,8 @@ One of BestChatBot's most powerful features is its ability to **learn from real 
     A server moderator or admin provides a helpful answer to the question.
   </Step>
 
-  <Step title="BestChatBot Captures the Exchange">
-    The bot automatically detects the question-and-answer pair and stores it as a **Q&A entry** in your knowledge base.
+  <Step title="BestChatBot Evaluates the Exchange">
+    The bot applies intelligent filtering to determine if the moderator's answer adds valuable, knowledge-base-related information. Only responses that contribute new, factual knowledge are captured as **Q&A entries**. Casual replies, off-topic messages, and redundant information are automatically filtered out.
   </Step>
 
   <Step title="Future Questions Get Better Answers">
@@ -67,7 +67,9 @@ Click on any Q&A entry to see the full question and the moderator's answer:
   <img src="/images/qa-screen-detailed-front-end.png" alt="Q&A Content modal showing the question and moderator answer" />
 </Frame>
 
-<Note>Q&A entries are included in the knowledge base just like uploaded documents and scraped pages. They go through the same processing pipeline.</Note>
+<Note>Q&A entries are included in the knowledge base just like uploaded documents and scraped pages. After a [rebuild](/knowledge-base/rebuild), the bot can use them to answer future questions.</Note>
+
+<Warning>The Q&A Learning System is a **Discord-only** feature. It is not available for web widget workspaces.</Warning>
 
 ## Tips for Better Q&A Learning
 

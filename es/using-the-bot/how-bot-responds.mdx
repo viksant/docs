@@ -8,34 +8,6 @@ icon: "message-bot"
 
 BestChatBot funciona diferente a los bots tipicos de Discord. No usa **comandos slash**. Lee mensajes normales y responde de forma natural cuando puede ayudar.
 
-## El Flujo de Respuesta
-
-<Steps>
-  <Step title="Mensaje Recibido">
-    Un usuario envia un mensaje en un canal donde el bot esta activo.
-  </Step>
-
-  <Step title="Pregunta Detectada">
-    El bot analiza el mensaje para determinar si es una pregunta o solicitud que puede responder basandose en la base de conocimiento.
-  </Step>
-
-  <Step title="Conocimiento Recuperado">
-    BestChatBot busca en tus documentos, paginas extraidas y entradas Q&A para encontrar la informacion mas relevante.
-  </Step>
-
-  <Step title="Respuesta Generada">
-    Usando el conocimiento recuperado y tus preferencias de respuesta (estilo y longitud), el bot elabora una respuesta natural y humana.
-  </Step>
-
-  <Step title="Respuesta Enviada">
-    El bot envia su respuesta directamente en el mismo canal, manteniendo la conversacion fluida de forma natural.
-  </Step>
-</Steps>
-
-<Frame>
-  <img src="/images/bot-answering-question-example.png" alt="BestChatBot respondiendo una pregunta en Discord con fuentes citadas" />
-</Frame>
-
 ## A Que Responde el Bot
 
 | Escenario | El Bot Responde? |
@@ -46,6 +18,10 @@ BestChatBot funciona diferente a los bots tipicos de Discord. No usa **comandos 
 | Mensajes fuera de tema | No |
 | Mensajes en canales desactivados | No |
 
+<Frame>
+  <img src="/images/bot-answering-question-example.png" alt="BestChatBot respondiendo una pregunta en Discord con fuentes citadas" />
+</Frame>
+
 ## Formato de Respuestas
 
 El bot formatea sus respuestas para que sean faciles de leer:
@@ -54,7 +30,7 @@ El bot formatea sus respuestas para que sean faciles de leer:
 - **Fuentes citadas**: Cuando es relevante, el bot menciona de donde obtuvo la informacion
 - **Tono natural**: Se ajusta al estilo de comunicacion que hayas configurado (Profesional, Casual, Tecnico o Conciso)
 
-<Tip>Puedes personalizar el estilo de comunicacion y longitud de respuesta del bot en la configuracion de [Preferencias de Respuesta](/customization/response-preferences).</Tip>
+<Tip>Puedes personalizar el estilo de comunicacion y longitud de respuesta del bot en la configuracion de [Preferencias de Respuesta](/es/customization/response-preferences).</Tip>
 
 ## Sin Comandos Slash
 
@@ -63,10 +39,10 @@ A diferencia de muchos bots de Discord, BestChatBot **no** requiere que los usua
 ## Siguientes Pasos
 
 <CardGroup cols={2}>
-  <Card title="Probar Respuestas" icon="flask" href="/using-the-bot/retrieval-testing">
+  <Card title="Probar Respuestas" icon="flask" href="/es/using-the-bot/retrieval-testing">
     Prueba las respuestas del bot desde el dashboard.
   </Card>
-  <Card title="Historial de Respuestas" icon="clock-rotate-left" href="/using-the-bot/bot-responses">
+  <Card title="Historial de Respuestas" icon="clock-rotate-left" href="/es/using-the-bot/bot-responses">
     Ve todas las respuestas pasadas del bot y analiticas.
   </Card>
 </CardGroup>

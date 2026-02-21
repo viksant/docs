@@ -43,6 +43,10 @@ BestChatBot offers three ways to add web content:
     - **Crawl:** `https://yoursite.com/docs`
   </Step>
 
+  <Step title="Configure URL Filters (Optional)">
+    When using **Crawl** or **Sitemap**, you can set URL pattern filters to include or exclude specific pages. This lets you focus the scraper on the content that matters.
+  </Step>
+
   <Step title="Start Scraping">
     Click the button to begin scraping. You'll see progress as pages are discovered and processed.
 
@@ -51,6 +55,8 @@ BestChatBot offers three ways to add web content:
 
   <Step title="Rebuild Knowledge Base">
     After scraping completes, remember to **Rebuild Knowledge Base** so the bot can use the new content.
+
+    <Warning>Changes to your URLs (new scrapes or deletions) are **not applied** until you rebuild. The bot continues using the previous version of the knowledge base until then.</Warning>
   </Step>
 </Steps>
 
@@ -67,7 +73,7 @@ Each plan includes a set number of scraped pages:
 | Free | 5 |
 | Starter | 25 |
 | Pro | 50 |
-| Enterprise | 200 |
+| Business | 200 |
 
 <Tip>Use **Direct URL** for your most important pages first. Save crawling for when you need full coverage.</Tip>
 

@@ -31,11 +31,7 @@ Deberias reconstruir tu base de conocimiento cuando:
   </Step>
 
   <Step title="Esperar a que Termine">
-    Veras un indicador de progreso mostrando el estado de la reconstruccion. El tiempo depende de la cantidad de contenido:
-
-    - Bases de conocimiento pequenas (pocos documentos): 30 segundos a 1 minuto
-    - Medianas (docenas de documentos + URLs): 2 a 5 minutos
-    - Grandes (100+ fuentes): 5 a 15 minutos
+    Veras un indicador de progreso mostrando el estado de la reconstruccion. El tiempo depende de la cantidad y densidad de tu contenido — bases de conocimiento mas pequenas terminan rapido, mientras que las mas grandes con muchos documentos y URLs tardan mas.
   </Step>
 
   <Step title="Verificar el Estado">
@@ -45,15 +41,15 @@ Deberias reconstruir tu base de conocimiento cuando:
 
 ## Que Sucede Durante una Reconstruccion
 
-Cuando reconstruyes, BestChatBot:
+Cuando reconstruyes, BestChatBot reemplaza toda la base de conocimiento con una version nueva construida a partir de tus fuentes actuales:
 
-1. **Recopila** todos los documentos marcados como "trained" y elimina cualquier contenido marcado como "deleted"
-2. **Divide** el contenido restante en fragmentos buscables
-3. **Crea embeddings**: representaciones matematicas que ayudan al bot a encontrar contenido relevante
-4. **Construye un grafo de conocimiento**: conexiones entre conceptos para una comprension mas profunda
+1. **Limpia** la base de conocimiento existente completamente
+2. **Descarta** las fuentes marcadas como eliminadas
+3. **Obtiene** el contenido de fuentes pendientes (ej: URLs nuevas que aun no se han extraido)
+4. **Re-procesa** todas las fuentes activas desde cero para construir la nueva base de conocimiento
 5. **Activa** el nuevo conocimiento para que el bot lo use
 
-<Warning>El bot **no respondera** preguntas mientras una reconstruccion este en progreso. Planifica las reconstrucciones en horas de poco trafico para minimizar el impacto en tu comunidad.</Warning>
+<Warning>El bot **no respondera** preguntas mientras una reconstruccion este en progreso, para evitar dar respuestas incorrectas o incompletas.</Warning>
 
 <Tip>Puedes seguir usando el dashboard mientras una reconstruccion esta en progreso. La reconstruccion solo afecta la capacidad del bot de responder preguntas temporalmente.</Tip>
 
@@ -66,7 +62,7 @@ Cada plan incluye un numero limitado de reconstrucciones por dia:
 | Free | 1 |
 | Starter | 3 |
 | Pro | 10 |
-| Enterprise | 20 |
+| Business | 20 |
 
 <Note>Una vez que alcances tu limite diario de rebuilds, tendras que esperar hasta el dia siguiente o mejorar tu plan para obtener mas reconstrucciones.</Note>
 
@@ -75,17 +71,17 @@ Cada plan incluye un numero limitado de reconstrucciones por dia:
 | Practica | Por Que |
 |----------|---------|
 | Reconstruir despues de subidas masivas | Mas eficiente que reconstruir despues de cada archivo |
-| No reconstruir en horas pico | Las reconstrucciones usan recursos de procesamiento |
+| El bot se pausa durante los rebuilds | No respondera preguntas hasta que termine |
 | Verificar el estado antes de probar | Asegurate de que la reconstruccion termino exitosamente |
 | Reconstruir semanalmente para aprendizaje Q&A | Incorporar las respuestas mas recientes de moderadores |
 
 ## Siguientes Pasos
 
 <CardGroup cols={2}>
-  <Card title="Probar Tu Bot" icon="flask" href="/using-the-bot/retrieval-testing">
+  <Card title="Probar Tu Bot" icon="flask" href="/es/using-the-bot/retrieval-testing">
     Verifica que el bot responde correctamente despues de reconstruir.
   </Card>
-  <Card title="Ver Grafo de Conocimiento" icon="diagram-project" href="/using-the-bot/knowledge-graph">
+  <Card title="Ver Grafo de Conocimiento" icon="diagram-project" href="/es/using-the-bot/knowledge-graph">
     Explora las conexiones entre tu contenido.
   </Card>
 </CardGroup>

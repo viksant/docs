@@ -1,39 +1,49 @@
 ---
 title: "Select Channels"
-description: "Choose which Discord channels BestChatBot should be active in."
+description: "Choose which channels BestChatBot should be active in — Discord channels or your web widget."
 icon: "list-check"
 ---
 
 # Select Active Channels
 
-<Note>The Channel Manager is a **Discord-only** feature. If you set up a [Web Widget](/integrations/web-widget) instead, it has its own configuration — the widget is either active or inactive on your website, with no per-channel control.</Note>
+BestChatBot gives you control over where it responds. The setup depends on your platform:
+
+- **Discord** — select individual text channels from a grid
+- **Web Widget** — the widget is either globally active or inactive on your website
+
+---
+
+## Discord Channels
 
 After connecting the bot to your Discord server, you need to tell it which channels to monitor. BestChatBot will only respond to messages in channels you explicitly enable.
 
-## Using the Channel Manager
+### Using the Channel Manager
 
 <Steps>
   <Step title="Open Channel Management">
-    In your dashboard, navigate to the **Channel Management** section from the sidebar.
+    In your dashboard, navigate to the **Platform Channels** section from the sidebar.
   </Step>
 
   <Step title="View Your Channels">
-    You'll see a grid of all text channels in your Discord server. Each channel is displayed as a card showing the channel name.
+    You'll see a grid of all text channels the bot has access to in your Discord server. The bot displays every channel where it has the **View Channel** permission.
+
+    <Frame>
+      <img src="/images/channel-access-discord.png" alt="Platform Channels page showing Discord text channels with Active and Mod QA Learning toggles" />
+    </Frame>
   </Step>
 
   <Step title="Toggle Channels On or Off">
-    Click on a channel card to **enable** or **disable** it. Enabled channels are highlighted, and the bot will respond to messages in those channels.
+    Each channel card has two toggles:
 
-    <Frame>
-      <img src="/images/channel-manager-screen.png" alt="Channel Manager showing Active and Mod QA Learning toggles" />
-    </Frame>
+    - **Active** — enables or disables the bot in that channel
+    - **Mod QA Learning** — enables or disables automatic learning from moderator answers in that channel
 
     <Tip>Start with one or two low-traffic channels to test the bot before enabling it everywhere.</Tip>
   </Step>
 
 </Steps>
 
-## How the Bot Behaves in Channels
+### How the Bot Behaves in Channels
 
 Once a channel is active:
 
@@ -43,9 +53,26 @@ Once a channel is active:
 
 <Note>The bot is helpful without being intrusive. It won't respond to every message. It only jumps in when it has relevant knowledge to share.</Note>
 
-## Channel Categories Not Shown
+### Which Channels Appear
 
-The channel manager only shows **text channels**. Voice channels, announcement channels, and forum channels are not listed because the bot can only respond in standard text channels.
+The channel manager shows all **text channels** where the bot has the **View Channel** permission in Discord. If a channel is missing from the list, check that the bot's role has permission to view that channel in your Discord server settings.
+
+Voice channels, announcement channels, and forum channels are not listed because the bot can only respond in standard text channels.
+
+---
+
+## Web Widget
+
+The web widget doesn't have per-channel control. Each workspace supports **one widget**, and it is either **active** or **inactive** globally.
+
+- **Active** — the widget appears on your website and responds to visitor questions
+- **Inactive** — the widget is hidden and does not respond
+
+You can toggle the widget on or off from the **Web Widgets** page in your dashboard.
+
+<Tip>Since each workspace is tied to one platform, a Discord workspace won't show widget settings, and a web widget workspace won't show Discord channel management.</Tip>
+
+---
 
 ## Next Steps
 

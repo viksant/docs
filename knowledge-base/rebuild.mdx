@@ -6,7 +6,7 @@ icon: "rotate"
 
 # Rebuild Knowledge Base
 
-After adding or removing content:documents, URLs, or Q&A entries:you need to **rebuild** the knowledge base. This processes your content and makes it available for the bot to use when answering questions.
+After adding or removing content — documents, URLs, or Q&A entries — you need to **rebuild** the knowledge base. This processes your content and makes it available for the bot to use when answering questions.
 
 ## When to Rebuild
 
@@ -31,11 +31,7 @@ You should rebuild your knowledge base when you:
   </Step>
 
   <Step title="Wait for Completion">
-    You'll see a progress indicator showing the rebuild status. The time depends on the amount of content:
-
-    - Small knowledge bases (a few documents): 30 seconds to 1 minute
-    - Medium (dozens of documents + URLs): 2 to 5 minutes
-    - Large (100+ sources): 5 to 15 minutes
+    You'll see a progress indicator showing the rebuild status. The time depends on the amount and density of your content — smaller knowledge bases finish faster, while larger ones with many documents and URLs take longer.
   </Step>
 
   <Step title="Verify Status">
@@ -45,15 +41,15 @@ You should rebuild your knowledge base when you:
 
 ## What Happens During a Rebuild
 
-When you rebuild, BestChatBot:
+When you rebuild, BestChatBot replaces the entire knowledge base with a fresh version built from your current sources:
 
-1. **Collects** all documents marked as "trained" and removes any content marked as "deleted"
-2. **Splits** the remaining content into searchable chunks
-3. **Creates embeddings**: mathematical representations that help the bot find relevant content
-4. **Builds a knowledge graph**: connections between concepts for deeper understanding
+1. **Clears** the existing knowledge base completely
+2. **Discards** sources marked as deleted
+3. **Fetches** content for any pending sources (e.g., new URLs that haven't been scraped yet)
+4. **Re-processes** all active sources from scratch to build the new knowledge base
 5. **Activates** the new knowledge for the bot to use
 
-<Warning>The bot **will not respond** to questions while a rebuild is in progress. Plan rebuilds during low-traffic hours to minimize impact on your community.</Warning>
+<Warning>The bot **will not respond** to questions while a rebuild is in progress, to avoid giving incorrect or incomplete answers.</Warning>
 
 <Tip>You can continue using the dashboard while a rebuild is in progress. The rebuild only affects the bot's ability to answer questions temporarily.</Tip>
 
@@ -66,7 +62,7 @@ Each plan includes a limited number of rebuilds per day:
 | Free | 1 |
 | Starter | 3 |
 | Pro | 10 |
-| Enterprise | 20 |
+| Business | 20 |
 
 <Note>Once you reach your daily rebuild limit, you'll need to wait until the next day or upgrade your plan for more rebuilds.</Note>
 
@@ -75,7 +71,7 @@ Each plan includes a limited number of rebuilds per day:
 | Practice | Why |
 |----------|-----|
 | Rebuild after batch uploads | More efficient than rebuilding after each file |
-| Don't rebuild during peak hours | Rebuilds use processing resources |
+| Know the bot pauses during rebuilds | It won't respond to questions until complete |
 | Check the status before testing | Make sure the rebuild finished successfully |
 | Rebuild weekly for Q&A learning | Incorporate the latest moderator answers |
 

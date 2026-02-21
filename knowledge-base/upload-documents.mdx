@@ -31,13 +31,13 @@ The **Files** tab in the Document Manager lets you upload files that BestChatBot
   </Step>
 
   <Step title="Wait for Processing">
-    Each file goes through a processing pipeline. You'll see a progress indicator for each file as it's being analyzed and added to your knowledge base.
+    You'll see a progress indicator for each file as it's being processed.
   </Step>
 
   <Step title="Rebuild Your Knowledge Base">
     After uploading, click **Rebuild Knowledge Base** to incorporate the new content into the bot's active knowledge.
 
-    <Warning>The bot won't use newly uploaded content until you rebuild the knowledge base.</Warning>
+    <Warning>The bot won't use newly uploaded content until you rebuild the knowledge base. During the rebuild, the bot will **not respond** to questions to avoid giving incorrect or incomplete answers.</Warning>
   </Step>
 </Steps>
 
@@ -52,6 +52,8 @@ Once uploaded, your documents appear in a list where you can:
 - **View** the document name and upload date
 - **Delete** documents you no longer need
 - **See status**: whether the document has been processed successfully
+
+<Note>Changes to your documents (new uploads or deletions) are **not applied** until you perform a [Knowledge Base Rebuild](/knowledge-base/rebuild). The bot continues using the previous version of the knowledge base until then.</Note>
 
 ## Tips for Better Results
 

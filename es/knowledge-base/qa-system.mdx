@@ -19,8 +19,8 @@ Una de las funciones mas poderosas de BestChatBot es su capacidad de **aprender 
     Un moderador o administrador del servidor proporciona una respuesta util a la pregunta.
   </Step>
 
-  <Step title="BestChatBot Captura el Intercambio">
-    El bot detecta automaticamente el par pregunta-respuesta y lo almacena como una **entrada Q&A** en tu base de conocimiento.
+  <Step title="BestChatBot Evalua el Intercambio">
+    El bot aplica filtrado inteligente para determinar si la respuesta del moderador aporta informacion valiosa y relevante para la base de conocimiento. Solo las respuestas que contribuyen conocimiento nuevo y factual se capturan como **entradas Q&A**. Las respuestas casuales, mensajes fuera de tema e informacion redundante se filtran automaticamente.
   </Step>
 
   <Step title="Preguntas Futuras Obtienen Mejores Respuestas">
@@ -67,7 +67,9 @@ Haz clic en cualquier entrada Q&A para ver la pregunta completa y la respuesta d
   <img src="/images/qa-screen-detailed-front-end.png" alt="Modal de Contenido Q&A mostrando la pregunta y respuesta del moderador" />
 </Frame>
 
-<Note>Las entradas Q&A se incluyen en la base de conocimiento igual que los documentos subidos y las paginas extraidas. Pasan por el mismo pipeline de procesamiento.</Note>
+<Note>Las entradas de Q&A se incluyen en la base de conocimiento como documentos subidos y paginas extraidas. Despues de un [rebuild](/es/knowledge-base/rebuild), el bot puede usarlas para responder preguntas.</Note>
+
+<Warning>El Sistema de Aprendizaje Q&A es una funcion **exclusiva de Discord**. No esta disponible para workspaces de widget web.</Warning>
 
 ## Consejos Para Mejor Aprendizaje Q&A
 
