@@ -1,70 +1,68 @@
 ---
-title: "Seguimiento de Uso"
-description: "Monitorea tu uso mensual de respuestas y mantente dentro de los limites de tu plan."
+title: "Uso del plan"
+description: "Monitoriza tu uso mensual de respuestas y mantente dentro de los limites de tu plan."
 icon: "chart-bar"
 ---
 
-# Seguimiento de Uso
+# Uso del plan
 
-BestChatBot rastrea tus **respuestas mensuales del bot** para que siempre sepas cuanto de tu plan has usado. El uso se reinicia al comienzo de cada ciclo de facturacion.
+BestChatBot rastrea tus **respuestas del widget mensuales** para que siempre sepas cuanto de tu plan has gastado. El uso se reinicia al principio de cada ciclo de facturacion.
 
-## Ver Tu Uso
+## Ver tu uso
 
-En el dashboard, encontraras informacion de uso en varios lugares:
+En el dashboard, encuentras la info de uso en varios sitios:
 
-### Indicador de Uso
-Un indicador rapido en la barra lateral o barra superior muestra tu uso actual como porcentaje del limite de tu plan.
+### Indicador de uso
+Un indicador rapido en el sidebar o la barra superior muestra tu uso actual como porcentaje del limite de tu plan.
 
-### Grafico de Uso
-La seccion de **Facturacion** incluye un grafico mostrando tu uso de respuestas a lo largo del tiempo, para que puedas ver tendencias y predecir cuando podrias acercarte a tu limite.
+### Grafica de uso
+La seccion **Billing** incluye una grafica del uso de respuestas en el tiempo, asi ves tendencias y prevees cuando te acercas al limite.
 
-### Distribucion por Workspace
-Si tienes multiples workspaces, puedes ver como se distribuye el uso entre ellos. Esto te ayuda a identificar que comunidades son mas activas.
+### Distribucion por workspace
+Si tienes varios workspaces (varios widgets), puedes ver como se distribuye el uso entre ellos. Te ayuda a identificar que sitios son mas activos.
 
 <Frame>
-  <img src="/images/billing-screen.png" alt="Pagina de facturacion mostrando detalles de suscripcion, estadisticas de uso, grafico diario y distribucion por workspace" />
+  <img src="/images/billing-screen.png" alt="Pagina de Facturacion con suscripcion, uso, grafico y distribucion por workspace" />
 </Frame>
 
-## Que Cuenta Como Respuesta
+## Que cuenta como respuesta
 
-Cada vez que el bot envia una respuesta — ya sea en Discord o a traves del widget web — cuenta como **una respuesta del bot**. Lo siguiente **no** cuenta:
+El widget responde a **todos** los mensajes del visitante — no hay detector de preguntas ni logica de descarte. Cada respuesta cuenta como **una respuesta del bot**. Lo siguiente **no** cuenta:
 
-| Accion | Cuenta Como Respuesta? |
+| Accion | Cuenta como respuesta? |
 |--------|------------------------|
-| El bot responde una pregunta en Discord | Si |
-| El bot responde a traves del widget web | Si |
-| Pruebas en la pagina de Pruebas de Recuperacion | No |
-| El bot omite un mensaje (sin respuesta relevante) | No |
+| El widget responde a un mensaje del visitante | Si |
+| Pruebas en la pagina Retrieval Testing | No |
 | Reconstruir la base de conocimiento | No |
 | Subir documentos | No |
 
-<Tip>Usa la pagina de **Pruebas de Recuperacion** para probar todo lo que quieras. No afecta tu conteo de respuestas.</Tip>
+<Tip>Usa la pagina **Retrieval Testing** para probar todo lo que quieras. No afecta a tu contador.</Tip>
 
-## Acercandote a Tu Limite
+## Acercandote al limite
 
-Cuando estes cerca de tu limite mensual:
+Cuando te acercas al limite mensual:
 
-- El indicador de uso cambia de color para advertirte
-- Puedes mejorar tu plan en cualquier momento para obtener mas respuestas
+- El indicador de uso cambia de color para avisarte
+- Puedes actualizar tu plan en cualquier momento para tener mas respuestas
 
-<Warning>Una vez que alcances tu limite mensual, el bot dejara de responder en Discord hasta el siguiente ciclo de facturacion o hasta que mejores tu plan.</Warning>
+<Warning>Cuando alcanzas el limite mensual, el widget deja de responder a visitantes hasta el siguiente ciclo de facturacion o hasta que actualices el plan.</Warning>
 
-## Uso por Plan
+## Uso por plan
 
-| Plan | Respuestas Discord/mes | Respuestas Widget/mes |
-|------|------------------------|-----------------------|
-| Free | 20 | 75 |
-| Starter | 200 | 800 |
-| Pro | 500 | 2,000 |
-| Business | 1,000 | 5,000 |
+| Plan | Respuestas del widget/mes |
+|------|---------------------------|
+| Free | 75 |
+| Starter | 800 |
+| Pro | 2.000 |
+| Business | 5.000 |
 
-## Siguientes Pasos
+## Proximos pasos
 
 <CardGroup cols={2}>
-  <Card title="Mejorar Tu Plan" icon="arrow-up" href="/billing/manage-subscription">
-    Necesitas mas respuestas? Mejora en cualquier momento.
+  <Card title="Actualizar tu plan" icon="arrow-up" href="/es/billing/manage-subscription">
+    Necesitas mas respuestas? Sube de plan cuando quieras.
   </Card>
-  <Card title="Ver Precios" icon="credit-card" href="/billing/pricing-plans">
+  <Card title="Ver precios" icon="credit-card" href="/es/billing/pricing-plans">
     Compara todos los planes disponibles.
   </Card>
 </CardGroup>

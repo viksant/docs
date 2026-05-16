@@ -1,38 +1,30 @@
 ---
-title: "Preguntas Frecuentes"
+title: "FAQ"
 description: "Respuestas a las preguntas mas comunes sobre BestChatBot."
 icon: "circle-question"
 ---
 
-# Preguntas Frecuentes
+# Preguntas frecuentes
 
-## Es BestChatBot solo otro chatbot?
+## BestChatBot es solo otro chatbot mas?
 
-No. La mayoria de chatbots siguen guiones rigidos. BestChatBot es un agente de IA entrenado con **tus** datos de negocio. Aprende de las correcciones de moderadores y la informacion valiosa compartida en tu comunidad, volviendose mas inteligente con el tiempo.
+No. La mayoria de chatbots siguen scripts rigidos. BestChatBot es un agente IA entrenado con **tus** datos de negocio, sacando de los documentos y URLs que subes. Tambien se puede ajustar el tono y la longitud de respuesta para que coincida con tu marca.
 
 ## Puede reemplazar al soporte humano?
 
-Para preguntas repetitivas y de alto volumen, si. BestChatBot maneja las preguntas tipo FAQ que consumen el tiempo de tu equipo. Para casos complejos y situaciones especiales, reduce la carga de trabajo para que tu equipo humano se enfoque en lo que importa.
+Para preguntas repetitivas de alto volumen, si. BestChatBot maneja las preguntas tipo FAQ que consumen el tiempo de tu equipo. Para casos extremos y problemas complejos, reduce la carga para que tu equipo humano se centre en lo que importa.
 
-## Funciona con Discord?
+## Como funciona en sitios web?
 
-Si. BestChatBot fue creado para comunidades, no solo para sitios web. Vive dentro de tu servidor de Discord y responde a mensajes de forma natural. Sin comandos slash, sin sintaxis especial.
+Embebes un solo script tag en tu HTML. Aparece una burbuja de chat en la esquina inferior derecha de cada pagina donde el snippet este cargado. Los visitantes pulsan la burbuja, hacen una pregunta y reciben respuestas instantaneas desde tu base de conocimiento — las respuestas se transmiten palabra por palabra con fuentes citadas.
 
-## Funciona en sitios web?
+## Que tan rapido puedo lanzarlo?
 
-Si. Puedes integrar un widget de chat en tu sitio web. Los visitantes obtienen respuestas instantaneas de tu base de conocimiento directamente en tu sitio.
+La mayoria de equipos despliegan en minutos, no dias. Crea una cuenta, configura el widget, sube unos documentos y estas en vivo.
 
-## Puedo usar Discord y un widget web a la vez?
+## Necesito conocimientos tecnicos?
 
-Si, pero cada plataforma requiere su propio workspace. Cada workspace tiene una base de conocimiento aislada. Crea un workspace para Discord y otro para tu widget web.
-
-## Que tan rapido puedo lanzar?
-
-La mayoria de equipos despliegan en minutos, no dias. Crea una cuenta, invita al bot o configura el widget, sube unos documentos y estas en vivo.
-
-## Necesito habilidades tecnicas?
-
-Para nada. El dashboard maneja todo. Sube archivos arrastrando y soltando. Activa canales con un clic. Para el widget web, solo pega un script tag en tu sitio.
+Para nada. El dashboard se encarga de todo. Sube archivos arrastrando. Para instalar el widget, pega un solo script tag en tu sitio (o usa las instrucciones especificas para WordPress, Shopify, Wix, Squarespace, Next.js, etc.).
 
 ## Que tipos de archivo puedo subir?
 
@@ -42,25 +34,21 @@ BestChatBot acepta:
 - **Texto** (.txt)
 - **Markdown** (.md)
 
-## Como aprende el bot de mi servidor de Discord?
-
-Cuando los moderadores responden preguntas en canales habilitados, BestChatBot evalua si la respuesta aporta informacion valiosa y relevante para la base de conocimiento. Solo el conocimiento util y novedoso se captura — las respuestas casuales y mensajes fuera de tema se filtran automaticamente. Esto sucede a traves del Sistema de Aprendizaje Q&A, que es una funcion exclusiva de Discord.
-
 ## Que pasa durante una reconstruccion de la base de conocimiento?
 
-La reconstruccion reemplaza toda la base de conocimiento con una version nueva. Las fuentes marcadas como eliminadas se descartan, las fuentes pendientes se obtienen y agregan, y todas las fuentes activas se re-procesan. El bot no respondera preguntas durante la reconstruccion.
+La reconstruccion reemplaza la base de conocimiento entera con una version fresca. Las fuentes marcadas como eliminadas se descartan, las fuentes pendientes se traen y se anaden, y todas las fuentes activas se reprocesan. El widget no respondera a preguntas durante la reconstruccion.
 
 ## Que pasa cuando alcanzo mi limite de respuestas?
 
-El bot deja de responder hasta que tu siguiente ciclo de facturacion comience o mejores tu plan. Tu base de conocimiento y configuracion permanecen intactas.
+El widget deja de responder hasta que empieza el siguiente ciclo de facturacion o actualizas tu plan. Tu base de conocimiento y tus ajustes quedan intactos.
 
 ## La facturacion es por workspace o por cuenta?
 
 La facturacion es por **cuenta**, no por workspace. Tu suscripcion cubre todos los workspaces bajo tu cuenta.
 
-## Puedo usarlo en multiples servidores de Discord?
+## Puedo usar varios widgets?
 
-Si. Cada plan incluye un numero determinado de workspaces. Un workspace corresponde a un servidor de Discord (o un widget web). Los planes superiores te dan mas workspaces.
+Si. Cada plan incluye un numero de workspaces. Cada workspace ejecuta un widget. Planes superiores te dan mas workspaces — util si gestionas varios sitios o marcas.
 
 | Plan | Workspaces |
 |------|------------|
@@ -69,18 +57,18 @@ Si. Cada plan incluye un numero determinado de workspaces. Un workspace correspo
 | Pro | 5 |
 | Business | 10 |
 
-## Mis datos estan seguros?
+## Mis datos son seguros?
 
-Si. Cada workspace tiene su propio almacen de datos aislado. El contenido de tu base de conocimiento nunca se comparte entre workspaces ni con otros clientes.
+Si. Cada workspace tiene su propio almacen de datos aislado. El contenido de tu base de conocimiento nunca se comparte entre workspaces ni con otros clientes. El widget se ejecuta dentro de un Shadow DOM cerrado, asi que no puede filtrar datos a la pagina anfitriona ni viceversa.
 
-## Puedo cancelar en cualquier momento?
+## Puedo cancelar cuando quiera?
 
-Si. Cancela desde el portal de cliente de Stripe en tu configuracion de Facturacion. Tu plan permanece activo hasta el final del periodo de facturacion actual, luego vuelve a Free. Tus datos se preservan.
+Si. Cancela desde el portal de cliente de Stripe en los ajustes de Facturacion. Tu plan sigue activo hasta el final del periodo de facturacion actual y luego pasa a Free. Tus datos se conservan.
 
-## Que pasa si el bot da una respuesta incorrecta?
+## Que hago si el bot da una respuesta equivocada?
 
-Revisa la pagina de [Respuestas del Bot](/es/using-the-bot/bot-responses) para encontrar la respuesta incorrecta, luego actualiza tu base de conocimiento con mejor contenido. Despues de reconstruir, el bot dara respuestas mejoradas.
+Revisa la pagina [Respuestas del bot](/es/using-the-bot/bot-responses) para encontrar la mala respuesta y actualiza tu base de conocimiento con mejor contenido. Tras reconstruir, el bot dara mejores respuestas.
 
-## Aun tienes preguntas?
+## Tienes mas preguntas?
 
-Contactanos en [support@bestchatbot.io](mailto:support@bestchatbot.io) o unete a nuestra comunidad de Discord.
+Escribenos a [support@bestchatbot.io](mailto:support@bestchatbot.io).

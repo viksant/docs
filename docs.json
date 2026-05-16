@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "maple",
   "name": "BestChatBot",
-  "description": "Learn how to set up, configure, and get the most out of BestChatBot for your Discord community.",
+  "description": "Learn how to set up, configure, and get the most out of BestChatBot — the AI chat widget for your website.",
   "logo": {
     "light": "/logo/light.png",
     "dark": "/logo/dark.png"
@@ -42,8 +42,7 @@
             "group": "Setup",
             "pages": [
               "setup/create-account",
-              "setup/invite-bot",
-              "setup/select-channels"
+              "setup/invite-bot"
             ]
           },
           {
@@ -51,14 +50,12 @@
             "pages": [
               "knowledge-base/upload-documents",
               "knowledge-base/add-urls",
-              "knowledge-base/qa-system",
               "knowledge-base/rebuild"
             ]
           },
           {
             "group": "Using the Bot",
             "pages": [
-              "using-the-bot/how-bot-responds",
               "using-the-bot/retrieval-testing",
               "using-the-bot/bot-responses",
               "using-the-bot/knowledge-graph"
@@ -67,8 +64,7 @@
           {
             "group": "Customization",
             "pages": [
-              "customization/response-preferences",
-              "customization/channel-management"
+              "customization/response-preferences"
             ]
           },
           {
@@ -82,7 +78,6 @@
           {
             "group": "Integrations",
             "pages": [
-              "integrations/discord",
               "integrations/web-widget"
             ]
           },
@@ -108,8 +103,7 @@
             "group": "Configuracion",
             "pages": [
               "es/setup/create-account",
-              "es/setup/invite-bot",
-              "es/setup/select-channels"
+              "es/setup/invite-bot"
             ]
           },
           {
@@ -117,14 +111,12 @@
             "pages": [
               "es/knowledge-base/upload-documents",
               "es/knowledge-base/add-urls",
-              "es/knowledge-base/qa-system",
               "es/knowledge-base/rebuild"
             ]
           },
           {
             "group": "Usar el Bot",
             "pages": [
-              "es/using-the-bot/how-bot-responds",
               "es/using-the-bot/retrieval-testing",
               "es/using-the-bot/bot-responses",
               "es/using-the-bot/knowledge-graph"
@@ -133,8 +125,7 @@
           {
             "group": "Personalizacion",
             "pages": [
-              "es/customization/response-preferences",
-              "es/customization/channel-management"
+              "es/customization/response-preferences"
             ]
           },
           {
@@ -148,7 +139,6 @@
           {
             "group": "Integraciones",
             "pages": [
-              "es/integrations/discord",
               "es/integrations/web-widget"
             ]
           },

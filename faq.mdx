@@ -8,31 +8,23 @@ icon: "circle-question"
 
 ## Is BestChatBot just another chatbot?
 
-No. Most chatbots follow rigid scripts. BestChatBot is an AI agent trained on **your** business data. It learns from moderator corrections and valuable information shared in your community, getting smarter over time.
+No. Most chatbots follow rigid scripts. BestChatBot is an AI agent trained on **your** business data, drawing from the documents and URLs you upload. It can also be tuned for tone and response length to match your brand.
 
 ## Can it replace human support?
 
 For repetitive, high-volume questions, yes. BestChatBot handles the FAQ-type questions that eat up your team's time. For edge cases and complex issues, it reduces workload so your human team can focus on what matters.
 
-## Does it work with Discord?
+## How does it work on websites?
 
-Yes. BestChatBot was built for communities, not just websites. It lives inside your Discord server and responds to messages naturally. No slash commands, no special syntax.
-
-## Does it work on websites?
-
-Yes. You can embed a chat widget on your website. Visitors get instant answers from your knowledge base directly on your site.
-
-## Can I use both Discord and a web widget?
-
-Yes, but each platform requires its own workspace. Each workspace has an isolated knowledge base. Create one workspace for Discord and another for your web widget.
+You embed a single script tag in your HTML. A chat bubble appears in the bottom-right of every page where the snippet is loaded. Visitors click the bubble, ask a question, and get instant answers from your knowledge base — answers stream word by word with cited sources.
 
 ## How fast can I launch?
 
-Most teams deploy in minutes, not days. Create an account, invite the bot or set up the widget, upload a few documents, and you're live.
+Most teams deploy in minutes, not days. Create an account, configure the widget, upload a few documents, and you're live.
 
 ## Do I need technical skills?
 
-Not at all. The dashboard handles everything. Upload files by dragging and dropping. Toggle channels with a click. For the web widget, just paste one script tag on your site.
+Not at all. The dashboard handles everything. Upload files by dragging and dropping. To install the widget, paste one script tag on your site (or use the platform-specific instructions for WordPress, Shopify, Wix, Squarespace, Next.js, etc.).
 
 ## What file types can I upload?
 
@@ -42,25 +34,21 @@ BestChatBot accepts:
 - **Text** (.txt)
 - **Markdown** (.md)
 
-## How does the bot learn from my Discord server?
-
-When moderators answer questions in enabled channels, BestChatBot evaluates whether the answer adds valuable, knowledge-base-related information. Only useful, novel knowledge is captured — casual replies and off-topic messages are automatically filtered out. This happens through the Q&A Learning System, which is a Discord-only feature.
-
 ## What happens during a knowledge base rebuild?
 
-The rebuild replaces the entire knowledge base with a fresh version. Sources marked as deleted are discarded, pending sources are fetched and added, and all active sources are re-processed. The bot will not respond to questions during the rebuild.
+The rebuild replaces the entire knowledge base with a fresh version. Sources marked as deleted are discarded, pending sources are fetched and added, and all active sources are re-processed. The widget will not respond to questions during the rebuild.
 
 ## What happens when I hit my response limit?
 
-The bot stops responding until your next billing cycle starts or you upgrade your plan. Your knowledge base and settings stay intact.
+The widget stops responding until your next billing cycle starts or you upgrade your plan. Your knowledge base and settings stay intact.
 
 ## Is billing per workspace or per account?
 
 Billing is per **account**, not per workspace. Your subscription covers all workspaces under your account.
 
-## Can I use it on multiple Discord servers?
+## Can I use multiple widgets?
 
-Yes. Each plan includes a set number of workspaces. One workspace maps to one Discord server (or one web widget). Higher plans give you more workspaces.
+Yes. Each plan includes a set number of workspaces. Each workspace runs one widget. Higher plans give you more workspaces — useful if you manage multiple sites or brands.
 
 | Plan | Workspaces |
 |------|------------|
@@ -71,7 +59,7 @@ Yes. Each plan includes a set number of workspaces. One workspace maps to one Di
 
 ## Is my data secure?
 
-Yes. Each workspace has its own isolated data store. Your knowledge base content is never shared between workspaces or with other customers.
+Yes. Each workspace has its own isolated data store. Your knowledge base content is never shared between workspaces or with other customers. The widget itself runs inside a closed Shadow DOM, so it cannot leak data into the host page or vice versa.
 
 ## Can I cancel anytime?
 
@@ -83,4 +71,4 @@ Check the [Bot Responses](/using-the-bot/bot-responses) page to find the bad ans
 
 ## Still have questions?
 
-Reach out to us at [support@bestchatbot.io](mailto:support@bestchatbot.io) or join our Discord community.
+Reach out to us at [support@bestchatbot.io](mailto:support@bestchatbot.io).

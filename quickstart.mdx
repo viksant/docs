@@ -1,12 +1,12 @@
 ---
 title: "Quickstart"
-description: "Get your AI chatbot up and running in 5 minutes."
+description: "Get your AI chat widget up and running in 5 minutes."
 icon: "rocket"
 ---
 
 # 5-Minute Setup Guide
 
-Here is the fastest way to go from zero to a working AI chatbot.
+Here is the fastest way to go from zero to a working AI chat widget on your website.
 
 <Steps>
   <Step title="Create Your Account" icon="user-plus">
@@ -14,34 +14,46 @@ Here is the fastest way to go from zero to a working AI chatbot.
   </Step>
 
   <Step title="Create a Workspace" icon="grid-2">
-    After signing in, create a new workspace. A workspace holds your knowledge base, settings, and integrations.
+    After signing in, create a new workspace. A workspace holds your knowledge base, settings, and widget configuration.
 
-    <Tip>Each workspace is tied to one platform — either a Discord server or a web widget. Create separate workspaces if you need both.</Tip>
+    <Tip>Each workspace runs one chat widget with its own isolated knowledge base. Create separate workspaces if you need to manage multiple websites or brands.</Tip>
   </Step>
 
-  <Step title="Choose Your Platform" icon="window-maximize">
-    Pick how you want to deploy your chatbot:
+  <Step title="Configure Your Widget" icon="window-maximize">
+    From your workspace, open the **Web Widget** setup and fill in:
 
-    - **Discord** — add a bot to your Discord server
-    - **Web Widget** — embed a chat widget on your website
+    - **Name** — a label (e.g., "My Website Widget")
+    - **Allowed Origins** — the domains where the widget may run (supports wildcards like `*.example.com`)
+    - **Primary Color** — your brand color in hex
 
-    For Discord, you'll be asked to sign in with your Discord account to authorize the bot on your server. For the web widget, you'll get a code snippet to paste on your site.
+    The dashboard generates a unique embed snippet for you.
   </Step>
 
   <Step title="Add Knowledge" icon="book-open">
-    Give the bot something to learn from. You have three options:
+    Give the bot something to learn from. You have two options:
 
     - **Upload Documents**: Drag and drop PDFs, DOCX, TXT, or MD files
-    - **Add URLs**: Paste a website URL and let BestChatBot scrape the content
-    - **Let it learn from Discord**: The bot picks up valuable moderator answers that add knowledge-base-related information. It applies intelligent filtering automatically, so only useful knowledge is captured.
+    - **Add URLs**: Paste a website URL and let BestChatBot scrape the content (direct URL, sitemap, or full crawl)
 
     <Note>After adding content, click **Rebuild Knowledge Base** so the bot can process your data.</Note>
   </Step>
 
-  <Step title="Test and Go Live" icon="circle-check">
-    Use the **Retrieval Testing** page in your dashboard to ask questions and check the bot's answers before going live.
+  <Step title="Embed on Your Site" icon="code">
+    Copy the script tag from your widget's **Installation** tab and paste it just before the closing `</body>` tag on any page where you want the widget to appear.
 
-    Once you're satisfied, the bot is already active. No extra step needed.
+    ```html
+    <script
+      src="https://bestchatbot.io/widget/v1/chat.js"
+      data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+      defer
+    ></script>
+    ```
+  </Step>
+
+  <Step title="Test and Go Live" icon="circle-check">
+    Open your website — a chat bubble appears in the bottom-right corner. Click it and try a question. You can also use the **Retrieval Testing** page in your dashboard to dry-run the bot before opening it to visitors.
+
+    Once you're satisfied, the widget is already live for everyone visiting your site.
   </Step>
 </Steps>
 
@@ -58,6 +70,6 @@ Here is the fastest way to go from zero to a working AI chatbot.
     Set the bot's tone and response length.
   </Card>
   <Card title="View Bot Responses" icon="chart-line" href="/using-the-bot/bot-responses">
-    Monitor how the bot performs.
+    Monitor how the widget performs.
   </Card>
 </CardGroup>

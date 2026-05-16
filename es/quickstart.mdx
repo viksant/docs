@@ -1,63 +1,75 @@
 ---
-title: "Inicio Rapido"
-description: "Pon tu chatbot de IA en marcha en 5 minutos."
+title: "Guia rapida"
+description: "Pon en marcha tu widget de chat IA en 5 minutos."
 icon: "rocket"
 ---
 
-# Guia de Configuracion en 5 Minutos
+# Configuracion en 5 minutos
 
-Esta es la forma mas rapida de pasar de cero a un chatbot de IA funcionando.
+La forma mas rapida de pasar de cero a un widget IA funcionando en tu web.
 
 <Steps>
-  <Step title="Crea Tu Cuenta" icon="user-plus">
-    Ve a [bestchatbot.io](https://bestchatbot.io) y haz clic en **Comenzar**. Registrate con tu **cuenta de Google** o **email y contrasena**.
+  <Step title="Crea tu cuenta" icon="user-plus">
+    Ve a [bestchatbot.io](https://bestchatbot.io) y pulsa **Empezar**. Registrate con tu **cuenta de Google** o con **email y contrasena**.
   </Step>
 
-  <Step title="Crea un Workspace" icon="grid-2">
-    Despues de iniciar sesion, crea un nuevo workspace. Un workspace contiene tu base de conocimiento, configuracion e integraciones.
+  <Step title="Crea un workspace" icon="grid-2">
+    Tras iniciar sesion, crea un nuevo workspace. El workspace guarda tu base de conocimiento, ajustes y configuracion del widget.
 
-    <Tip>Cada workspace esta vinculado a una plataforma — un servidor de Discord o un widget web. Crea workspaces separados si necesitas ambos.</Tip>
+    <Tip>Cada workspace ejecuta un widget de chat con su propia base de conocimiento aislada. Crea workspaces separados si gestionas varios sitios o marcas.</Tip>
   </Step>
 
-  <Step title="Elige Tu Plataforma" icon="window-maximize">
-    Elige como quieres desplegar tu chatbot:
+  <Step title="Configura tu widget" icon="window-maximize">
+    Desde tu workspace, abre la configuracion del **Web Widget** y rellena:
 
-    - **Discord** — agrega un bot a tu servidor de Discord
-    - **Web Widget** — integra un widget de chat en tu sitio web
+    - **Nombre** — una etiqueta (p. ej., "Widget de mi sitio")
+    - **Origenes permitidos** — los dominios donde el widget puede ejecutarse (soporta comodines como `*.example.com`)
+    - **Color primario** — el color de tu marca en hex
 
-    Para Discord, se te pedira iniciar sesion con tu cuenta de Discord para autorizar al bot en tu servidor. Para el web widget, obtendras un codigo para pegar en tu sitio.
+    El dashboard genera un snippet de embed unico para ti.
   </Step>
 
-  <Step title="Agrega Conocimiento" icon="book-open">
-    Dale al bot algo de lo que aprender. Tienes tres opciones:
+  <Step title="Anade conocimiento" icon="book-open">
+    Dale al bot algo de lo que aprender. Dos opciones:
 
-    - **Subir Documentos**: Arrastra y suelta PDFs, DOCX, TXT o archivos MD
-    - **Agregar URLs**: Pega una URL de sitio web y deja que BestChatBot extraiga el contenido
-    - **Que aprenda de Discord**: El bot captura automaticamente las respuestas valiosas de los moderadores que contienen informacion relevante para la base de conocimiento, con filtrado inteligente automatico
+    - **Subir documentos**: arrastra y suelta PDFs, DOCX, TXT o MD
+    - **Anadir URLs**: pega una URL y deja que BestChatBot scrapee el contenido (URL directa, sitemap o crawl completo)
 
-    <Note>Despues de agregar contenido, haz clic en **Reconstruir Base de Conocimiento** para que el bot procese tus datos.</Note>
+    <Note>Tras anadir contenido, pulsa **Reconstruir base de conocimiento** para que el bot procese tus datos.</Note>
   </Step>
 
-  <Step title="Prueba y Lanza" icon="circle-check">
-    Usa la pagina de **Pruebas de Recuperacion** en tu dashboard para hacer preguntas y verificar las respuestas del bot antes de lanzar.
+  <Step title="Embebe en tu sitio" icon="code">
+    Copia el script tag desde la pestana **Instalacion** del widget y pegalo justo antes de la etiqueta `</body>` en cada pagina donde quieras el widget.
 
-    Cuando estes satisfecho, el bot ya esta activo. No se necesita ningun paso extra.
+    ```html
+    <script
+      src="https://bestchatbot.io/widget/v1/chat.js"
+      data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+      defer
+    ></script>
+    ```
+  </Step>
+
+  <Step title="Prueba y publica" icon="circle-check">
+    Abre tu web — aparece una burbuja de chat en la esquina inferior derecha. Pulsala y prueba una pregunta. Tambien puedes usar la pagina **Retrieval Testing** del dashboard para hacer pruebas en seco antes de abrirlo a visitantes.
+
+    Cuando estes contento, el widget ya esta en vivo para todos los visitantes de tu sitio.
   </Step>
 </Steps>
 
-## Siguientes Pasos
+## Proximos pasos
 
 <CardGroup cols={2}>
-  <Card title="Subir Documentos" icon="file-arrow-up" href="/es/knowledge-base/upload-documents">
-    Aprende como agregar archivos a tu base de conocimiento.
+  <Card title="Subir documentos" icon="file-arrow-up" href="/es/knowledge-base/upload-documents">
+    Aprende a anadir archivos a tu base de conocimiento.
   </Card>
-  <Card title="Agregar URLs" icon="globe" href="/es/knowledge-base/add-urls">
-    Extrae contenido de tu sitio web o documentacion.
+  <Card title="Anadir URLs" icon="globe" href="/es/knowledge-base/add-urls">
+    Scrapea contenido de tu web o documentacion.
   </Card>
-  <Card title="Personalizar Respuestas" icon="sliders" href="/es/customization/response-preferences">
-    Configura el tono y longitud de respuesta del bot.
+  <Card title="Personalizar respuestas" icon="sliders" href="/es/customization/response-preferences">
+    Define el tono y la longitud de las respuestas del bot.
   </Card>
-  <Card title="Ver Respuestas del Bot" icon="chart-line" href="/es/using-the-bot/bot-responses">
-    Monitorea como se desempena el bot.
+  <Card title="Ver respuestas del bot" icon="chart-line" href="/es/using-the-bot/bot-responses">
+    Monitoriza el rendimiento del widget.
   </Card>
 </CardGroup>

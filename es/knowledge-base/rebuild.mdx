@@ -1,87 +1,85 @@
 ---
-title: "Reconstruir Base de Conocimiento"
-description: "Cuando y como reconstruir tu base de conocimiento para activar nuevo contenido."
+title: "Reconstruir base de conocimiento"
+description: "Cuando y como reconstruir tu base de conocimiento para activar contenido nuevo."
 icon: "rotate"
 ---
 
-# Reconstruir Base de Conocimiento
+# Reconstruir base de conocimiento
 
-Despues de agregar o eliminar contenido (documentos, URLs o entradas Q&A) necesitas **reconstruir** la base de conocimiento. Esto procesa tu contenido y lo hace disponible para que el bot lo use al responder preguntas.
+Tras anadir o quitar contenido — documentos o URLs — necesitas **reconstruir** la base de conocimiento. Esto procesa tu contenido y lo deja disponible para que el bot lo use al responder.
 
-## Cuando Reconstruir
+## Cuando reconstruir
 
 Deberias reconstruir tu base de conocimiento cuando:
 
 - Subes nuevos documentos
-- Extraes nuevas URLs
-- Eliminas contenido existente
-- Quieres incorporar entradas Q&A recientes de Discord
+- Scrapeas nuevas URLs
+- Borras contenido existente
 
-<Warning>El nuevo contenido **no** esta disponible para el bot hasta que reconstruyas. Si subes un documento y no reconstruyes, el bot no sabra de su existencia.</Warning>
+<Warning>El contenido nuevo **no** esta disponible para el bot hasta que reconstruyes. Si subes un documento y no reconstruyes, el bot no sabra que existe.</Warning>
 
-## Como Reconstruir
+## Como reconstruir
 
 <Steps>
-  <Step title="Abrir el Panel de Base de Conocimiento">
-    En la barra lateral del dashboard, busca la seccion **Base de Conocimiento** o el boton de reconstruir en el Gestor de Documentos.
+  <Step title="Abre el panel de Base de conocimiento">
+    En el sidebar del dashboard, busca la seccion **Base de conocimiento** o el boton de reconstruir en el Document Manager.
   </Step>
 
-  <Step title="Hacer Clic en Reconstruir">
-    Haz clic en el boton **Reconstruir Base de Conocimiento** para iniciar el proceso.
+  <Step title="Pulsa Reconstruir">
+    Pulsa el boton **Reconstruir base de conocimiento** para iniciar el proceso.
   </Step>
 
-  <Step title="Esperar a que Termine">
-    Veras un indicador de progreso mostrando el estado de la reconstruccion. El tiempo depende de la cantidad y densidad de tu contenido — bases de conocimiento mas pequenas terminan rapido, mientras que las mas grandes con muchos documentos y URLs tardan mas.
+  <Step title="Espera a que termine">
+    Veras un indicador de progreso con el estado de la reconstruccion. El tiempo depende del volumen y densidad de tu contenido — bases pequenas terminan rapido, bases grandes con muchos documentos y URLs tardan mas.
   </Step>
 
-  <Step title="Verificar el Estado">
-    Una vez completa, el estado se actualizara para mostrar que la reconstruccion fue exitosa. El bot ahora usa tu contenido mas reciente.
+  <Step title="Verifica el estado">
+    Cuando termine, el estado se actualiza para mostrar que la reconstruccion fue exitosa. El bot ya esta usando tu ultimo contenido.
   </Step>
 </Steps>
 
-## Que Sucede Durante una Reconstruccion
+## Que pasa durante una reconstruccion
 
-Cuando reconstruyes, BestChatBot reemplaza toda la base de conocimiento con una version nueva construida a partir de tus fuentes actuales:
+Cuando reconstruyes, BestChatBot reemplaza la base de conocimiento entera con una version fresca construida desde tus fuentes actuales:
 
-1. **Limpia** la base de conocimiento existente completamente
+1. **Limpia** la base de conocimiento existente
 2. **Descarta** las fuentes marcadas como eliminadas
-3. **Obtiene** el contenido de fuentes pendientes (ej: URLs nuevas que aun no se han extraido)
-4. **Re-procesa** todas las fuentes activas desde cero para construir la nueva base de conocimiento
+3. **Trae** contenido para fuentes pendientes (p. ej., URLs nuevas sin scrapear)
+4. **Reprocesa** todas las fuentes activas desde cero
 5. **Activa** el nuevo conocimiento para que el bot lo use
 
-<Warning>El bot **no respondera** preguntas mientras una reconstruccion este en progreso, para evitar dar respuestas incorrectas o incompletas.</Warning>
+<Warning>El widget **no respondera** a preguntas mientras la reconstruccion esta en curso, para evitar respuestas incorrectas o incompletas.</Warning>
 
-<Tip>Puedes seguir usando el dashboard mientras una reconstruccion esta en progreso. La reconstruccion solo afecta la capacidad del bot de responder preguntas temporalmente.</Tip>
+<Tip>Puedes seguir usando el dashboard mientras la reconstruccion esta en curso. Solo afecta temporalmente a la capacidad del bot de responder.</Tip>
 
-## Limites de Rebuilds Diarios
+## Limites diarios de reconstruccion
 
 Cada plan incluye un numero limitado de reconstrucciones por dia:
 
-| Plan | Rebuilds Diarios |
-|------|------------------|
+| Plan | Reconstrucciones diarias |
+|------|--------------------------|
 | Free | 1 |
 | Starter | 1 |
 | Pro | 2 |
 | Business | 3 |
 
-<Note>Una vez que alcances tu limite diario de rebuilds, tendras que esperar hasta el dia siguiente o mejorar tu plan para obtener mas reconstrucciones.</Note>
+<Note>Al alcanzar tu limite diario, esperas al dia siguiente o actualizas tu plan para mas reconstrucciones.</Note>
 
-## Mejores Practicas de Reconstruccion
+## Buenas practicas
 
-| Practica | Por Que |
+| Practica | Por que |
 |----------|---------|
-| Reconstruir despues de subidas masivas | Mas eficiente que reconstruir despues de cada archivo |
-| El bot se pausa durante los rebuilds | No respondera preguntas hasta que termine |
-| Verificar el estado antes de probar | Asegurate de que la reconstruccion termino exitosamente |
-| Reconstruir semanalmente para aprendizaje Q&A | Incorporar las respuestas mas recientes de moderadores |
+| Reconstruye tras subidas en lote | Mas eficiente que reconstruir tras cada archivo |
+| Recuerda que el widget se pausa durante reconstrucciones | No responde hasta que termina |
+| Verifica el estado antes de probar | Asegurate de que termino bien |
 
-## Siguientes Pasos
+## Proximos pasos
 
 <CardGroup cols={2}>
-  <Card title="Probar Tu Bot" icon="flask" href="/es/using-the-bot/retrieval-testing">
-    Verifica que el bot responde correctamente despues de reconstruir.
+  <Card title="Prueba tu bot" icon="flask" href="/es/using-the-bot/retrieval-testing">
+    Verifica que el bot responde bien tras reconstruir.
   </Card>
-  <Card title="Ver Grafo de Conocimiento" icon="diagram-project" href="/es/using-the-bot/knowledge-graph">
+  <Card title="Ver grafo de conocimiento" icon="diagram-project" href="/es/using-the-bot/knowledge-graph">
     Explora las conexiones entre tu contenido.
   </Card>
 </CardGroup>

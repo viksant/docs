@@ -1,134 +1,81 @@
 ---
-title: "Deploy Your Agent"
-description: "Connect BestChatBot to Discord or embed it on your website."
+title: "Deploy Your Widget"
+description: "Configure the chat widget and embed it on your website."
 icon: "rocket"
 ---
 
-# Deploy Your AI Agent
+# Deploy Your AI Chat Widget
 
-After creating your workspace, choose where you want your AI agent to live. BestChatBot supports two platforms — you can set up one or both from the same account.
+After creating your workspace, configure the widget and paste a single script tag on your website. The widget appears as a floating chat bubble in the bottom-right corner of every page where the snippet is loaded.
 
-You'll see the **Choose Platform** dialog when setting up a new integration:
+## Configure Your Widget
 
-<Frame>
-  <img src="/images/add-new-discord-platform.png" alt="Choose Platform dialog showing Discord and Web Widget options" />
-</Frame>
+<Steps>
+  <Step title="Open the Setup Form">
+    From your workspace, open the **Web Widget** setup. You'll see fields for the widget's metadata and brand styling.
+  </Step>
 
-Select your platform below to follow the setup guide.
+  <Step title="Fill In the Fields">
+    - **Name** — a label for your widget (e.g., "My Website Widget")
+    - **Allowed Origins** — the domains where the widget may run, one per line. Supports wildcards (`*.example.com`). Leave empty to allow all.
+    - **Primary Color** — your brand color in hex (e.g., `#F97316`)
 
-<Tabs>
-  <Tab title="Discord Bot">
-    ## Connect to Discord
-
-    To add BestChatBot to your Discord server, you'll go through Discord's standard authorization flow.
-
-    <Steps>
-      <Step title="Select Discord">
-        In the **Choose Platform** dialog, click **Discord** — Connect your Discord server.
-      </Step>
-
-      <Step title="Sign In with Discord">
-        A Discord login window will open in your browser. Sign in with the Discord account that has **admin permissions** on the server you want to add the bot to.
-
-        <Note>This is Discord's standard OAuth flow. BestChatBot does not store your Discord password — Discord handles the authentication directly.</Note>
-      </Step>
-
-      <Step title="Choose Your Server">
-        After signing in, you'll see the servers where you have admin permissions. Select the server you want to add BestChatBot to.
-
-        <Frame>
-          <img src="/images/discord-server-selector-screen.png" alt="Discord authorization screen for selecting a server" />
-        </Frame>
-      </Step>
-
-      <Step title="Authorize Permissions">
-        Review the permissions BestChatBot needs and click **Authorize**. The bot requests only what's necessary to function:
-
-        - **Read Messages**: Sees questions from your community
-        - **Send Messages**: Replies with answers
-        - **Read Message History**: Understands conversation context
-        - **Embed Links**: Formats responses with rich content
-
-        <Warning>Do not remove the bot's permissions after inviting it. The bot needs all listed permissions to function properly.</Warning>
-      </Step>
-
-      <Step title="Confirm in Dashboard">
-        After authorization, you'll be redirected back to the dashboard. Your Discord server is now connected.
-      </Step>
-    </Steps>
-
-    ### Multiple Servers
-
-    You can add BestChatBot to multiple Discord servers. Each server becomes a separate **workspace** with its own knowledge base, channel configuration, and usage tracking.
-
-    <Tip>Switch between workspaces using the workspace selector at the top of the dashboard.</Tip>
+    Click **Create Widget** when ready.
 
     <Frame>
-      <img src="/images/workspace-switch-screen.png" alt="Workspace switcher in the dashboard" />
+      <img src="/images/widget-setup-fields.png" alt="Configure Web Widget form with Name, Allowed Origins, and Primary Color fields" />
     </Frame>
+  </Step>
 
-    ### Next Step
+  <Step title="Copy the Embed Code">
+    After creation, open the **Installation** tab on your widget settings. You'll see a single script tag like this:
 
-    <Card title="Select Channels" icon="list-check" href="/setup/select-channels">
-      Choose which Discord channels the bot should monitor.
-    </Card>
-  </Tab>
+    ```html
+    <script
+      src="https://bestchatbot.io/widget/v1/chat.js"
+      data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+      defer
+    ></script>
+    ```
 
-  <Tab title="Web Widget">
-    ## Embed on Your Website
+    <Frame>
+      <img src="/images/widget-embed-code.png" alt="Installation tab showing the embed code with a copy button" />
+    </Frame>
+  </Step>
 
-    Add a chat widget to your website so visitors can ask questions and get instant answers from your knowledge base.
+  <Step title="Paste on Your Website">
+    Add the script tag just before the closing `</body>` tag on any page where the widget should appear.
 
-    <Steps>
-      <Step title="Select Web Widget">
-        In the **Choose Platform** dialog, click **Web Widget** — Embed chat on your website.
-      </Step>
+    ```html
+    <body>
+      <!-- Your website content -->
 
-      <Step title="Copy the Embed Code">
-        After setup, go to your widget's **Installation** tab to get the embed code. It's a single script tag that looks like this:
+      <script
+        src="https://bestchatbot.io/widget/v1/chat.js"
+        data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+        defer
+      ></script>
+    </body>
+    ```
+  </Step>
 
-        ```html
-        <script
-          src="https://bestchatbot.io/widget/v1/chat.js"
-          data-api-key="your-api-key"
-          defer
-        ></script>
-        ```
+  <Step title="Verify It Works">
+    Open your website in a browser. You should see a chat bubble in the bottom-right corner. Click it to open the chat window and test a question.
 
-        <Frame>
-          <img src="/images/widget-embed-code.png" alt="Installation tab showing the embed code with a copy button" />
-        </Frame>
-      </Step>
+    <Frame>
+      <img src="/images/widget-chat-open.png" alt="Chat widget open on a website" />
+    </Frame>
+  </Step>
+</Steps>
 
-      <Step title="Paste on Your Website">
-        Add the script tag just before the closing `</body>` tag on any page where you want the widget to appear.
+## Multiple Widgets
 
-        ```html
-        <body>
-          <!-- Your website content -->
+Each workspace runs one widget. To manage multiple sites or brands, create one workspace per widget. Each workspace has its own knowledge base, configuration, and usage tracking.
 
-          <script
-            src="https://bestchatbot.io/widget/v1/chat.js"
-            data-api-key="your-api-key"
-            defer
-          ></script>
-        </body>
-        ```
-      </Step>
+<Tip>Switch between workspaces using the workspace selector at the top of the dashboard.</Tip>
 
-      <Step title="Verify It Works">
-        Open your website in a browser. You should see a chat bubble in the bottom-right corner. Click it to open the chat window and test a question.
+## Next Step
 
-        <Frame>
-          <img src="/images/widget-chat-open.png" alt="Chat widget open on a website" />
-        </Frame>
-      </Step>
-    </Steps>
-
-    ### Next Step
-
-    <Card title="Web Widget Guide" icon="window-maximize" href="/integrations/web-widget">
-      Full guide: customize colors, allowed origins, programmatic API, troubleshooting, and more.
-    </Card>
-  </Tab>
-</Tabs>
+<Card title="Web Widget Guide" icon="window-maximize" href="/integrations/web-widget">
+  Full guide: customize colors, allowed origins, programmatic API, troubleshooting, and more.
+</Card>

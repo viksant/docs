@@ -1,134 +1,81 @@
 ---
-title: "Desplegar Tu Agente"
-description: "Conecta BestChatBot a Discord o integralo en tu sitio web."
+title: "Despliega tu widget"
+description: "Configura el widget de chat y embedelo en tu sitio web."
 icon: "rocket"
 ---
 
-# Despliega Tu Agente de IA
+# Despliega tu widget de chat IA
 
-Despues de crear tu workspace, elige donde quieres que viva tu agente de IA. BestChatBot soporta dos plataformas — puedes configurar una o ambas desde la misma cuenta.
+Tras crear tu workspace, configura el widget y pega un solo script tag en tu sitio web. El widget aparece como una burbuja flotante de chat en la esquina inferior derecha de cada pagina donde el snippet este cargado.
 
-Veras el dialogo **Elegir Plataforma** al configurar una nueva integracion:
+## Configura tu widget
 
-<Frame>
-  <img src="/images/add-new-discord-platform.png" alt="Dialogo Elegir Plataforma mostrando opciones de Discord y Web Widget" />
-</Frame>
+<Steps>
+  <Step title="Abre el formulario de configuracion">
+    Desde tu workspace, abre la configuracion del **Web Widget**. Veras campos para los metadatos del widget y el estilo de marca.
+  </Step>
 
-Selecciona tu plataforma abajo para seguir la guia de configuracion.
+  <Step title="Rellena los campos">
+    - **Nombre** — una etiqueta para tu widget (p. ej., "Widget de mi sitio")
+    - **Origenes permitidos** — los dominios donde el widget puede ejecutarse, uno por linea. Soporta comodines (`*.example.com`). Deja vacio para permitir todos.
+    - **Color primario** — el color de tu marca en hex (p. ej., `#F97316`)
 
-<Tabs>
-  <Tab title="Bot de Discord">
-    ## Conectar a Discord
-
-    Para agregar BestChatBot a tu servidor de Discord, pasaras por el flujo de autorizacion estandar de Discord.
-
-    <Steps>
-      <Step title="Selecciona Discord">
-        En el dialogo **Elegir Plataforma**, haz clic en **Discord** — Conecta tu servidor de Discord.
-      </Step>
-
-      <Step title="Inicia Sesion con Discord">
-        Se abrira una ventana de login de Discord en tu navegador. Inicia sesion con la cuenta de Discord que tenga **permisos de administrador** en el servidor donde quieres agregar el bot.
-
-        <Note>Este es el flujo OAuth estandar de Discord. BestChatBot no almacena tu contrasena de Discord — Discord maneja la autenticacion directamente.</Note>
-      </Step>
-
-      <Step title="Elige Tu Servidor">
-        Despues de iniciar sesion, veras los servidores donde tienes permisos de administrador. Selecciona el servidor al que quieres agregar BestChatBot.
-
-        <Frame>
-          <img src="/images/discord-server-selector-screen.png" alt="Pantalla de autorizacion de Discord para seleccionar un servidor" />
-        </Frame>
-      </Step>
-
-      <Step title="Autoriza los Permisos">
-        Revisa los permisos que BestChatBot necesita y haz clic en **Autorizar**. El bot solo solicita lo necesario para funcionar:
-
-        - **Leer Mensajes**: Ve las preguntas de tu comunidad
-        - **Enviar Mensajes**: Responde con respuestas
-        - **Leer Historial de Mensajes**: Entiende el contexto de la conversacion
-        - **Insertar Enlaces**: Formatea respuestas con contenido enriquecido
-
-        <Warning>No elimines los permisos del bot despues de invitarlo. El bot necesita todos los permisos listados para funcionar correctamente.</Warning>
-      </Step>
-
-      <Step title="Confirma en el Dashboard">
-        Despues de la autorizacion, seras redirigido de vuelta al dashboard. Tu servidor de Discord ahora esta conectado.
-      </Step>
-    </Steps>
-
-    ### Multiples Servidores
-
-    Puedes agregar BestChatBot a multiples servidores de Discord. Cada servidor se convierte en un **workspace** separado con su propia base de conocimiento, configuracion de canales y seguimiento de uso.
-
-    <Tip>Cambia entre workspaces usando el selector de workspace en la parte superior del dashboard.</Tip>
+    Pulsa **Crear widget** cuando este listo.
 
     <Frame>
-      <img src="/images/workspace-switch-screen.png" alt="Selector de workspace en el dashboard" />
+      <img src="/images/widget-setup-fields.png" alt="Formulario de configuracion del Web Widget con Nombre, Origenes y Color" />
     </Frame>
+  </Step>
 
-    ### Siguiente Paso
+  <Step title="Copia el codigo de embed">
+    Tras la creacion, abre la pestana **Instalacion** en los ajustes del widget. Veras un script tag como este:
 
-    <Card title="Seleccionar Canales" icon="list-check" href="/es/setup/select-channels">
-      Elige que canales de Discord debe monitorear el bot.
-    </Card>
-  </Tab>
+    ```html
+    <script
+      src="https://bestchatbot.io/widget/v1/chat.js"
+      data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+      defer
+    ></script>
+    ```
 
-  <Tab title="Web Widget">
-    ## Integrar en Tu Sitio Web
+    <Frame>
+      <img src="/images/widget-embed-code.png" alt="Pestana Instalacion mostrando el codigo de embed con un boton de copiar" />
+    </Frame>
+  </Step>
 
-    Agrega un widget de chat a tu sitio web para que los visitantes puedan hacer preguntas y obtener respuestas instantaneas de tu base de conocimiento.
+  <Step title="Pegalo en tu sitio web">
+    Anade el script tag justo antes de la etiqueta `</body>` en cada pagina donde quieras que aparezca el widget.
 
-    <Steps>
-      <Step title="Selecciona Web Widget">
-        En el dialogo **Elegir Plataforma**, haz clic en **Web Widget** — Integra chat en tu sitio web.
-      </Step>
+    ```html
+    <body>
+      <!-- Contenido de tu web -->
 
-      <Step title="Copia el Codigo de Integracion">
-        Despues de la configuracion, ve a la pestana **Instalacion** de tu widget para obtener el codigo. Es un solo script tag que se ve asi:
+      <script
+        src="https://bestchatbot.io/widget/v1/chat.js"
+        data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+        defer
+      ></script>
+    </body>
+    ```
+  </Step>
 
-        ```html
-        <script
-          src="https://bestchatbot.io/widget/v1/chat.js"
-          data-api-key="tu-api-key"
-          defer
-        ></script>
-        ```
+  <Step title="Verifica que funciona">
+    Abre tu sitio en un navegador. Deberias ver una burbuja de chat en la esquina inferior derecha. Pulsa para abrir la ventana y prueba una pregunta.
 
-        <Frame>
-          <img src="/images/widget-embed-code.png" alt="Pestana de Instalacion mostrando el codigo de integracion con boton de copiar" />
-        </Frame>
-      </Step>
+    <Frame>
+      <img src="/images/widget-chat-open.png" alt="Widget de chat abierto en un sitio web" />
+    </Frame>
+  </Step>
+</Steps>
 
-      <Step title="Pega en Tu Sitio Web">
-        Agrega el script tag justo antes de la etiqueta de cierre `</body>` en cualquier pagina donde quieras que aparezca el widget.
+## Multiples widgets
 
-        ```html
-        <body>
-          <!-- El contenido de tu sitio web -->
+Cada workspace ejecuta un widget. Para gestionar varios sitios o marcas, crea un workspace por widget. Cada workspace tiene su propia base de conocimiento, configuracion y tracking de uso.
 
-          <script
-            src="https://bestchatbot.io/widget/v1/chat.js"
-            data-api-key="tu-api-key"
-            defer
-          ></script>
-        </body>
-        ```
-      </Step>
+<Tip>Cambia entre workspaces con el selector en la parte superior del dashboard.</Tip>
 
-      <Step title="Verifica que Funciona">
-        Abre tu sitio web en un navegador. Deberias ver una burbuja de chat en la esquina inferior derecha. Haz clic para abrir la ventana de chat y prueba una pregunta.
+## Proximo paso
 
-        <Frame>
-          <img src="/images/widget-chat-open.png" alt="Widget de chat abierto en un sitio web" />
-        </Frame>
-      </Step>
-    </Steps>
-
-    ### Siguiente Paso
-
-    <Card title="Guia del Web Widget" icon="window-maximize" href="/es/integrations/web-widget">
-      Guia completa: personalizar colores, origenes permitidos, API programatica, solucion de problemas y mas.
-    </Card>
-  </Tab>
-</Tabs>
+<Card title="Guia del Web Widget" icon="window-maximize" href="/es/integrations/web-widget">
+  Guia completa: colores personalizados, origenes permitidos, API programatica, troubleshooting y mas.
+</Card>

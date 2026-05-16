@@ -1,97 +1,97 @@
 ---
-title: "Agregar URLs"
-description: "Extrae contenido de sitios web para agregarlo a tu base de conocimiento."
+title: "Anadir URLs"
+description: "Scrapea contenido de webs para anadirlo a tu base de conocimiento."
 icon: "globe"
 ---
 
-# Agregar URLs
+# Anadir URLs
 
-La pestana **Enlaces** en el Gestor de Documentos te permite agregar contenido web a tu base de conocimiento. En vez de copiar y pegar de sitios web, BestChatBot extrae el contenido por ti.
+La pestana **Links** del Document Manager te permite anadir contenido web a tu base de conocimiento. En lugar de copiar y pegar de paginas web, BestChatBot scrapea el contenido por ti.
 
-## Metodos de Extraccion
+## Metodos de scraping
 
-BestChatBot ofrece tres formas de agregar contenido web:
+BestChatBot ofrece tres formas de anadir contenido web:
 
 <CardGroup cols={3}>
-  <Card title="URL Directa" icon="link">
-    Pega la URL de una sola pagina. El bot extrae solo esa pagina.
+  <Card title="URL directa" icon="link">
+    Pega una URL de una sola pagina. El bot scrapea solo esa pagina.
   </Card>
   <Card title="Sitemap" icon="sitemap">
-    Proporciona una URL de sitemap y BestChatBot descubre todas las paginas automaticamente.
+    Da una URL de sitemap y BestChatBot descubre todas las paginas automaticamente.
   </Card>
-  <Card title="Rastreo" icon="spider">
-    Ingresa una URL inicial y BestChatBot rastrea el sitio siguiendo enlaces para descubrir paginas.
+  <Card title="Crawl" icon="spider">
+    Introduce una URL inicial y BestChatBot recorre el sitio siguiendo enlaces para descubrir paginas.
   </Card>
 </CardGroup>
 
-## Como Agregar URLs
+## Como anadir URLs
 
 <Steps>
-  <Step title="Abrir el Gestor de Documentos">
-    Ve al **Gestor de Documentos** desde la barra lateral del dashboard y cambia a la pestana **Enlaces**.
+  <Step title="Abre Document Manager">
+    Ve a **Document Manager** en el sidebar del dashboard y cambia a la pestana **Links**.
   </Step>
 
-  <Step title="Elige Tu Metodo">
-    Selecciona si quieres agregar una **URL Directa**, **Sitemap** o **Rastreo**.
+  <Step title="Elige tu metodo">
+    Selecciona **URL directa**, **Sitemap** o **Crawl**.
   </Step>
 
-  <Step title="Ingresa la URL">
-    Pega la URL en el campo de entrada. Por ejemplo:
+  <Step title="Introduce la URL">
+    Pega la URL en el campo. Por ejemplo:
 
     - **Directa:** `https://tusitio.com/faq`
     - **Sitemap:** `https://tusitio.com/sitemap.xml`
-    - **Rastreo:** `https://tusitio.com/docs`
+    - **Crawl:** `https://tusitio.com/docs`
   </Step>
 
-  <Step title="Configurar Filtros de URL (Opcional)">
-    Al usar **Rastreo** o **Sitemap**, puedes configurar filtros de patron de URL para incluir o excluir paginas especificas. Esto te permite enfocar el extractor en el contenido que importa.
+  <Step title="Configura filtros de URL (opcional)">
+    Con **Crawl** o **Sitemap** puedes fijar patrones para incluir o excluir paginas concretas. Asi enfocas el scraper en el contenido que importa.
   </Step>
 
-  <Step title="Iniciar Extraccion">
-    Haz clic en el boton para comenzar la extraccion. Veras el progreso a medida que las paginas se descubren y procesan.
+  <Step title="Empieza el scrapeo">
+    Pulsa el boton para iniciar el scrapeo. Veras el progreso a medida que se descubren y procesan paginas.
 
-    <Note>El tiempo de extraccion depende del numero de paginas. Una sola pagina toma segundos; un rastreo completo puede tomar varios minutos.</Note>
+    <Note>El tiempo depende del numero de paginas. Una sola tarda segundos; un crawl completo puede tardar varios minutos.</Note>
   </Step>
 
-  <Step title="Reconstruir Base de Conocimiento">
-    Despues de que la extraccion termine, recuerda **Reconstruir la Base de Conocimiento** para que el bot pueda usar el nuevo contenido.
+  <Step title="Reconstruye la base de conocimiento">
+    Tras terminar el scrapeo, recuerda **Reconstruir base de conocimiento** para que el bot use el contenido nuevo.
 
-    <Warning>Los cambios en tus URLs (nuevas extracciones o eliminaciones) **no se aplican** hasta que reconstruyas. El bot continua usando la version anterior de la base de conocimiento hasta entonces.</Warning>
+    <Warning>Los cambios en tus URLs (scrapeos nuevos o eliminaciones) **no se aplican** hasta que reconstruyes. El bot sigue usando la version anterior hasta entonces.</Warning>
   </Step>
 </Steps>
 
 <Frame>
-  <img src="/images/add-urls-screen.png" alt="Pestana Enlaces mostrando opciones de Rastrear Sitio Web, URL Individual y Sitemap con URLs extraidas" />
+  <img src="/images/add-urls-screen.png" alt="Pestana Links con opciones Crawl, URL Directa y Sitemap y URLs scrapeadas" />
 </Frame>
 
-## Limites de Paginas Extraidas
+## Limites de paginas scrapeadas
 
-Cada plan incluye un numero determinado de paginas extraidas:
+Cada plan incluye un numero de paginas scrapeadas:
 
-| Plan | Paginas Extraidas |
-|------|-------------------|
+| Plan | Paginas scrapeadas |
+|------|--------------------|
 | Free | 5 |
 | Starter | 30 |
 | Pro | 75 |
 | Business | 150 |
 
-<Tip>Usa **URL Directa** para tus paginas mas importantes primero. Reserva el rastreo para cuando necesites cobertura completa.</Tip>
+<Tip>Usa **URL directa** para tus paginas mas importantes primero. Deja el crawl para cuando necesites cobertura total.</Tip>
 
-## Gestionar Contenido Extraido
+## Gestionar contenido scrapeado
 
-Las paginas extraidas aparecen junto con los documentos subidos en tu base de conocimiento. Puedes:
+Las paginas scrapeadas aparecen junto con documentos subidos en tu base de conocimiento. Puedes:
 
-- Ver la URL y fecha de extraccion
-- Eliminar paginas extraidas individuales
-- Re-extraer una URL para obtener contenido actualizado
+- Ver la URL y la fecha de scrapeo
+- Borrar paginas scrapeadas individuales
+- Re-scrapear una URL para obtener contenido actualizado
 
-## Siguientes Pasos
+## Proximos pasos
 
 <CardGroup cols={2}>
-  <Card title="Sistema de Aprendizaje Q&A" icon="comments" href="/knowledge-base/qa-system">
-    Aprende como el bot aprende de las conversaciones en Discord.
+  <Card title="Reconstruir base de conocimiento" icon="rotate" href="/es/knowledge-base/rebuild">
+    Procesa tu contenido nuevo.
   </Card>
-  <Card title="Reconstruir Base de Conocimiento" icon="rotate" href="/knowledge-base/rebuild">
-    Procesa tu nuevo contenido.
+  <Card title="Subir documentos" icon="file-arrow-up" href="/es/knowledge-base/upload-documents">
+    Anade archivos PDF, DOCX, TXT o MD.
   </Card>
 </CardGroup>
