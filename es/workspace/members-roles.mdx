@@ -1,0 +1,95 @@
+---
+title: "Miembros y roles"
+description: "Invita a tu equipo a un workspace y controla que puede hacer cada persona con los roles."
+icon: "users"
+---
+
+# Miembros y roles
+
+Un workspace se puede compartir con tu equipo. Cada miembro recibe un **rol** que decide que puede ver y modificar, desde acceso de solo lectura hasta control total.
+
+## Los cuatro roles
+
+| Rol | Ideal para | En resumen |
+|-----|------------|------------|
+| **Viewer** | Interesados que solo necesitan visibilidad | Acceso de solo lectura |
+| **Editor** | Quienes construyen y mantienen el bot | Crear y editar contenido, configuracion e integraciones |
+| **Admin** | Lideres que gestionan el workspace | Todo lo de Editor, mas miembros y facturacion |
+| **Owner** | La persona que creo el workspace | Control total, incluido eliminar el workspace |
+
+## Jerarquia de roles
+
+Los roles se construyen uno sobre otro. Un rol superior puede hacer todo lo de los roles inferiores, y mas:
+
+```
+Viewer  →  Editor  →  Admin  →  Owner
+(menos)                        (mas)
+```
+
+## Que puede hacer cada rol
+
+| Capacidad | Viewer | Editor | Admin | Owner |
+|-----------|:------:|:------:|:-----:|:-----:|
+| Ver la base de conocimiento, el widget y las conversaciones | ✅ | ✅ | ✅ | ✅ |
+| Ver miembros, integraciones y el plan actual | ✅ | ✅ | ✅ | ✅ |
+| Subir y eliminar contenido de la base de conocimiento | — | ✅ | ✅ | ✅ |
+| Scrapear URLs y reconstruir la base de conocimiento | — | ✅ | ✅ | ✅ |
+| Editar la configuracion del widget y las preferencias de respuesta | — | ✅ | ✅ | ✅ |
+| Conectar, configurar y desconectar integraciones | — | ✅ | ✅ | ✅ |
+| Invitar, eliminar y cambiar el rol de los miembros | — | — | ✅ | ✅ |
+| Gestionar la suscripcion (mejorar plan, portal de facturacion) | — | — | ✅ | ✅ |
+| Transferir la propiedad del workspace | — | — | — | ✅ |
+| Eliminar el workspace | — | — | — | ✅ |
+
+<Note>Los identificadores de facturacion (como los IDs de Stripe) solo son visibles para Admins y Owners. Los Viewers y Editors pueden ver el plan y el uso, pero no los detalles de facturacion.</Note>
+
+## Invitar a un miembro
+
+<Steps>
+  <Step title="Envia una invitacion" icon="envelope">
+    Un **Admin** o un **Owner** invita a alguien por email y elige el rol a otorgar (Admin, Editor o Viewer). El invitado recibe un email con un enlace seguro.
+
+    <Frame>
+      <img src="/images/invite-modal.png" alt="Modal de invitar miembro con campo de email y selector de rol" />
+    </Frame>
+
+    <Frame>
+      <img src="/images/invitation-link-email.png" alt="Email de invitacion con un enlace seguro para unirse al workspace" />
+    </Frame>
+  </Step>
+  <Step title="El invitado revisa y acepta" icon="user-check">
+    El enlace abre una pantalla de consentimiento que muestra el nombre del workspace, el rol ofrecido y quien le invita. Tras iniciar sesion en BestChatBot, acepta.
+
+    <Frame>
+      <img src="/images/invitation-join-screen.png" alt="Pantalla de consentimiento mostrando el nombre del workspace, el rol ofrecido y quien invita antes de unirse" />
+    </Frame>
+  </Step>
+  <Step title="Se une al workspace" icon="users">
+    El nuevo miembro aparece en la lista de **Miembros** con el rol asignado. Los Admins pueden cambiar el rol de un miembro o eliminarlo despues.
+
+    <Frame>
+      <img src="/images/members-invited-dashboard.png" alt="Lista de miembros en el dashboard mostrando cada miembro con su rol" />
+    </Frame>
+  </Step>
+</Steps>
+
+<Tip>Tu plan define cuantos miembros puedes invitar. Si el workspace esta lleno, se te pedira mejorar el plan antes de enviar mas invitaciones. Consulta [Planes de precios](/es/billing/pricing-plans).</Tip>
+
+## Propiedad
+
+Cada workspace tiene exactamente **un Owner**: la persona que lo creo.
+
+- El rol Owner no se puede asignar con un cambio de rol normal. Para cederlo, el Owner actual usa **Transferir propiedad** para promover a un Admin existente.
+- El Owner no puede ser eliminado ni abandonar el workspace directamente. Primero debe transferir la propiedad (o eliminar el workspace).
+- Cualquier otro miembro puede abandonar el workspace voluntariamente en cualquier momento.
+
+## Siguientes pasos
+
+<CardGroup cols={2}>
+  <Card title="Planes de precios" icon="credit-card" href="/es/billing/pricing-plans">
+    Mira cuantos miembros incluye cada plan.
+  </Card>
+  <Card title="Gestionar suscripcion" icon="gear" href="/es/billing/manage-subscription">
+    Mejora tu plan para anadir mas plazas.
+  </Card>
+</CardGroup>

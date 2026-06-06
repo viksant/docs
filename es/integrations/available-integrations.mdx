@@ -1,0 +1,86 @@
+---
+title: "Integraciones disponibles"
+description: "Conecta tu calendario, mesa de ayuda, tienda, CRM y facturacion para que tu chatbot ejecute acciones reales."
+icon: "plug"
+---
+
+# Integraciones disponibles
+
+BestChatBot se conecta a **8 herramientas** que tu negocio ya usa. Una vez conectadas, tu widget puede ejecutar acciones reales con ellas mediante las [Acciones agenticas](/es/integrations/agentic-actions).
+
+<Note>Las integraciones estan disponibles en los planes **Pro** y **Business**.</Note>
+
+<Frame>
+  <img src="/images/integrations-catalog-screen.png" alt="Pagina de Integraciones mostrando el catalogo de herramientas disponibles y su estado de conexion" />
+</Frame>
+
+## Las 8 integraciones
+
+| Integracion | Categoria | Que puede hacer tu bot |
+|-------------|-----------|------------------------|
+| **Cal.com** | Agendamiento | Consultar disponibilidad, agendar una reunion, cancelar una reunion |
+| **Calendly** | Agendamiento | Consultar disponibilidad, agendar una reunion, cancelar una reunion |
+| **Freshdesk** | Mesa de ayuda | Abrir un ticket de soporte, consultar el estado de un ticket |
+| **Zendesk** | Mesa de ayuda | Abrir un ticket de soporte, consultar el estado de un ticket |
+| **HubSpot** | CRM | Capturar un lead para que tu equipo de ventas haga seguimiento |
+| **Stripe** | Pagos | Ver una suscripcion, ver facturas y metodos de pago, abrir el portal de facturacion, iniciar una compra, explorar productos y precios |
+| **Shopify** | E-commerce | Explorar el catalogo de productos, consultar el estado de un pedido por email |
+| **WooCommerce** | E-commerce | Explorar el catalogo de productos, consultar el estado de un pedido por email |
+
+## Una integracion por categoria
+
+Cada categoria puede tener **solo una integracion activa a la vez**. Las integraciones de una misma categoria exponen las mismas acciones al bot, asi que permitir dos a la vez crearia ambiguedad.
+
+| Categoria | Opciones | Mutuamente excluyentes? |
+|-----------|----------|-------------------------|
+| Agendamiento | Cal.com, Calendly | Si |
+| Mesa de ayuda | Freshdesk, Zendesk | Si |
+| E-commerce | Shopify, WooCommerce | Si |
+| CRM | HubSpot | — (unica opcion) |
+| Pagos | Stripe | — (unica opcion) |
+
+<Warning>Conectar una segunda integracion de la misma categoria **desconecta automaticamente** la primera. Por ejemplo, si tienes Cal.com conectado y conectas Calendly, Cal.com se desactiva. Lo mismo aplica a Freshdesk/Zendesk y Shopify/WooCommerce.</Warning>
+
+<Frame>
+  <img src="/images/integration-replace-warning.png" alt="Aviso mostrado al conectar una segunda integracion de la misma categoria que reemplaza la activa" />
+</Frame>
+
+HubSpot y Stripe son las unicas opciones en sus categorias, asi que nunca entran en conflicto con otra integracion.
+
+## Conectar una integracion
+
+<Steps>
+  <Step title="Abre Integraciones" icon="plug">
+    Desde el dashboard de tu workspace, ve a la pagina **Integraciones**. Veras el catalogo de herramientas disponibles y su estado de conexion.
+  </Step>
+  <Step title="Conecta tu herramienta" icon="link">
+    Haz clic en **Conectar** en la integracion que quieras y sigue el flujo de autorizacion seguro. Autorizas a BestChatBot directamente con el proveedor, asi tus credenciales nunca se escriben en el chat.
+  </Step>
+  <Step title="Lista" icon="circle-check">
+    Una vez conectada, las acciones de la integracion quedan disponibles en tu widget de inmediato. Si habia otra integracion activa en la misma categoria, se desconecta automaticamente.
+  </Step>
+</Steps>
+
+## Desconectar
+
+Puedes desconectar cualquier integracion desde la pagina **Integraciones** en cualquier momento. Sus acciones dejan de ofrecerse al widget al instante. Desconectar una integracion nunca afecta a las demas.
+
+## Disponibilidad
+
+| Plan | Integraciones |
+|------|---------------|
+| Free | — |
+| Starter | — |
+| Pro | ✅ |
+| Business | ✅ |
+
+## Siguientes pasos
+
+<CardGroup cols={2}>
+  <Card title="Acciones agenticas" icon="wand-magic-sparkles" href="/es/integrations/agentic-actions">
+    Entiende como el bot decide actuar y como el visitante mantiene el control.
+  </Card>
+  <Card title="Miembros y roles" icon="users" href="/es/workspace/members-roles">
+    Controla quien de tu equipo puede conectar y gestionar integraciones.
+  </Card>
+</CardGroup>

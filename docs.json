@@ -46,6 +46,12 @@
             ]
           },
           {
+            "group": "Workspace",
+            "pages": [
+              "workspace/members-roles"
+            ]
+          },
+          {
             "group": "Knowledge Base",
             "pages": [
               "knowledge-base/upload-documents",
@@ -78,7 +84,22 @@
           {
             "group": "Integrations",
             "pages": [
-              "integrations/web-widget"
+              "integrations/web-widget",
+              "integrations/agentic-actions",
+              "integrations/available-integrations"
+            ]
+          },
+          {
+            "group": "Integration Guides",
+            "pages": [
+              "integrations/guides/cal-com",
+              "integrations/guides/calendly",
+              "integrations/guides/freshdesk",
+              "integrations/guides/zendesk",
+              "integrations/guides/hubspot",
+              "integrations/guides/stripe",
+              "integrations/guides/shopify",
+              "integrations/guides/woocommerce"
             ]
           },
           {
@@ -104,6 +125,12 @@
             "pages": [
               "es/setup/create-account",
               "es/setup/invite-bot"
+            ]
+          },
+          {
+            "group": "Espacio de trabajo",
+            "pages": [
+              "es/workspace/members-roles"
             ]
           },
           {
@@ -139,7 +166,22 @@
           {
             "group": "Integraciones",
             "pages": [
-              "es/integrations/web-widget"
+              "es/integrations/web-widget",
+              "es/integrations/agentic-actions",
+              "es/integrations/available-integrations"
+            ]
+          },
+          {
+            "group": "Guias de integracion",
+            "pages": [
+              "es/integrations/guides/cal-com",
+              "es/integrations/guides/calendly",
+              "es/integrations/guides/freshdesk",
+              "es/integrations/guides/zendesk",
+              "es/integrations/guides/hubspot",
+              "es/integrations/guides/stripe",
+              "es/integrations/guides/shopify",
+              "es/integrations/guides/woocommerce"
             ]
           },
           {

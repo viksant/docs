@@ -1,0 +1,67 @@
+---
+title: "Stripe"
+description: "Conecta Stripe para que tu chatbot pueda gestionar facturacion y suscripciones por tus visitantes, dentro del chat."
+icon: "credit-card"
+---
+
+# Stripe
+
+**Categoria: Pagos.** Conecta Stripe y tu widget podra gestionar facturacion y suscripciones por tus visitantes, dentro del propio chat.
+
+<Note>Las integraciones estan disponibles en los planes **Pro** y **Business**.</Note>
+
+## Que puede hacer tu bot
+
+| Accion | Que ocurre |
+|--------|------------|
+| **Ver una suscripcion** | Muestra al visitante su plan actual. |
+| **Ver facturas y metodos de pago** | Permite al visitante ver facturas y metodos de pago guardados. |
+| **Gestionar suscripcion** | Abre el portal de facturacion para que el visitante actualice su plan. |
+| **Iniciar una compra** | Genera un enlace de checkout para el visitante. |
+| **Explorar productos y precios** | Lista lo que esta disponible para comprar. |
+
+## Flujo de conexion
+
+<Frame>
+  <img src="/images/stripe-integration.png" alt="Flujo de conexion de Stripe desde el dashboard hasta un bot conectado y listo para actuar" />
+</Frame>
+
+## Como conectar
+
+<Steps>
+  <Step title="Abre Integraciones" icon="plug">
+    En el dashboard de tu workspace, abre la pestana **Integraciones** y busca **Stripe**.
+  </Step>
+  <Step title="Conecta" icon="link">
+    Haz clic en **Conectar**. Se abre un popup seguro. Introduce tu API key de Stripe. Tus credenciales van al formulario seguro, nunca al chat.
+  </Step>
+  <Step title="Listo" icon="circle-check">
+    Una vez conectada, las acciones de Stripe quedan disponibles en tu widget de inmediato.
+  </Step>
+</Steps>
+
+<Note>Necesitas un rol adecuado para conectar: conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
+
+## Una por categoria
+
+Stripe es la unica opcion en la categoria **Pagos**, asi que nunca entra en conflicto con otra integracion.
+
+## Disponibilidad
+
+| Plan | Stripe |
+|------|--------|
+| Free | — |
+| Starter | — |
+| Pro | ✅ |
+| Business | ✅ |
+
+## Siguientes pasos
+
+<CardGroup cols={2}>
+  <Card title="Todas las integraciones" icon="plug" href="/es/integrations/available-integrations">
+    Mira el catalogo completo y como funcionan las categorias.
+  </Card>
+  <Card title="Acciones agenticas" icon="wand-magic-sparkles" href="/es/integrations/agentic-actions">
+    Descubre como el bot convierte una peticion en una accion real.
+  </Card>
+</CardGroup>

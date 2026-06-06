@@ -1,0 +1,90 @@
+---
+title: "Acciones agenticas"
+description: "Deja que tu chatbot ejecute acciones reales como agendar reuniones, abrir tickets y consultar pedidos, no solo responder preguntas."
+icon: "wand-magic-sparkles"
+---
+
+# Acciones agenticas
+
+La mayoria de chatbots solo pueden *decir* cosas a los visitantes. BestChatBot tambien puede *hacerlas*.
+
+Con las **Acciones agenticas**, tu widget se conecta a las herramientas que tu negocio ya usa, como tu calendario, tu mesa de ayuda, tu tienda y tu facturacion, y ejecuta acciones reales en nombre del visitante, dentro del propio chat.
+
+<Note>Las Acciones agenticas estan disponibles en los planes **Pro** y **Business**. Consulta [Integraciones disponibles](/es/integrations/available-integrations) para ver la lista completa de herramientas soportadas.</Note>
+
+## De responder a actuar
+
+Un bot normal responde desde tu base de conocimiento. Un bot agentico hace eso **y ademas** puede dar el siguiente paso por el visitante:
+
+| El visitante pregunta | Un bot normal | BestChatBot con Acciones agenticas |
+|-----------------------|---------------|------------------------------------|
+| "Puedo agendar una llamada el jueves?" | Explica como agendar | Muestra los horarios libres y **agenda la reunion** |
+| "Donde esta mi pedido #1234?" | Te dirige a una pagina de seguimiento | **Consulta el pedido** e informa su estado |
+| "Necesito ayuda, esto no funciona" | Sugiere contactar a soporte | **Abre un ticket de soporte** por el visitante |
+
+## Como funciona
+
+<Steps>
+  <Step title="El visitante describe lo que necesita" icon="comment">
+    Escribe con naturalidad, como "Quiero agendar una demo" o "Revisa mi suscripcion".
+  </Step>
+  <Step title="El bot entiende la intencion" icon="brain">
+    Decide si el visitante quiere una **accion**, una **respuesta** de tu base de conocimiento, o solo conversar, y luego elige la herramienta adecuada.
+  </Step>
+  <Step title="El bot ofrece la accion como un boton" icon="hand-pointer">
+    En lugar de adivinar, el bot presenta la accion correspondiente (por ejemplo, **Agendar una llamada**) y, si hace falta, un formulario breve para completar.
+
+    <Frame>
+      <img src="/images/book-a-call-agentic.png" alt="Widget de chat mostrando un boton de accion Agendar una llamada ofrecido por el bot" />
+    </Frame>
+  </Step>
+  <Step title="El visitante confirma" icon="circle-check">
+    La accion se ejecuta **solo** cuando el visitante hace clic en el boton o envia el formulario, nunca por una frase suelta.
+  </Step>
+  <Step title="El bot devuelve el resultado" icon="bolt">
+    La reunion queda agendada, el ticket creado, el estado del pedido aparece, todo dentro de la conversacion.
+
+    <Frame>
+      <img src="/images/agentic-call-booked-confirmation.png" alt="Widget de chat confirmando una reunion agendada despues de que el visitante pulso la accion" />
+    </Frame>
+  </Step>
+</Steps>
+
+## El visitante siempre tiene el control
+
+Las acciones nunca se disparan solo porque el bot *interpreto* una frase. Se ejecutan cuando el visitante **hace clic explicitamente** en el boton de accion. Esto evita sorpresas y mantiene cada accion intencional.
+
+<Tip>Piensa en el bot como un asistente util que dice "Puedo hacerlo por ti, solo confirma" en vez de actuar por su cuenta.</Tip>
+
+<Frame>
+  <img src="/images/agentic-call-cancelled.png" alt="Widget de chat mostrando a un visitante cancelando una reunion que agendo antes" />
+</Frame>
+
+## Acciones que reconocen la identidad
+
+Algunas acciones son personales, como consultar *tus* pedidos, *tus* facturas o *tu* suscripcion. El bot solo las ejecuta cuando puede confirmar quien es el visitante.
+
+- **Visitante identificado** → las acciones personales se ejecutan con normalidad (ej: "muestra mis pedidos recientes").
+- **Visitante anonimo** → el bot da una respuesta segura y neutra en vez de adivinar o exponer datos de nadie.
+
+Asi se protege la informacion privada y, al mismo tiempo, los visitantes anonimos pueden usar acciones generales como explorar productos o agendar una llamada.
+
+## Disponibilidad
+
+| Plan | Acciones agenticas |
+|------|--------------------|
+| Free | — |
+| Starter | — |
+| Pro | ✅ |
+| Business | ✅ |
+
+## Siguientes pasos
+
+<CardGroup cols={2}>
+  <Card title="Integraciones disponibles" icon="plug" href="/es/integrations/available-integrations">
+    Conoce las 8 herramientas que puedes conectar y que puede hacer cada una.
+  </Card>
+  <Card title="Planes de precios" icon="credit-card" href="/es/billing/pricing-plans">
+    Compara planes y encuentra el que desbloquea las Acciones agenticas.
+  </Card>
+</CardGroup>
