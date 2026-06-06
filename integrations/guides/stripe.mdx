@@ -1,24 +1,35 @@
 ---
 title: "Stripe"
-description: "Connect Stripe so your chatbot can handle billing and subscriptions for visitors, right inside the chat."
+description: "What the Stripe integration can and can't do, and how to connect it."
 icon: "credit-card"
 ---
 
 # Stripe
 
-**Category: Payments.** Connect Stripe and your widget can handle billing and subscriptions for visitors, right inside the chat.
+**Category: Payments.** Connect Stripe and your widget can answer billing questions and start purchases for visitors, right inside the chat.
 
 <Note>Integrations are available on the **Pro** and **Business** plans.</Note>
 
-## What Your Bot Can Do
+## What This Bot Can Do
 
-| Action | What happens |
-|--------|--------------|
-| **View a subscription** | Show the visitor their current plan. |
-| **View invoices and payment methods** | Let the visitor see invoices and saved payment methods. |
-| **Manage subscription** | Open the billing portal so the visitor can update their plan. |
-| **Start a purchase** | Generate a checkout link for the visitor. |
-| **Browse products and prices** | List what's available to buy. |
+The bot does exactly these actions, nothing more. "Needs sign-in" means the visitor must be identified first; otherwise the bot gives a safe, neutral answer.
+
+| Action | What it does | Needs sign-in |
+|--------|--------------|:-------------:|
+| **Check a subscription** | Show the visitor their current plan and next billing date. | Yes |
+| **Check invoice history** | List the visitor's recent invoices with amounts, dates, and payment status. | Yes |
+| **Check payment methods** | Show saved payment methods (card brand and last 4 digits only). | Yes |
+| **Open the billing portal** | Give the visitor a secure portal link to cancel, upgrade, or update payment themselves. | Yes |
+| **Start a purchase** | Generate a checkout link so the visitor can buy a plan or product. | No |
+
+## What It Can't Do
+
+Stripe is scoped to the actions above. It does **not**:
+
+- Cancel or change a subscription directly (it hands the visitor a secure portal link instead)
+- Issue refunds or charge a card
+- Create or edit products and prices
+- Show full card numbers (only the brand and last 4 digits)
 
 ## Connection Flow
 
@@ -40,7 +51,7 @@ icon: "credit-card"
   </Step>
 </Steps>
 
-<Note>Need a different role to connect? Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
+<Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
 
 ## One per Category
 

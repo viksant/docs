@@ -1,6 +1,6 @@
 ---
 title: "HubSpot"
-description: "Connect HubSpot so your chatbot can capture leads for visitors, right inside the chat."
+description: "What the HubSpot integration can and can't do, and how to connect it."
 icon: "address-book"
 ---
 
@@ -10,11 +10,21 @@ icon: "address-book"
 
 <Note>Integrations are available on the **Pro** and **Business** plans.</Note>
 
-## What Your Bot Can Do
+## What This Bot Can Do
 
-| Action | What happens |
-|--------|--------------|
-| **Capture a lead** | Save the visitor's details so your sales team can follow up. |
+The bot does exactly these actions, nothing more. "Needs sign-in" means the visitor must be identified first; otherwise the bot gives a safe, neutral answer.
+
+| Action | What it does | Needs sign-in |
+|--------|--------------|:-------------:|
+| **Capture a lead** | Save the visitor as a new contact with their name, email, company, and what they're interested in. | No |
+
+## What It Can't Do
+
+HubSpot is scoped to the actions above. It does **not**:
+
+- Look up, search, or update existing contacts
+- View deals, companies, or pipelines
+- Do anything beyond capturing a new lead
 
 ## Connection Flow
 
@@ -36,7 +46,7 @@ icon: "address-book"
   </Step>
 </Steps>
 
-<Note>Need a different role to connect? Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
+<Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
 
 ## One per Category
 

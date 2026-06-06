@@ -1,21 +1,31 @@
 ---
 title: "Zendesk"
-description: "Conecta Zendesk para que tu chatbot pueda abrir y seguir tickets de soporte por tus visitantes, dentro del chat."
+description: "Que puede y que NO puede hacer la integracion de Zendesk, y como conectarla."
 icon: "headset"
 ---
 
 # Zendesk
 
-**Categoria: Mesa de ayuda.** Conecta Zendesk y tu widget podra abrir y seguir tickets de soporte por tus visitantes, dentro del propio chat.
+**Categoria: Mesa de ayuda.** Conecta Zendesk y tu widget podra abrir y consultar tickets de soporte por tus visitantes, dentro del propio chat.
 
 <Note>Las integraciones estan disponibles en los planes **Pro** y **Business**. Zendesk comparte la categoria Mesa de ayuda con Freshdesk, asi que solo una de las dos puede estar activa a la vez.</Note>
 
-## Que puede hacer tu bot
+## Que puede hacer este bot
 
-| Accion | Que ocurre |
-|--------|------------|
-| **Abrir un ticket de soporte** | Convierte el problema del visitante en un ticket rastreable. |
-| **Consultar el estado de un ticket** | Consulta el estado de un ticket existente. |
+El bot hace exactamente estas acciones, nada mas. "Requiere identidad" significa que el visitante debe estar identificado primero; si no, el bot da una respuesta segura y neutra.
+
+| Accion | Que hace | Requiere identidad |
+|--------|----------|:------------------:|
+| **Abrir un ticket de soporte** | Crea un ticket con asunto, descripcion y prioridad (low, normal, high o urgent). | No |
+| **Consultar el estado de un ticket** | Consulta el estado de un ticket y las ultimas respuestas de tu equipo, por email o ID de ticket. | Si |
+
+## Que NO puede hacer
+
+Zendesk se limita a las acciones de arriba. **No** puede:
+
+- Responder o comentar en un ticket
+- Cerrar, resolver o reasignar un ticket
+- Adjuntar archivos a un ticket
 
 ## Flujo de conexion
 
@@ -37,11 +47,11 @@ icon: "headset"
   </Step>
 </Steps>
 
-<Note>Necesitas un rol adecuado para conectar: conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
+<Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
 
 ## Una por categoria
 
-Zendesk esta en la categoria **Mesa de ayuda** junto con Freshdesk. Conectar una desconecta la otra, para que tu bot tenga siempre una unica herramienta clara de mesa de ayuda.
+Zendesk esta en la categoria **Mesa de ayuda** con Freshdesk. Conectar una desconecta la otra, para que tu bot tenga siempre una unica herramienta clara de mesa de ayuda.
 
 <Warning>Si conectas Zendesk mientras Freshdesk esta activa, Freshdesk se desactiva automaticamente.</Warning>
 

@@ -1,22 +1,32 @@
 ---
 title: "Cal.com"
-description: "Connect Cal.com so your chatbot can book and manage meetings for visitors, right inside the chat."
+description: "What the Cal.com integration can and can't do, and how to connect it."
 icon: "calendar"
 ---
 
 # Cal.com
 
-**Category: Scheduling.** Connect Cal.com and your widget can book and manage meetings for visitors, right inside the chat.
+**Category: Scheduling.** Connect Cal.com and your widget can book and cancel meetings for visitors, right inside the chat.
 
 <Note>Integrations are available on the **Pro** and **Business** plans. Cal.com shares the Scheduling category with Calendly, so only one of the two can be active at a time.</Note>
 
-## What Your Bot Can Do
+## What This Bot Can Do
 
-| Action | What happens |
-|--------|--------------|
-| **Check availability** | Show the visitor open time slots from your calendar. |
-| **Book a meeting** | Schedule the meeting and confirm it in the chat. |
-| **Cancel a meeting** | Let the visitor cancel a meeting they booked. |
+The bot does exactly these actions, nothing more. "Needs sign-in" means the visitor must be identified first; otherwise the bot gives a safe, neutral answer.
+
+| Action | What it does | Needs sign-in |
+|--------|--------------|:-------------:|
+| **Check availability** | Show the visitor open time slots from your calendar, up to 7 days per request. | No |
+| **Book a meeting** | Schedule a meeting once the visitor picks a slot and gives their name and email. | No |
+| **Cancel a meeting** | Cancel a meeting the visitor booked, found by their email. The bot asks for confirmation first. | Yes |
+
+## What It Can't Do
+
+Cal.com is scoped to the actions above. It does **not**:
+
+- Reschedule a meeting (the visitor cancels and books a new time instead)
+- List or show all of a visitor's meetings
+- Check availability more than 7 days ahead in a single request
 
 ## Connection Flow
 
@@ -38,11 +48,11 @@ icon: "calendar"
   </Step>
 </Steps>
 
-<Note>Need a different role to connect? Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
+<Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
 
 ## One per Category
 
-Cal.com is in the **Scheduling** category together with Calendly. Connecting one disconnects the other, so your bot always has a single, clear tool for scheduling.
+Cal.com is in the **Scheduling** category with Calendly. Connecting one disconnects the other, so your bot always has a single, clear tool for scheduling.
 
 <Warning>If you connect Cal.com while Calendly is active, Calendly is turned off automatically.</Warning>
 

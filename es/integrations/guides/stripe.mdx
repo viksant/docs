@@ -1,24 +1,35 @@
 ---
 title: "Stripe"
-description: "Conecta Stripe para que tu chatbot pueda gestionar facturacion y suscripciones por tus visitantes, dentro del chat."
+description: "Que puede y que NO puede hacer la integracion de Stripe, y como conectarla."
 icon: "credit-card"
 ---
 
 # Stripe
 
-**Categoria: Pagos.** Conecta Stripe y tu widget podra gestionar facturacion y suscripciones por tus visitantes, dentro del propio chat.
+**Categoria: Pagos.** Conecta Stripe y tu widget podra responder dudas de facturacion e iniciar compras por tus visitantes, dentro del propio chat.
 
 <Note>Las integraciones estan disponibles en los planes **Pro** y **Business**.</Note>
 
-## Que puede hacer tu bot
+## Que puede hacer este bot
 
-| Accion | Que ocurre |
-|--------|------------|
-| **Ver una suscripcion** | Muestra al visitante su plan actual. |
-| **Ver facturas y metodos de pago** | Permite al visitante ver facturas y metodos de pago guardados. |
-| **Gestionar suscripcion** | Abre el portal de facturacion para que el visitante actualice su plan. |
-| **Iniciar una compra** | Genera un enlace de checkout para el visitante. |
-| **Explorar productos y precios** | Lista lo que esta disponible para comprar. |
+El bot hace exactamente estas acciones, nada mas. "Requiere identidad" significa que el visitante debe estar identificado primero; si no, el bot da una respuesta segura y neutra.
+
+| Accion | Que hace | Requiere identidad |
+|--------|----------|:------------------:|
+| **Ver una suscripcion** | Muestra al visitante su plan actual y la proxima fecha de cobro. | Si |
+| **Ver historial de facturas** | Lista las facturas recientes del visitante con importes, fechas y estado de pago. | Si |
+| **Ver metodos de pago** | Muestra los metodos de pago guardados (solo marca de la tarjeta y ultimos 4 digitos). | Si |
+| **Abrir el portal de facturacion** | Da al visitante un enlace seguro al portal para cancelar, mejorar o actualizar el pago por su cuenta. | Si |
+| **Iniciar una compra** | Genera un enlace de checkout para que el visitante compre un plan o producto. | No |
+
+## Que NO puede hacer
+
+Stripe se limita a las acciones de arriba. **No** puede:
+
+- Cancelar o cambiar una suscripcion directamente (entrega al visitante un enlace seguro al portal)
+- Emitir reembolsos o cobrar una tarjeta
+- Crear o editar productos y precios
+- Mostrar el numero completo de la tarjeta (solo marca y ultimos 4 digitos)
 
 ## Flujo de conexion
 
@@ -40,7 +51,7 @@ icon: "credit-card"
   </Step>
 </Steps>
 
-<Note>Necesitas un rol adecuado para conectar: conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
+<Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
 
 ## Una por categoria
 

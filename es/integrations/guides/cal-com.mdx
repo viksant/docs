@@ -1,22 +1,32 @@
 ---
 title: "Cal.com"
-description: "Conecta Cal.com para que tu chatbot pueda agendar y gestionar reuniones por tus visitantes, dentro del chat."
+description: "Que puede y que NO puede hacer la integracion de Cal.com, y como conectarla."
 icon: "calendar"
 ---
 
 # Cal.com
 
-**Categoria: Agendamiento.** Conecta Cal.com y tu widget podra agendar y gestionar reuniones por tus visitantes, dentro del propio chat.
+**Categoria: Agendamiento.** Conecta Cal.com y tu widget podra agendar y cancelar reuniones por tus visitantes, dentro del propio chat.
 
 <Note>Las integraciones estan disponibles en los planes **Pro** y **Business**. Cal.com comparte la categoria Agendamiento con Calendly, asi que solo una de las dos puede estar activa a la vez.</Note>
 
-## Que puede hacer tu bot
+## Que puede hacer este bot
 
-| Accion | Que ocurre |
-|--------|------------|
-| **Consultar disponibilidad** | Muestra al visitante los horarios libres de tu calendario. |
-| **Agendar una reunion** | Agenda la reunion y la confirma en el chat. |
-| **Cancelar una reunion** | Permite al visitante cancelar una reunion que agendo. |
+El bot hace exactamente estas acciones, nada mas. "Requiere identidad" significa que el visitante debe estar identificado primero; si no, el bot da una respuesta segura y neutra.
+
+| Accion | Que hace | Requiere identidad |
+|--------|----------|:------------------:|
+| **Consultar disponibilidad** | Muestra al visitante los horarios libres de tu calendario, hasta 7 dias por consulta. | No |
+| **Agendar una reunion** | Agenda una reunion cuando el visitante elige un hueco y da su nombre y email. | No |
+| **Cancelar una reunion** | Cancela una reunion que agendo el visitante, buscandola por su email. El bot pide confirmacion antes. | Si |
+
+## Que NO puede hacer
+
+Cal.com se limita a las acciones de arriba. **No** puede:
+
+- Reprogramar una reunion (el visitante cancela y agenda un nuevo horario)
+- Listar o mostrar todas las reuniones de un visitante
+- Consultar disponibilidad de mas de 7 dias en una sola peticion
 
 ## Flujo de conexion
 
@@ -38,11 +48,11 @@ icon: "calendar"
   </Step>
 </Steps>
 
-<Note>Necesitas un rol adecuado para conectar: conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
+<Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
 
 ## Una por categoria
 
-Cal.com esta en la categoria **Agendamiento** junto con Calendly. Conectar una desconecta la otra, para que tu bot tenga siempre una unica herramienta clara de agendamiento.
+Cal.com esta en la categoria **Agendamiento** con Calendly. Conectar una desconecta la otra, para que tu bot tenga siempre una unica herramienta clara de agendamiento.
 
 <Warning>Si conectas Cal.com mientras Calendly esta activa, Calendly se desactiva automaticamente.</Warning>
 

@@ -1,21 +1,31 @@
 ---
 title: "Freshdesk"
-description: "Connect Freshdesk so your chatbot can open and track support tickets for visitors, right inside the chat."
+description: "What the Freshdesk integration can and can't do, and how to connect it."
 icon: "headset"
 ---
 
 # Freshdesk
 
-**Category: Help Desk.** Connect Freshdesk and your widget can open and track support tickets for visitors, right inside the chat.
+**Category: Help Desk.** Connect Freshdesk and your widget can open and check support tickets for visitors, right inside the chat.
 
 <Note>Integrations are available on the **Pro** and **Business** plans. Freshdesk shares the Help Desk category with Zendesk, so only one of the two can be active at a time.</Note>
 
-## What Your Bot Can Do
+## What This Bot Can Do
 
-| Action | What happens |
-|--------|--------------|
-| **Open a support ticket** | Turn a visitor's issue into a tracked ticket. |
-| **Check a ticket's status** | Look up the status of an existing ticket. |
+The bot does exactly these actions, nothing more. "Needs sign-in" means the visitor must be identified first; otherwise the bot gives a safe, neutral answer.
+
+| Action | What it does | Needs sign-in |
+|--------|--------------|:-------------:|
+| **Open a support ticket** | Create a ticket with a subject, description, and priority (low, medium, high, or urgent). | No |
+| **Check a ticket's status** | Look up a ticket's status and the latest replies from your team, by email or ticket ID. | Yes |
+
+## What It Can't Do
+
+Freshdesk is scoped to the actions above. It does **not**:
+
+- Reply to or comment on a ticket
+- Close, resolve, or reassign a ticket
+- Attach files to a ticket
 
 ## Connection Flow
 
@@ -37,11 +47,11 @@ icon: "headset"
   </Step>
 </Steps>
 
-<Note>Need a different role to connect? Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
+<Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
 
 ## One per Category
 
-Freshdesk is in the **Help Desk** category together with Zendesk. Connecting one disconnects the other, so your bot always has a single, clear tool for help desk.
+Freshdesk is in the **Help Desk** category with Zendesk. Connecting one disconnects the other, so your bot always has a single, clear tool for help desk.
 
 <Warning>If you connect Freshdesk while Zendesk is active, Zendesk is turned off automatically.</Warning>
 

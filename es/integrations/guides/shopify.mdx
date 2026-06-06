@@ -1,21 +1,31 @@
 ---
 title: "Shopify"
-description: "Conecta Shopify para que tu chatbot pueda explorar productos y consultar pedidos por tus visitantes, dentro del chat."
+description: "Que puede y que NO puede hacer la integracion de Shopify, y como conectarla."
 icon: "cart-shopping"
 ---
 
 # Shopify
 
-**Categoria: E-commerce.** Conecta Shopify y tu widget podra explorar productos y consultar pedidos por tus visitantes, dentro del propio chat.
+**Categoria: E-commerce.** Conecta Shopify y tu widget podra encontrar productos y consultar pedidos por tus visitantes, dentro del propio chat.
 
 <Note>Las integraciones estan disponibles en los planes **Pro** y **Business**. Shopify comparte la categoria E-commerce con WooCommerce, asi que solo una de las dos puede estar activa a la vez.</Note>
 
-## Que puede hacer tu bot
+## Que puede hacer este bot
 
-| Accion | Que ocurre |
-|--------|------------|
-| **Explorar productos** | Ayuda al visitante a encontrar productos de tu catalogo. |
-| **Consultar estado de un pedido** | Consulta el estado de un pedido por el email del visitante. |
+El bot hace exactamente estas acciones, nada mas. "Requiere identidad" significa que el visitante debe estar identificado primero; si no, el bot da una respuesta segura y neutra.
+
+| Accion | Que hace | Requiere identidad |
+|--------|----------|:------------------:|
+| **Buscar productos** | Busca en tu catalogo por palabra clave y muestra tarjetas con precio, imagen y enlace de compra (hasta 10). | No |
+| **Consultar estado de un pedido** | Consulta el estado, el seguimiento y la entrega de un pedido por el email del visitante. | Si |
+
+## Que NO puede hacer
+
+Shopify se limita a las acciones de arriba. **No** puede:
+
+- Anadir productos al carrito o pagar desde el chat (el visitante lo hace en tu tienda)
+- Gestionar devoluciones o modificar un pedido desde el chat
+- Consultar un pedido sin el email del visitante
 
 ## Flujo de conexion
 
@@ -37,11 +47,11 @@ icon: "cart-shopping"
   </Step>
 </Steps>
 
-<Note>Necesitas un rol adecuado para conectar: conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
+<Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
 
 ## Una por categoria
 
-Shopify esta en la categoria **E-commerce** junto con WooCommerce. Conectar una desconecta la otra, para que tu bot tenga siempre una unica herramienta clara de e-commerce.
+Shopify esta en la categoria **E-commerce** con WooCommerce. Conectar una desconecta la otra, para que tu bot tenga siempre una unica herramienta clara de e-commerce.
 
 <Warning>Si conectas Shopify mientras WooCommerce esta activa, WooCommerce se desactiva automaticamente.</Warning>
 
