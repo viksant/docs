@@ -1,0 +1,203 @@
+---
+title: "Firmar el JWT"
+description: "Codigo de backend para generar el JWT de identidad, en cualquier lenguaje y para los proveedores de auth mas comunes."
+icon: "key"
+---
+
+# Firmar el JWT
+
+El contrato es el mismo en todas partes: lee la sesion de tu usuario y firma un JWT **nuevo** (HS256) con tu signing key y el email del visitante. Empieza por tu lenguaje y luego mira tu proveedor de auth para saber como leer al usuario.
+
+<Warning>Firma siempre en el servidor. La signing key nunca va en codigo de frontend ni en un repositorio publico.</Warning>
+
+## Cualquier backend
+
+Obligatorio: `email` (en minusculas) y `exp`. Recomendado: `name`. La signing key sale de un secreto del backend (`BESTCHATBOT_SIGNING_KEY`).
+
+<CodeGroup>
+
+```javascript Node.js
+const jwt = require("jsonwebtoken");
+
+const token = jwt.sign(
+  {
+    email: user.email.toLowerCase(), // obligatorio
+    name: user.name,                 // recomendado
+    user_id: String(user.id),        // opcional
+  },
+  process.env.BESTCHATBOT_SIGNING_KEY,
+  { algorithm: "HS256", expiresIn: "1h" } // exp obligatorio, max 24h
+);
+```
+
+```python Python
+import time
+import jwt  # PyJWT
+
+token = jwt.encode(
+    {
+        "email": user.email.lower(),
+        "name": user.name,
+        "user_id": str(user.id),
+        "exp": int(time.time()) + 3600,
+    },
+    BESTCHATBOT_SIGNING_KEY,
+    algorithm="HS256",
+)
+```
+
+```php PHP
+use Firebase\JWT\JWT;
+
+$token = JWT::encode([
+    "email"   => strtolower($user->email),
+    "name"    => $user->name,
+    "user_id" => (string) $user->id,
+    "exp"     => time() + 3600,
+], $signingKey, "HS256");
+```
+
+```go Go
+import (
+    "strings"
+    "time"
+    "github.com/golang-jwt/jwt/v5"
+)
+
+claims := jwt.MapClaims{
+    "email":   strings.ToLower(user.Email),
+    "name":    user.Name,
+    "user_id": user.ID,
+    "exp":     time.Now().Add(time.Hour).Unix(),
+}
+token, _ := jwt.NewWithClaims(jwt.SigningMethodHS256, claims).
+    SignedString([]byte(signingKey))
+```
+
+```java Java
+String token = Jwts.builder()
+    .claim("email", user.getEmail().toLowerCase())
+    .claim("name", user.getName())
+    .claim("user_id", user.getId())
+    .expiration(new Date(System.currentTimeMillis() + 3_600_000))
+    .signWith(Keys.hmacShaKeyFor(signingKey.getBytes()), Jwts.SIG.HS256)
+    .compact();
+```
+
+```csharp .NET
+var creds = new SigningCredentials(
+    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(signingKey)),
+    SecurityAlgorithms.HmacSha256);
+
+var jwt = new JwtSecurityToken(
+    claims: new[] {
+        new Claim("email", user.Email.ToLower()),
+        new Claim("name", user.Name),
+        new Claim("user_id", user.Id),
+    },
+    expires: DateTime.UtcNow.AddHours(1),
+    signingCredentials: creds);
+
+var token = new JwtSecurityTokenHandler().WriteToken(jwt);
+```
+
+</CodeGroup>
+
+Despues entrega `token` al widget con `setUserToken(token)` o el atributo `data-user-token`. Mira [Identidad del visitante](/es/integrations/identity/overview#entrega-el-token-al-widget).
+
+## Por proveedor de auth
+
+Cada proveedor solo cambia en **como lees al usuario identificado**. Una vez tienes el email, firma el token con uno de los snippets de arriba.
+
+<AccordionGroup>
+
+  <Accordion title="WordPress" icon="wordpress">
+    Lo mas facil: instala el **plugin de BestChatBot**, pega tu signing key en sus ajustes y el plugin inyecta el widget y genera el token por ti (incluye email y telefono de WooCommerce). Sin codigo.
+
+    Para hacerlo a mano, firma en el footer para usuarios con sesion:
+
+    ```php
+    use Firebase\JWT\JWT;
+
+    add_action('wp_footer', function () {
+        $user = wp_get_current_user();
+        if ($user->ID === 0) return; // anonimo, no envies nada
+
+        $token = JWT::encode([
+            'email'   => strtolower($user->user_email),
+            'name'    => $user->display_name,
+            'user_id' => (string) $user->ID,
+            'exp'     => time() + 3600,
+        ], BESTCHATBOT_SIGNING_KEY, 'HS256');
+
+        // inyecta el script del widget con data-user-token = $token
+    });
+    ```
+
+    <Warning>Los tokens inline pueden quedar en cache de pagina. El plugin lo evita pidiendo el token por una peticion no cacheada. En sitios con cache, prefiere el plugin.</Warning>
+  </Accordion>
+
+  <Accordion title="Clerk" icon="key">
+    Lee el usuario de Clerk en el servidor y luego firma tu propio token.
+
+    ```javascript
+    import { currentUser } from "@clerk/nextjs/server";
+
+    const user = await currentUser();
+    if (!user) return null; // anonimo
+
+    const email = user.primaryEmailAddress?.emailAddress;
+    // firma con { email, name: user.fullName, user_id: user.id } usando "Cualquier backend"
+    ```
+
+    <Warning>No reenvies el token de sesion de Clerk. Genera un JWT nuevo firmado con tu signing key de BestChatBot.</Warning>
+  </Accordion>
+
+  <Accordion title="Firebase" icon="fire">
+    Verifica primero el Firebase ID token y luego firma.
+
+    ```javascript
+    const admin = require("firebase-admin");
+
+    const decoded = await admin.auth().verifyIdToken(firebaseIdToken);
+    // firma con { email: decoded.email, name: decoded.name || decoded.email } usando "Cualquier backend"
+    ```
+
+    El frontend manda el Firebase ID token a tu endpoint; tu endpoint devuelve el JWT de BestChatBot.
+  </Accordion>
+
+  <Accordion title="Supabase Auth" icon="bolt">
+    Lee el usuario con `getUser()` (no `getSession()`) y luego firma.
+
+    ```javascript
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user || user.is_anonymous) return null;
+    // firma con { email: user.email, name: user.user_metadata?.full_name, user_id: user.id }
+    ```
+
+    <Warning>No reenvies el access token de Supabase. Firma un JWT aparte con tu signing key.</Warning>
+  </Accordion>
+
+  <Accordion title="Auth0" icon="lock">
+    Lee la sesion de Auth0 en el servidor y luego firma.
+
+    ```javascript
+    const session = await auth0.getSession();
+    if (!session) return null;
+    const { email, name, sub } = session.user;
+    // firma con { email, name, user_id: sub } usando "Cualquier backend"
+    ```
+  </Accordion>
+
+</AccordionGroup>
+
+## Siguientes pasos
+
+<CardGroup cols={2}>
+  <Card title="Identidad del visitante" icon="id-badge" href="/es/integrations/identity/overview">
+    El contrato, las reglas de seguridad y como entregar el token.
+  </Card>
+  <Card title="Miembros y roles" icon="users" href="/es/workspace/members-roles">
+    Controla quien de tu equipo puede gestionar el widget.
+  </Card>
+</CardGroup>

@@ -1,0 +1,203 @@
+---
+title: "Sign the JWT"
+description: "Backend code to mint the identity JWT, for any language and the major auth providers."
+icon: "key"
+---
+
+# Sign the JWT
+
+The contract is the same everywhere: read your user's session, then sign a **new** JWT (HS256) with your signing key and the visitor's email. Start with your language, then check your auth provider for how to read the user.
+
+<Warning>Always sign server-side. The signing key never belongs in frontend code or a public repository.</Warning>
+
+## Any Backend
+
+Required: `email` (lowercase) and `exp`. Recommended: `name`. The signing key comes from a backend secret (`BESTCHATBOT_SIGNING_KEY`).
+
+<CodeGroup>
+
+```javascript Node.js
+const jwt = require("jsonwebtoken");
+
+const token = jwt.sign(
+  {
+    email: user.email.toLowerCase(), // required
+    name: user.name,                 // recommended
+    user_id: String(user.id),        // optional
+  },
+  process.env.BESTCHATBOT_SIGNING_KEY,
+  { algorithm: "HS256", expiresIn: "1h" } // exp required, max 24h
+);
+```
+
+```python Python
+import time
+import jwt  # PyJWT
+
+token = jwt.encode(
+    {
+        "email": user.email.lower(),
+        "name": user.name,
+        "user_id": str(user.id),
+        "exp": int(time.time()) + 3600,
+    },
+    BESTCHATBOT_SIGNING_KEY,
+    algorithm="HS256",
+)
+```
+
+```php PHP
+use Firebase\JWT\JWT;
+
+$token = JWT::encode([
+    "email"   => strtolower($user->email),
+    "name"    => $user->name,
+    "user_id" => (string) $user->id,
+    "exp"     => time() + 3600,
+], $signingKey, "HS256");
+```
+
+```go Go
+import (
+    "strings"
+    "time"
+    "github.com/golang-jwt/jwt/v5"
+)
+
+claims := jwt.MapClaims{
+    "email":   strings.ToLower(user.Email),
+    "name":    user.Name,
+    "user_id": user.ID,
+    "exp":     time.Now().Add(time.Hour).Unix(),
+}
+token, _ := jwt.NewWithClaims(jwt.SigningMethodHS256, claims).
+    SignedString([]byte(signingKey))
+```
+
+```java Java
+String token = Jwts.builder()
+    .claim("email", user.getEmail().toLowerCase())
+    .claim("name", user.getName())
+    .claim("user_id", user.getId())
+    .expiration(new Date(System.currentTimeMillis() + 3_600_000))
+    .signWith(Keys.hmacShaKeyFor(signingKey.getBytes()), Jwts.SIG.HS256)
+    .compact();
+```
+
+```csharp .NET
+var creds = new SigningCredentials(
+    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(signingKey)),
+    SecurityAlgorithms.HmacSha256);
+
+var jwt = new JwtSecurityToken(
+    claims: new[] {
+        new Claim("email", user.Email.ToLower()),
+        new Claim("name", user.Name),
+        new Claim("user_id", user.Id),
+    },
+    expires: DateTime.UtcNow.AddHours(1),
+    signingCredentials: creds);
+
+var token = new JwtSecurityTokenHandler().WriteToken(jwt);
+```
+
+</CodeGroup>
+
+Then hand `token` to the widget with `setUserToken(token)` or the `data-user-token` attribute. See [Visitor Identity](/integrations/identity/overview#hand-the-token-to-the-widget).
+
+## By Auth Provider
+
+Each provider differs only in **how you read the signed-in user**. Once you have the email, sign the token with one of the snippets above.
+
+<AccordionGroup>
+
+  <Accordion title="WordPress" icon="wordpress">
+    Easiest path: install the **BestChatBot plugin**, paste your signing key in its settings, and it injects the widget and mints the token for you (including WooCommerce email and phone). No code needed.
+
+    To do it by hand, sign in the footer for logged-in users:
+
+    ```php
+    use Firebase\JWT\JWT;
+
+    add_action('wp_footer', function () {
+        $user = wp_get_current_user();
+        if ($user->ID === 0) return; // anonymous, send nothing
+
+        $token = JWT::encode([
+            'email'   => strtolower($user->user_email),
+            'name'    => $user->display_name,
+            'user_id' => (string) $user->ID,
+            'exp'     => time() + 3600,
+        ], BESTCHATBOT_SIGNING_KEY, 'HS256');
+
+        // inject the widget script with data-user-token = $token
+    });
+    ```
+
+    <Warning>Inline tokens can be cached by page caches. The plugin avoids this by fetching the token through a non-cached request. Prefer the plugin on cached sites.</Warning>
+  </Accordion>
+
+  <Accordion title="Clerk" icon="key">
+    Read the Clerk user server-side, then sign your own token.
+
+    ```javascript
+    import { currentUser } from "@clerk/nextjs/server";
+
+    const user = await currentUser();
+    if (!user) return null; // anonymous
+
+    const email = user.primaryEmailAddress?.emailAddress;
+    // sign with { email, name: user.fullName, user_id: user.id } using "Any Backend"
+    ```
+
+    <Warning>Do not forward Clerk's session token. Mint a new JWT signed with your BestChatBot signing key.</Warning>
+  </Accordion>
+
+  <Accordion title="Firebase" icon="fire">
+    Verify the Firebase ID token first, then sign.
+
+    ```javascript
+    const admin = require("firebase-admin");
+
+    const decoded = await admin.auth().verifyIdToken(firebaseIdToken);
+    // sign with { email: decoded.email, name: decoded.name || decoded.email } using "Any Backend"
+    ```
+
+    The frontend sends the Firebase ID token to your endpoint; your endpoint returns the BestChatBot JWT.
+  </Accordion>
+
+  <Accordion title="Supabase Auth" icon="bolt">
+    Read the user with `getUser()` (not `getSession()`), then sign.
+
+    ```javascript
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user || user.is_anonymous) return null;
+    // sign with { email: user.email, name: user.user_metadata?.full_name, user_id: user.id }
+    ```
+
+    <Warning>Do not forward Supabase's access token. Sign a separate JWT with your signing key.</Warning>
+  </Accordion>
+
+  <Accordion title="Auth0" icon="lock">
+    Read the Auth0 session server-side, then sign.
+
+    ```javascript
+    const session = await auth0.getSession();
+    if (!session) return null;
+    const { email, name, sub } = session.user;
+    // sign with { email, name, user_id: sub } using "Any Backend"
+    ```
+  </Accordion>
+
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Visitor Identity" icon="id-badge" href="/integrations/identity/overview">
+    The contract, security rules, and how to deliver the token.
+  </Card>
+  <Card title="Members & Roles" icon="users" href="/workspace/members-roles">
+    Control who on your team can manage the widget.
+  </Card>
+</CardGroup>

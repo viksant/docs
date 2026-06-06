@@ -1,0 +1,113 @@
+---
+title: "Identidad del visitante"
+description: "Deja que el bot actue por un visitante identificado enviando un JWT corto que firma tu backend."
+icon: "id-badge"
+---
+
+# Identidad del visitante
+
+Algunas acciones agenticas son personales: mostrar a un visitante *sus* pedidos, facturas, suscripcion o tickets de soporte. El bot solo las ejecuta cuando puede probar quien es el visitante. Lo pruebas enviando un JWT corto, firmado en tu backend, que lleva el email del visitante.
+
+<Note>La identidad solo hace falta para acciones personales. Las acciones publicas (explorar productos, agendar una llamada, abrir un ticket) ya funcionan para visitantes anonimos.</Note>
+
+## Como funciona
+
+<Steps>
+  <Step title="Tu usuario inicia sesion en tu sitio" icon="user">
+    Tu app ya sabe quien es.
+  </Step>
+  <Step title="Tu backend firma un JWT" icon="key">
+    Con tu signing key de BestChatBot (HS256), tu backend genera un token corto con el email del visitante.
+  </Step>
+  <Step title="Entregas el token al widget" icon="arrow-right-to-bracket">
+    Mediante `setUserToken()` o el atributo `data-user-token`.
+  </Step>
+  <Step title="El bot verifica y actua" icon="circle-check">
+    BestChatBot comprueba la firma, lee el email verificado y ejecuta las acciones personales de forma segura.
+  </Step>
+</Steps>
+
+## Que debe contener el token
+
+El bot lee estos claims. Solo `email` es obligatorio.
+
+| Claim | Obligatorio? | Para que sirve |
+|-------|--------------|----------------|
+| `email` | **Si** | La identidad verificada. Debe ser un email real y publico. El bot lo pasa a minusculas. |
+| `exp` | Recomendado | Caducidad (segundos Unix). Mantenlo corto. El bot rechaza tokens con vida mayor de 24 horas. |
+| `name` | Recomendado | Personaliza las respuestas y fija el nombre del visitante en las acciones. |
+| `user_id` | Opcional | El ID del usuario en tu sistema, util para tus registros. |
+| `picture`, `phone`, otros | Opcionales | Se pasan tal cual. El bot ignora lo que no usa. |
+
+Token minimo (Node.js):
+
+```javascript
+const jwt = require("jsonwebtoken");
+
+const token = jwt.sign(
+  { email: user.email.toLowerCase(), name: user.name },
+  process.env.BESTCHATBOT_SIGNING_KEY, // tu signing key, solo backend
+  { algorithm: "HS256", expiresIn: "1h" }
+);
+```
+
+<Note>En [Firmar el JWT](/es/integrations/identity/sign-the-jwt) tienes Python, PHP, Go, Java, .NET y ejemplos por proveedor (WordPress, Clerk, Firebase, Supabase, Auth0).</Note>
+
+## Consigue tu signing key
+
+Abre la configuracion de tu widget en el dashboard, ve a **Security / Identity Verification** y crea una **Signing Key**. Copiala una vez y guardala como secreto en tu backend. Puedes tener hasta **3 keys activas**, asi rotas sin cortes: firmas con la nueva mientras la antigua sigue verificando, y luego retiras la antigua.
+
+<Warning>La signing key es un secreto compartido, como una contrasena. **No** es lo mismo que tu API key del widget (`rk_live_...`). Nunca la subas al repositorio ni la expongas al navegador.</Warning>
+
+## Entrega el token al widget
+
+Elige la via que encaje con tu app. Las dos envian el token al bot como `Authorization: Bearer <jwt>`.
+
+**Opcion A, en runtime (SPAs):** llama a la API del widget cuando tengas el token.
+
+```javascript
+window.BestChatBot.setUserToken(token);
+// al cerrar sesion:
+window.BestChatBot.clearUserToken();
+```
+
+**Opcion B, renderizado en servidor:** pon el token en el script tag.
+
+```html
+<script
+  src="https://bestchatbot.io/widget/v1/chat.js"
+  data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+  data-user-token="EL_JWT_FIRMADO"
+  defer>
+</script>
+```
+
+## Reglas de seguridad
+
+<Warning>
+- Firma el JWT **solo en tu backend**. La signing key nunca llega al navegador.
+- Genera un JWT **nuevo** para BestChatBot. Nunca reenvies el token de sesion de Clerk, Supabase, Firebase o Auth0.
+- Pasa el email a minusculas antes de firmar.
+- Manten `exp` corto (1 hora es un buen valor). El limite duro son 24 horas.
+- Renueva el token cuando se renueve la sesion de tu usuario.
+</Warning>
+
+## Tokens anonimos e invalidos
+
+| Situacion | Que hace el bot |
+|-----------|-----------------|
+| No se envia token | Trata al visitante como anonimo. Las acciones personales quedan apagadas; el bot responde de forma segura. |
+| Token valido | Ejecuta acciones personales con el email verificado. |
+| Token caducado o manipulado | Bloquea la accion a proposito. No cae a anonimo. |
+| Email con dominio reservado (`.local`, `.test`, etc.) | Tratado como anonimo. Usa un email real y publico. |
+
+## Siguientes pasos
+
+<CardGroup cols={2}>
+  <Card title="Firmar el JWT" icon="key" href="/es/integrations/identity/sign-the-jwt">
+    Codigo de backend para cada stack y lenguaje.
+  </Card>
+  <Card title="Integraciones disponibles" icon="plug" href="/es/integrations/available-integrations">
+    Mira que acciones necesitan un visitante identificado.
+  </Card>
+</CardGroup>

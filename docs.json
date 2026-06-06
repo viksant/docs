@@ -103,6 +103,13 @@
             ]
           },
           {
+            "group": "Visitor Identity",
+            "pages": [
+              "integrations/identity/overview",
+              "integrations/identity/sign-the-jwt"
+            ]
+          },
+          {
             "group": "Support",
             "pages": [
               "faq"
@@ -182,6 +189,13 @@
               "es/integrations/guides/stripe",
               "es/integrations/guides/shopify",
               "es/integrations/guides/woocommerce"
+            ]
+          },
+          {
+            "group": "Identidad del visitante",
+            "pages": [
+              "es/integrations/identity/overview",
+              "es/integrations/identity/sign-the-jwt"
             ]
           },
           {

@@ -1,0 +1,113 @@
+---
+title: "Visitor Identity"
+description: "Let the bot act for a signed-in visitor by sending a short JWT that your backend signs."
+icon: "id-badge"
+---
+
+# Visitor Identity
+
+Some agentic actions are personal: showing a visitor *their* orders, invoices, subscription, or support tickets. The bot runs these only when it can prove who the visitor is. You prove it by sending a short JWT, signed in your backend, that carries the visitor's email.
+
+<Note>Identity is only needed for personal actions. Public actions (browse products, book a call, open a ticket) already work for anonymous visitors.</Note>
+
+## How It Works
+
+<Steps>
+  <Step title="Your user signs in to your site" icon="user">
+    Your app already knows who they are.
+  </Step>
+  <Step title="Your backend signs a JWT" icon="key">
+    Using your BestChatBot signing key (HS256), your backend mints a short token that holds the visitor's email.
+  </Step>
+  <Step title="You hand the token to the widget" icon="arrow-right-to-bracket">
+    Through `setUserToken()` or the `data-user-token` attribute.
+  </Step>
+  <Step title="The bot verifies and acts" icon="circle-check">
+    BestChatBot checks the signature, reads the verified email, and runs personal actions safely.
+  </Step>
+</Steps>
+
+## What the Token Must Contain
+
+The bot reads these claims. Only `email` is required.
+
+| Claim | Required? | What it's for |
+|-------|-----------|---------------|
+| `email` | **Yes** | The verified identity. Must be a real, public email. The bot lowercases it. |
+| `exp` | Recommended | Expiry (Unix seconds). Keep it short. The bot rejects tokens whose lifetime is over 24 hours. |
+| `name` | Recommended | Personalizes replies and pins the visitor's name on actions. |
+| `user_id` | Optional | The user's ID in your system, handy for your own records. |
+| `picture`, `phone`, others | Optional | Passed through. The bot ignores what it doesn't use. |
+
+Minimal token (Node.js):
+
+```javascript
+const jwt = require("jsonwebtoken");
+
+const token = jwt.sign(
+  { email: user.email.toLowerCase(), name: user.name },
+  process.env.BESTCHATBOT_SIGNING_KEY, // your signing key, backend only
+  { algorithm: "HS256", expiresIn: "1h" }
+);
+```
+
+<Note>See [Sign the JWT](/integrations/identity/sign-the-jwt) for Python, PHP, Go, Java, .NET, and per-provider examples (WordPress, Clerk, Firebase, Supabase, Auth0).</Note>
+
+## Get Your Signing Key
+
+Open your widget settings in the dashboard, go to **Security / Identity Verification**, and create a **Signing Key**. Copy it once and store it as a backend secret. You can keep up to **3 active keys**, so you can rotate without downtime: sign with the new key while the old one still verifies, then retire the old one.
+
+<Warning>The signing key is a shared secret, like a password. It is **not** the same as your widget API key (`rk_live_...`). Never commit it or expose it to the browser.</Warning>
+
+## Hand the Token to the Widget
+
+Pick whichever fits your app. Both send the token to the bot as `Authorization: Bearer <jwt>`.
+
+**Option A, runtime (SPAs):** call the widget API once you have the token.
+
+```javascript
+window.BestChatBot.setUserToken(token);
+// on logout:
+window.BestChatBot.clearUserToken();
+```
+
+**Option B, server-rendered:** drop the token into the script tag.
+
+```html
+<script
+  src="https://bestchatbot.io/widget/v1/chat.js"
+  data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+  data-user-token="THE_SIGNED_JWT"
+  defer>
+</script>
+```
+
+## Security Rules
+
+<Warning>
+- Sign the JWT **in your backend only**. The signing key never reaches the browser.
+- Mint a **new** JWT for BestChatBot. Never forward the session token from Clerk, Supabase, Firebase, or Auth0.
+- Lowercase the email before signing.
+- Keep `exp` short (1 hour is a good default). The hard limit is 24 hours.
+- Refresh the token when your user's session refreshes.
+</Warning>
+
+## Anonymous and Invalid Tokens
+
+| Situation | What the bot does |
+|-----------|-------------------|
+| No token sent | Treats the visitor as anonymous. Personal actions stay off; the bot answers safely. |
+| Valid token | Runs personal actions with the verified email. |
+| Expired or tampered token | Blocks the action by design. It does not fall back to anonymous. |
+| Email with a reserved domain (`.local`, `.test`, etc.) | Treated as anonymous. Use a real public email. |
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Sign the JWT" icon="key" href="/integrations/identity/sign-the-jwt">
+    Backend code for every stack and language.
+  </Card>
+  <Card title="Available Integrations" icon="plug" href="/integrations/available-integrations">
+    See which actions need a signed-in visitor.
+  </Card>
+</CardGroup>
