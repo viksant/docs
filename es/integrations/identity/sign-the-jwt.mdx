@@ -10,6 +10,48 @@ El contrato es el mismo en todas partes: lee la sesion de tu usuario y firma un 
 
 <Warning>Firma siempre en el servidor. La signing key nunca va en codigo de frontend ni en un repositorio publico.</Warning>
 
+## Deja que tu IA lo anada
+
+La mayoria de equipos montan esto con un asistente de IA. Copia el prompt de abajo en el tuyo (Cursor, Claude Code, Copilot y similares). Primero revisa tu stack, pregunta si algo no esta claro, y luego escribe el codigo de firma por ti.
+
+```text Prompt para tu asistente de IA
+Vas a integrar el widget de chat de BestChatBot en ESTE proyecto. Trabaja en dos fases.
+
+FASE 1 - Primero inspecciona, aun no escribas codigo. Reporta:
+1. El stack: lenguaje, framework y como se sirve la app (paginas renderizadas en servidor vs SPA con una API aparte).
+2. Donde se autentica un usuario: la libreria de auth/sesion y donde esta disponible el email del usuario actual EN EL SERVIDOR.
+3. Donde se carga el widget de BestChatBot: una etiqueta <script src="https://bestchatbot.io/widget/v1/chat.js" data-api-key="..."> o donde habria que anadirla.
+Si el stack o el flujo de auth no esta claro, PREGUNTAME antes de seguir.
+
+FASE 2 - Implementa la identidad del visitante siguiendo este contrato EXACTO.
+
+CONTRATO
+- Genera un JWT NUEVO solo en el BACKEND. Algoritmo: HS256.
+- Firmalo con un secreto leido de la variable de entorno BESTCHATBOT_SIGNING_KEY. Nunca lo hardcodees. Nunca lo expongas al navegador.
+- Claims:
+  - email (OBLIGATORIO): el email del usuario autenticado, en minusculas.
+  - exp (OBLIGATORIO): ahora + 1 hora (el maximo duro son 24h).
+  - name (recomendado): el nombre visible del usuario.
+  - user_id (opcional): el id del usuario en este sistema.
+- NO reenvies el token de sesion del proveedor de auth (Clerk/Supabase/Firebase/Auth0/etc.). Firma siempre un token nuevo.
+- Lee el email de la sesion verificada en el servidor, nunca de input del cliente.
+- Genera token solo para usuarios autenticados. Para visitantes anonimos, no envies token.
+
+ENTREGA (elige la que encaje con esta app)
+- Renderizado en servidor: anade data-user-token="<jwt>" a la etiqueta <script> del widget, renderizada por peticion.
+- SPA / lado cliente: anade un endpoint (p.ej. GET /api/widget-token) que devuelva { token }, y luego llama a
+  window.BestChatBot.setUserToken(token) tras el login y window.BestChatBot.clearUserToken() al cerrar sesion.
+
+RESTRICCIONES
+- Usa la libreria JWT idiomatica de este stack.
+- Toca solo lo que necesite esta funcionalidad. Lista los archivos que cambiaste.
+- Al terminar, dime que configure BESTCHATBOT_SIGNING_KEY (yo pegare la signing key del dashboard de BestChatBot).
+```
+
+<Tip>La signing key se crea en los ajustes de tu widget (**Security / Identity Verification**). Pegala como el secreto `BESTCHATBOT_SIGNING_KEY` cuando tu asistente te lo pida.</Tip>
+
+Prefieres hacerlo a mano? Abajo tienes el codigo exacto por lenguaje y proveedor.
+
 ## Cualquier backend
 
 Obligatorio: `email` (en minusculas) y `exp`. Recomendado: `name`. La signing key sale de un secreto del backend (`BESTCHATBOT_SIGNING_KEY`).
