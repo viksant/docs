@@ -34,25 +34,35 @@ Cal.com se limita a las acciones de arriba. **No** puede:
 
 <Steps>
   <Step title="Obten tu API key de Cal.com" icon="key">
-    En Cal.com, abre **Settings → Developer → API keys** y crea una API key. Copiala.
+    En Cal.com, ve a **Settings → Developer → API keys** y haz clic en **+ New** para crear una clave. Copiala (empieza por `cal_`).
+
+    <Frame>
+      <img src="/integrations/cal-com-integration/api-key.png" alt="Pagina de API keys en Settings Developer de Cal.com con el boton New" />
+    </Frame>
   </Step>
   <Step title="Abre Integraciones" icon="plug">
     En el dashboard de tu workspace, abre la pestana **Web Widget → Integrations** y busca **Cal.com**.
   </Step>
   <Step title="Conecta" icon="link">
-    Haz clic en **Conectar**. Se abre un popup seguro: pega tu **API key de Cal.com**. Tus credenciales van al formulario seguro, nunca al chat. Si Calendly esta activa, se te pedira confirmar el reemplazo.
+    Haz clic en **Conectar**. Se abre un popup seguro: pega tu **API key de Cal.com** y haz clic en **Conectar**. Tus credenciales van al formulario seguro, nunca al chat. Si Calendly esta activa, se te pedira confirmar el reemplazo.
+
+    <Frame>
+      <img src="/integrations/cal-com-integration/connect-popup.png" alt="Popup de conexion de Cal.com en BestChatBot con el campo API Key" />
+    </Frame>
   </Step>
   <Step title="Elige un event type" icon="calendar-check">
-    Cal.com necesita un paso mas: elige el **event type** que reservara el bot (por ejemplo, "Llamada de 30 minutos"). Hasta que selecciones uno, la integracion muestra una insignia **needs setup** y no agenda reuniones.
+    Cal.com necesita un paso mas: elige el **event type** que reservara el bot (por ejemplo, "Reunion de 30 min"). Hasta que selecciones uno, la integracion muestra una insignia **needs setup** y no agenda reuniones.
+
+    <Frame>
+      <img src="/integrations/cal-com-integration/event-type.png" alt="Seleccion del event type de Cal.com desde el desplegable del panel de la integracion" />
+    </Frame>
   </Step>
 </Steps>
 
-Una vez configurada, las acciones de Cal.com quedan disponibles en tu widget de inmediato.
-
-## Flujo de conexion
+Una vez configurada, las acciones de Cal.com quedan disponibles en tu widget de inmediato. Puedes activar cada capacidad — **Check availability**, **Schedule meetings** y **Cancel meetings** — desde el panel de la integracion.
 
 <Frame>
-  <img src="/images/calcom-integration.png" alt="Flujo de conexion de Cal.com desde el dashboard hasta un bot conectado y listo para actuar" />
+  <img src="/integrations/cal-com-integration/connected.png" alt="Panel de Cal.com conectado mostrando el event type elegido y los toggles de capacidades" />
 </Frame>
 
 ## Una por categoria

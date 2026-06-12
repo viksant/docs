@@ -10,6 +10,8 @@ icon: "calendar"
 
 <Note>Las integraciones estan disponibles en los planes **Pro** y **Business**. Calendly comparte la categoria Agendamiento con Cal.com, asi que solo una de las dos puede estar activa a la vez.</Note>
 
+<Warning>**Agendar requiere un plan de pago de Calendly.** En el tier **gratuito** de Calendly, el bot solo puede **mostrar los horarios disponibles**: no puede agendar la reunion, porque el plan gratuito de Calendly no permite crear reservas a traves de su API. Sube de plan en Calendly para que el bot pueda agendar reuniones de principio a fin.</Warning>
+
 ## Que puede hacer este bot
 
 El bot hace exactamente estas acciones, nada mas. "Requiere identidad" significa que el visitante debe estar identificado primero; si no, el bot da una respuesta segura y neutra.
@@ -17,13 +19,14 @@ El bot hace exactamente estas acciones, nada mas. "Requiere identidad" significa
 | Accion | Que hace | Requiere identidad |
 |--------|----------|:------------------:|
 | **Consultar disponibilidad** | Muestra al visitante los horarios libres de tu calendario, hasta 7 dias por consulta. | No |
-| **Agendar una reunion** | Agenda una reunion cuando el visitante elige un hueco y da su nombre y email. | No |
+| **Agendar una reunion** | Agenda una reunion cuando el visitante elige un hueco y da su nombre y email. **Requiere un plan de pago de Calendly.** | No |
 | **Cancelar una reunion** | Cancela una reunion que agendo el visitante, buscandola por su email. El bot pide confirmacion antes. | Si |
 
 ## Que NO puede hacer
 
 Calendly se limita a las acciones de arriba. **No** puede:
 
+- Agendar reuniones en el plan gratuito de Calendly (ahi solo puede mostrar disponibilidad)
 - Reprogramar una reunion (el visitante cancela y agenda un nuevo horario)
 - Listar o mostrar todas las reuniones de un visitante
 - Consultar disponibilidad de mas de 7 dias en una sola peticion
@@ -37,19 +40,25 @@ Calendly se limita a las acciones de arriba. **No** puede:
     En el dashboard de tu workspace, abre la pestana **Web Widget → Integrations** y busca **Calendly**.
   </Step>
   <Step title="Conecta y autoriza" icon="link">
-    Haz clic en **Conectar**. Se abre un popup seguro: inicia sesion en Calendly y autoriza el acceso. Nunca tecleas credenciales en BestChatBot. Si Cal.com esta activa, se te pedira confirmar el reemplazo.
+    Haz clic en **Conectar**. Se abre un popup seguro: inicia sesion en Calendly y pulsa **Approve** para conceder el acceso solicitado. Nunca tecleas credenciales en BestChatBot. Si Cal.com esta activa, se te pedira confirmar el reemplazo.
+
+    <Frame>
+      <img src="/integrations/calendly-integration/connect-authorize.png" alt="Pantalla de autorizacion OAuth de Calendly concediendo a BestChatBot acceso de agendamiento" />
+    </Frame>
   </Step>
   <Step title="Elige un event type" icon="calendar-check">
-    Calendly necesita un paso mas: elige el **event type** que reservara el bot (por ejemplo, "Llamada inicial"). Hasta que selecciones uno, la integracion muestra una insignia **needs setup** y no agenda reuniones.
+    Calendly necesita un paso mas: elige el **event type** que reservara el bot (por ejemplo, "30 Minute Meeting"). Hasta que selecciones uno, la integracion muestra una insignia **needs setup** y no agenda reuniones.
+
+    <Frame>
+      <img src="/integrations/calendly-integration/event-type.png" alt="Seleccion del event type de Calendly desde el desplegable del panel de la integracion" />
+    </Frame>
   </Step>
 </Steps>
 
-Una vez configurada, las acciones de Calendly quedan disponibles en tu widget de inmediato.
-
-## Flujo de conexion
+Una vez configurada, las acciones de Calendly quedan disponibles en tu widget de inmediato. Puedes activar cada capacidad — **Check availability**, **Schedule meetings** y **Cancel meetings** — desde el panel de la integracion.
 
 <Frame>
-  <img src="/images/calendly-integration.png" alt="Flujo de conexion de Calendly desde el dashboard hasta un bot conectado y listo para actuar" />
+  <img src="/integrations/calendly-integration/connected.png" alt="Panel de Calendly conectado mostrando el event type elegido y los toggles de capacidades" />
 </Frame>
 
 ## Una por categoria

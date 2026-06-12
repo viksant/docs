@@ -10,6 +10,8 @@ icon: "calendar"
 
 <Note>Integrations are available on the **Pro** and **Business** plans. Calendly shares the Scheduling category with Cal.com, so only one of the two can be active at a time.</Note>
 
+<Warning>**Booking requires a paid Calendly plan.** On Calendly's **free** tier, the bot can only **show available times** — it can't actually book the meeting, because Calendly's free plan doesn't allow creating bookings through its API. Upgrade your Calendly plan to let the bot schedule meetings end to end.</Warning>
+
 ## What This Bot Can Do
 
 The bot does exactly these actions, nothing more. "Needs sign-in" means the visitor must be identified first; otherwise the bot gives a safe, neutral answer.
@@ -17,13 +19,14 @@ The bot does exactly these actions, nothing more. "Needs sign-in" means the visi
 | Action | What it does | Needs sign-in |
 |--------|--------------|:-------------:|
 | **Check availability** | Show the visitor open time slots from your calendar, up to 7 days per request. | No |
-| **Book a meeting** | Schedule a meeting once the visitor picks a slot and gives their name and email. | No |
+| **Book a meeting** | Schedule a meeting once the visitor picks a slot and gives their name and email. **Requires a paid Calendly plan.** | No |
 | **Cancel a meeting** | Cancel a meeting the visitor booked, found by their email. The bot asks for confirmation first. | Yes |
 
 ## What It Can't Do
 
 Calendly is scoped to the actions above. It does **not**:
 
+- Book meetings on Calendly's free plan (it can only show availability there)
 - Reschedule a meeting (the visitor cancels and books a new time instead)
 - List or show all of a visitor's meetings
 - Check availability more than 7 days ahead in a single request
@@ -37,19 +40,25 @@ Calendly is scoped to the actions above. It does **not**:
     In your workspace dashboard, open your **Web Widget → Integrations** tab and find **Calendly**.
   </Step>
   <Step title="Connect and authorize" icon="link">
-    Click **Connect**. A secure popup opens — sign in to Calendly and authorize access. You never type credentials into BestChatBot. If Cal.com is currently active, you'll be asked to confirm replacing it.
+    Click **Connect**. A secure popup opens — sign in to Calendly and **Approve** the requested access. You never type credentials into BestChatBot. If Cal.com is currently active, you'll be asked to confirm replacing it.
+
+    <Frame>
+      <img src="/integrations/calendly-integration/connect-authorize.png" alt="Calendly OAuth authorization screen granting BestChatBot scheduling access" />
+    </Frame>
   </Step>
   <Step title="Choose an event type" icon="calendar-check">
-    Calendly needs one more step: pick the **event type** the bot will book (for example, "Intro call"). Until you select one, the integration shows a **needs setup** badge and won't book meetings.
+    Calendly needs one more step: pick the **event type** the bot will book (for example, "30 Minute Meeting"). Until you select one, the integration shows a **needs setup** badge and won't book meetings.
+
+    <Frame>
+      <img src="/integrations/calendly-integration/event-type.png" alt="Selecting a Calendly event type from the dropdown in the integration panel" />
+    </Frame>
   </Step>
 </Steps>
 
-Once set up, Calendly's actions become available to your widget right away.
-
-## Connection Flow
+Once set up, Calendly's actions become available to your widget right away. You can toggle each capability — **Check availability**, **Schedule meetings**, and **Cancel meetings** — from the integration panel.
 
 <Frame>
-  <img src="/images/calendly-integration.png" alt="Calendly connection flow from the dashboard to a connected, action-ready bot" />
+  <img src="/integrations/calendly-integration/connected.png" alt="Connected Calendly panel showing the selected event type and capability toggles" />
 </Frame>
 
 ## One per Category
