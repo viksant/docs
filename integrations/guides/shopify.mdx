@@ -1,6 +1,6 @@
 ---
 title: "Shopify"
-description: "What the Shopify integration can and can't do, and how to connect it."
+description: "What the Shopify integration can and can't do, and how to connect it step by step."
 icon: "cart-shopping"
 ---
 
@@ -27,27 +27,88 @@ Shopify is scoped to the actions above. It does **not**:
 - Process returns or change an order from the chat
 - Look up an order without the visitor's email
 
-## Connection Flow
+## Part 1 — Connect Shopify
 
-<Frame>
-  <img src="/images/shopify-integration.png" alt="Shopify connection flow from the dashboard to a connected, action-ready bot" />
-</Frame>
-
-## How to Connect
+Shopify connects with **OAuth**, so you never paste API keys — you just authorize the BestChatBot app on your store.
 
 <Steps>
   <Step title="Open Integrations" icon="plug">
     In your workspace dashboard, open the **Integrations** tab and find **Shopify**.
   </Step>
   <Step title="Connect" icon="link">
-    Click **Connect**. A secure popup opens. Sign in to Shopify and authorize access. You never type credentials into BestChatBot.
+    Click **Connect**. A secure popup opens. Sign in to Shopify and authorize access. This installs the BestChatBot app on your store, which also powers the identity proxy used in Part 3. You never type credentials into BestChatBot.
   </Step>
-  <Step title="You're live" icon="circle-check">
-    Once connected, Shopify's actions become available to your widget right away. If WooCommerce was connected, it's disconnected automatically.
+  <Step title="You're connected" icon="circle-check">
+    Once authorized, Shopify's actions become available to your widget right away. If WooCommerce was connected, it's disconnected automatically.
   </Step>
 </Steps>
 
 <Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
+
+## Part 2 — Embed the Widget on Your Store
+
+Connecting Shopify lets the bot read your store. To show the widget on your storefront, paste the standard embed snippet into your theme.
+
+<Steps>
+  <Step title="Open your theme code">
+    In Shopify admin, go to **Online Store → Themes → ⋯ → Edit code** and open `layout/theme.liquid`.
+  </Step>
+  <Step title="Paste the embed snippet">
+    Just before the closing `</body>` tag, paste your widget snippet (find your `data-api-key` in **Dashboard → Web Widget → Installation**):
+
+    ```html
+    <script
+      src="https://widget.bestchatbot.io/widget/v1/chat.js"
+      data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+      defer
+    ></script>
+    ```
+
+    Save. The chat bubble now appears on your storefront.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/integrations/shopify-integration/Shopify-Installed.png" alt="BestChatBot widget live on a Shopify storefront" />
+</Frame>
+
+## Part 3 — Identity-Aware Order Lookups
+
+By default the bot asks a visitor for their email before checking an order. For **logged-in Shopify customers**, you can skip that: BestChatBot verifies their identity automatically through a Shopify App Proxy, so "track my order" returns **their** orders with no email prompt.
+
+<Steps>
+  <Step title="Create a signing key">
+    In your dashboard, open **Web Widget → Security** and click **Create Signing Key**. BestChatBot uses this key to sign each customer's identity token server-side — you don't paste it into your theme.
+  </Step>
+  <Step title="Add the identity snippet">
+    In `theme.liquid`, right after the widget snippet, add:
+
+    ```html
+    <script>
+      (function () {
+        fetch('/apps/bestchatbot/identity', { credentials: 'same-origin' })
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data.token && window.BestChatBot) {
+              window.BestChatBot.setUserToken(data.token);
+            }
+          })
+          .catch(function () {});
+      })();
+    </script>
+    ```
+
+    On every page load, this asks BestChatBot's identity proxy who the logged-in customer is. The proxy returns a short signed token (email and Shopify customer ID) only for authenticated customers; anonymous visitors get nothing and simply browse as usual.
+  </Step>
+</Steps>
+
+Now a logged-in customer can ask "track my order" and get their orders back instantly.
+
+<Frame>
+  <img src="/integrations/shopify-integration/bestchatbot-shopify-integration-working-on-live.png" alt="Logged-in Shopify customer seeing their orders in the widget after asking to track an order" />
+</Frame>
+
+<Note>For how visitor identity works across platforms, see [Visitor Identity](/integrations/identity/overview).</Note>
 
 ## One per Category
 
@@ -67,8 +128,8 @@ Shopify is in the **E-commerce** category with WooCommerce. Connecting one disco
 ## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="All Integrations" icon="plug" href="/integrations/available-integrations">
-    See the full catalog and how categories work.
+  <Card title="Visitor Identity" icon="fingerprint" href="/integrations/identity/overview">
+    Set up identity verification for personal actions like order lookups.
   </Card>
   <Card title="Agentic Actions" icon="wand-magic-sparkles" href="/integrations/agentic-actions">
     Learn how the bot turns a request into a real action.

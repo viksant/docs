@@ -1,6 +1,6 @@
 ---
 title: "Shopify"
-description: "Que puede y que NO puede hacer la integracion de Shopify, y como conectarla."
+description: "Que puede y que NO puede hacer la integracion de Shopify, y como conectarla paso a paso."
 icon: "cart-shopping"
 ---
 
@@ -27,27 +27,88 @@ Shopify se limita a las acciones de arriba. **No** puede:
 - Gestionar devoluciones o modificar un pedido desde el chat
 - Consultar un pedido sin el email del visitante
 
-## Flujo de conexion
+## Parte 1 — Conectar Shopify
 
-<Frame>
-  <img src="/images/shopify-integration.png" alt="Flujo de conexion de Shopify desde el dashboard hasta un bot conectado y listo para actuar" />
-</Frame>
-
-## Como conectar
+Shopify se conecta con **OAuth**, asi que nunca pegas API keys: solo autorizas la app de BestChatBot en tu tienda.
 
 <Steps>
   <Step title="Abre Integraciones" icon="plug">
     En el dashboard de tu workspace, abre la pestana **Integraciones** y busca **Shopify**.
   </Step>
   <Step title="Conecta" icon="link">
-    Haz clic en **Conectar**. Se abre un popup seguro. Inicia sesion en Shopify y autoriza el acceso. Nunca tecleas credenciales en BestChatBot.
+    Haz clic en **Conectar**. Se abre un popup seguro. Inicia sesion en Shopify y autoriza el acceso. Esto instala la app de BestChatBot en tu tienda, que ademas habilita el proxy de identidad que usaras en la Parte 3. Nunca tecleas credenciales en BestChatBot.
   </Step>
-  <Step title="Listo" icon="circle-check">
-    Una vez conectada, las acciones de Shopify quedan disponibles en tu widget de inmediato. Si WooCommerce estaba conectada, se desconecta automaticamente.
+  <Step title="Conectado" icon="circle-check">
+    Una vez autorizada, las acciones de Shopify quedan disponibles en tu widget de inmediato. Si WooCommerce estaba conectada, se desconecta automaticamente.
   </Step>
 </Steps>
 
 <Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
+
+## Parte 2 — Embebe el widget en tu tienda
+
+Conectar Shopify permite al bot leer tu tienda. Para mostrar el widget en tu escaparate, pega el snippet de embed estandar en tu tema.
+
+<Steps>
+  <Step title="Abre el codigo de tu tema">
+    En el admin de Shopify, ve a **Online Store → Themes → ⋯ → Edit code** y abre `layout/theme.liquid`.
+  </Step>
+  <Step title="Pega el snippet de embed">
+    Justo antes de la etiqueta de cierre `</body>`, pega el snippet de tu widget (encuentra tu `data-api-key` en **Dashboard → Web Widget → Installation**):
+
+    ```html
+    <script
+      src="https://widget.bestchatbot.io/widget/v1/chat.js"
+      data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
+      defer
+    ></script>
+    ```
+
+    Guarda. El boton de chat ya aparece en tu escaparate.
+  </Step>
+</Steps>
+
+<Frame>
+  <img src="/integrations/shopify-integration/Shopify-Installed.png" alt="Widget de BestChatBot en vivo en un escaparate de Shopify" />
+</Frame>
+
+## Parte 3 — Consultas de pedidos con identidad
+
+Por defecto el bot pide el email al visitante antes de consultar un pedido. Para **clientes de Shopify logueados** puedes saltarte ese paso: BestChatBot verifica su identidad automaticamente mediante un Shopify App Proxy, asi "rastrea mi pedido" devuelve **sus** pedidos sin pedir el email.
+
+<Steps>
+  <Step title="Crea una signing key">
+    En tu dashboard, abre **Web Widget → Security** y haz clic en **Create Signing Key**. BestChatBot usa esta clave para firmar el token de identidad de cada cliente en el servidor: no la pegas en tu tema.
+  </Step>
+  <Step title="Anade el snippet de identidad">
+    En `theme.liquid`, justo despues del snippet del widget, anade:
+
+    ```html
+    <script>
+      (function () {
+        fetch('/apps/bestchatbot/identity', { credentials: 'same-origin' })
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            if (data.token && window.BestChatBot) {
+              window.BestChatBot.setUserToken(data.token);
+            }
+          })
+          .catch(function () {});
+      })();
+    </script>
+    ```
+
+    En cada carga de pagina, esto le pregunta al proxy de identidad de BestChatBot quien es el cliente logueado. El proxy devuelve un token corto firmado (email e ID de cliente de Shopify) solo para clientes autenticados; los visitantes anonimos no reciben nada y navegan con normalidad.
+  </Step>
+</Steps>
+
+Ahora un cliente logueado puede pedir "rastrea mi pedido" y obtener sus pedidos al instante.
+
+<Frame>
+  <img src="/integrations/shopify-integration/bestchatbot-shopify-integration-working-on-live.png" alt="Cliente de Shopify logueado viendo sus pedidos en el widget tras pedir rastrear un pedido" />
+</Frame>
+
+<Note>Para entender como funciona la identidad del visitante entre plataformas, consulta [Identidad del visitante](/es/integrations/identity/overview).</Note>
 
 ## Una por categoria
 
@@ -67,8 +128,8 @@ Shopify esta en la categoria **E-commerce** con WooCommerce. Conectar una descon
 ## Siguientes pasos
 
 <CardGroup cols={2}>
-  <Card title="Todas las integraciones" icon="plug" href="/es/integrations/available-integrations">
-    Mira el catalogo completo y como funcionan las categorias.
+  <Card title="Identidad del visitante" icon="fingerprint" href="/es/integrations/identity/overview">
+    Configura la verificacion de identidad para acciones personales como consultar pedidos.
   </Card>
   <Card title="Acciones agenticas" icon="wand-magic-sparkles" href="/es/integrations/agentic-actions">
     Descubre como el bot convierte una peticion en una accion real.
