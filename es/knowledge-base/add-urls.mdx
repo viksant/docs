@@ -44,7 +44,14 @@ BestChatBot ofrece tres formas de anadir contenido web:
   </Step>
 
   <Step title="Configura filtros de URL (opcional)">
-    Con **Crawl** o **Sitemap** puedes fijar patrones para incluir o excluir paginas concretas. Asi enfocas el scraper en el contenido que importa.
+    Acota que paginas se anaden usando patrones de URL. Las opciones dependen del metodo:
+
+    - **Crawl** — abre **Advanced options** para fijar **Include paths** y **Exclude paths**. Solo se conservan las paginas que coinciden con un patron de inclusion; las que coinciden con uno de exclusion se descartan.
+    - **Sitemap** — fija un unico **URL Pattern** para quedarte solo con las entradas que coinciden. Dejalo vacio para importar todas las URLs del sitemap.
+
+    Los patrones usan comodines tipo glob (`*`) y se comparan contra la ruta de la pagina. Por ejemplo, `docs/*` conserva todo bajo `/docs`, y `*/blog/*` coincide con cualquier ruta de blog.
+
+    <Note>Introduce **un patron por campo**. Para apuntar a varias secciones distintas, lanza scrapeos separados.</Note>
   </Step>
 
   <Step title="Empieza el scrapeo">
@@ -66,7 +73,7 @@ BestChatBot ofrece tres formas de anadir contenido web:
 
 ## Limites de paginas scrapeadas
 
-Cada plan incluye un numero de paginas scrapeadas:
+Cada plan incluye un numero de paginas que puedes anadir desde URLs. Cada URL de tu base de conocimiento cuenta para este limite, ya sea anadida como URL directa, descubierta desde un sitemap o encontrada durante un crawl.
 
 | Plan | Paginas scrapeadas |
 |------|--------------------|

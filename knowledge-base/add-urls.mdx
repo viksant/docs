@@ -44,7 +44,14 @@ BestChatBot offers three ways to add web content:
   </Step>
 
   <Step title="Configure URL Filters (Optional)">
-    When using **Crawl** or **Sitemap**, you can set URL pattern filters to include or exclude specific pages. This lets you focus the scraper on the content that matters.
+    Narrow down which pages get added using URL patterns. The available options depend on the method:
+
+    - **Crawl** — open **Advanced options** to set **Include paths** and **Exclude paths**. Only pages matching an include pattern are kept; pages matching an exclude pattern are skipped.
+    - **Sitemap** — set a single **URL Pattern** to keep only the matching entries. Leave it empty to import every URL in the sitemap.
+
+    Patterns use glob-style wildcards (`*`) and are matched against the page path. For example, `docs/*` keeps everything under `/docs`, and `*/blog/*` matches any blog path.
+
+    <Note>Enter **one pattern per field**. To target several distinct sections, run separate scrapes.</Note>
   </Step>
 
   <Step title="Start Scraping">
@@ -66,7 +73,7 @@ BestChatBot offers three ways to add web content:
 
 ## Scraped Pages Limits
 
-Each plan includes a set number of scraped pages:
+Each plan includes a set number of pages you can add from URLs. Every URL in your knowledge base counts toward this limit — whether it was added as a direct URL, discovered from a sitemap, or found during a crawl.
 
 | Plan | Scraped Pages |
 |------|---------------|

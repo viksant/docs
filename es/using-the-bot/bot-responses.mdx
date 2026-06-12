@@ -1,51 +1,55 @@
 ---
-title: "Respuestas del bot"
-description: "Monitoriza el historial de respuestas y las analiticas de rendimiento."
-icon: "chart-line"
+title: "Conversaciones"
+description: "Sigue las conversaciones completas de tus visitantes con el bot, incluidas las acciones agenticas que ejecuto."
+icon: "comments"
 ---
 
-# Respuestas del bot
+# Conversaciones
 
-La pagina **Respuestas del bot** muestra cada respuesta que tu widget ha dado a los visitantes, junto con analiticas de rendimiento para entender como esta funcionando.
-
-## Lista de respuestas
-
-La vista principal muestra una lista cronologica de todas las respuestas del bot. Para cada respuesta puedes ver:
-
-- **La pregunta**: lo que el visitante pregunto
-- **La respuesta**: lo que el bot contesto
-- **Timestamp**: cuando se envio la respuesta
-- **Fuentes citadas**: de que conocimiento tiro el bot
+La pagina **Conversaciones** muestra cada conversacion que tu bot ha tenido con visitantes. En lugar de pares aislados de pregunta y respuesta, cada entrada es una **conversacion completa**: todo el ida y vuelta de una sesion de visitante, incluidas las acciones agenticas que el bot ejecuto (cards de producto, formularios de reserva, enlaces de checkout, tickets de soporte).
 
 <Frame>
-  <img src="/images/bot-responses-screen.png" alt="Pagina de Respuestas del bot mostrando preguntas, respuestas y citas" />
+  <img src="/images/conversations-tab-dashboard.png" alt="Pagina de Conversaciones listando conversaciones de visitantes con estado y numero de respuestas" />
 </Frame>
 
-Pulsa cualquier respuesta para ver el detalle completo de la conversacion con las fuentes citadas:
+## La lista de conversaciones
+
+Cada fila es una conversacion de visitante. Para cada una puedes ver:
+
+- **Visitor** — un identificador corto de la sesion del visitante. Si el visitante se identifico con un token firmado, aparece su nombre o email en su lugar.
+- **Estado** — `Open`, `Idle` o `Closed`, segun lo reciente que fue la actividad del visitante.
+- **Responses** — cuantas respuestas del bot contiene la conversacion.
+- **Ultima actividad** — cuando estuvo activa por ultima vez.
+
+La cabecera muestra tu numero total de conversaciones. Pulsa **Refresh** para traer las mas recientes.
+
+## Detalle de la conversacion
+
+Pulsa cualquier conversacion para abrir su linea de tiempo completa. Veras todo el intercambio en orden: mensajes del visitante, respuestas del bot y cada paso agentico que el bot dio por el camino:
 
 <Frame>
-  <img src="/images/detailed-bot-response-with-citation-screen.png" alt="Detalle de la respuesta del bot con la seccion Sources" />
+  <img src="/images/visitor-conversation-detailed.png" alt="Detalle de conversacion mostrando un flujo de compra del visitante con cards de producto y un enlace de checkout" />
 </Frame>
 
-## Resumen de analiticas
+El detalle reconstruye los elementos enriquecidos tal y como los vio el visitante:
 
-Arriba en la pagina, un **panel de estadisticas** te da un vistazo rapido:
+| Elemento | Que muestra |
+|----------|-------------|
+| **Texto** | Respuestas del bot y mensajes del visitante en texto plano |
+| **Cards de accion** | Botones que el bot ofrecio (por ejemplo, **Go to checkout** o **Book a Call**) |
+| **Cards de producto / horarios** | Productos curados con precios, u horarios de reunion disponibles |
+| **Formularios** | Formularios que el bot solicito (como un formulario de Schedule Meeting), con los datos que el visitante envio, o una insignia **Not submitted** si lo abandono |
+| **Resultados de herramienta** | El resultado de una accion: una reunion agendada, el estado de un pedido, un ticket abierto |
 
-| Metrica | Que muestra |
-|---------|-------------|
-| Respuestas totales | Cuantas respuestas ha dado el bot este mes |
-| Tasa de respuesta | Con que frecuencia el bot responde correctamente |
-| Tiempo medio de respuesta | Cuan rapido responde el bot |
-
-<Tip>Si ves al bot dando respuestas incorrectas o incompletas en un tema concreto, anade mas contenido relevante a tu base de conocimiento y reconstruye.</Tip>
+Asi es facil ver no solo lo que el bot **dijo**, sino lo que **hizo**. Cada conversacion esta anclada a una unica sesion de visitante, asi que siempre obtienes el hilo completo en lugar de mensajes sueltos.
 
 ## Proximos pasos
 
 <CardGroup cols={2}>
+  <Card title="Acciones agenticas" icon="wand-magic-sparkles" href="/es/integrations/agentic-actions">
+    Aprende como el bot ejecuta las acciones que ves en las conversaciones.
+  </Card>
   <Card title="Grafo de conocimiento" icon="diagram-project" href="/es/using-the-bot/knowledge-graph">
     Visualiza como se conecta tu contenido.
-  </Card>
-  <Card title="Sube mas contenido" icon="file-arrow-up" href="/es/knowledge-base/upload-documents">
-    Llena huecos de conocimiento con nuevos documentos.
   </Card>
 </CardGroup>

@@ -36,42 +36,28 @@ Before adding the widget to your website, make sure you have:
 
 ---
 
-## Create Your Widget
+## Configure Your Widget
 
-<Steps>
-  <Step title="Open Widget Setup" icon="window-maximize">
-    From your workspace, open the **Web Widget** setup. You'll land on a form where you set the widget's metadata and brand styling.
-  </Step>
+Each workspace comes with **one web widget**, created automatically when you set up the workspace. You don't build it from scratch — you configure it. Open the **Web Widgets** page (the globe icon in the sidebar) and you'll see your widget as a card with its status, brand color, and quick actions for the embed code (`<>`) and settings (`⚙`).
 
-  <Step title="Configure Your Widget" icon="sliders">
-    Fill in the setup form:
+<Frame>
+  <img src="/images/widget-manager-screen.png" alt="Web Widgets page showing the workspace widget card with its Active toggle, color, and action buttons" />
+</Frame>
 
-    - **Name**: a label for your widget (e.g., "My Website Widget")
-    - **Allowed Origins**: the domains where the widget can run, one per line. Supports wildcards (`*.example.com`). Leave empty to allow all.
-    - **Primary Color**: your brand color in hex (e.g., `#F97316`)
+Click the settings gear (`⚙`) and open the **Configuration** tab to style your widget:
 
-    Click **Create Widget** when ready.
+- **Primary Color**: your brand color in hex (e.g., `#F97316`)
+- **Position**: which corner the chat bubble sits in (Top Left, Top Right, Bottom Left, Bottom Right)
+- **Bot Avatar**: an optional image shown in the bubble and next to each reply (PNG, JPEG, or WebP, up to 512 KB)
+- **Allowed Origins**: the domains where the widget can run, one per line. Supports wildcards (`*.example.com`). Leave empty to allow all.
 
-    <Frame>
-      <img src="/images/widget-setup-fields.png" alt="Configure Web Widget form with Name, Allowed Origins, and Primary Color fields" />
-    </Frame>
-  </Step>
+<Frame>
+  <img src="/images/widget-configuration-tab.png" alt="Web Widget Configuration tab with Primary Color, Position, Bot Avatar, and Allowed Origins" />
+</Frame>
 
-  <Step title="View Your Widget" icon="check">
-    After creation, your widget appears in the **Web Widgets** page. Each widget card shows:
+Click **Save Changes** to apply. Use the **Active** toggle on the widget card to turn the widget on or off.
 
-    - **Name** and status (Active/Inactive)
-    - **Active toggle** to turn the widget on or off
-    - **Color** indicator showing your brand color
-    - **Quick actions**: embed code `<>` and settings `⚙`
-
-    <Frame>
-      <img src="/images/widget-manager-screen.png" alt="Widget Manager showing a widget card with status, color, and action buttons" />
-    </Frame>
-
-    <Tip>Click the globe icon in the sidebar to go directly to the Web Widgets page.</Tip>
-  </Step>
-</Steps>
+<Tip>To run a widget on more than one site or brand, create a separate workspace — each workspace has its own isolated knowledge base and its own widget.</Tip>
 
 ---
 
@@ -87,7 +73,7 @@ The snippet looks like this:
 
 ```html
 <script
-  src="https://bestchatbot.io/widget/v1/chat.js"
+  src="https://widget.bestchatbot.io/widget/v1/chat.js"
   data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
   defer>
 </script>
@@ -110,7 +96,7 @@ Paste the snippet into your website's HTML, just before the closing `</body>` ta
 
     <!-- BestChatBot Widget -->
     <script
-      src="https://bestchatbot.io/widget/v1/chat.js"
+      src="https://widget.bestchatbot.io/widget/v1/chat.js"
       data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
       defer>
     </script>
@@ -167,7 +153,7 @@ That's it. The widget will appear as a floating chat bubble in the bottom-right 
           <body>
             {children}
             <Script
-              src="https://bestchatbot.io/widget/v1/chat.js"
+              src="https://widget.bestchatbot.io/widget/v1/chat.js"
               data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
               strategy="lazyOnload"
             />
@@ -208,45 +194,37 @@ The widget remembers the conversation within the same browser session. If a visi
 
 ## Widget Settings
 
-Click the **settings** button (`⚙`) on your widget card to open the configuration panel. It has three tabs:
+Click the **settings** button (`⚙`) on your widget card to open the settings panel. It has six tabs:
 
-### Configuration Tab
+### Configuration
 
-Change your brand color and allowed domains after creation.
+Style the widget: **Primary Color**, **Position**, **Bot Avatar**, and **Allowed Origins** (covered above). The widget automatically adjusts the bubble accent, user message border, send button, and text contrast to match your color. Click **Save Changes** to apply.
 
-**Primary Color**: Choose your brand color using the color picker or enter a hex value (e.g., `#F97316`). The widget automatically adjusts:
+<Note>Allowed Origins supports wildcards like `*.example.com` to cover all subdomains. You cannot use `*` alone. Leave it empty to allow all origins.</Note>
 
-- Chat bubble accent
-- User message border
-- Send button color
-- Text contrast (white or black) based on your color
+### Help Links
 
-**Allowed Origins**: Enter the domains where the widget is allowed to run, one per line. This prevents unauthorized use of your embed code.
+Add quick links to your widget's home screen. Each linked page is crawled so the bot can answer from its content. See [Help Links](/customization/help-links).
 
-| Format | Example | What It Matches |
-|--------|---------|-----------------|
-| Exact URL | `https://example.com` | Only that exact domain |
-| Wildcard | `https://*.mysite.com` | Any subdomain of mysite.com |
+### Installation
 
-<Note>Supports wildcards like `*.example.com` to cover all subdomains. You cannot use `*` alone.</Note>
+View and copy your embed code snippet — the same as clicking the `<>` button on the widget card.
 
-Click **Save Changes** to apply.
+### Integrations
 
-### Installation Tab
+Connect the tools your bot can act on (calendar, help desk, store, billing) so it can book meetings, open tickets, and look up orders. See [Agentic Actions](/integrations/agentic-actions) and [Available Integrations](/integrations/available-integrations).
 
-View and copy your embed code snippet. Same as clicking the `<>` button on the widget card.
+### Security
 
-### Danger Zone Tab
+Manage **signing keys** for visitor identity verification. Your backend signs a short token so the widget can confirm who a logged-in visitor is, which unlocks personal actions like "show my orders." See [Visitor Identity](/integrations/identity/overview).
+
+### Danger Zone
 
 <Frame>
   <img src="/images/widget-danger-zone.png" alt="Danger Zone tab showing Regenerate API Key option" />
 </Frame>
 
-**Regenerate API Key**: If you suspect your API key has been compromised, click **Regenerate Key**. This:
-
-- Immediately **invalidates** the current API key
-- Generates a new one
-- Requires you to **update the snippet** on your website
+**Regenerate API Key**: If you suspect your API key has been compromised, click **Regenerate Key**. This immediately **invalidates** the current key, generates a new one, and requires you to **update the snippet** on your website.
 
 <Warning>The old key stops working immediately. Update your website right away to avoid downtime.</Warning>
 
@@ -267,19 +245,19 @@ The footer badge is shown by default on the **Free** and **Starter** plans. Upgr
 
 ## Monitoring Widget Conversations
 
-All conversations from your web widget appear in the **Bot Responses** page of your dashboard. Use the **Web** filter to see only widget conversations.
+Every conversation from your web widget appears in the **Conversations** page of your dashboard, grouped by visitor session.
 
 <Frame>
-  <img src="/images/widget-response-viewer.png" alt="Bot Responses page filtered to show Web widget conversations" />
+  <img src="/images/conversations-tab-dashboard.png" alt="Conversations page listing widget conversations with status and response count" />
 </Frame>
 
-Click any conversation to see the full exchange, including the user's question and the bot's complete response.
+Click any conversation to see the full exchange — the visitor's messages, the bot's answers, and any agentic actions it performed.
 
 <Frame>
-  <img src="/images/widget-conversation-detail.png" alt="Detailed view of a widget conversation showing question and full bot response" />
+  <img src="/images/visitor-conversation-detailed.png" alt="Detailed view of a widget conversation showing the full exchange and agentic steps" />
 </Frame>
 
-<Tip>Each conversation is anchored to a visitor session in their browser, so you can see the full back-and-forth, not just isolated questions.</Tip>
+<Tip>Each conversation is anchored to a visitor session, so you see the full back-and-forth, not just isolated questions. Learn more on the [Conversations](/using-the-bot/bot-responses) page.</Tip>
 
 ---
 
@@ -384,7 +362,7 @@ The widget uses Shadow DOM for style isolation, which means it won't conflict wi
     ```javascript
     if (window.location.pathname === '/support') {
       const script = document.createElement('script')
-      script.src = 'https://bestchatbot.io/widget/v1/chat.js'
+      script.src = 'https://widget.bestchatbot.io/widget/v1/chat.js'
       script.setAttribute('data-api-key', 'rk_live_xxxx')
       script.defer = true
       document.body.appendChild(script)

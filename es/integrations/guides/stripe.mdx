@@ -1,6 +1,6 @@
 ---
 title: "Stripe"
-description: "Que puede y que NO puede hacer la integracion de Stripe, y como conectarla."
+description: "Que puede y que NO puede hacer la integracion de Stripe, y como conectarla paso a paso."
 icon: "credit-card"
 ---
 
@@ -31,27 +31,95 @@ Stripe se limita a las acciones de arriba. **No** puede:
 - Crear o editar productos y precios
 - Mostrar el numero completo de la tarjeta (solo marca y ultimos 4 digitos)
 
-## Flujo de conexion
-
-<Frame>
-  <img src="/images/stripe-integration.png" alt="Flujo de conexion de Stripe desde el dashboard hasta un bot conectado y listo para actuar" />
-</Frame>
-
 ## Como conectar
 
-<Steps>
-  <Step title="Abre Integraciones" icon="plug">
-    En el dashboard de tu workspace, abre la pestana **Integraciones** y busca **Stripe**.
-  </Step>
-  <Step title="Conecta" icon="link">
-    Haz clic en **Conectar**. Se abre un popup seguro. Introduce tu API key de Stripe. Tus credenciales van al formulario seguro, nunca al chat.
-  </Step>
-  <Step title="Listo" icon="circle-check">
-    Una vez conectada, las acciones de Stripe quedan disponibles en tu widget de inmediato.
-  </Step>
-</Steps>
+BestChatBot se conecta a Stripe con una **restricted API key**: una clave limitada solo a los permisos que el bot necesita. La creas en tu Dashboard de Stripe y luego la pegas en BestChatBot.
+
+### Paso 1 — Crea una restricted key en Stripe
+
+En tu [Dashboard de Stripe](https://dashboard.stripe.com), ve a **Developers → API keys** y haz clic en **Create restricted key**.
+
+<Frame>
+  <img src="/integrations/stripe-integration/step1-generate-restricted-api-key.png" alt="Pagina de API keys de Stripe con el boton Create restricted key" />
+</Frame>
+
+Cuando te pregunte como usaras la clave, elige **Providing this key to a third-party application**.
+
+<Frame>
+  <img src="/integrations/stripe-integration/step2-restriced-key-scope.png" alt="Stripe preguntando como se usara la clave, con la opcion de aplicacion de terceros seleccionada" />
+</Frame>
+
+Introduce los datos del sitio: un **Name** reconocible (ej: "Bestchatbot Stripe Integration") y la **URL** de tu sitio, y marca **Customise permissions for this key**.
+
+<Frame>
+  <img src="/integrations/stripe-integration/step3-API-Key-Scope.png" alt="Formulario Enter website details de Stripe con nombre, URL y Customise permissions marcado" />
+</Frame>
+
+### Paso 2 — Concede los permisos correctos
+
+Configura exactamente estos permisos y deja todo lo demas en **None**:
+
+| Recurso de Stripe | Permiso |
+|-------------------|:-------:|
+| **Customer Portal** | Write |
+| **Invoices** | Read |
+| **Prices** | Read |
+| **Subscriptions** | Read |
+| **Checkout Sessions** | Write |
+
+<Frame>
+  <img src="/integrations/stripe-integration/step4-permissions-key.png" alt="Lista de permisos de Stripe con Customer Portal Write, Invoices Read, Prices Read, Subscriptions Read, Checkout Sessions Write" />
+</Frame>
+
+Crea la clave y copiala. Tiene el formato `rk_live_...`.
+
+<Warning>Concede solo los permisos de arriba. Una clave con mas acceso del que el bot necesita es un riesgo innecesario. La restricted key es de solo lectura salvo por el portal de facturacion y los enlaces de checkout que genera para el visitante.</Warning>
+
+### Paso 3 — Conecta en BestChatBot
+
+En el dashboard de tu workspace, abre la pestana **Integraciones**, busca **Stripe** y haz clic en **Conectar**. Se abre un popup seguro:
+
+- Pega tu **Restricted API Key** en el campo de la clave.
+- Deja **Stripe Context** **vacio**: no lo necesitas.
+
+Haz clic en **Conectar**. Tus credenciales van directas al formulario seguro, nunca al chat.
+
+<Frame>
+  <img src="/integrations/stripe-integration/step5-bestchatbot-dashboard-setup.png" alt="Popup de conexion de Stripe en BestChatBot mostrando el campo Restricted API Key y el campo Stripe Context vacio" />
+</Frame>
 
 <Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
+
+### Paso 4 — Conectado
+
+Una vez conectada, las acciones de Stripe quedan disponibles en tu widget de inmediato. Desde el panel de la integracion puedes activar cada **capacidad del bot** (ver suscripcion, historial de facturas, metodos de pago, gestionar suscripcion, crear checkout) y fijar **URLs de redireccion de checkout** opcionales:
+
+- **Success URL** — adonde llega el visitante tras un pago completado.
+- **Cancel URL** — adonde llega si cancela.
+
+Si las dejas vacias, el visitante vuelve al dominio base de tu widget.
+
+<Frame>
+  <img src="/integrations/stripe-integration/step6-stripe-successfully-connected-bestchatbot.png" alt="Panel de Stripe conectado mostrando los toggles de capacidades del bot y los campos de URL de redireccion de checkout" />
+</Frame>
+
+## Mostrar productos en el checkout
+
+Cuando el bot ofrece **Iniciar una compra**, solo muestra los productos que has habilitado explicitamente: tu catalogo completo de Stripe nunca se expone. Para hacer un producto disponible, anade la metadata `bcb_widget_visible` con valor `true` al **producto** (o a un **price** concreto) en Stripe.
+
+<Frame>
+  <img src="/integrations/stripe-integration/stripe-metadata-agentic-show-item-true.png" alt="Metadata de un producto de Stripe mostrando bcb_widget_visible en true" />
+</Frame>
+
+<Tip>Marca el flag en el producto para exponer todos sus prices, o en un solo price para un control mas fino. Los productos sin este flag nunca aparecen en el chat.</Tip>
+
+## Velo en accion
+
+Una vez conectada, los visitantes identificados pueden ver facturas, consultar metodos de pago guardados, gestionar su suscripcion e iniciar una compra, todo desde el widget.
+
+<Frame>
+  <img src="/integrations/stripe-integration/stripe-working-on-prod.png" alt="Widget en vivo mostrando facturas, metodos de pago guardados y acciones rapidas de suscripcion" />
+</Frame>
 
 ## Una por categoria
 

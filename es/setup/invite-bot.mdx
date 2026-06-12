@@ -11,19 +11,22 @@ Tras crear tu workspace, configura el widget y pega un solo script tag en tu sit
 ## Configura tu widget
 
 <Steps>
-  <Step title="Abre el formulario de configuracion">
-    Desde tu workspace, abre la configuracion del **Web Widget**. Veras campos para los metadatos del widget y el estilo de marca.
+  <Step title="Abre la pestana Configuration">
+    Tu workspace ya incluye un web widget. Desde tu workspace, abre los ajustes del **Web Widget** y ve a la pestana **Configuration**.
   </Step>
 
-  <Step title="Rellena los campos">
-    - **Nombre**: una etiqueta para tu widget (p. ej., "Widget de mi sitio")
-    - **Origenes permitidos**: los dominios donde el widget puede ejecutarse, uno por linea. Soporta comodines (`*.example.com`). Deja vacio para permitir todos.
-    - **Color primario**: el color de tu marca en hex (p. ej., `#F97316`)
+  <Step title="Da estilo a tu widget">
+    Define la apariencia del widget y donde puede ejecutarse:
 
-    Pulsa **Crear widget** cuando este listo.
+    - **Primary Color**: el color de tu marca en hex (p. ej., `#F97316`)
+    - **Position**: en que esquina se situa el boton de chat
+    - **Bot Avatar**: una imagen opcional que se muestra en el boton y junto a cada respuesta
+    - **Allowed Origins**: los dominios donde el widget puede ejecutarse, uno por linea. Soporta comodines (`*.example.com`). Deja vacio para permitir todos.
+
+    Pulsa **Save Changes**.
 
     <Frame>
-      <img src="/images/widget-setup-fields.png" alt="Formulario de configuracion del Web Widget con Nombre, Origenes y Color" />
+      <img src="/images/widget-configuration-tab.png" alt="Pestana Configuration del Web Widget con Primary Color, Position, Bot Avatar y Allowed Origins" />
     </Frame>
   </Step>
 
@@ -32,7 +35,7 @@ Tras crear tu workspace, configura el widget y pega un solo script tag en tu sit
 
     ```html
     <script
-      src="https://bestchatbot.io/widget/v1/chat.js"
+      src="https://widget.bestchatbot.io/widget/v1/chat.js"
       data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
       defer
     ></script>
@@ -51,7 +54,7 @@ Tras crear tu workspace, configura el widget y pega un solo script tag en tu sit
       <!-- Contenido de tu web -->
 
       <script
-        src="https://bestchatbot.io/widget/v1/chat.js"
+        src="https://widget.bestchatbot.io/widget/v1/chat.js"
         data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
         defer
       ></script>

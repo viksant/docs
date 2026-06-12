@@ -11,19 +11,22 @@ After creating your workspace, configure the widget and paste a single script ta
 ## Configure Your Widget
 
 <Steps>
-  <Step title="Open the Setup Form">
-    From your workspace, open the **Web Widget** setup. You'll see fields for the widget's metadata and brand styling.
+  <Step title="Open the Configuration Tab">
+    Your workspace already includes a web widget. From your workspace, open the **Web Widget** settings and go to the **Configuration** tab.
   </Step>
 
-  <Step title="Fill In the Fields">
-    - **Name**: a label for your widget (e.g., "My Website Widget")
-    - **Allowed Origins**: the domains where the widget may run, one per line. Supports wildcards (`*.example.com`). Leave empty to allow all.
-    - **Primary Color**: your brand color in hex (e.g., `#F97316`)
+  <Step title="Style Your Widget">
+    Set the widget's appearance and where it can run:
 
-    Click **Create Widget** when ready.
+    - **Primary Color**: your brand color in hex (e.g., `#F97316`)
+    - **Position**: which corner the chat bubble sits in
+    - **Bot Avatar**: an optional image shown in the bubble and next to each reply
+    - **Allowed Origins**: the domains where the widget may run, one per line. Supports wildcards (`*.example.com`). Leave empty to allow all.
+
+    Click **Save Changes**.
 
     <Frame>
-      <img src="/images/widget-setup-fields.png" alt="Configure Web Widget form with Name, Allowed Origins, and Primary Color fields" />
+      <img src="/images/widget-configuration-tab.png" alt="Web Widget Configuration tab with Primary Color, Position, Bot Avatar, and Allowed Origins" />
     </Frame>
   </Step>
 
@@ -32,7 +35,7 @@ After creating your workspace, configure the widget and paste a single script ta
 
     ```html
     <script
-      src="https://bestchatbot.io/widget/v1/chat.js"
+      src="https://widget.bestchatbot.io/widget/v1/chat.js"
       data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
       defer
     ></script>
@@ -51,7 +54,7 @@ After creating your workspace, configure the widget and paste a single script ta
       <!-- Your website content -->
 
       <script
-        src="https://bestchatbot.io/widget/v1/chat.js"
+        src="https://widget.bestchatbot.io/widget/v1/chat.js"
         data-api-key="rk_live_xxxxxxxxxxxxxxxxxxxx"
         defer
       ></script>

@@ -27,16 +27,20 @@ If you have multiple workspaces (multiple widgets), you can see how usage is dis
 
 ## What Counts as a Response
 
-The widget responds to **every** visitor message. There is no question detector and no skip logic. Each reply counts as **one bot response**. The following do **not** count:
+A **bot response** is any answer the bot actually generates and returns — on your live widget **or** in the Retrieval Testing page. A successfully executed agentic action also counts. If the bot doesn't deliver a result, you aren't charged.
 
 | Action | Counts as Response? |
 |--------|---------------------|
-| Widget replies to a visitor message | Yes |
-| Testing in the Retrieval Testing page | No |
+| Widget answers a visitor message | Yes |
+| Retrieval Testing produces an answer | Yes |
+| Agentic action runs successfully (e.g., books a meeting) | Yes |
+| Agentic action only offered, not run by the visitor | No |
+| Agentic action fails or is unavailable | No |
+| Bot can't answer (no response generated) | No |
 | Rebuilding the knowledge base | No |
 | Uploading documents | No |
 
-<Tip>Use the **Retrieval Testing** page to test as much as you want. It doesn't affect your response count.</Tip>
+<Tip>You're billed only when the bot produces a real result. Offering an action, failing, or not finding an answer is free.</Tip>
 
 ## Approaching Your Limit
 

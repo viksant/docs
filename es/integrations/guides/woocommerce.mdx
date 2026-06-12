@@ -1,6 +1,6 @@
 ---
 title: "WooCommerce"
-description: "Que puede y que NO puede hacer la integracion de WooCommerce, y como conectarla."
+description: "Que puede y que NO puede hacer la integracion de WooCommerce, y como conectarla paso a paso."
 icon: "cart-shopping"
 ---
 
@@ -27,27 +27,104 @@ WooCommerce se limita a las acciones de arriba. **No** puede:
 - Gestionar devoluciones o modificar un pedido desde el chat
 - Consultar un pedido sin el email del visitante
 
-## Flujo de conexion
+## Parte 1 — Conectar WooCommerce
+
+BestChatBot lee tu tienda a traves de la **REST API de WooCommerce**. Generas una clave de API de solo lectura en WordPress y la pegas en BestChatBot.
+
+### Paso 1 — Genera una clave REST API de WooCommerce
+
+En WordPress, ve a **WooCommerce → Settings → Advanced → REST API** y haz clic en **Add key**.
 
 <Frame>
-  <img src="/images/woocommerce-integration.png" alt="Flujo de conexion de WooCommerce desde el dashboard hasta un bot conectado y listo para actuar" />
+  <img src="/integrations/wordpress-integration/WP-api-key-generation-1.png" alt="Pestana Advanced de WooCommerce con la seccion REST API keys" />
 </Frame>
 
-## Como conectar
+Ponle una **Description**, elige un **User** y fija **Permissions** en **Read** (el bot nunca escribe en tu tienda). Haz clic en **Generate API key**.
 
-<Steps>
-  <Step title="Abre Integraciones" icon="plug">
-    En el dashboard de tu workspace, abre la pestana **Integraciones** y busca **WooCommerce**.
-  </Step>
-  <Step title="Conecta" icon="link">
-    Haz clic en **Conectar**. Se abre un popup seguro. Introduce la URL de tu tienda y tus claves de la API de WooCommerce (consumer key y secret). Tus credenciales van al formulario seguro, nunca al chat.
-  </Step>
-  <Step title="Listo" icon="circle-check">
-    Una vez conectada, las acciones de WooCommerce quedan disponibles en tu widget de inmediato. Si Shopify estaba conectada, se desconecta automaticamente.
-  </Step>
-</Steps>
+<Frame>
+  <img src="/integrations/wordpress-integration/WP-api-key-generation-2.png" alt="Formulario de creacion de clave de WooCommerce con Description, User y Permissions en Read" />
+</Frame>
+
+WooCommerce muestra tu **Consumer key** (`ck_...`) y tu **Consumer secret** (`cs_...`). Copia ambos ahora: el secret solo se muestra una vez.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/WP-api-key-generation-3.png" alt="Consumer key y Consumer secret de WooCommerce generados" />
+</Frame>
+
+### Paso 2 — Conecta en BestChatBot
+
+En el dashboard de tu workspace, abre la pestana **Integraciones**, busca **WooCommerce** y haz clic en **Conectar**. En el popup:
+
+- **User name** → tu **Consumer key** (`ck_...`)
+- **Password** → tu **Consumer secret** (`cs_...`)
+- **Domain** → el dominio de tu tienda **sin** `https://` (ej: `mi-tienda.com`)
+
+<Frame>
+  <img src="/integrations/wordpress-integration/wordpress-integration-from-dashboard.png" alt="Popup de conexion de WooCommerce en BestChatBot con campos User name, Password y Domain" />
+</Frame>
 
 <Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
+
+### Paso 3 — Conectado
+
+Veras una confirmacion de exito y las acciones de WooCommerce quedan disponibles de inmediato. Si Shopify estaba conectada, se desconecta automaticamente.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/wordpress-integration-successfuly-connected-dashboard.png" alt="Confirmacion de integracion de WooCommerce conectada con exito" />
+</Frame>
+
+Desde el panel de la integracion puedes activar cada **capacidad del bot**: **Search products** y **Track order**.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/integration-connected-options.png" alt="Panel de WooCommerce conectado con los toggles Search products y Track order" />
+</Frame>
+
+## Parte 2 — Instala el widget en WordPress
+
+Conectar WooCommerce permite al bot leer tu tienda. Para **mostrar el widget en tu sitio** y dejar que los clientes logueados consulten **sus propios** pedidos sin escribir su email, instala el plugin oficial de WordPress **Chatbot IO Widget**. Embebe el widget y firma un token de identidad corto para el cliente logueado, asi las consultas de pedidos reconocen la identidad de serie.
+
+### Paso 1 — Instala el plugin
+
+En WordPress, ve a **Plugins → Add Plugin** y busca **Chatbot IO Widget** (de victhedev). Instalalo y activalo.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/official-wp-plugin.png" alt="Pagina del plugin Chatbot IO Widget en WordPress.org" />
+</Frame>
+
+<Frame>
+  <img src="/integrations/wordpress-integration/listed-plugin-wordpress-search.png" alt="Plugin Chatbot IO Widget instalado y activo en el admin de WordPress" />
+</Frame>
+
+### Paso 2 — Crea una signing key en BestChatBot
+
+En tu dashboard, abre la pestana **Web Widget → Security** y haz clic en **Create Signing Key**. Esta clave permite a tu sitio firmar tokens de identidad en los que el widget confia. Mantenla en secreto.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/signing-keys-from-dashboard.png" alt="Pestana Security de BestChatBot mostrando Create Signing Key y los requisitos del payload JWT" />
+</Frame>
+
+<Note>Para el flujo de identidad completo y el formato del token, consulta [Identidad del visitante](/es/integrations/identity/overview).</Note>
+
+### Paso 3 — Configura el plugin
+
+Abre **Settings → Chatbot IO Widget** en WordPress e introduce:
+
+- **API Key** — la clave publica de tu widget (`rk_live_...`), en **Dashboard → Web Widget → Installation**.
+- **Signing Key** — la clave secreta de **Dashboard → Web Widget → Security** (Paso 2). Mantenla en secreto.
+
+Guarda los ajustes.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/plugin-api-key-and-secret-setup.png" alt="Ajustes de Chatbot IO Widget en WordPress con los campos API Key y Signing Key" />
+</Frame>
+
+### Listo — consultas de pedidos con identidad
+
+El widget ya aparece en tu tienda, y los clientes logueados pueden pedir cosas como "rastrea mi pedido" y obtener **sus** pedidos al instante, sin que se les pida el email.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/widget-working-on-website.png" alt="Widget en vivo en una tienda WooCommerce mostrando los pedidos de un cliente logueado" />
+</Frame>
 
 ## Una por categoria
 
@@ -67,8 +144,8 @@ WooCommerce esta en la categoria **E-commerce** con Shopify. Conectar una descon
 ## Siguientes pasos
 
 <CardGroup cols={2}>
-  <Card title="Todas las integraciones" icon="plug" href="/es/integrations/available-integrations">
-    Mira el catalogo completo y como funcionan las categorias.
+  <Card title="Identidad del visitante" icon="fingerprint" href="/es/integrations/identity/overview">
+    Configura la verificacion de identidad para acciones personales como consultar pedidos.
   </Card>
   <Card title="Acciones agenticas" icon="wand-magic-sparkles" href="/es/integrations/agentic-actions">
     Descubre como el bot convierte una peticion en una accion real.

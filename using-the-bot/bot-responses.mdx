@@ -1,51 +1,55 @@
 ---
-title: "Bot Responses"
-description: "Monitor your bot's response history and performance analytics."
-icon: "chart-line"
+title: "Conversations"
+description: "Track full visitor conversations with your bot, including the agentic actions it performed."
+icon: "comments"
 ---
 
-# Bot Responses
+# Conversations
 
-The **Bot Responses** page shows every answer your chat widget has given to visitors, along with performance analytics to help you understand how it's performing.
-
-## Response List
-
-The main view shows a chronological list of all bot responses. For each response, you can see:
-
-- **The question**: What the visitor asked
-- **The answer**: What the bot replied
-- **Timestamp**: When the response was sent
-- **Sources cited**: What knowledge the bot drew from
+The **Conversations** page shows every conversation your bot has had with visitors. Instead of isolated question-and-answer pairs, each entry is a **full conversation** — the complete back-and-forth of a visitor session, including any agentic actions the bot performed (product cards, booking forms, checkout links, support tickets).
 
 <Frame>
-  <img src="/images/bot-responses-screen.png" alt="Bot Responses page showing questions, answers, and source citations" />
+  <img src="/images/conversations-tab-dashboard.png" alt="Conversations page listing visitor conversations with status and response count" />
 </Frame>
 
-Click on any response to see the full conversation detail with cited sources:
+## The Conversation List
+
+Each row is one visitor conversation. For each one you can see:
+
+- **Visitor** — a short identifier for the visitor session. If the visitor was identified with a signed token, their name or email appears instead.
+- **Status** — `Open`, `Idle`, or `Closed`, reflecting how recently the visitor was active.
+- **Responses** — how many bot responses the conversation contains.
+- **Last activity** — when the conversation was last active.
+
+The header shows your total conversation count. Click **Refresh** to pull in the latest ones.
+
+## Conversation Detail
+
+Click any conversation to open its full timeline. You'll see the entire exchange in order — visitor messages, bot answers, and every agentic step the bot took along the way:
 
 <Frame>
-  <img src="/images/detailed-bot-response-with-citation-screen.png" alt="Detailed bot response showing the full answer with Sources section" />
+  <img src="/images/visitor-conversation-detailed.png" alt="Conversation detail showing a visitor purchase flow with product cards and a checkout link" />
 </Frame>
 
-## Analytics Overview
+The detail view reconstructs rich elements exactly as the visitor saw them:
 
-At the top of the page, a **stats panel** gives you a quick overview:
+| Element | What it shows |
+|---------|---------------|
+| **Text** | Plain bot answers and visitor messages |
+| **Action cards** | Buttons the bot offered (for example, **Go to checkout** or **Book a Call**) |
+| **Product / time cards** | Curated products with prices, or available meeting times |
+| **Forms** | Forms the bot requested (such as a Schedule Meeting form), with the data the visitor submitted — or a **Not submitted** badge if they abandoned it |
+| **Tool results** | The outcome of an action: a booked meeting, an order status, an opened ticket |
 
-| Metric | What It Shows |
-|--------|---------------|
-| Total Responses | How many answers the bot has given this month |
-| Response Rate | How often the bot successfully answers questions |
-| Average Response Time | How quickly the bot responds |
-
-<Tip>If you see the bot giving incorrect or incomplete answers to a specific topic, add more relevant content to your knowledge base and rebuild.</Tip>
+This makes it easy to see not just what the bot **said**, but what it **did**. Each conversation is anchored to a single visitor session, so you always get the full thread rather than scattered messages.
 
 ## Next Steps
 
 <CardGroup cols={2}>
+  <Card title="Agentic Actions" icon="wand-magic-sparkles" href="/integrations/agentic-actions">
+    Learn how the bot takes the actions you see in conversations.
+  </Card>
   <Card title="Knowledge Graph" icon="diagram-project" href="/using-the-bot/knowledge-graph">
     Visualize how your content connects.
-  </Card>
-  <Card title="Upload More Content" icon="file-arrow-up" href="/knowledge-base/upload-documents">
-    Fill knowledge gaps with new documents.
   </Card>
 </CardGroup>

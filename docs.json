@@ -70,7 +70,8 @@
           {
             "group": "Customization",
             "pages": [
-              "customization/response-preferences"
+              "customization/response-preferences",
+              "customization/help-links"
             ]
           },
           {
@@ -159,7 +160,8 @@
           {
             "group": "Personalizacion",
             "pages": [
-              "es/customization/response-preferences"
+              "es/customization/response-preferences",
+              "es/customization/help-links"
             ]
           },
           {

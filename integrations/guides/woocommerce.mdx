@@ -1,6 +1,6 @@
 ---
 title: "WooCommerce"
-description: "What the WooCommerce integration can and can't do, and how to connect it."
+description: "What the WooCommerce integration can and can't do, and how to connect it step by step."
 icon: "cart-shopping"
 ---
 
@@ -27,27 +27,104 @@ WooCommerce is scoped to the actions above. It does **not**:
 - Process returns or change an order from the chat
 - Look up an order without the visitor's email
 
-## Connection Flow
+## Part 1 — Connect WooCommerce
+
+BestChatBot reads your store through the **WooCommerce REST API**. You generate a read-only API key in WordPress, then paste it into BestChatBot.
+
+### Step 1 — Generate a WooCommerce REST API key
+
+In WordPress, go to **WooCommerce → Settings → Advanced → REST API** and click **Add key**.
 
 <Frame>
-  <img src="/images/woocommerce-integration.png" alt="WooCommerce connection flow from the dashboard to a connected, action-ready bot" />
+  <img src="/integrations/wordpress-integration/WP-api-key-generation-1.png" alt="WooCommerce Settings Advanced tab with the REST API keys section" />
 </Frame>
 
-## How to Connect
+Give it a **Description**, pick a **User**, and set **Permissions** to **Read** (the bot never writes to your store). Click **Generate API key**.
 
-<Steps>
-  <Step title="Open Integrations" icon="plug">
-    In your workspace dashboard, open the **Integrations** tab and find **WooCommerce**.
-  </Step>
-  <Step title="Connect" icon="link">
-    Click **Connect**. A secure popup opens. Enter your store URL and WooCommerce API keys (consumer key and secret). Your credentials go to the secure form, never into the chat.
-  </Step>
-  <Step title="You're live" icon="circle-check">
-    Once connected, WooCommerce's actions become available to your widget right away. If Shopify was connected, it's disconnected automatically.
-  </Step>
-</Steps>
+<Frame>
+  <img src="/integrations/wordpress-integration/WP-api-key-generation-2.png" alt="WooCommerce create API key form with Description, User, and Permissions set to Read" />
+</Frame>
+
+WooCommerce shows your **Consumer key** (`ck_...`) and **Consumer secret** (`cs_...`). Copy both now — the secret is only shown once.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/WP-api-key-generation-3.png" alt="Generated WooCommerce Consumer key and Consumer secret" />
+</Frame>
+
+### Step 2 — Connect in BestChatBot
+
+In your workspace dashboard, open the **Integrations** tab, find **WooCommerce**, and click **Connect**. In the popup:
+
+- **User name** → your **Consumer key** (`ck_...`)
+- **Password** → your **Consumer secret** (`cs_...`)
+- **Domain** → your store's domain **without** `https://` (e.g., `my-store.com`)
+
+<Frame>
+  <img src="/integrations/wordpress-integration/wordpress-integration-from-dashboard.png" alt="BestChatBot WooCommerce connection popup with User name, Password, and Domain fields" />
+</Frame>
 
 <Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
+
+### Step 3 — You're connected
+
+You'll see a success confirmation, and WooCommerce's actions become available right away. If Shopify was connected, it's disconnected automatically.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/wordpress-integration-successfuly-connected-dashboard.png" alt="WooCommerce integration connected successfully confirmation" />
+</Frame>
+
+From the integration panel you can toggle each **bot capability** — **Search products** and **Track order**.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/integration-connected-options.png" alt="Connected WooCommerce panel with Search products and Track order capability toggles" />
+</Frame>
+
+## Part 2 — Install the Widget on WordPress
+
+Connecting WooCommerce lets the bot read your store. To **show the widget on your site** and let logged-in customers check **their own** orders without typing their email, install the official **Chatbot IO Widget** WordPress plugin. It embeds the widget and signs a short identity token for the logged-in customer, so order lookups are identity-aware out of the box.
+
+### Step 1 — Install the plugin
+
+In WordPress, go to **Plugins → Add Plugin** and search for **Chatbot IO Widget** (by victhedev). Install and activate it.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/official-wp-plugin.png" alt="Chatbot IO Widget plugin page on WordPress.org" />
+</Frame>
+
+<Frame>
+  <img src="/integrations/wordpress-integration/listed-plugin-wordpress-search.png" alt="Chatbot IO Widget plugin installed and active in WordPress admin" />
+</Frame>
+
+### Step 2 — Create a signing key in BestChatBot
+
+In your dashboard, open your **Web Widget → Security** tab and click **Create Signing Key**. This key lets your site sign identity tokens that the widget trusts. Keep it secret.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/signing-keys-from-dashboard.png" alt="BestChatBot Security tab showing Create Signing Key and the JWT payload requirements" />
+</Frame>
+
+<Note>For the full identity flow and token format, see [Visitor Identity](/integrations/identity/overview).</Note>
+
+### Step 3 — Configure the plugin
+
+Open **Settings → Chatbot IO Widget** in WordPress and enter:
+
+- **API Key** — your widget's public key (`rk_live_...`), found in **Dashboard → Web Widget → Installation**.
+- **Signing Key** — the secret key from **Dashboard → Web Widget → Security** (Step 2). Keep it secret.
+
+Save the settings.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/plugin-api-key-and-secret-setup.png" alt="Chatbot IO Widget settings in WordPress with API Key and Signing Key fields" />
+</Frame>
+
+### Done — identity-aware order lookups
+
+The widget now appears on your store, and logged-in customers can ask things like "track my order" and get **their** orders back instantly, with no email prompt.
+
+<Frame>
+  <img src="/integrations/wordpress-integration/widget-working-on-website.png" alt="Widget live on a WooCommerce store showing a logged-in customer's orders" />
+</Frame>
 
 ## One per Category
 
@@ -67,8 +144,8 @@ WooCommerce is in the **E-commerce** category with Shopify. Connecting one disco
 ## Next Steps
 
 <CardGroup cols={2}>
-  <Card title="All Integrations" icon="plug" href="/integrations/available-integrations">
-    See the full catalog and how categories work.
+  <Card title="Visitor Identity" icon="fingerprint" href="/integrations/identity/overview">
+    Set up identity verification for personal actions like order lookups.
   </Card>
   <Card title="Agentic Actions" icon="wand-magic-sparkles" href="/integrations/agentic-actions">
     Learn how the bot turns a request into a real action.

@@ -1,0 +1,80 @@
+---
+title: "Help Links"
+description: "Muestra enlaces rapidos en la pantalla de inicio del widget y deja que el bot responda con su contenido."
+icon: "link"
+---
+
+# Help Links
+
+Los **Help Links** son enlaces rapidos que se muestran en la pantalla de inicio del widget, bajo **Articulos populares**. Dan a tus visitantes una via rapida a tus paginas mas importantes y hacen al bot mas inteligente: BestChatBot **scrapea cada pagina enlazada** para que el asistente pueda responder directamente con ese contenido.
+
+<Frame>
+  <img src="/images/help-links-tab-dashboard.png" alt="Pestana Help Links en la configuracion del Web Widget, con enlaces en estado Ready" />
+</Frame>
+
+## Como funciona
+
+Al anadir un Help Link pasan dos cosas:
+
+1. **Aparece en el widget** como un articulo clicable en la pantalla de inicio.
+2. **La pagina se scrapea** en segundo plano. BestChatBot la descarga, extrae un titulo limpio y un resumen buscable, y lo indexa para que el bot use ese contenido en sus respuestas.
+
+<Note>Los Help Links se indexan **por separado** de tu Base de Conocimiento principal. **No** cuentan contra el limite de paginas scrapeadas ni contra el tamano de la base de conocimiento de tu plan, y no necesitas reconstruir la base tras anadir uno.</Note>
+
+## Anadir un Help Link
+
+<Steps>
+  <Step title="Abre la pestana Help Links">
+    Desde tu workspace, abre la configuracion del **Web Widget** y selecciona la pestana **Help Links**.
+  </Step>
+
+  <Step title="Introduce una URL">
+    Pega la URL de la pagina (por ejemplo, `https://tusitio.com/ayuda`). Opcionalmente anade un **Titulo** para controlar la etiqueta del enlace. Si lo dejas vacio, BestChatBot genera uno a partir de la pagina automaticamente.
+  </Step>
+
+  <Step title="Pulsa Add">
+    El enlace se crea y empieza a scrapearse al instante. Veras su estado cambiar de **Processing** a **Ready** cuando la pagina quede indexada.
+  </Step>
+</Steps>
+
+## Estado del enlace
+
+Cada enlace muestra una insignia de estado:
+
+| Estado | Significado |
+|--------|-------------|
+| **Processing** | La pagina se esta scrapeando e indexando. |
+| **Ready** | La pagina se indexo correctamente. El bot ya puede responder con su contenido. |
+| **Failed** | La pagina no se pudo scrapear (por ejemplo, es inalcanzable o bloquea crawlers). Pasa el cursor por la insignia para ver el motivo. |
+
+## Gestionar enlaces
+
+Cada enlace de la lista se puede:
+
+- **Reordenar** — arrastra el tirador de la izquierda para cambiar el orden en que aparecen los articulos en el widget.
+- **Refrescar** — pulsa el icono de refrescar para volver a scrapear la pagina cuando cambie su contenido. Se aplica un breve enfriamiento entre refrescos.
+- **Renombrar** — pulsa el icono del lapiz para editar el titulo mostrado en linea.
+- **Borrar** — pulsa el icono de la papelera para eliminar el enlace.
+
+<Warning>Hay un limite de cuantos enlaces puede tener un workspace y cuantos refrescos puedes ejecutar por dia. Si lo alcanzas, elimina enlaces que ya no necesites o intentalo al dia siguiente.</Warning>
+
+## En el widget
+
+Tus visitantes ven los Help Links como **Articulos populares** en la pestana **Home** del widget. Pueden buscar, abrir un articulo o saltar directo a un chat.
+
+<Frame>
+  <img src="/images/help-links-on-widget.png" alt="Pantalla de inicio del Help Center del widget mostrando Articulos populares construidos desde Help Links" />
+</Frame>
+
+<Tip>Anade enlaces a tus paginas de soporte mas visitadas, precios y guias de onboarding. Los visitantes obtienen acceso de un clic, y el bot puede responder con esas mismas paginas cuando alguien pregunta en lugar de hacer clic.</Tip>
+
+## Proximos pasos
+
+<CardGroup cols={2}>
+  <Card title="Web Widget" icon="window-maximize" href="/es/integrations/web-widget">
+    Configura e instala el widget de chat en tu sitio.
+  </Card>
+  <Card title="Anadir URLs" icon="globe" href="/es/knowledge-base/add-urls">
+    Scrapea sitios completos o secciones a tu base de conocimiento.
+  </Card>
+</CardGroup>

@@ -27,16 +27,20 @@ Si tienes varios workspaces (varios widgets), puedes ver como se distribuye el u
 
 ## Que cuenta como respuesta
 
-El widget responde a **todos** los mensajes del visitante. No hay detector de preguntas ni logica de descarte. Cada respuesta cuenta como **una respuesta del bot**. Lo siguiente **no** cuenta:
+Una **respuesta del bot** es cualquier respuesta que el bot genera y devuelve de verdad, tanto en tu widget en vivo **como** en la pagina Retrieval Testing. Una accion agentica ejecutada con exito tambien cuenta. Si el bot no entrega un resultado, no se te cobra.
 
 | Accion | Cuenta como respuesta? |
 |--------|------------------------|
 | El widget responde a un mensaje del visitante | Si |
-| Pruebas en la pagina Retrieval Testing | No |
+| Retrieval Testing produce una respuesta | Si |
+| Una accion agentica se ejecuta con exito (ej: agenda una reunion) | Si |
+| Una accion agentica solo se ofrece, el visitante no la ejecuta | No |
+| Una accion agentica falla o no esta disponible | No |
+| El bot no puede responder (no se genera respuesta) | No |
 | Reconstruir la base de conocimiento | No |
 | Subir documentos | No |
 
-<Tip>Usa la pagina **Retrieval Testing** para probar todo lo que quieras. No afecta a tu contador.</Tip>
+<Tip>Solo se te factura cuando el bot produce un resultado real. Ofrecer una accion, fallar o no encontrar respuesta es gratis.</Tip>
 
 ## Acercandote al limite
 
