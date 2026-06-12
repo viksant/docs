@@ -1,6 +1,6 @@
 ---
 title: "Cal.com"
-description: "What the Cal.com integration can and can't do, and how to connect it."
+description: "What the Cal.com integration can and can't do, and how to connect it step by step."
 icon: "calendar"
 ---
 
@@ -28,27 +28,32 @@ Cal.com is scoped to the actions above. It does **not**:
 - List or show all of a visitor's meetings
 - Check availability more than 7 days ahead in a single request
 
+## How to Connect
+
+<Note>Connecting an integration requires an **Editor**, **Admin**, or **Owner** role, on the **Pro** or **Business** plan. See [Members & Roles](/workspace/members-roles).</Note>
+
+<Steps>
+  <Step title="Get your Cal.com API key" icon="key">
+    In Cal.com, open your account **Settings → Developer → API keys** and create an API key. Copy it.
+  </Step>
+  <Step title="Open Integrations" icon="plug">
+    In your workspace dashboard, open your **Web Widget → Integrations** tab and find **Cal.com**.
+  </Step>
+  <Step title="Connect" icon="link">
+    Click **Connect**. A secure popup opens — paste your **Cal.com API key**. Your credentials go to the secure form, never into the chat. If Calendly is currently active, you'll be asked to confirm replacing it.
+  </Step>
+  <Step title="Choose an event type" icon="calendar-check">
+    Cal.com needs one more step: pick the **event type** the bot will book (for example, "30-minute intro call"). Until you select one, the integration shows a **needs setup** badge and won't book meetings.
+  </Step>
+</Steps>
+
+Once set up, Cal.com's actions become available to your widget right away.
+
 ## Connection Flow
 
 <Frame>
   <img src="/images/calcom-integration.png" alt="Cal.com connection flow from the dashboard to a connected, action-ready bot" />
 </Frame>
-
-## How to Connect
-
-<Steps>
-  <Step title="Open Integrations" icon="plug">
-    In your workspace dashboard, open the **Integrations** tab and find **Cal.com**.
-  </Step>
-  <Step title="Connect" icon="link">
-    Click **Connect**. A secure popup opens. Enter your Cal.com API key. Your credentials go to the secure form, never into the chat.
-  </Step>
-  <Step title="You're live" icon="circle-check">
-    Once connected, Cal.com's actions become available to your widget right away. If Calendly was connected, it's disconnected automatically.
-  </Step>
-</Steps>
-
-<Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
 
 ## One per Category
 

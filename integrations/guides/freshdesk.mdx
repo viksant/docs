@@ -1,6 +1,6 @@
 ---
 title: "Freshdesk"
-description: "What the Freshdesk integration can and can't do, and how to connect it."
+description: "What the Freshdesk integration can and can't do, and how to connect it step by step."
 icon: "headset"
 ---
 
@@ -27,27 +27,29 @@ Freshdesk is scoped to the actions above. It does **not**:
 - Close, resolve, or reassign a ticket
 - Attach files to a ticket
 
+## How to Connect
+
+<Note>Connecting an integration requires an **Editor**, **Admin**, or **Owner** role, on the **Pro** or **Business** plan. See [Members & Roles](/workspace/members-roles).</Note>
+
+<Steps>
+  <Step title="Get your Freshdesk API key" icon="key">
+    In Freshdesk, open your **Profile settings** and copy your **API key**. Note your Freshdesk domain too (for example, `yourcompany.freshdesk.com`).
+  </Step>
+  <Step title="Open Integrations" icon="plug">
+    In your workspace dashboard, open your **Web Widget → Integrations** tab and find **Freshdesk**.
+  </Step>
+  <Step title="Connect" icon="link">
+    Click **Connect**. A secure popup opens — follow the prompts to connect your Freshdesk account (your API key and domain). Your credentials go to the secure form, never into the chat. If Zendesk is currently active, you'll be asked to confirm replacing it.
+  </Step>
+</Steps>
+
+Once connected, Freshdesk's actions become available to your widget right away.
+
 ## Connection Flow
 
 <Frame>
   <img src="/images/freshdesk-integration.png" alt="Freshdesk connection flow from the dashboard to a connected, action-ready bot" />
 </Frame>
-
-## How to Connect
-
-<Steps>
-  <Step title="Open Integrations" icon="plug">
-    In your workspace dashboard, open the **Integrations** tab and find **Freshdesk**.
-  </Step>
-  <Step title="Connect" icon="link">
-    Click **Connect**. A secure popup opens. Enter your Freshdesk API key and domain. Your credentials go to the secure form, never into the chat.
-  </Step>
-  <Step title="You're live" icon="circle-check">
-    Once connected, Freshdesk's actions become available to your widget right away. If Zendesk was connected, it's disconnected automatically.
-  </Step>
-</Steps>
-
-<Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
 
 ## One per Category
 

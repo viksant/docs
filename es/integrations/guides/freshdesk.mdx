@@ -1,6 +1,6 @@
 ---
 title: "Freshdesk"
-description: "Que puede y que NO puede hacer la integracion de Freshdesk, y como conectarla."
+description: "Que puede y que NO puede hacer la integracion de Freshdesk, y como conectarla paso a paso."
 icon: "headset"
 ---
 
@@ -27,27 +27,29 @@ Freshdesk se limita a las acciones de arriba. **No** puede:
 - Cerrar, resolver o reasignar un ticket
 - Adjuntar archivos a un ticket
 
+## Como conectar
+
+<Note>Conectar una integracion requiere rol **Editor**, **Admin** u **Owner**, en el plan **Pro** o **Business**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
+
+<Steps>
+  <Step title="Obten tu API key de Freshdesk" icon="key">
+    En Freshdesk, abre tus **ajustes de perfil** y copia tu **API key**. Anota tambien tu dominio de Freshdesk (por ejemplo, `tuempresa.freshdesk.com`).
+  </Step>
+  <Step title="Abre Integraciones" icon="plug">
+    En el dashboard de tu workspace, abre la pestana **Web Widget → Integrations** y busca **Freshdesk**.
+  </Step>
+  <Step title="Conecta" icon="link">
+    Haz clic en **Conectar**. Se abre un popup seguro: sigue los pasos para conectar tu cuenta de Freshdesk (tu API key y dominio). Tus credenciales van al formulario seguro, nunca al chat. Si Zendesk esta activa, se te pedira confirmar el reemplazo.
+  </Step>
+</Steps>
+
+Una vez conectada, las acciones de Freshdesk quedan disponibles en tu widget de inmediato.
+
 ## Flujo de conexion
 
 <Frame>
   <img src="/images/freshdesk-integration.png" alt="Flujo de conexion de Freshdesk desde el dashboard hasta un bot conectado y listo para actuar" />
 </Frame>
-
-## Como conectar
-
-<Steps>
-  <Step title="Abre Integraciones" icon="plug">
-    En el dashboard de tu workspace, abre la pestana **Integraciones** y busca **Freshdesk**.
-  </Step>
-  <Step title="Conecta" icon="link">
-    Haz clic en **Conectar**. Se abre un popup seguro. Introduce tu API key y dominio de Freshdesk. Tus credenciales van al formulario seguro, nunca al chat.
-  </Step>
-  <Step title="Listo" icon="circle-check">
-    Una vez conectada, las acciones de Freshdesk quedan disponibles en tu widget de inmediato. Si Zendesk estaba conectada, se desconecta automaticamente.
-  </Step>
-</Steps>
-
-<Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
 
 ## Una por categoria
 

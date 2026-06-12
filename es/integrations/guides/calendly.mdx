@@ -1,6 +1,6 @@
 ---
 title: "Calendly"
-description: "Que puede y que NO puede hacer la integracion de Calendly, y como conectarla."
+description: "Que puede y que NO puede hacer la integracion de Calendly, y como conectarla paso a paso."
 icon: "calendar"
 ---
 
@@ -28,27 +28,29 @@ Calendly se limita a las acciones de arriba. **No** puede:
 - Listar o mostrar todas las reuniones de un visitante
 - Consultar disponibilidad de mas de 7 dias en una sola peticion
 
+## Como conectar
+
+<Note>Conectar una integracion requiere rol **Editor**, **Admin** u **Owner**, en el plan **Pro** o **Business**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
+
+<Steps>
+  <Step title="Abre Integraciones" icon="plug">
+    En el dashboard de tu workspace, abre la pestana **Web Widget → Integrations** y busca **Calendly**.
+  </Step>
+  <Step title="Conecta y autoriza" icon="link">
+    Haz clic en **Conectar**. Se abre un popup seguro: inicia sesion en Calendly y autoriza el acceso. Nunca tecleas credenciales en BestChatBot. Si Cal.com esta activa, se te pedira confirmar el reemplazo.
+  </Step>
+  <Step title="Elige un event type" icon="calendar-check">
+    Calendly necesita un paso mas: elige el **event type** que reservara el bot (por ejemplo, "Llamada inicial"). Hasta que selecciones uno, la integracion muestra una insignia **needs setup** y no agenda reuniones.
+  </Step>
+</Steps>
+
+Una vez configurada, las acciones de Calendly quedan disponibles en tu widget de inmediato.
+
 ## Flujo de conexion
 
 <Frame>
   <img src="/images/calendly-integration.png" alt="Flujo de conexion de Calendly desde el dashboard hasta un bot conectado y listo para actuar" />
 </Frame>
-
-## Como conectar
-
-<Steps>
-  <Step title="Abre Integraciones" icon="plug">
-    En el dashboard de tu workspace, abre la pestana **Integraciones** y busca **Calendly**.
-  </Step>
-  <Step title="Conecta" icon="link">
-    Haz clic en **Conectar**. Se abre un popup seguro. Inicia sesion en Calendly y autoriza el acceso. Nunca tecleas credenciales en BestChatBot.
-  </Step>
-  <Step title="Listo" icon="circle-check">
-    Una vez conectada, las acciones de Calendly quedan disponibles en tu widget de inmediato. Si Cal.com estaba conectada, se desconecta automaticamente.
-  </Step>
-</Steps>
-
-<Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
 
 ## Una por categoria
 
