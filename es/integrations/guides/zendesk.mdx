@@ -35,17 +35,26 @@ Zendesk se limita a las acciones de arriba. **No** puede:
   <Step title="Abre Integraciones" icon="plug">
     En el dashboard de tu workspace, abre la pestana **Web Widget → Integrations** y busca **Zendesk**.
   </Step>
-  <Step title="Conecta y autoriza" icon="link">
-    Haz clic en **Conectar**. Se abre un popup seguro: inicia sesion en Zendesk y autoriza el acceso. Nunca tecleas credenciales en BestChatBot. Si Freshdesk esta activa, se te pedira confirmar el reemplazo.
+  <Step title="Introduce tu subdominio de Zendesk" icon="link">
+    Haz clic en **Conectar**. Se abre un popup seguro: introduce tu **dominio de Zendesk** (el subdominio de `tusubdominio.zendesk.com`) y continua. Si Freshdesk esta activa, se te pedira confirmar el reemplazo.
+
+    <Frame>
+      <img src="/integrations/zendesk/connection-popup.png" alt="Popup de conexion de Zendesk en BestChatBot pidiendo el subdominio de Zendesk" />
+    </Frame>
+  </Step>
+  <Step title="Autoriza en Zendesk" icon="circle-check">
+    Se abre una ventana de Zendesk pidiendo conceder acceso a BestChatBot. Haz clic en **Permitir** para autorizar. Nunca tecleas tu contrasena de Zendesk en BestChatBot.
+
+    <Frame>
+      <img src="/integrations/zendesk/zendesk-connection-asking.png" alt="Pantalla OAuth de Zendesk pidiendo permitir que BestChatBot acceda a la cuenta" />
+    </Frame>
   </Step>
 </Steps>
 
-Una vez conectada, las acciones de Zendesk quedan disponibles en tu widget de inmediato.
-
-## Flujo de conexion
+Una vez conectada, las acciones de Zendesk quedan disponibles de inmediato. Puedes activar cada capacidad — **Create support ticket** y **Check ticket status** — desde el panel de la integracion.
 
 <Frame>
-  <img src="/images/zendesk-integration.png" alt="Flujo de conexion de Zendesk desde el dashboard hasta un bot conectado y listo para actuar" />
+  <img src="/integrations/zendesk/connected.png" alt="Panel de Zendesk conectado mostrando los toggles Create support ticket y Check ticket status" />
 </Frame>
 
 ## Una por categoria
