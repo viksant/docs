@@ -18,6 +18,10 @@ The bot does exactly these actions, nothing more. "Needs sign-in" means the visi
 |--------|--------------|:-------------:|
 | **Search products** | Search your catalog by keyword and show products with price and image (up to 100). | No |
 | **Check order status** | Look up an order's status and details by the visitor's email. | Yes |
+| **Update their profile** | Let a signed-in customer update their own name, phone, or email — they confirm before it's saved. | Yes |
+| **Update their billing address** | Let a signed-in customer update their own billing address — they confirm first. | Yes |
+
+<Note>The two update actions are optional. You can turn each one off from the WooCommerce panel if you'd rather keep the bot read-only.</Note>
 
 ## What It Can't Do
 
@@ -29,54 +33,41 @@ WooCommerce is scoped to the actions above. It does **not**:
 
 ## Part 1 — Connect WooCommerce
 
-BestChatBot reads your store through the **WooCommerce REST API**. You generate a read-only API key in WordPress, then paste it into BestChatBot.
-
-### Step 1 — Generate a WooCommerce REST API key
-
-In WordPress, go to **WooCommerce → Settings → Advanced → REST API** and click **Add key**.
-
-<Frame>
-  <img src="/integrations/wordpress-integration/WP-api-key-generation-1.png" alt="WooCommerce Settings Advanced tab with the REST API keys section" />
-</Frame>
-
-Give it a **Description**, pick a **User**, and set **Permissions** to **Read** (the bot never writes to your store). Click **Generate API key**.
-
-<Frame>
-  <img src="/integrations/wordpress-integration/WP-api-key-generation-2.png" alt="WooCommerce create API key form with Description, User, and Permissions set to Read" />
-</Frame>
-
-WooCommerce shows your **Consumer key** (`ck_...`) and **Consumer secret** (`cs_...`). Copy both now — the secret is only shown once.
-
-<Frame>
-  <img src="/integrations/wordpress-integration/WP-api-key-generation-3.png" alt="Generated WooCommerce Consumer key and Consumer secret" />
-</Frame>
-
-### Step 2 — Connect in BestChatBot
-
-In your workspace dashboard, open the **Integrations** tab, find **WooCommerce**, and click **Connect**. In the popup:
-
-- **User name** → your **Consumer key** (`ck_...`)
-- **Password** → your **Consumer secret** (`cs_...`)
-- **Domain** → your store's domain **without** `https://` (e.g., `my-store.com`)
-
-<Frame>
-  <img src="/integrations/wordpress-integration/wordpress-integration-from-dashboard.png" alt="BestChatBot WooCommerce connection popup with User name, Password, and Domain fields" />
-</Frame>
+BestChatBot connects to WooCommerce through WooCommerce's own authorization flow. You enter your store address, approve the connection in your WordPress admin, and WooCommerce hands BestChatBot a secure, encrypted key automatically — there's nothing to generate or paste.
 
 <Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
 
-### Step 3 — You're connected
+<Steps>
+  <Step title="Open the WooCommerce integration" icon="plug">
+    In your workspace dashboard, open the **Integrations** tab, find **WooCommerce**, and click **Connect**.
+  </Step>
+  <Step title="Enter your store address" icon="link">
+    In the dialog, enter your store's address (for example `https://shop.example.com`) and click **Connect**. A secure window opens.
 
-You'll see a success confirmation, and WooCommerce's actions become available right away. If Shopify was connected, it's disconnected automatically.
+    <Frame>
+      <img src="/integrations/wordpress-integration/woocommerce-connect-dialog.png" alt="WooCommerce connect dialog asking for the store address" />
+    </Frame>
+  </Step>
+  <Step title="Approve in your store admin" icon="lock">
+    WordPress shows a WooCommerce screen where **BestChatBot** requests access to your store. Review it and click **Approve**. WooCommerce generates the key and hands it to BestChatBot securely — you never see or copy it.
+
+    <Frame>
+      <img src="/integrations/wordpress-integration/woocommerce-authorize.png" alt="WooCommerce authorization screen granting BestChatBot access to the store" />
+    </Frame>
+  </Step>
+  <Step title="You're connected" icon="circle-check">
+    The window closes and WooCommerce shows as connected — its actions become available right away. If Shopify was connected, it's disconnected automatically.
+
+    <Frame>
+      <img src="/integrations/wordpress-integration/wordpress-integration-successfuly-connected-dashboard.png" alt="WooCommerce integration connected successfully" />
+    </Frame>
+  </Step>
+</Steps>
+
+From the integration panel you can toggle each **bot capability**.
 
 <Frame>
-  <img src="/integrations/wordpress-integration/wordpress-integration-successfuly-connected-dashboard.png" alt="WooCommerce integration connected successfully confirmation" />
-</Frame>
-
-From the integration panel you can toggle each **bot capability** — **Search products** and **Track order**.
-
-<Frame>
-  <img src="/integrations/wordpress-integration/integration-connected-options.png" alt="Connected WooCommerce panel with Search products and Track order capability toggles" />
+  <img src="/integrations/wordpress-integration/integration-connected-options.png" alt="Connected WooCommerce panel with the bot capability toggles" />
 </Frame>
 
 ## Part 2 — Install the Widget on WordPress

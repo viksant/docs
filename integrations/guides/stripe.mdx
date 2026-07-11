@@ -1,6 +1,6 @@
 ---
 title: "Stripe"
-description: "What the Stripe integration can and can't do, and how to connect it step by step."
+description: "What the Stripe integration can and can't do, and how to connect it in one click with OAuth."
 icon: "credit-card"
 ---
 
@@ -33,64 +33,36 @@ Stripe is scoped to the actions above. It does **not**:
 
 ## How to Connect
 
-BestChatBot connects to Stripe with a **restricted API key** — a key scoped to only the permissions the bot needs. You create the key in your Stripe Dashboard, then paste it into BestChatBot.
-
-### Step 1 — Create a restricted key in Stripe
-
-In your [Stripe Dashboard](https://dashboard.stripe.com), go to **Developers → API keys** and click **Create restricted key**.
-
-<Frame>
-  <img src="/integrations/stripe-integration/step1-generate-restricted-api-key.png" alt="Stripe Dashboard API keys page with the Create restricted key button" />
-</Frame>
-
-When asked how you'll use the key, choose **Providing this key to a third-party application**.
-
-<Frame>
-  <img src="/integrations/stripe-integration/step2-restriced-key-scope.png" alt="Stripe asking how the key will be used, with third-party application selected" />
-</Frame>
-
-Enter the website details — give the key a recognizable **Name** (e.g., "Bestchatbot Stripe Integration") and your site **URL** — then check **Customise permissions for this key**.
-
-<Frame>
-  <img src="/integrations/stripe-integration/step3-API-Key-Scope.png" alt="Stripe Enter website details form with name, URL, and Customise permissions checked" />
-</Frame>
-
-### Step 2 — Grant the right permissions
-
-Set exactly these permissions, and leave everything else as **None**:
-
-| Stripe resource | Permission |
-|-----------------|:----------:|
-| **Customer Portal** | Write |
-| **Invoices** | Read |
-| **Prices** | Read |
-| **Subscriptions** | Read |
-| **Checkout Sessions** | Write |
-
-<Frame>
-  <img src="/integrations/stripe-integration/step4-permissions-key.png" alt="Stripe permissions list with Customer Portal Write, Invoices Read, Prices Read, Subscriptions Read, Checkout Sessions Write" />
-</Frame>
-
-Create the key and copy it. It looks like `rk_live_...`.
-
-<Warning>Grant only the permissions above. A key with more access than the bot needs is an unnecessary risk. The restricted key is read-only except for the billing portal and checkout links it generates for the visitor.</Warning>
-
-### Step 3 — Connect in BestChatBot
-
-In your workspace dashboard, open the **Integrations** tab, find **Stripe**, and click **Connect**. A secure popup opens:
-
-- Paste your **Restricted API Key** into the key field.
-- Leave **Stripe Context** **empty** — you don't need it.
-
-Click **Connect**. Your credentials go straight to the secure form, never into the chat.
-
-<Frame>
-  <img src="/integrations/stripe-integration/step5-bestchatbot-dashboard-setup.png" alt="BestChatBot Stripe connection popup showing the Restricted API Key field and an empty Stripe Context field" />
-</Frame>
+Connecting Stripe takes one click. BestChatBot uses **Stripe's official OAuth flow** — you authorize the **BestChatBot** Stripe App from your own Stripe account. There's no API key to create, copy, or paste.
 
 <Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
 
-### Step 4 — You're connected
+<Steps>
+  <Step title="Open the Stripe integration" icon="plug">
+    In your workspace dashboard, open the **Integrations** tab, find **Stripe** under **Payments**, and click **Connect**.
+  </Step>
+  <Step title="Authorize BestChatBot in Stripe" icon="lock">
+    A secure Stripe popup opens. Sign in to your Stripe account, review what the **BestChatBot** app can access, and approve it. Your credentials stay with Stripe — they're never typed into the chat or shared with BestChatBot.
+
+    <Frame>
+      <img src="/integrations/stripe-integration/oauth-consent.png" alt="Stripe OAuth consent screen showing the BestChatBot app requesting access to the account" />
+    </Frame>
+  </Step>
+  <Step title="You're connected" icon="circle-check">
+    The popup closes and Stripe shows as **Connected** right away. Nothing to copy or paste, and no key to rotate later.
+  </Step>
+</Steps>
+
+### What BestChatBot Can Access
+
+When you approve the app, Stripe shows you exactly what it grants — a **narrow, mostly read-only** scope, never your secret keys:
+
+- **Read** your customers, subscriptions, invoices, products, prices, payment methods, and charges — so the bot can answer each visitor's own billing questions.
+- **Create** a Billing Portal link and a Checkout link on the visitor's behalf.
+
+That's the full extent of the access. The bot can't change your account settings, issue refunds, or edit products. You can revoke it anytime — click **Disconnect** in BestChatBot, or remove the app from inside your Stripe Dashboard.
+
+### After Connecting
 
 Once connected, Stripe's actions become available to your widget right away. From the integration panel you can toggle each **bot capability** (check subscription, invoice history, payment methods, manage subscription, create checkout) and set optional **Checkout redirect URLs**:
 
@@ -100,7 +72,7 @@ Once connected, Stripe's actions become available to your widget right away. Fro
 If you leave them empty, the visitor returns to your widget's base domain.
 
 <Frame>
-  <img src="/integrations/stripe-integration/step6-stripe-successfully-connected-bestchatbot.png" alt="Connected Stripe panel showing bot capability toggles and checkout redirect URL fields" />
+  <img src="/integrations/stripe-integration/connected-panel.png" alt="Connected Stripe panel showing bot capability toggles and checkout redirect URL fields" />
 </Frame>
 
 ## Showing Products in Checkout

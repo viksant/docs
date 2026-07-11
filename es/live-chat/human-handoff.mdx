@@ -1,0 +1,93 @@
+---
+title: "Traspaso a un humano"
+description: "Deja que tus visitantes hablen en vivo con una persona de tu equipo dentro del chat, y redacta respuestas con IA basadas en tu base de conocimiento."
+icon: "headset"
+---
+
+# Traspaso a un humano
+
+Tu bot resuelve la mayoria de conversaciones solo. Pero a veces un visitante necesita a una persona: un caso complicado, una pregunta delicada o una venta que conviene cerrar en el momento. El **traspaso a un humano** deja que el visitante pase la conversacion a tu equipo y hable con ellos en vivo, dentro del propio widget.
+
+<Note>El traspaso a un humano funciona con **asientos de operador**, que vienen con tu plan. Consulta [Planes y precios](/es/billing/pricing-plans) para ver que incluye el tuyo.</Note>
+
+## Como llega un visitante a tu equipo
+
+El widget muestra un boton **Talk to a human** en su cabecera siempre que haya un agente disponible en vivo, es decir, cuando tienes al menos un asiento de operador y un operador activo.
+
+<Frame>
+  <img src="/images/handoff-talk-to-human.png" alt="Cabecera del widget de chat mostrando el boton Talk to a human" />
+</Frame>
+
+Cuando el visitante lo pulsa, el widget le pide confirmar primero — *"Talk to our support team? Your conversation will be shared with our support agents, who may use third-party services to reply."* — con **Cancel** y **Confirm**. Solo tras confirmar llega la solicitud a tu equipo.
+
+<Frame>
+  <img src="/images/handoff-consent-overlay.png" alt="Overlay de consentimiento del widget antes de iniciar un traspaso a un humano" />
+</Frame>
+
+La conversacion entra en la cola de tu equipo, y tus operadores reciben un email avisando de que un visitante esta esperando.
+
+## Responder desde tu dashboard
+
+Los traspasos aparecen en el area de **Conversaciones** de tu dashboard, que tiene dos vistas con un conmutador:
+
+- **Seguimiento** — un historial de solo lectura de las conversaciones, visible para todo tu equipo.
+- **Bandeja en vivo** — el espacio del operador donde de verdad respondes. Este conmutador solo aparece para los miembros que son **operadores**.
+
+<Frame>
+  <img src="/images/handoff-live-inbox.png" alt="Pestana Conversaciones mostrando el conmutador Seguimiento / Bandeja en vivo y una conversacion en vivo" />
+</Frame>
+
+En la **Bandeja en vivo**, las conversaciones en espera aparecen en tiempo real — suena un aviso cuando llega una nueva (puedes silenciarlo). Cada conversacion muestra un estado: **En espera**, **Activa**, **Cerrada** o **Slack**.
+
+Selecciona una conversacion para ver la transcripcion completa y un cuadro de respuesta. Escribe tu respuesta y pulsa **Enter** para enviar (**Shift + Enter** para salto de linea).
+
+- **Tu primera respuesta reclama la conversacion.** A partir de ahi es tuya, y los demas operadores la ven como atendida. Si dos operadores abren la misma, solo el primero en responder se la queda; el otro conserva su borrador y un aviso de que otra persona la tomo.
+- **Cierrala al terminar.** El boton **Cerrar conversacion** finaliza el traspaso, devuelve el visitante al bot y quita la conversacion de la bandeja en vivo de todos los operadores. El visitante puede volver a pedir un humano mas tarde.
+
+## Quien puede responder: operadores y asientos
+
+Ser **operador** es una capacidad que concedes por miembro, independiente de su rol. Un owner o admin marca a un miembro como operador desde **Miembros y roles**, y cualquier rol puede serlo.
+
+Cuantas personas pueden ser operadores a la vez lo define tu numero de **asientos de operador**, que viene con tu plan. Tu pagina de Miembros muestra cuantos asientos usas de tu limite. Si un plan no incluye asientos de operador, el traspaso a un humano queda desactivado y el boton **Talk to a human** nunca aparece.
+
+<Note>Los asientos de operador se rigen por la facturacion. Usa [Miembros y roles](/es/workspace/members-roles) para asignar operadores, y consulta [Planes y precios](/es/billing/pricing-plans) para los limites de asientos.</Note>
+
+## Marcadores de la conversacion
+
+La transcripcion registra quien se unio y quien salio, para que cualquiera que la revise despues tenga el contexto completo:
+
+- **El operador se unio a la conversacion** — se anade cuando un operador envia su primera respuesta.
+- **El operador cerro la conversacion** — se anade al cerrar el traspaso.
+
+En el widget, el visitante ve un divisor simple **A team member joined** cuando una persona toma el relevo.
+
+## AI Compose: redacta respuestas desde tu base de conocimiento
+
+Mientras respondes en vivo, no tienes que escribir cada respuesta desde cero. Junto a cada mensaje del visitante aparece, al pasar el cursor, un boton **Redactar con IA** (✨).
+
+<Frame>
+  <img src="/images/handoff-ai-compose-button.png" alt="Boton Redactar con IA apareciendo junto a un mensaje del visitante en la bandeja del operador" />
+</Frame>
+
+Al pulsarlo, BestChatBot redacta una respuesta para **ese mensaje concreto**, fundamentada en tu base de conocimiento, y la coloca en tu cuadro de respuesta. Un banner te recuerda que es un borrador — *"Borrador IA — generado del mensaje del visitante, revisa antes de enviar."*
+
+<Frame>
+  <img src="/images/handoff-ai-compose-draft.png" alt="Borrador de IA generado en el cuadro de respuesta del operador con el banner de revision" />
+</Frame>
+
+Tu mantienes el control: edita el borrador (cualquier tecleo desactiva la marca de IA) y envialo como cualquier otra respuesta. Si tu base de conocimiento no puede fundamentar una respuesta, el borrador es un mensaje neutro y seguro.
+
+<Tip>AI Compose es **gratis**: un borrador nunca cuenta contra tu cuota de respuestas. Solo cuentan las respuestas automaticas del propio bot.</Tip>
+
+## Responder desde Slack
+
+Prefieres gestionar los chats en vivo donde tu equipo ya trabaja? Puedes enviar los traspasos a un canal de Slack y responder desde alli.
+
+<CardGroup cols={2}>
+  <Card title="Conectar Slack" icon="slack" href="/es/live-chat/connect-slack">
+    Gestiona traspasos desde un canal de Slack — tu equipo responde en Slack, los visitantes siguen chateando en el widget.
+  </Card>
+  <Card title="Miembros y roles" icon="users" href="/es/workspace/members-roles">
+    Asigna operadores y gestiona quien puede responder conversaciones en vivo.
+  </Card>
+</CardGroup>

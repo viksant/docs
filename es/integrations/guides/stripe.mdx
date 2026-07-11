@@ -1,6 +1,6 @@
 ---
 title: "Stripe"
-description: "Que puede y que NO puede hacer la integracion de Stripe, y como conectarla paso a paso."
+description: "Que puede y que NO puede hacer la integracion de Stripe, y como conectarla en un clic con OAuth."
 icon: "credit-card"
 ---
 
@@ -33,64 +33,36 @@ Stripe se limita a las acciones de arriba. **No** puede:
 
 ## Como conectar
 
-BestChatBot se conecta a Stripe con una **restricted API key**: una clave limitada solo a los permisos que el bot necesita. La creas en tu Dashboard de Stripe y luego la pegas en BestChatBot.
-
-### Paso 1 — Crea una restricted key en Stripe
-
-En tu [Dashboard de Stripe](https://dashboard.stripe.com), ve a **Developers → API keys** y haz clic en **Create restricted key**.
-
-<Frame>
-  <img src="/integrations/stripe-integration/step1-generate-restricted-api-key.png" alt="Pagina de API keys de Stripe con el boton Create restricted key" />
-</Frame>
-
-Cuando te pregunte como usaras la clave, elige **Providing this key to a third-party application**.
-
-<Frame>
-  <img src="/integrations/stripe-integration/step2-restriced-key-scope.png" alt="Stripe preguntando como se usara la clave, con la opcion de aplicacion de terceros seleccionada" />
-</Frame>
-
-Introduce los datos del sitio: un **Name** reconocible (ej: "Bestchatbot Stripe Integration") y la **URL** de tu sitio, y marca **Customise permissions for this key**.
-
-<Frame>
-  <img src="/integrations/stripe-integration/step3-API-Key-Scope.png" alt="Formulario Enter website details de Stripe con nombre, URL y Customise permissions marcado" />
-</Frame>
-
-### Paso 2 — Concede los permisos correctos
-
-Configura exactamente estos permisos y deja todo lo demas en **None**:
-
-| Recurso de Stripe | Permiso |
-|-------------------|:-------:|
-| **Customer Portal** | Write |
-| **Invoices** | Read |
-| **Prices** | Read |
-| **Subscriptions** | Read |
-| **Checkout Sessions** | Write |
-
-<Frame>
-  <img src="/integrations/stripe-integration/step4-permissions-key.png" alt="Lista de permisos de Stripe con Customer Portal Write, Invoices Read, Prices Read, Subscriptions Read, Checkout Sessions Write" />
-</Frame>
-
-Crea la clave y copiala. Tiene el formato `rk_live_...`.
-
-<Warning>Concede solo los permisos de arriba. Una clave con mas acceso del que el bot necesita es un riesgo innecesario. La restricted key es de solo lectura salvo por el portal de facturacion y los enlaces de checkout que genera para el visitante.</Warning>
-
-### Paso 3 — Conecta en BestChatBot
-
-En el dashboard de tu workspace, abre la pestana **Integraciones**, busca **Stripe** y haz clic en **Conectar**. Se abre un popup seguro:
-
-- Pega tu **Restricted API Key** en el campo de la clave.
-- Deja **Stripe Context** **vacio**: no lo necesitas.
-
-Haz clic en **Conectar**. Tus credenciales van directas al formulario seguro, nunca al chat.
-
-<Frame>
-  <img src="/integrations/stripe-integration/step5-bestchatbot-dashboard-setup.png" alt="Popup de conexion de Stripe en BestChatBot mostrando el campo Restricted API Key y el campo Stripe Context vacio" />
-</Frame>
+Conectar Stripe es un solo clic. BestChatBot usa el **flujo OAuth oficial de Stripe**: autorizas la Stripe App **BestChatBot** desde tu propia cuenta de Stripe. No hay ninguna API key que crear, copiar ni pegar.
 
 <Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
 
-### Paso 4 — Conectado
+<Steps>
+  <Step title="Abre la integracion de Stripe" icon="plug">
+    En el dashboard de tu workspace, abre la pestana **Integraciones**, busca **Stripe** en **Pagos** y haz clic en **Conectar**.
+  </Step>
+  <Step title="Autoriza BestChatBot en Stripe" icon="lock">
+    Se abre un popup seguro de Stripe. Inicia sesion en tu cuenta de Stripe, revisa a que puede acceder la app **BestChatBot** y apruebala. Tus credenciales se quedan en Stripe: nunca se escriben en el chat ni se comparten con BestChatBot.
+
+    <Frame>
+      <img src="/integrations/stripe-integration/oauth-consent.png" alt="Pantalla de consentimiento OAuth de Stripe mostrando la app BestChatBot pidiendo acceso a la cuenta" />
+    </Frame>
+  </Step>
+  <Step title="Conectado" icon="circle-check">
+    El popup se cierra y Stripe aparece como **Conectado** al instante. Nada que copiar o pegar, ni ninguna clave que rotar despues.
+  </Step>
+</Steps>
+
+### A que puede acceder BestChatBot
+
+Al aprobar la app, Stripe te muestra exactamente que concede: un alcance **acotado y casi de solo lectura**, nunca tus claves secretas:
+
+- **Leer** tus clientes, suscripciones, facturas, productos, precios, metodos de pago y cargos, para que el bot pueda responder las dudas de facturacion de cada visitante sobre sus propios datos.
+- **Crear** un enlace al Portal de Facturacion y un enlace de Checkout en nombre del visitante.
+
+Ese es todo el alcance del acceso. El bot no puede cambiar la configuracion de tu cuenta, emitir reembolsos ni editar productos. Puedes revocarlo cuando quieras: haz clic en **Desconectar** en BestChatBot, o elimina la app desde tu Dashboard de Stripe.
+
+### Despues de conectar
 
 Una vez conectada, las acciones de Stripe quedan disponibles en tu widget de inmediato. Desde el panel de la integracion puedes activar cada **capacidad del bot** (ver suscripcion, historial de facturas, metodos de pago, gestionar suscripcion, crear checkout) y fijar **URLs de redireccion de checkout** opcionales:
 
@@ -100,7 +72,7 @@ Una vez conectada, las acciones de Stripe quedan disponibles en tu widget de inm
 Si las dejas vacias, el visitante vuelve al dominio base de tu widget.
 
 <Frame>
-  <img src="/integrations/stripe-integration/step6-stripe-successfully-connected-bestchatbot.png" alt="Panel de Stripe conectado mostrando los toggles de capacidades del bot y los campos de URL de redireccion de checkout" />
+  <img src="/integrations/stripe-integration/connected-panel.png" alt="Panel de Stripe conectado mostrando los toggles de capacidades del bot y los campos de URL de redireccion de checkout" />
 </Frame>
 
 ## Mostrar productos en el checkout

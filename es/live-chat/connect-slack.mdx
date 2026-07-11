@@ -1,0 +1,96 @@
+---
+title: "Conectar Slack"
+description: "Gestiona los traspasos de chat en vivo desde un canal de Slack — tu equipo responde en Slack, los visitantes siguen chateando en el widget."
+icon: "slack"
+---
+
+# Conectar Slack
+
+El traspaso a un humano no tiene por que vivir en el dashboard. Conecta Slack y tu equipo podra atender conversaciones en vivo **desde un canal de Slack**: las respuestas que publiques en el hilo llegan al visitante en el widget, y la conversacion sigue apareciendo en tu bandeja del dashboard.
+
+<Note>El traspaso de chat en vivo por Slack es una funcion **premium**, disponible en los planes **Pro** y **Business**. Consulta [Planes y precios](/es/billing/pricing-plans).</Note>
+
+## Como funciona
+
+Cuando un visitante pide un humano, BestChatBot abre **un hilo por conversacion** en el canal de Slack que elijas. Cualquiera de tu equipo responde en ese hilo; el visitante ve las respuestas en el widget, y los mensajes se mantienen sincronizados con tu bandeja del dashboard.
+
+## Conecta Slack a tu widget
+
+<Note>Necesitas rol **Editor**, **Admin** u **Owner**, en un plan que incluya Slack.</Note>
+
+<Steps>
+  <Step title="Abre la pestana Slack" icon="slack">
+    En el dashboard de tu workspace, abre **Web Widget → Slack** y haz clic en **Conectar Slack**.
+
+    <Frame>
+      <img src="/images/slack-tab-not-connected.png" alt="Pestana Slack en la configuracion del widget con el boton Conectar Slack" />
+    </Frame>
+  </Step>
+  <Step title="Autoriza la app BestChatBot Handoff" icon="lock">
+    Se abre una ventana de Slack. Inicia sesion y aprueba la app **BestChatBot Handoff** para tu espacio de Slack. Solo pide los permisos que necesita para publicar y leer los hilos de traspaso — no puede salirse de tus canales por su cuenta.
+
+    <Frame>
+      <img src="/images/slack-authorize.png" alt="Pantalla de autorizacion de Slack aprobando la app BestChatBot Handoff" />
+    </Frame>
+  </Step>
+  <Step title="Elige un canal" icon="hashtag">
+    De vuelta en BestChatBot, elige el canal de Slack donde deben llegar los traspasos.
+
+    <Warning>Usa un canal **privado**. Un canal publico expone los datos del visitante a todos los de tu espacio de Slack.</Warning>
+
+    Para un canal privado, invita antes al bot **BestChatBot Handoff** — los canales privados solo aparecen en la lista cuando el bot ya es miembro.
+
+    <Frame>
+      <img src="/images/slack-channel-picker.png" alt="Dialogo para elegir el canal de Slack para los handoffs, con el aviso de canal privado" />
+    </Frame>
+  </Step>
+  <Step title="Conectado" icon="circle-check">
+    La pestana Slack muestra tu espacio de Slack y el canal conectados, con opciones para **Cambiar canal** o **Desconectar**.
+
+    <Frame>
+      <img src="/images/slack-tab-connected.png" alt="Pestana Slack mostrando el espacio de Slack y el canal conectados" />
+    </Frame>
+  </Step>
+</Steps>
+
+## Atender un traspaso en Slack
+
+Cuando un visitante pide un humano, se abre un hilo en tu canal titulado **New user handoff request**, con una tarjeta que muestra quien es el visitante (nombre, email, ID o "Anonymous visitor") y un enlace para abrir la conversacion en tu dashboard.
+
+<Frame>
+  <img src="/images/slack-handoff-thread.png" alt="Hilo de Slack mostrando una nueva solicitud de traspaso con la tarjeta del visitante y un boton Close ticket" />
+</Frame>
+
+- **Responde en el hilo** para atender al visitante — tu mensaje aparece en su widget.
+- Los mensajes del visitante y las respuestas de operadores del dashboard se reflejan en el hilo, asi todo el intercambio queda en un solo lugar.
+- Haz clic en **Close ticket** cuando termines. El hilo se marca como resuelto y el traspaso finaliza.
+
+<Note>Slack es una **alternativa** al dashboard, no un reemplazo. La misma conversacion sigue apareciendo en la [bandeja en vivo](/es/live-chat/human-handoff) de tu dashboard, etiquetada para que veas que se esta atendiendo en Slack.</Note>
+
+## Privacidad
+
+Al activar el traspaso por Slack, los datos de la conversacion del visitante se comparten con Slack para entregarlos a tu canal. Slack figura como servicio de terceros en nuestra Politica de Privacidad. Usar un canal **privado** mantiene esos datos limitados a los miembros del equipo que invites.
+
+## Desconectar
+
+Abre **Web Widget → Slack** y haz clic en **Desconectar**. Los traspasos dejan de ir a Slack de inmediato y vuelven a ser solo del dashboard. Puedes reconectar cuando quieras — se recuerda tu eleccion de canal.
+
+## Disponibilidad
+
+| Plan | Traspaso por Slack |
+|------|:------------------:|
+| Free | — |
+| Starter | — |
+| Pro | ✅ |
+| Business | ✅ |
+
+## Siguientes pasos
+
+<CardGroup cols={2}>
+  <Card title="Traspaso a un humano" icon="headset" href="/es/live-chat/human-handoff">
+    Descubre como funciona el chat en vivo en el dashboard, incluidas las respuestas redactadas por IA.
+  </Card>
+  <Card title="Planes y precios" icon="credit-card" href="/es/billing/pricing-plans">
+    Compara los planes y encuentra el que incluye el traspaso por Slack.
+  </Card>
+</CardGroup>

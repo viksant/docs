@@ -68,6 +68,13 @@
             ]
           },
           {
+            "group": "Live Chat",
+            "pages": [
+              "live-chat/human-handoff",
+              "live-chat/connect-slack"
+            ]
+          },
+          {
             "group": "Customization",
             "pages": [
               "customization/response-preferences",
@@ -99,7 +106,6 @@
               "integrations/guides/zendesk",
               "integrations/guides/hubspot",
               "integrations/guides/stripe",
-              "integrations/guides/shopify",
               "integrations/guides/woocommerce"
             ]
           },
@@ -158,6 +164,13 @@
             ]
           },
           {
+            "group": "Chat en vivo",
+            "pages": [
+              "es/live-chat/human-handoff",
+              "es/live-chat/connect-slack"
+            ]
+          },
+          {
             "group": "Personalizacion",
             "pages": [
               "es/customization/response-preferences",
@@ -189,7 +202,6 @@
               "es/integrations/guides/zendesk",
               "es/integrations/guides/hubspot",
               "es/integrations/guides/stripe",
-              "es/integrations/guides/shopify",
               "es/integrations/guides/woocommerce"
             ]
           },
