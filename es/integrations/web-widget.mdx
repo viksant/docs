@@ -38,24 +38,20 @@ Antes de agregar el widget a tu sitio web, asegurate de tener:
 
 ## Configura Tu Widget
 
-Cada workspace viene con **un web widget**, creado automaticamente al configurar el workspace. No lo construyes desde cero: lo configuras. Abre la pagina **Web Widgets** (el icono de globo en la barra lateral) y veras tu widget como una tarjeta con su estado, color de marca y acciones rapidas para el codigo embed (`<>`) y la configuracion (`⚙`).
+Cada workspace viene con **un web widget**, creado automaticamente al configurar el workspace. No lo construyes desde cero: lo configuras. Haz clic en el **icono de globo** en la barra lateral para abrir la configuracion de tu widget, organizada en pestanas: **Appearance**, **Quick links**, **Integrations**, **Slack**, **Installation & Security** y **Preferences**.
+
+Abre la pestana **Appearance** para dar estilo a tu widget:
+
+- **Brand color**: el color de tu marca en hexadecimal (ej: `#F97316`), usado para el boton, el boton de enviar y los acentos
+- **Teaser color**: un acento opcional aparte para el teaser proactivo — si esta apagado usa tu color de marca
+- **Brand logo**: una imagen opcional que se muestra en el boton flotante y junto a cada respuesta del bot (PNG, JPEG o WebP, hasta 512 KB)
+- **Greeting** y **Proactive message**: el texto de bienvenida y el aviso proactivo que se muestran a los visitantes
 
 <Frame>
-  <img src="/images/widget-manager-screen.png" alt="Pagina Web Widgets mostrando la tarjeta del widget del workspace con su toggle de activacion, color y botones de accion" />
+  <img src="/images/widget-configuration-tab.png" alt="Pestana Appearance del Web Widget con brand color, teaser color, brand logo, greeting y proactive message" />
 </Frame>
 
-Haz clic en el engranaje de configuracion (`⚙`) y abre la pestana **Configuration** para dar estilo a tu widget:
-
-- **Primary Color**: el color de tu marca en hexadecimal (ej: `#F97316`)
-- **Position**: en que esquina se situa el boton de chat (Top Left, Top Right, Bottom Left, Bottom Right)
-- **Bot Avatar**: una imagen opcional que se muestra en el boton y junto a cada respuesta (PNG, JPEG o WebP, hasta 512 KB)
-- **Allowed Origins**: los dominios donde el widget puede funcionar, uno por linea. Soporta wildcards (`*.example.com`). Deja vacio para permitir todos.
-
-<Frame>
-  <img src="/images/widget-configuration-tab.png" alt="Pestana Configuration del Web Widget con Primary Color, Position, Bot Avatar y Allowed Origins" />
-</Frame>
-
-Haz clic en **Save Changes** para aplicar. Usa el toggle **Active** en la tarjeta del widget para activarlo o desactivarlo.
+Haz clic en **Save Changes** para aplicar.
 
 <Tip>Para ejecutar un widget en mas de un sitio o marca, crea un workspace separado: cada workspace tiene su propia base de conocimiento aislada y su propio widget.</Tip>
 
@@ -63,7 +59,7 @@ Haz clic en **Save Changes** para aplicar. Usa el toggle **Active** en la tarjet
 
 ## Obtener Tu Codigo de Integracion
 
-Haz clic en el boton de **codigo embed** (`<>`) en la tarjeta de tu widget, o ve a **Configuracion del Widget → pestana Installation**. Veras un fragmento listo para pegar:
+Abre la pestana **Installation & Security** en la configuracion de tu widget para encontrar un fragmento listo para pegar:
 
 <Frame>
   <img src="/images/widget-embed-code.png" alt="Dialogo Embed Code mostrando el script tag con instrucciones" />
@@ -194,35 +190,27 @@ El widget recuerda la conversacion dentro de la misma sesion del navegador. Si u
 
 ## Configuracion del Widget
 
-Haz clic en el boton de **configuracion** (`⚙`) en la tarjeta de tu widget para abrir el panel. Tiene seis pestanas:
+Haz clic en el **icono de globo** en la barra lateral para abrir la configuracion de tu widget. Tiene seis pestanas:
 
-### Configuration
+### Appearance
 
-Da estilo al widget: **Primary Color**, **Position**, **Bot Avatar** y **Allowed Origins** (vistos arriba). El widget ajusta automaticamente el acento del boton, el borde de los mensajes del usuario, el boton de enviar y el contraste del texto segun tu color. Haz clic en **Save Changes** para aplicar.
+Da estilo al widget: **brand color**, un **teaser color** opcional para el teaser proactivo, un **brand logo**, y el **greeting** y **proactive message** que se muestran a los visitantes (vistos arriba).
 
-<Note>Allowed Origins soporta wildcards como `*.example.com` para cubrir todos los subdominios. No puedes usar `*` solo. Dejalo vacio para permitir todos los origenes.</Note>
+### Quick links
 
-### Help Links
-
-Anade enlaces rapidos a la pantalla de inicio de tu widget. Cada pagina enlazada se scrapea para que el bot pueda responder con su contenido. Consulta [Help Links](/es/customization/help-links).
-
-### Installation
-
-Consulta y copia tu codigo de integracion: lo mismo que hacer clic en el boton `<>` de la tarjeta del widget.
+Anade **help links** a la pantalla de inicio de tu widget. Cada pagina enlazada se scrapea para que el bot pueda responder con su contenido. Consulta [Help Links](/es/customization/help-links).
 
 ### Integrations
 
-Conecta las herramientas sobre las que el bot puede actuar (calendario, mesa de ayuda, tienda, facturacion) para que pueda agendar reuniones, abrir tickets y consultar pedidos. Consulta [Acciones agenticas](/es/integrations/agentic-actions) e [Integraciones disponibles](/es/integrations/available-integrations).
+Conecta las herramientas sobre las que el bot puede actuar (calendario, mesa de ayuda, tienda, CRM, facturacion) para que pueda agendar reuniones, abrir tickets, captar leads y consultar pedidos. Consulta [Acciones agenticas](/es/integrations/agentic-actions) e [Integraciones disponibles](/es/integrations/available-integrations).
 
-### Security
+### Slack
 
-Gestiona las **signing keys** para la verificacion de identidad del visitante. Tu backend firma un token corto para que el widget confirme quien es un visitante logueado, lo que desbloquea acciones personales como "muestra mis pedidos". Consulta [Identidad del visitante](/es/integrations/identity/overview).
+Envia los traspasos de chat en vivo a un canal de Slack: tu equipo responde en Slack mientras los visitantes siguen chateando en el widget. Consulta [Conectar Slack](/es/live-chat/connect-slack).
 
-### Danger Zone
+### Installation & Security
 
-<Frame>
-  <img src="/images/widget-danger-zone.png" alt="Pestana Danger Zone mostrando la opcion de regenerar API Key" />
-</Frame>
+Todo para instalar y asegurar el widget en un solo lugar: el **codigo embed** y tu **workspace API key** (vistos arriba), las **signing keys** para la verificacion de identidad del visitante (consulta [Identidad del visitante](/es/integrations/identity/overview)), y **Allowed Origins** — los dominios donde el widget puede funcionar, uno por linea, con wildcards como `*.example.com` (dejalo vacio para permitir todos).
 
 **Regenerate API Key**: Si sospechas que tu API key ha sido comprometida, haz clic en **Regenerate Key**. Esto **invalida inmediatamente** la key actual, genera una nueva y requiere que **actualices el codigo** en tu sitio web.
 
@@ -339,7 +327,7 @@ El widget usa Shadow DOM para aislamiento de estilos, lo que significa que no en
     - Comprueba que tu dominio este en la lista de Allowed Origins (Configuracion del Widget → Configuration)
     - Abre las DevTools del navegador (pestana Consola) y busca advertencias `[BestChatBot]`
     - Asegurate de que el script tag tenga el atributo `defer`
-    - Verifica que el widget este en estado **Active** en el Widget Manager
+    - Verifica que el widget este activo en tu dashboard
   </Accordion>
 
   <Accordion title="El widget aparece pero no responde">

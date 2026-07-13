@@ -33,7 +33,7 @@ WooCommerce se limita a las acciones de arriba. **No** puede:
 
 ## Parte 1 — Conectar WooCommerce
 
-BestChatBot se conecta a WooCommerce mediante el propio flujo de autorizacion de WooCommerce. Introduces la direccion de tu tienda, apruebas la conexion en tu panel de WordPress y WooCommerce le entrega a BestChatBot una clave segura y cifrada de forma automatica: no hay nada que generar ni pegar.
+BestChatBot se conecta a WooCommerce automaticamente. Introduces la direccion de tu tienda y la conexion se autoriza por ti — el plugin oficial de BestChatBot para WordPress se encarga, entregando a BestChatBot una clave segura y cifrada. No hay nada que generar, pegar ni aprobar.
 
 <Note>Conectar integraciones requiere rol **Editor**, **Admin** u **Owner**. Consulta [Miembros y roles](/es/workspace/members-roles).</Note>
 
@@ -42,17 +42,10 @@ BestChatBot se conecta a WooCommerce mediante el propio flujo de autorizacion de
     En el dashboard de tu workspace, abre la pestana **Integraciones**, busca **WooCommerce** y haz clic en **Conectar**.
   </Step>
   <Step title="Introduce la direccion de tu tienda" icon="link">
-    En el dialogo, introduce la direccion de tu tienda (por ejemplo `https://tienda.ejemplo.com`) y haz clic en **Conectar**. Se abre una ventana segura.
+    En el dialogo, introduce la direccion de tu tienda (por ejemplo `https://tienda.ejemplo.com`) y haz clic en **Conectar**. La conexion se autoriza automaticamente: no hay nada que aprobar.
 
     <Frame>
       <img src="/integrations/wordpress-integration/woocommerce-connect-dialog.png" alt="Dialogo de conexion de WooCommerce pidiendo la direccion de la tienda" />
-    </Frame>
-  </Step>
-  <Step title="Aprueba en el panel de tu tienda" icon="lock">
-    WordPress muestra una pantalla de WooCommerce donde **BestChatBot** pide acceso a tu tienda. Revisala y haz clic en **Approve**. WooCommerce genera la clave y se la entrega a BestChatBot de forma segura: tu nunca la ves ni la copias.
-
-    <Frame>
-      <img src="/integrations/wordpress-integration/woocommerce-authorize.png" alt="Pantalla de autorizacion de WooCommerce concediendo acceso a BestChatBot a la tienda" />
     </Frame>
   </Step>
   <Step title="Conectado" icon="circle-check">

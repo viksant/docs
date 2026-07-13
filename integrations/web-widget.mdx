@@ -38,24 +38,20 @@ Before adding the widget to your website, make sure you have:
 
 ## Configure Your Widget
 
-Each workspace comes with **one web widget**, created automatically when you set up the workspace. You don't build it from scratch — you configure it. Open the **Web Widgets** page (the globe icon in the sidebar) and you'll see your widget as a card with its status, brand color, and quick actions for the embed code (`<>`) and settings (`⚙`).
+Each workspace comes with **one web widget**, created automatically when you set up the workspace. You don't build it from scratch — you configure it. Click the **globe icon** in the sidebar to open your widget's configuration, organized in tabs: **Appearance**, **Quick links**, **Integrations**, **Slack**, **Installation & Security**, and **Preferences**.
+
+Open the **Appearance** tab to style your widget:
+
+- **Brand color**: your brand color in hex (e.g., `#F97316`), used for the launcher, send button, and accents
+- **Teaser color**: an optional separate accent for the proactive teaser — off uses your brand color
+- **Brand logo**: an optional image shown in the floating bubble and next to each bot reply (PNG, JPEG, or WebP, up to 512 KB)
+- **Greeting** and **Proactive message**: the welcome text and the proactive nudge shown to visitors
 
 <Frame>
-  <img src="/images/widget-manager-screen.png" alt="Web Widgets page showing the workspace widget card with its Active toggle, color, and action buttons" />
+  <img src="/images/widget-configuration-tab.png" alt="Widget Appearance tab with brand color, teaser color, brand logo, greeting, and proactive message" />
 </Frame>
 
-Click the settings gear (`⚙`) and open the **Configuration** tab to style your widget:
-
-- **Primary Color**: your brand color in hex (e.g., `#F97316`)
-- **Position**: which corner the chat bubble sits in (Top Left, Top Right, Bottom Left, Bottom Right)
-- **Bot Avatar**: an optional image shown in the bubble and next to each reply (PNG, JPEG, or WebP, up to 512 KB)
-- **Allowed Origins**: the domains where the widget can run, one per line. Supports wildcards (`*.example.com`). Leave empty to allow all.
-
-<Frame>
-  <img src="/images/widget-configuration-tab.png" alt="Web Widget Configuration tab with Primary Color, Position, Bot Avatar, and Allowed Origins" />
-</Frame>
-
-Click **Save Changes** to apply. Use the **Active** toggle on the widget card to turn the widget on or off.
+Click **Save Changes** to apply.
 
 <Tip>To run a widget on more than one site or brand, create a separate workspace — each workspace has its own isolated knowledge base and its own widget.</Tip>
 
@@ -63,7 +59,7 @@ Click **Save Changes** to apply. Use the **Active** toggle on the widget card to
 
 ## Get Your Embed Code
 
-Click the **embed code** button (`<>`) on your widget card, or go to **Widget Settings → Installation** tab. You'll see a ready-to-paste snippet:
+Open the **Installation & Security** tab in your widget's configuration to find a ready-to-paste snippet:
 
 <Frame>
   <img src="/images/widget-embed-code.png" alt="Embed Code dialog showing the script tag with instructions" />
@@ -194,35 +190,27 @@ The widget remembers the conversation within the same browser session. If a visi
 
 ## Widget Settings
 
-Click the **settings** button (`⚙`) on your widget card to open the settings panel. It has six tabs:
+Click the **globe icon** in the sidebar to open your widget's configuration. It has six tabs:
 
-### Configuration
+### Appearance
 
-Style the widget: **Primary Color**, **Position**, **Bot Avatar**, and **Allowed Origins** (covered above). The widget automatically adjusts the bubble accent, user message border, send button, and text contrast to match your color. Click **Save Changes** to apply.
+Style the widget: **brand color**, an optional **teaser color** for the proactive teaser, a **brand logo**, and the **greeting** and **proactive message** shown to visitors (covered above).
 
-<Note>Allowed Origins supports wildcards like `*.example.com` to cover all subdomains. You cannot use `*` alone. Leave it empty to allow all origins.</Note>
+### Quick links
 
-### Help Links
-
-Add quick links to your widget's home screen. Each linked page is crawled so the bot can answer from its content. See [Help Links](/customization/help-links).
-
-### Installation
-
-View and copy your embed code snippet — the same as clicking the `<>` button on the widget card.
+Add **help links** to your widget's home screen. Each linked page is crawled so the bot can answer from its content. See [Help Links](/customization/help-links).
 
 ### Integrations
 
-Connect the tools your bot can act on (calendar, help desk, store, billing) so it can book meetings, open tickets, and look up orders. See [Agentic Actions](/integrations/agentic-actions) and [Available Integrations](/integrations/available-integrations).
+Connect the tools your bot can act on (calendar, help desk, store, CRM, billing) so it can book meetings, open tickets, capture leads, and look up orders. See [Agentic Actions](/integrations/agentic-actions) and [Available Integrations](/integrations/available-integrations).
 
-### Security
+### Slack
 
-Manage **signing keys** for visitor identity verification. Your backend signs a short token so the widget can confirm who a logged-in visitor is, which unlocks personal actions like "show my orders." See [Visitor Identity](/integrations/identity/overview).
+Route live-chat handoffs to a Slack channel — your team replies in Slack while visitors keep chatting in the widget. See [Connect Slack](/live-chat/connect-slack).
 
-### Danger Zone
+### Installation & Security
 
-<Frame>
-  <img src="/images/widget-danger-zone.png" alt="Danger Zone tab showing Regenerate API Key option" />
-</Frame>
+Everything to install and secure the widget in one place: the **embed snippet** and your **workspace API key** (covered above), **signing keys** for visitor identity verification (see [Visitor Identity](/integrations/identity/overview)), and **Allowed Origins** — the domains where the widget may run, one per line, with wildcards like `*.example.com` supported (leave empty to allow all).
 
 **Regenerate API Key**: If you suspect your API key has been compromised, click **Regenerate Key**. This immediately **invalidates** the current key, generates a new one, and requires you to **update the snippet** on your website.
 
@@ -339,7 +327,7 @@ The widget uses Shadow DOM for style isolation, which means it won't conflict wi
     - Verify your domain is in the Allowed Origins list (Widget Settings → Configuration)
     - Open browser DevTools (Console tab) and look for `[BestChatBot]` warnings
     - Make sure the script tag has the `defer` attribute
-    - Check that the widget is set to **Active** in the Widget Manager
+    - Confirm the widget is active in your dashboard
   </Accordion>
 
   <Accordion title="Widget shows but doesn't respond">

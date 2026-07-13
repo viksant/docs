@@ -33,7 +33,7 @@ WooCommerce is scoped to the actions above. It does **not**:
 
 ## Part 1 — Connect WooCommerce
 
-BestChatBot connects to WooCommerce through WooCommerce's own authorization flow. You enter your store address, approve the connection in your WordPress admin, and WooCommerce hands BestChatBot a secure, encrypted key automatically — there's nothing to generate or paste.
+BestChatBot connects to WooCommerce automatically. You enter your store address and the connection is authorized for you — the official BestChatBot WordPress plugin handles it, handing BestChatBot a secure, encrypted key. There's nothing to generate, paste, or approve.
 
 <Note>Connecting integrations requires an **Editor**, **Admin**, or **Owner** role. See [Members & Roles](/workspace/members-roles).</Note>
 
@@ -42,17 +42,10 @@ BestChatBot connects to WooCommerce through WooCommerce's own authorization flow
     In your workspace dashboard, open the **Integrations** tab, find **WooCommerce**, and click **Connect**.
   </Step>
   <Step title="Enter your store address" icon="link">
-    In the dialog, enter your store's address (for example `https://shop.example.com`) and click **Connect**. A secure window opens.
+    In the dialog, enter your store's address (for example `https://shop.example.com`) and click **Connect**. The connection is authorized automatically — there's nothing to approve.
 
     <Frame>
       <img src="/integrations/wordpress-integration/woocommerce-connect-dialog.png" alt="WooCommerce connect dialog asking for the store address" />
-    </Frame>
-  </Step>
-  <Step title="Approve in your store admin" icon="lock">
-    WordPress shows a WooCommerce screen where **BestChatBot** requests access to your store. Review it and click **Approve**. WooCommerce generates the key and hands it to BestChatBot securely — you never see or copy it.
-
-    <Frame>
-      <img src="/integrations/wordpress-integration/woocommerce-authorize.png" alt="WooCommerce authorization screen granting BestChatBot access to the store" />
     </Frame>
   </Step>
   <Step title="You're connected" icon="circle-check">
