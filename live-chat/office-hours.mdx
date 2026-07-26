@@ -1,0 +1,63 @@
+---
+title: "Office Hours"
+description: "Set when your team is available for live chat. Outside those hours, handoff becomes an async ticket and BestChatBot emails the visitor when you reply."
+icon: "clock"
+---
+
+# Office Hours
+
+Your team isn't online 24/7 — and that's fine. Set your **office hours** and BestChatBot adapts human handoff to them: inside your hours a visitor connects to an operator live; outside them the same request becomes an **async ticket** and the visitor is emailed when your team replies. The bot keeps answering in the meantime, so no one is left waiting on a blank screen.
+
+<Note>Setting office hours isn't gated by plan — any member with an **Editor** role or higher can configure them. Live handoff itself still needs **operator seats**, which come with your plan. See [Human Handoff](/live-chat/human-handoff).</Note>
+
+## Setting Your Hours
+
+Open **Web Widget → Availability**. By default the schedule is off and operators show as available around the clock. Turn on **Use an availability schedule** to limit live support to specific hours.
+
+<Frame>
+  <img src="/images/office-hours-availability-tab.png" alt="Availability tab with the schedule toggle, workspace timezone, and weekly hours editor" />
+</Frame>
+
+- **Workspace timezone** — hours are interpreted in this timezone, **not** the visitor's or your browser's. Set it to wherever your team works (for example, Europe/Madrid).
+- **Weekly schedule** — add one or more time ranges per day. A day with no ranges is **closed**. Ranges use 24-hour time and can't span midnight.
+
+<Warning>If the schedule is on but no day has any hours, operators show as offline all week and **every** handoff request is answered by email. Add at least one range, or turn the schedule off for 24/7 live support.</Warning>
+
+## What Visitors See
+
+The **Talk to a human** button looks the same inside and outside your hours — only what happens when a visitor taps it changes. (It disappears only when you have no operator capacity at all.)
+
+- **Inside your hours** the conversation connects live: the visitor sees *"Connecting you with our team. Someone will be with you shortly."* and your operators are notified.
+- **Outside your hours** the request opens an async ticket: the visitor sees *"We're outside our support hours right now. We'll email you when we reply."* If the visitor is anonymous, the widget offers a short form to leave their email so they can be notified.
+
+## The Waiting Ticket
+
+An out-of-hours request — or a live request nobody picks up in time — becomes a **waiting** ticket. It's a real, open handoff:
+
+- Any operator can claim and answer it later, from the dashboard, Slack, or Discord.
+- The bot keeps answering the visitor in the meantime, so they're never stuck.
+- It stays open for up to **30 days**. If no one ever picks it up, it quietly returns to the bot.
+
+In your dashboard [live inbox](/live-chat/human-handoff), these appear with a **Waiting** status alongside your live conversations.
+
+## Emailing the Visitor
+
+Office hours lean on email so a visitor never has to sit and wait. BestChatBot emails the visitor in two cases:
+
+- **When they reach you outside your hours** — a *"We got your message"* email confirms your team will follow up. This is sent only to visitors whose email is **verified** through [signed identity](/integrations/identity/overview), never to an address typed into the chat, to prevent misuse.
+- **When you reply and they've left** — if the visitor closed the chat, your reply is emailed to them as *"You have a new reply from support"* with a preview. This is throttled to at most one email per conversation every 15 minutes.
+
+Every visitor email supports **replying by email** — the visitor's reply lands right back in the conversation, so the thread continues even after they close the widget.
+
+<Note>Visitor emails are best-effort: if delivery fails, the handoff still works — the visitor just won't get that notification. Anonymous visitors who never share an email are handled in the widget only.</Note>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Human Handoff" icon="headset" href="/live-chat/human-handoff">
+    How live chat and operator seats work in the dashboard.
+  </Card>
+  <Card title="Pricing Plans" icon="credit-card" href="/billing/pricing-plans">
+    See which plan includes the operator seats live handoff needs.
+  </Card>
+</CardGroup>

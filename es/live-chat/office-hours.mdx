@@ -1,0 +1,63 @@
+---
+title: "Horario de atencion"
+description: "Define cuando tu equipo esta disponible para el chat en vivo. Fuera de ese horario, el traspaso se convierte en un ticket asincrono y BestChatBot avisa por correo al visitante cuando respondes."
+icon: "clock"
+---
+
+# Horario de atencion
+
+Tu equipo no esta conectado 24/7, y no pasa nada. Define tu **horario de atencion** y BestChatBot adapta el traspaso a un humano: dentro de tu horario, el visitante conecta con un operador en vivo; fuera de el, la misma peticion se convierte en un **ticket asincrono** y el visitante recibe un email cuando tu equipo responde. Mientras tanto el bot sigue respondiendo, asi nadie se queda esperando frente a una pantalla en blanco.
+
+<Note>Configurar el horario no depende del plan — cualquier miembro con rol **Editor** o superior puede definirlo. El traspaso en vivo en si sigue necesitando **asientos de operador**, que vienen con tu plan. Consulta [Traspaso a un humano](/es/live-chat/human-handoff).</Note>
+
+## Configura tu horario
+
+Abre **Web Widget → Disponibilidad**. Por defecto el horario esta desactivado y los operadores aparecen disponibles a todas horas. Activa **Usar un horario de disponibilidad** para limitar el soporte en vivo a horas concretas.
+
+<Frame>
+  <img src="/images/office-hours-availability-tab.png" alt="Pestana Disponibilidad con el interruptor del horario, la zona horaria del espacio de trabajo y el editor de horas semanal" />
+</Frame>
+
+- **Zona horaria del espacio de trabajo** — las horas se interpretan en esta zona, **no** en la del visitante ni en la de tu navegador. Ponla donde trabaje tu equipo (por ejemplo, Europe/Madrid).
+- **Horario semanal** — anade uno o mas rangos de horas por dia. Un dia sin rangos esta **cerrado**. Los rangos usan formato de 24 horas y no pueden cruzar la medianoche.
+
+<Warning>Si el horario esta activado pero ningun dia tiene horas, los operadores aparecen sin conexion toda la semana y **cada** peticion de traspaso se responde por email. Anade al menos un rango, o desactiva el horario para soporte en vivo 24/7.</Warning>
+
+## Que ve el visitante
+
+El boton **Talk to a human** se ve igual dentro y fuera de tu horario — solo cambia lo que ocurre cuando el visitante lo pulsa. (Solo desaparece cuando no tienes ninguna capacidad de operador.)
+
+- **Dentro de tu horario**, la conversacion conecta en vivo: el visitante ve *"Connecting you with our team. Someone will be with you shortly."* y tus operadores reciben aviso.
+- **Fuera de tu horario**, la peticion abre un ticket asincrono: el visitante ve *"We're outside our support hours right now. We'll email you when we reply."* Si el visitante es anonimo, el widget le ofrece un formulario corto para dejar su email y poder avisarle.
+
+## El ticket en espera
+
+Una peticion fuera de horario — o una peticion en vivo que nadie atiende a tiempo — se convierte en un ticket **en espera**. Es un traspaso real y abierto:
+
+- Cualquier operador puede reclamarlo y responderlo mas tarde, desde el dashboard, Slack o Discord.
+- Mientras tanto el bot sigue respondiendo al visitante, asi que nunca se queda bloqueado.
+- Permanece abierto hasta **30 dias**. Si nadie lo atiende, vuelve al bot sin ruido.
+
+En la [bandeja en vivo](/es/live-chat/human-handoff) de tu dashboard, estos aparecen con el estado **En espera** junto a tus conversaciones en vivo.
+
+## Avisos por correo al visitante
+
+El horario se apoya en el correo para que un visitante nunca tenga que quedarse esperando. BestChatBot avisa al visitante por email en dos casos:
+
+- **Cuando te escribe fuera de tu horario** — un email con el asunto *"We got your message"* le confirma que tu equipo hara seguimiento. Solo se envia a visitantes cuyo email esta **verificado** mediante [identidad firmada](/es/integrations/identity/overview), nunca a una direccion escrita en el chat, para evitar abusos.
+- **Cuando respondes y el visitante se ha ido** — si el visitante cerro el chat, tu respuesta se le envia por email con el asunto *"You have a new reply from support"* y una vista previa. Esto se limita a como mucho un email por conversacion cada 15 minutos.
+
+Todos los emails al visitante permiten **responder por correo** — la respuesta del visitante vuelve directamente a la conversacion, asi que el hilo continua aunque haya cerrado el widget.
+
+<Note>Los avisos al visitante son best-effort: si el envio falla, el traspaso sigue funcionando — el visitante simplemente no recibe ese aviso. A los visitantes anonimos que nunca comparten un email se les atiende solo en el widget.</Note>
+
+## Siguientes pasos
+
+<CardGroup cols={2}>
+  <Card title="Traspaso a un humano" icon="headset" href="/es/live-chat/human-handoff">
+    Como funcionan el chat en vivo y los asientos de operador en el dashboard.
+  </Card>
+  <Card title="Planes y precios" icon="credit-card" href="/es/billing/pricing-plans">
+    Consulta que plan incluye los asientos de operador que necesita el traspaso en vivo.
+  </Card>
+</CardGroup>

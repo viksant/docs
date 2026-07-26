@@ -71,7 +71,9 @@
             "group": "Live Chat",
             "pages": [
               "live-chat/human-handoff",
-              "live-chat/connect-slack"
+              "live-chat/connect-slack",
+              "live-chat/connect-discord",
+              "live-chat/office-hours"
             ]
           },
           {
@@ -167,7 +169,9 @@
             "group": "Chat en vivo",
             "pages": [
               "es/live-chat/human-handoff",
-              "es/live-chat/connect-slack"
+              "es/live-chat/connect-slack",
+              "es/live-chat/connect-discord",
+              "es/live-chat/office-hours"
             ]
           },
           {
