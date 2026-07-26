@@ -1,49 +1,49 @@
 ---
 title: "Conectar Discord"
-description: "Gestiona los traspasos de chat en vivo desde un servidor de Discord — tu equipo responde en Discord, los visitantes siguen chateando en el widget."
+description: "Gestiona los traspasos de chat en vivo desde un servidor de Discord. Tu equipo responde en Discord, los visitantes siguen chateando en el widget."
 icon: "discord"
 ---
 
 # Conectar Discord
 
-El traspaso a un humano puede vivir donde tu equipo ya trabaja. Conecta Discord y tus operadores podran atender conversaciones en vivo **desde un servidor de Discord**: las respuestas que publiquen en el hilo llegan al visitante en el widget, y la conversacion sigue apareciendo en tu bandeja del dashboard.
+El traspaso a un humano puede vivir donde tu equipo ya trabaja. Conecta Discord y tus operadores atienden conversaciones en vivo desde un servidor de Discord. Las respuestas que publican en el hilo llegan al visitante en el widget, y la conversacion sigue apareciendo en tu bandeja del dashboard.
 
-<Note>El traspaso de chat en vivo por Discord es una funcion **premium**, disponible en los planes **Pro** y **Business**. Consulta [Planes y precios](/es/billing/pricing-plans).</Note>
+<Note>El traspaso de chat en vivo por Discord es una funcion **premium** en los planes **Pro** y **Business**. Consulta [Planes y precios](/es/billing/pricing-plans).</Note>
 
-<Note>El traspaso por Discord y por Slack son **mutuamente excluyentes**. Conectar Discord desactiva el traspaso por Slack en este workspace (y viceversa) — el chat en vivo se enruta a un solo sitio a la vez.</Note>
+<Note>El traspaso por Discord y por Slack son **mutuamente excluyentes**. Conectar Discord apaga el traspaso por Slack en este workspace, y al reves. El chat en vivo va a un solo sitio a la vez.</Note>
 
 ## Como funciona
 
-Cuando un visitante pide un humano, BestChatBot abre **un hilo por conversacion** en el canal que elijas. Un operador responde en ese hilo; el visitante ve las respuestas en el widget, y los mensajes se mantienen sincronizados con tu bandeja del dashboard.
+Cuando un visitante pide un humano, BestChatBot abre un hilo por conversacion en el canal que elijas. Un operador responde en ese hilo, el visitante ve las respuestas en el widget, y todo queda sincronizado con tu bandeja del dashboard.
 
-Conectar tiene dos fases: primero **instalas el bot** en tu servidor, y luego **eliges un canal y un rol de operador**. Los traspasos siguen desactivados hasta completar ambas.
+Conectar tiene dos fases. Primero instalas el bot en tu servidor. Luego eliges un canal y un rol de operador. Los traspasos siguen apagados hasta completar las dos.
 
 ## Conecta Discord a tu widget
 
-<Note>Necesitas rol **Editor**, **Admin** u **Owner**, en un plan que incluya Discord. Anadir un bot a un servidor tambien requiere el permiso **Manage Server** en el propio Discord.</Note>
+<Note>Necesitas rol **Editor**, **Admin** u **Owner**, en un plan que incluya Discord. Anadir un bot a un servidor tambien pide el permiso **Manage Server** en el propio Discord.</Note>
 
 <Steps>
   <Step title="Abre la pestana Discord" icon="discord">
     En el dashboard de tu workspace, abre **Web Widget → Discord** y haz clic en **Conectar Discord**.
 
     <Frame>
-      <img src="/images/discord-tab-not-connected.png" alt="Pestana Discord en la configuracion del widget con el boton Connect Discord" />
+      <img src="/images/discord-tab-not-connected.png" alt="Pestana Discord en la configuracion del widget con el boton Conectar Discord" />
     </Frame>
   </Step>
   <Step title="Instala el bot en tu servidor" icon="robot">
-    Se abre una ventana de Discord. Elige **uno de tus servidores** y aprueba el bot. BestChatBot solo pide los permisos que necesita para gestionar los hilos de traspaso: **View Channel**, **Send Messages**, **Read Message History**, **Create Public/Private Threads** y **Send Messages in Threads**.
+    Se abre una ventana de Discord. Elige uno de tus servidores y aprueba el bot. BestChatBot pide solo los permisos que necesita para gestionar los hilos de traspaso: **View Channel**, **Send Messages**, **Read Message History**, **Create Public/Private Threads** y **Send Messages in Threads**.
 
     <Frame>
       <img src="/images/discord-authorize.png" alt="Pantalla de autorizacion de Discord aprobando el bot de BestChatBot para un servidor" />
     </Frame>
 
-    Al volver, la pestana Discord muestra **Configuracion incompleta** — el bot ya esta en tu servidor, pero los traspasos siguen desactivados hasta completar el siguiente paso.
+    De vuelta en el dashboard, la pestana Discord ahora dice **Configuracion incompleta**. El bot ya esta en tu servidor, pero los traspasos siguen apagados hasta que completes el siguiente paso.
   </Step>
   <Step title="Elige un canal y un rol de operador" icon="hashtag">
-    Haz clic en **Completar configuracion** y elige dos cosas, ambas obligatorias:
+    Haz clic en **Completar configuracion** y elige dos cosas. Las dos son obligatorias:
 
-    - **Canal** — el canal de texto donde se abren los hilos de traspaso. Solo aparecen canales de texto en la lista.
-    - **Rol de operador** — el rol cuyos miembros pueden responder. **Las respuestas de miembros sin este rol nunca llegan al visitante.**
+    - **Canal** es el canal de texto donde se abren los hilos de traspaso. Solo aparecen canales de texto en la lista.
+    - **Rol de operador** es el rol cuyos miembros pueden responder. **Las respuestas de miembros sin este rol nunca llegan al visitante.**
 
     <Frame>
       <img src="/images/discord-setup-dialog.png" alt="Dialogo para elegir el canal de Discord y el rol de operador para los traspasos" />
@@ -52,7 +52,7 @@ Conectar tiene dos fases: primero **instalas el bot** en tu servidor, y luego **
     <Warning>Si el bot no puede ver o publicar en el canal que elegiste, la configuracion falla con: *"The bot doesn't have permission for that action in your Discord server. Give the bot's role the 'View Channel' and 'Send Messages' permissions (or the Administrator role) and try again."* Corrige los permisos del canal en Discord y vuelve a intentarlo.</Warning>
   </Step>
   <Step title="Conectado" icon="circle-check">
-    La pestana Discord muestra **Activo**, con tu servidor, canal y rol de operador, mas opciones para **Cambiar canal y rol** o **Desconectar**.
+    La pestana Discord ahora dice **Activo** y muestra tu servidor, canal y rol de operador, mas botones para **Cambiar canal y rol** o **Desconectar**.
 
     <Frame>
       <img src="/images/discord-tab-connected.png" alt="Pestana Discord mostrando la conexion activa con servidor, canal y rol de operador" />
@@ -62,32 +62,34 @@ Conectar tiene dos fases: primero **instalas el bot** en tu servidor, y luego **
 
 ## Atender un traspaso en Discord
 
-Cuando un visitante pide un humano, el bot abre un hilo con el nombre de la conversacion (por ejemplo, **Handoff a1b2c3d4**). El primer mensaje es una tarjeta — *"New handoff - a visitor requested a human. Reply in this thread."* — con los datos del visitante: **Visitor**, **Email**, **ID** y **First seen**.
+Cuando un visitante pide un humano, el bot abre un hilo con el nombre de la conversacion, como **Handoff a1b2c3d4**. El primer mensaje es una tarjeta, *"New handoff - a visitor requested a human. Reply in this thread."*, con los datos del visitante: **Visitor**, **Email**, **ID** y **First seen**.
 
 <Frame>
-  <img src="/images/discord-handoff-thread.png" alt="Hilo de handoff en Discord reflejando el chat en vivo — los mensajes del visitante y del bot llevan insignias por rol — junto al widget del visitante" />
+  <img src="/images/discord-handoff-thread.png" alt="Hilo de handoff en Discord reflejando el chat en vivo, con los mensajes del visitante y del bot con insignias por rol, junto al widget del visitante" />
 </Frame>
 
-- **Responde en el hilo** para atender al visitante — tu mensaje aparece en su widget. Solo los miembros con el rol de operador pueden responder.
-- Los mensajes del visitante y las respuestas de operadores del dashboard se reflejan en el hilo. Como un bot de Discord publica con una sola identidad, cada mensaje reflejado lleva una insignia que indica quien lo envio (visitante, bot u operador).
+Asi lo manejas:
+
+- **Responde en el hilo** para atender al visitante. Tu mensaje aparece en su widget. Solo los miembros con el rol de operador pueden responder.
+- El bot refleja los mensajes del visitante y las respuestas de operadores del dashboard en el hilo. Un bot de Discord publica con una sola identidad, asi que cada mensaje reflejado lleva una insignia de quien lo envio: visitante, bot u operador.
 - Haz clic en **Resolve** cuando termines. El traspaso finaliza y el visitante vuelve al bot.
 
-<Note>Discord es una **alternativa** al dashboard, no un reemplazo. La misma conversacion sigue apareciendo en la [bandeja en vivo](/es/live-chat/human-handoff) de tu dashboard, etiquetada **En Discord** para que veas donde se esta atendiendo.</Note>
+<Note>Discord es una **alternativa** al dashboard, no un reemplazo. La misma conversacion sigue apareciendo en la [bandeja en vivo](/es/live-chat/human-handoff) de tu dashboard, etiquetada **En Discord** para que veas donde la atiende tu equipo.</Note>
 
 ## Privacidad
 
-Los hilos de traspaso son **publicos** para tu servidor por diseno, y el email y el ID del visitante aparecen en la primera tarjeta del hilo. Usa un **canal dedicado que solo tu rol de operador pueda ver**, para no exponer los datos del visitante a todo el servidor. Al activar el traspaso por Discord, los datos de la conversacion del visitante se comparten con Discord para entregarlos a tu canal; Discord figura como servicio de terceros en nuestra Politica de Privacidad.
+Esto es lo primero que yo revisaria antes de salir en vivo. Los hilos de traspaso son **publicos** para tu servidor por diseno, y el email y el ID del visitante aparecen en la primera tarjeta del hilo. Elige un **canal dedicado que solo tu rol de operador pueda ver**, para que los datos del visitante no lleguen a todo el servidor. Activar el traspaso por Discord comparte los datos de la conversacion del visitante con Discord para entregarlos a tu canal. En BestChatBot listamos Discord como servicio de terceros en nuestra Politica de Privacidad.
 
 ## Desconectar
 
-Abre **Web Widget → Discord** y haz clic en **Desconectar**. Los traspasos dejan de ir a Discord de inmediato y vuelven a ser solo del dashboard. Puedes reconectar cuando quieras, pero tendras que elegir de nuevo el canal y el rol de operador.
+Abre **Web Widget → Discord** y haz clic en **Desconectar**. Los traspasos dejan de ir a Discord al momento y vuelven a ser solo del dashboard. Puedes reconectar cuando quieras, aunque tendras que elegir de nuevo el canal y el rol de operador.
 
 ## Disponibilidad
 
 | Plan | Traspaso por Discord |
 |------|:--------------------:|
-| Free | — |
-| Starter | — |
+| Free | ❌ |
+| Starter | ❌ |
 | Pro | ✅ |
 | Business | ✅ |
 
@@ -98,6 +100,6 @@ Abre **Web Widget → Discord** y haz clic en **Desconectar**. Los traspasos dej
     Descubre como funciona el chat en vivo en el dashboard, incluidas las respuestas redactadas por IA.
   </Card>
   <Card title="Horario de atencion" icon="clock" href="/es/live-chat/office-hours">
-    Define cuando tu equipo esta en vivo y que pasa con los traspasos fuera de ese horario.
+    Define cuando tu equipo esta en vivo y decide que pasa con los traspasos fuera de horario.
   </Card>
 </CardGroup>

@@ -1,26 +1,26 @@
 ---
 title: "Connect Discord"
-description: "Handle live chat handoffs from a Discord server — your team replies in Discord, visitors keep chatting in the widget."
+description: "Handle live chat handoffs from a Discord server. Your team replies in Discord, visitors keep chatting in the widget."
 icon: "discord"
 ---
 
 # Connect Discord
 
-Human handoff can live where your team already hangs out. Connect Discord and operators can pick up live conversations **from a Discord server** — replies they post in the thread reach the visitor in the widget, and the conversation still shows up in your dashboard inbox.
+Human handoff can live where your team already hangs out. Connect Discord and your operators pick up live conversations from a Discord server. Replies they post in the thread reach the visitor in the widget, and the conversation still shows up in your dashboard inbox.
 
-<Note>Discord live-chat handoff is a **premium** feature, available on the **Pro** and **Business** plans. See [Pricing Plans](/billing/pricing-plans).</Note>
+<Note>Discord live-chat handoff is a **premium** feature on the **Pro** and **Business** plans. See [Pricing Plans](/billing/pricing-plans).</Note>
 
-<Note>Discord and Slack handoff are **mutually exclusive**. Connecting Discord turns off Slack handoff for this workspace (and vice versa) — live chat routes to one place at a time.</Note>
+<Note>Discord and Slack handoff are **mutually exclusive**. Connecting Discord turns off Slack handoff for this workspace, and the other way around. Live chat routes to one place at a time.</Note>
 
 ## How It Works
 
-When a visitor asks for a human, BestChatBot opens **one thread per conversation** in your chosen channel. An operator replies in that thread; the visitor sees the replies in the widget, and messages stay in sync with your dashboard inbox.
+When a visitor asks for a human, BestChatBot opens one thread per conversation in your chosen channel. An operator replies in that thread, the visitor sees the replies in the widget, and everything stays in sync with your dashboard inbox.
 
-Connecting takes two phases: first you **install the bot** in your server, then you **choose a channel and an operator role**. Handoffs stay off until both are done.
+Connecting takes two phases. First you install the bot in your server. Then you pick a channel and an operator role. Handoffs stay off until both are done.
 
 ## Connect Discord to Your Widget
 
-<Note>You need an **Editor**, **Admin**, or **Owner** role, on a plan that includes Discord. Adding a bot to a server also requires the **Manage Server** permission in Discord itself.</Note>
+<Note>You need an **Editor**, **Admin**, or **Owner** role, on a plan that includes Discord. Adding a bot to a server also needs the **Manage Server** permission in Discord itself.</Note>
 
 <Steps>
   <Step title="Open the Discord tab" icon="discord">
@@ -31,28 +31,28 @@ Connecting takes two phases: first you **install the bot** in your server, then 
     </Frame>
   </Step>
   <Step title="Install the bot in your server" icon="robot">
-    A Discord window opens. Pick **one of your servers** and approve the bot. BestChatBot requests only the permissions it needs to run handoff threads: **View Channel**, **Send Messages**, **Read Message History**, **Create Public/Private Threads**, and **Send Messages in Threads**.
+    A Discord window opens. Pick one of your servers and approve the bot. BestChatBot asks only for the permissions it needs to run handoff threads: **View Channel**, **Send Messages**, **Read Message History**, **Create Public/Private Threads**, and **Send Messages in Threads**.
 
     <Frame>
       <img src="/images/discord-authorize.png" alt="Discord authorization screen approving the BestChatBot bot for a server" />
     </Frame>
 
-    When you return, the Discord tab shows **Setup incomplete** — the bot is in your server, but handoffs stay off until you finish the next step.
+    Back in the dashboard, the Discord tab now reads **Setup incomplete**. The bot is in your server, but handoffs stay off until you finish the next step.
   </Step>
-  <Step title="Choose a channel and an operator role" icon="hashtag">
-    Click **Finish setup** and pick two things, both required:
+  <Step title="Pick a channel and an operator role" icon="hashtag">
+    Click **Finish setup** and choose two things. Both are required:
 
-    - **Channel** — the text channel where handoff threads open. Only text channels appear in the list.
-    - **Operator role** — the role whose members are allowed to answer. **Replies from members without this role never reach the visitor.**
+    - **Channel** is the text channel where handoff threads open. Only text channels show up in the list.
+    - **Operator role** is the role whose members can answer. **Replies from members without this role never reach the visitor.**
 
     <Frame>
       <img src="/images/discord-setup-dialog.png" alt="Dialog to choose the Discord channel and operator role for handoffs" />
     </Frame>
 
-    <Warning>If the bot can't see or post in the channel you picked, setup fails with: *"The bot doesn't have permission for that action in your Discord server. Give the bot's role the 'View Channel' and 'Send Messages' permissions (or the Administrator role) and try again."* Fix the channel's permissions in Discord, then retry.</Warning>
+    <Warning>If the bot can't see or post in the channel you picked, setup fails with: *"The bot doesn't have permission for that action in your Discord server. Give the bot's role the 'View Channel' and 'Send Messages' permissions (or the Administrator role) and try again."* Fix the channel's permissions in Discord, then try again.</Warning>
   </Step>
   <Step title="You're connected" icon="circle-check">
-    The Discord tab shows **Active**, with your server, channel, and operator role, plus options to **Change channel & role** or **Disconnect**.
+    The Discord tab now reads **Active** and shows your server, channel, and operator role, plus buttons to **Change channel & role** or **Disconnect**.
 
     <Frame>
       <img src="/images/discord-tab-connected.png" alt="Discord tab showing the active connection with server, channel and operator role" />
@@ -62,32 +62,34 @@ Connecting takes two phases: first you **install the bot** in your server, then 
 
 ## Handling a Handoff in Discord
 
-When a visitor requests a human, the bot opens a thread named after the conversation (for example, **Handoff a1b2c3d4**). The first post is a card — *"New handoff - a visitor requested a human. Reply in this thread."* — with the visitor's **Visitor**, **Email**, **ID**, and **First seen** details.
+When a visitor requests a human, the bot opens a thread named after the conversation, like **Handoff a1b2c3d4**. The first post is a card, *"New handoff - a visitor requested a human. Reply in this thread."*, with the visitor's **Visitor**, **Email**, **ID**, and **First seen** details.
 
 <Frame>
-  <img src="/images/discord-handoff-thread.png" alt="Discord handoff thread mirroring the live chat — visitor and bot messages carry per-role badges — next to the visitor's widget" />
+  <img src="/images/discord-handoff-thread.png" alt="Discord handoff thread mirroring the live chat, with visitor and bot messages carrying per-role badges, next to the visitor's widget" />
 </Frame>
 
-- **Reply in the thread** to answer the visitor — your message appears in their widget. Only members with the operator role can answer.
-- The visitor's messages and any dashboard-operator replies are mirrored into the thread. Because a Discord bot posts under a single identity, each mirrored message carries a small badge showing who sent it (visitor, bot, or operator).
-- Click **Resolve** when you're done. The handoff ends and the visitor returns to the bot.
+Here's the flow:
 
-<Note>Discord is an **alternative** to the dashboard, not a replacement. The same conversation still appears in your dashboard's [live inbox](/live-chat/human-handoff), tagged **In Discord** so you can see where it's being handled.</Note>
+- **Reply in the thread** to answer the visitor. Your message shows up in their widget. Only members with the operator role can answer.
+- The bot mirrors the visitor's messages and any dashboard-operator replies into the thread. A Discord bot posts under one identity, so each mirrored message carries a small badge for who sent it: visitor, bot, or operator.
+- Click **Resolve** when you're done. The handoff ends and the visitor goes back to the bot.
+
+<Note>Discord is an **alternative** to the dashboard, not a replacement. The same conversation still shows up in your dashboard's [live inbox](/live-chat/human-handoff), tagged **In Discord** so you can see where your team is handling it.</Note>
 
 ## Privacy
 
-Handoff threads are **public** to your server by design, and the visitor's email and ID appear in the thread's first card. Use a **dedicated channel that only your operator role can see**, so visitor details aren't exposed to your whole server. When you enable Discord handoff, visitor conversation data is shared with Discord to deliver it to your channel; Discord is listed as a third-party service in our Privacy Policy.
+Here's the one thing I'd double-check before going live. Handoff threads are **public** to your server by design, and the visitor's email and ID show up in the thread's first card. Pick a **dedicated channel that only your operator role can see**, so visitor details don't reach your whole server. Turning on Discord handoff shares visitor conversation data with Discord to deliver it to your channel. We list Discord as a third-party service in our Privacy Policy.
 
 ## Disconnecting
 
-Open **Web Widget → Discord** and click **Disconnect**. Handoffs stop going to Discord right away and return to dashboard-only. You can reconnect anytime, but you'll choose the channel and operator role again.
+Open **Web Widget → Discord** and click **Disconnect**. Handoffs stop going to Discord right away and go back to dashboard-only. You can reconnect anytime, though you'll pick the channel and operator role again.
 
 ## Availability
 
 | Plan | Discord handoff |
 |------|:---------------:|
-| Free | — |
-| Starter | — |
+| Free | ❌ |
+| Starter | ❌ |
 | Pro | ✅ |
 | Business | ✅ |
 
@@ -98,6 +100,6 @@ Open **Web Widget → Discord** and click **Disconnect**. Handoffs stop going to
     See how live chat works in the dashboard, including AI-drafted replies.
   </Card>
   <Card title="Office Hours" icon="clock" href="/live-chat/office-hours">
-    Set when your team is live, and what happens to handoffs outside those hours.
+    Set when your team is live, and decide what happens to handoffs after hours.
   </Card>
 </CardGroup>
