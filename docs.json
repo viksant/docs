@@ -88,7 +88,8 @@
             "pages": [
               "billing/pricing-plans",
               "billing/manage-subscription",
-              "billing/usage-tracking"
+              "billing/usage-tracking",
+              "billing/referrals"
             ]
           },
           {
@@ -186,7 +187,8 @@
             "pages": [
               "es/billing/pricing-plans",
               "es/billing/manage-subscription",
-              "es/billing/usage-tracking"
+              "es/billing/usage-tracking",
+              "es/billing/referrals"
             ]
           },
           {

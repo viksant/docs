@@ -8,11 +8,11 @@ icon: "headset"
 
 Your bot handles most conversations on its own. But sometimes a visitor needs a real person: a tricky case, a sensitive question, or a deal worth closing in the moment. **Human handoff** lets a visitor pass the conversation to your team and chat with them live, right inside the widget.
 
-<Note>Human handoff runs on **operator seats**, which come with your plan. See [Pricing Plans](/billing/pricing-plans) for what your plan includes.</Note>
+<Note>Human handoff is available on **every plan, including Free**. As the workspace owner you're a **reserved operator** by default, so you can answer live chats without using a seat. Adding *more* operators uses **operator seats**, which scale with your plan. See [Pricing Plans](/billing/pricing-plans).</Note>
 
 ## How a Visitor Reaches Your Team
 
-The widget shows a **Talk to a human** button in its header whenever a live agent is available: when you have at least one operator seat and one active operator.
+The widget shows a **Talk to a human** button in its header whenever your team has at least one operator. Because you're an operator by default, that button shows on any plan, right after you set up the widget.
 
 <Frame>
   <img src="/images/handoff-talk-to-human.png" alt="Chat widget header showing the Talk to a human button" />
@@ -40,11 +40,14 @@ Select a conversation to see the full transcript and a reply box. Type your repl
 
 ## Who Can Answer: Operators & Seats
 
-Being an **operator** is a capability you grant per member, separate from their role. An owner or admin marks a member as an operator from **Members & Roles**, and any role can be one.
+Being an **operator** is a capability, separate from a member's role: any role can be one, and you assign it from **Members & Roles**.
 
-How many people can be operators at once is set by your **operator seats**, which come with your plan. Your Members page shows how many seats are used out of your limit. If a plan includes no operator seats, human handoff stays off and the **Talk to a human** button never appears.
+- **You, the owner, are a reserved operator by default.** It works on every plan, Free included, and never uses one of your operator seats. Prefer not to take live chats yourself? Turn your own operator status off from **Members & Roles**.
+- **Extra operators use operator seats.** To let teammates answer alongside you, mark them as operators too. Each one takes an **operator seat**, and how many seats you have scales with your plan. Your Members page shows seats used out of your limit.
 
-<Note>Operator seats are governed by billing. Use [Members & Roles](/workspace/members-roles) to assign operators, and see [Pricing Plans](/billing/pricing-plans) for seat limits.</Note>
+Human handoff switches **off** only when no one on your team is set as an operator, for example if you turn your own operator status off with no paid seats in use. Then the **Talk to a human** button doesn't appear. It never switches off just because of your plan.
+
+<Note>Use [Members & Roles](/workspace/members-roles) to assign operators, and see [Pricing Plans](/billing/pricing-plans) for how operator seats scale per plan.</Note>
 
 ## Conversation Markers
 
@@ -76,6 +79,8 @@ You stay in control: edit the draft (any typing clears the AI flag), then send i
 ## Answer from Slack or Discord
 
 Prefer to handle live chats where your team already works? Route handoffs to a Slack channel or a Discord server and reply from there.
+
+<Note>Answering from Slack or Discord is a **premium** feature on the **Pro** and **Business** plans. Dashboard handoff stays available on every plan.</Note>
 
 <CardGroup cols={2}>
   <Card title="Connect Slack" icon="slack" href="/live-chat/connect-slack">
